@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dialogos>
+  
+  <dialogo>
+    <nome>ZECK</nome>
+    <texto>Olá, bem-vindo a deepweb >:D</texto>
+    <botoes>
+      <botao>Continuar</botao>
+    </botoes>
+  </dialogo>
+  
+  <dialogo>
+    <nome>ZECK</nome>
+    <texto>Esse é um caminho trilhado, tem certeza que deseja continuar?</texto>
+    <botoes>
+      <botao>Continuar</botao>
+    </botoes>
+  </dialogo>
+  
+  <dialogo>
+    <nome>ZECK</nome>
+    <texto>Certo, a escolha é sua.</texto>
+    <botoes>
+      <botao>Continuar</botao>
+    </botoes>
+  </dialogo>
+  
+  <dialogo>
+    <nome>ZECK</nome>
+    <texto>Este é o seu endereco de IP: 193.923.167.7
+você está na deepweb, é melhor mascará-lo com um VPN.</texto>
+    <botoes>
+      <botao>Ok</botao>
+    </botoes>
+  </dialogo>
+  
+</dialogos>
