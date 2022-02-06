@@ -74,7 +74,6 @@
             // pcbAvatar
             // 
             this.pcbAvatar.BackColor = System.Drawing.Color.Transparent;
-            this.pcbAvatar.Image = global::prjHacker.Properties.Resources.hacker1__sem_pc_;
             this.pcbAvatar.Location = new System.Drawing.Point(14, 19);
             this.pcbAvatar.Name = "pcbAvatar";
             this.pcbAvatar.Size = new System.Drawing.Size(122, 175);

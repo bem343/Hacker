@@ -18,25 +18,28 @@ namespace prjHacker.forms
         #region Variáveis
             private string nome = "";
             private string dialogo = "";
+            private string imageName = "";
             private string[] buttons = null;
             private Timer dialog = null;
             private int dialogTime = -1;
         #endregion
 
         #region Construtores
-            public frmDialogo(string nome, string dialogo, string[] buttons)
+            public frmDialogo(string nome, string imageName, string dialogo, string[] buttons)
             {
                 this.nome = nome;
+                this.imageName = imageName;
                 this.dialogo = dialogo;
                 this.buttons = buttons;
                 InitializeComponent();
             }
         #endregion
 
-        #region Carregar um diálogo
-            private void carregarDialogo()
+        #region Page Load
+            private void frmDialogo_Load(object sender, EventArgs e)
             {
                 lblNome.Text = nome;
+                pcbAvatar.Image = Image.FromFile("images/" + imageName);
                 if (buttons[0] != "") { btnResponse1.Text = buttons[0]; }
                 if (buttons[1] != "") { btnResponse2.Text = buttons[1]; }
                 if (buttons[2] != "") { btnResponse3.Text = buttons[2]; }
@@ -47,13 +50,6 @@ namespace prjHacker.forms
                 dialog.Tick += dialog_Tick;
                 dialogTime = -1;
                 dialog.Start();
-            }
-        #endregion
-
-        #region Page Load
-            private void frmDialogo_Load(object sender, EventArgs e)
-            {
-                carregarDialogo();
             }
             private void dialog_Tick(object sender, EventArgs e)
             {

@@ -120,9 +120,6 @@
     <None Include="Resources\hacker1 %28sem pc%29.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\matrix.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\matrix1.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

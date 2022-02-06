@@ -66,6 +66,7 @@ namespace prjHacker.forms
                     {
                         string[] buttons = new string[4];
                         string nome = listaDialogos[nDialog]["name"].InnerText;
+                        string imageName = listaDialogos[nDialog]["image"].InnerText;
                         string dialogo = listaDialogos[nDialog]["text"].InnerText;
                         XmlNodeList listaBotoes = listaDialogos[nDialog]["buttons"].ChildNodes;
                         for (int i = 0; i < buttons.Length; i++)
@@ -73,14 +74,14 @@ namespace prjHacker.forms
                             try { buttons[i] = listaBotoes[i].InnerText; }
                             catch { buttons[i] = ""; }
                         }
-                        abreDialogo(nome, dialogo, buttons);
+                        abreDialogo(nome, imageName, dialogo, buttons);
                         nDialog++;
                     } while (nDialog != listaDialogos.Count);
                     return true;
                 }
-                private DialogResult abreDialogo(string nome, string dialogo, string[] buttons)
+                private DialogResult abreDialogo(string nome, string imageName, string dialogo, string[] buttons)
                 {
-                    frmDialogo frmDialog = new frmDialogo(nome, dialogo, buttons);
+                    frmDialogo frmDialog = new frmDialogo(nome, imageName, dialogo, buttons);
                     return frmDialog.ShowDialog();
                 }
                 //private DialogResult dialogo(string xml)
@@ -122,7 +123,7 @@ namespace prjHacker.forms
                 buttons[1] = "NÃo";
                 buttons[2] = "";
                 buttons[3] = "";
-                if (abreDialogo("Aviso", "Tem certeza que deseja sair?", buttons) == DialogResult.OK)
+                if (abreDialogo("Aviso", "pc.jpg", "Tem certeza que deseja sair?", buttons) == DialogResult.OK)
                 {
                     Timer exitTimer = new Timer();
                     exitTimer.Interval = 400;
