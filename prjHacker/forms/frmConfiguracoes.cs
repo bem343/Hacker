@@ -29,6 +29,8 @@ namespace prjHacker.forms
         #region Page Load
             private void frmConfiguracoes_Load(object sender, EventArgs e)
             {
+                if (volume == 1) { btnMenosVol.Enabled = false; }
+                if (volume == 5) { btnMaisVol.Enabled = false; }
                 btnSom.Text = som.ToString();
                 lblVolume.Text = volume.ToString();
             }
@@ -54,12 +56,24 @@ namespace prjHacker.forms
         #region Botões para alterar volume
             private void btnMenosVol_Click(object sender, EventArgs e)
             {
-                if (volume > 1) { volume--; lblVolume.Text = volume.ToString(); }
+                if (volume > 1)
+                {
+                    volume--;
+                    btnMaisVol.Enabled = true;
+                    lblVolume.Text = volume.ToString();
+                    if (volume == 1) { btnMenosVol.Enabled = false; }
+                } else { btnMenosVol.Enabled = false; }
                 play.click();
             }
             private void btnMaisVol_Click(object sender, EventArgs e)
             {
-                if (volume < 5) { volume++; lblVolume.Text = volume.ToString(); }
+                if (volume < 5)
+                {
+                    volume++;
+                    btnMenosVol.Enabled = true;
+                    lblVolume.Text = volume.ToString();
+                    if (volume == 5) { btnMaisVol.Enabled = false; }
+                } else { btnMaisVol.Enabled = false; }
                 play.click();
             }
         #endregion

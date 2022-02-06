@@ -42,6 +42,7 @@
             // 
             this.pbCarregamento.BackColor = System.Drawing.Color.Black;
             this.pbCarregamento.Location = new System.Drawing.Point(164, 191);
+            this.pbCarregamento.MarqueeAnimationSpeed = 10;
             this.pbCarregamento.Name = "pbCarregamento";
             this.pbCarregamento.Size = new System.Drawing.Size(275, 40);
             this.pbCarregamento.TabIndex = 0;
@@ -51,9 +52,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::prjHacker.Properties.Resources.splash_screen;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(600, 338);
             this.Controls.Add(this.pbCarregamento);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSplash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

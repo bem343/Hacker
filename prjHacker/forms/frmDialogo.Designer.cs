@@ -84,6 +84,8 @@
             // 
             // btnResponse4
             // 
+            this.btnResponse4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResponse4.FlatAppearance.BorderSize = 0;
             this.btnResponse4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
             this.btnResponse4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResponse4.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -94,9 +96,12 @@
             this.btnResponse4.TabIndex = 13;
             this.btnResponse4.Text = "Ok";
             this.btnResponse4.Visible = false;
+            this.btnResponse4.Click += new System.EventHandler(this.ClickPadrao);
             // 
             // btnResponse3
             // 
+            this.btnResponse3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResponse3.FlatAppearance.BorderSize = 0;
             this.btnResponse3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
             this.btnResponse3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResponse3.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,9 +112,13 @@
             this.btnResponse3.TabIndex = 12;
             this.btnResponse3.Text = "Ok";
             this.btnResponse3.Visible = false;
+            this.btnResponse3.Click += new System.EventHandler(this.ClickPadrao);
             // 
             // btnResponse2
             // 
+            this.btnResponse2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResponse2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnResponse2.FlatAppearance.BorderSize = 0;
             this.btnResponse2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
             this.btnResponse2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResponse2.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,11 +129,16 @@
             this.btnResponse2.TabIndex = 11;
             this.btnResponse2.Text = "Ok";
             this.btnResponse2.Visible = false;
+            this.btnResponse2.Click += new System.EventHandler(this.ClickPadrao);
             // 
             // btnResponse1
             // 
+            this.btnResponse1.BackColor = System.Drawing.Color.Transparent;
             this.btnResponse1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnResponse1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.btnResponse1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnResponse1.FlatAppearance.BorderSize = 0;
+            this.btnResponse1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnResponse1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnResponse1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResponse1.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResponse1.ForeColor = System.Drawing.Color.White;
@@ -134,6 +148,7 @@
             this.btnResponse1.TabIndex = 10;
             this.btnResponse1.TabStop = false;
             this.btnResponse1.Text = "Ok";
+            this.btnResponse1.UseVisualStyleBackColor = false;
             this.btnResponse1.Visible = false;
             this.btnResponse1.Click += new System.EventHandler(this.ClickPadrao);
             // 

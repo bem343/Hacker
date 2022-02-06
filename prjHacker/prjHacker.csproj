@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\play.cs" />
+    <Compile Include="classes\quest.cs" />
     <Compile Include="forms\frmConfiguracoes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,7 +119,12 @@
   <ItemGroup>
     <None Include="Resources\hacker1 %28sem pc%29.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\matrix.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\matrix1.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

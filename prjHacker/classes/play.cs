@@ -11,11 +11,17 @@ namespace prjHacker.classes
     {
         private static SoundPlayer c = new SoundPlayer();
         private static SoundPlayer k = new SoundPlayer();
+        private static SoundPlayer s = new SoundPlayer();
 
         public static void click()
         {
             c.SoundLocation = "sounds/click" + frmConfiguracoes.volume + ".wav";
             if (frmConfiguracoes.som) { c.Play(); }
+        }
+        public static void select()
+        {
+            s.SoundLocation = "sounds/select.wav";
+            if (frmConfiguracoes.som) { s.Play(); }
         }
         public static void key()
         {

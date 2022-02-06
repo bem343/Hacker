@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Media;
 using prjHacker.classes;
+using System.Xml;
 
 namespace prjHacker.forms
 {
@@ -19,7 +20,8 @@ namespace prjHacker.forms
             private int Y = 0;
             private int exitTime = 0;
             private Timer janela = null;
-            public static double dinheiro = 0;
+            private XmlNodeList quests = null;
+            public static double dinheiro = 10;
             public static int experiencia = 0;
             public static int programacao = 0;
         #endregion
@@ -34,9 +36,15 @@ namespace prjHacker.forms
         #region Page Load
             private void frmPrincipal_Load(object sender, EventArgs e)
             {
+                lblDinheiro.Text = "$" + dinheiro.ToString("##.00");
+                lblExperiencia.Text = experiencia.ToString();
+                lblProgramacao.Text = programacao.ToString();
                 janela = new Timer();
                 janela.Interval = 1;
                 janela.Tick += janela_Tick;
+                XmlDocument arquivo = new XmlDocument();
+                arquivo.Load("quests.xml");
+                quests = arquivo.GetElementsByTagName("quest");
             }
             private void janela_Tick(object sender, EventArgs e)
             {
@@ -44,42 +52,64 @@ namespace prjHacker.forms
             }
         #endregion
 
-        #region Abrir uma caixa de Diálogos
-            private DialogResult dialogo(string xml)
-            {
-                frmDialogo frmDialog = new frmDialogo(xml);
-                return frmDialog.ShowDialog();
-            }
-        #endregion
+        #region Métodos
 
-        #region Abrir configurações
-            private void configuracoesTool_Click(object sender, EventArgs e)
-            {
-                play.click(); new frmConfiguracoes().ShowDialog();
-            }
+            #region Abrir uma caixa de Diálogos
+                private bool dialogo(string xml)
+                {
+                    XmlDocument arquivo = new XmlDocument();
+                    arquivo.Load(xml);
+                    XmlNodeList listaDialogos = arquivo.GetElementsByTagName("dialog");
+                    int nDialog = 0;
+
+                    do
+                    {
+                        string[] buttons = new string[4];
+                        string nome = listaDialogos[nDialog]["name"].InnerText;
+                        string dialogo = listaDialogos[nDialog]["text"].InnerText;
+                        XmlNodeList listaBotoes = listaDialogos[nDialog]["buttons"].ChildNodes;
+                        for (int i = 0; i < buttons.Length; i++)
+                        {
+                            try { buttons[i] = listaBotoes[i].InnerText; }
+                            catch { buttons[i] = ""; }
+                        }
+                        abreDialogo(nome, dialogo, buttons);
+                        nDialog++;
+                    } while (nDialog != listaDialogos.Count);
+                    return true;
+                }
+                private DialogResult abreDialogo(string nome, string dialogo, string[] buttons)
+                {
+                    frmDialogo frmDialog = new frmDialogo(nome, dialogo, buttons);
+                    return frmDialog.ShowDialog();
+                }
+                //private DialogResult dialogo(string xml)
+                //{
+                //    frmDialogo frmDialog = new frmDialogo(xml);
+                //    return frmDialog.ShowDialog();
+                //}
+            #endregion
+
+            #region Começa uma quest nova, adicionando ela na listBox
+                private void startQuest()
+                {
+                    quest.start(
+                            quests[quest.current]["name"].InnerText,
+                            quests[quest.current]["instruction"].InnerText);
+                    lstTrabalhos.Items.Add(quest.name); play.select();
+                }
+            #endregion
+
         #endregion
 
         #region Clicks do stripMenu
-            private void novoTool_Click(object sender, EventArgs e)
+            private void servicos_Click(object sender, EventArgs e)
             {
                 play.click();
             }
-
-            private void abrirTool_Click(object sender, EventArgs e)
+            private void configuracoesTool_Click(object sender, EventArgs e)
             {
-                play.click(); dialogo("dialogs/welcome.xml");
-            }
-
-            private void editarTool_Click(object sender, EventArgs e)
-            {
-                play.click();
-            }
-        #endregion
-         
-        #region Click da lista de trabalhos
-            private void lstTrabalhos_Click(object sender, EventArgs e)
-            {
-                play.click();
+                play.click(); new frmConfiguracoes().ShowDialog();
             }
         #endregion
 
@@ -87,11 +117,19 @@ namespace prjHacker.forms
             private void btnSair_Click(object sender, EventArgs e)
             {
                 play.click();
-                Timer exitTimer = new Timer();
-                exitTimer.Interval = 400;
-                exitTimer.Tick += exitTimer_Tick;
-                exitTimer.Start();
-                Close();
+                string[] buttons = new string[4];
+                buttons[0] = "Sim";
+                buttons[1] = "NÃo";
+                buttons[2] = "";
+                buttons[3] = "";
+                if (abreDialogo("Aviso", "Tem certeza que deseja sair?", buttons) == DialogResult.OK)
+                {
+                    Timer exitTimer = new Timer();
+                    exitTimer.Interval = 400;
+                    exitTimer.Tick += exitTimer_Tick;
+                    exitTimer.Start();
+                    Close();
+                }
             }
             private void exitTimer_Tick(object sender, EventArgs e)
             {
@@ -107,7 +145,6 @@ namespace prjHacker.forms
                 Y = Cursor.Position.Y - this.Location.Y;
                 janela.Start();
             }
-
             private void menuStrip_MouseUp(object sender, MouseEventArgs e)
             {
                 janela.Stop();
@@ -118,6 +155,50 @@ namespace prjHacker.forms
             private void rtbTeste_TextChanged(object sender, EventArgs e)
             {
                 play.key();
+            }
+        #endregion
+
+        #region Mostra o diálogo de bem-vindo ao abrir o formulário
+            private void frmPrincipal_Shown(object sender, EventArgs e)
+            {
+                if (dialogo("dialogs/welcome.xml"))
+                {
+                    startQuest();
+                    servicosTool.DropDownItems.Add("VPN");
+                    servicosTool.DropDownItems[0].Click += vpn_click;
+                    servicosTool.DropDownItems[0].BackColor = Color.Black;
+                    servicosTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
+                }
+            }
+            private void vpn_click(object sender, EventArgs e)
+            {
+                play.click();
+                panelMissao.Visible = false;
+                panelVpn.Visible = true;
+            }
+        #endregion
+
+        #region Quando Seleciona um item da lista de missões
+            private void lstTrabalhos_SelectedIndexChanged(object sender, EventArgs e)
+            {
+                if (lstTrabalhos.SelectedItems.Count <= 0) { return; }
+                play.click();
+                switch (lstTrabalhos.SelectedItem.ToString())
+                {
+                    case "Mascarar IP":
+                        lblMissao.Text = quest.instruction;
+                        gbAreaDeTrabalho.Text = "MissÃo: " + quest.name;
+                        panelMissao.Visible = true;
+                        panelVpn.Visible = false;
+                        break;
+                }
+            }
+        #endregion
+
+        #region Limpa a seleção da lista de missões ao tirar o mouse de cima do controle
+            private void lstTrabalhos_MouseLeave(object sender, EventArgs e)
+            {
+                lstTrabalhos.ClearSelected();
             }
         #endregion
 

@@ -56,7 +56,7 @@
             this.groupBox1.Size = new System.Drawing.Size(348, 401);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Configuracoes";
+            this.groupBox1.Text = "ConfiguraÇÕes";
             // 
             // lblVolume
             // 
@@ -72,8 +72,10 @@
             // 
             // btnMaisVol
             // 
-            this.btnMaisVol.BackColor = System.Drawing.Color.Black;
+            this.btnMaisVol.BackColor = System.Drawing.Color.Transparent;
             this.btnMaisVol.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMaisVol.FlatAppearance.BorderSize = 0;
+            this.btnMaisVol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
             this.btnMaisVol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaisVol.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaisVol.Location = new System.Drawing.Point(271, 119);
@@ -86,8 +88,10 @@
             // 
             // btnMenosVol
             // 
-            this.btnMenosVol.BackColor = System.Drawing.Color.Black;
+            this.btnMenosVol.BackColor = System.Drawing.Color.Transparent;
             this.btnMenosVol.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenosVol.FlatAppearance.BorderSize = 0;
+            this.btnMenosVol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
             this.btnMenosVol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenosVol.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenosVol.Location = new System.Drawing.Point(160, 119);
@@ -111,8 +115,10 @@
             // 
             // btnSom
             // 
-            this.btnSom.BackColor = System.Drawing.Color.Black;
+            this.btnSom.BackColor = System.Drawing.Color.Transparent;
             this.btnSom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSom.FlatAppearance.BorderSize = 0;
+            this.btnSom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
             this.btnSom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSom.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSom.Location = new System.Drawing.Point(160, 66);

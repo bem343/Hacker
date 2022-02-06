@@ -16,18 +16,19 @@ namespace prjHacker.forms
     {
 
         #region Variáveis
-            private string xml = "";
+            private string nome = "";
             private string dialogo = "";
-            private int nDialog = 0;
+            private string[] buttons = null;
             private Timer dialog = null;
             private int dialogTime = -1;
-            private XmlNodeList listaDialogos = null;
         #endregion
 
         #region Construtores
-            public frmDialogo(string xml)
+            public frmDialogo(string nome, string dialogo, string[] buttons)
             {
-                this.xml = xml;
+                this.nome = nome;
+                this.dialogo = dialogo;
+                this.buttons = buttons;
                 InitializeComponent();
             }
         #endregion
@@ -35,17 +36,16 @@ namespace prjHacker.forms
         #region Carregar um diálogo
             private void carregarDialogo()
             {
-                lblNome.Text = listaDialogos[nDialog]["nome"].InnerText;
-                dialogo = listaDialogos[nDialog]["texto"].InnerText;
-                btnResponse1.Text = listaDialogos[nDialog]["botoes"].FirstChild.InnerText;
-                lblDialogo.Text = "";
+                lblNome.Text = nome;
+                if (buttons[0] != "") { btnResponse1.Text = buttons[0]; }
+                if (buttons[1] != "") { btnResponse2.Text = buttons[1]; }
+                if (buttons[2] != "") { btnResponse3.Text = buttons[2]; }
+                if (buttons[3] != "") { btnResponse4.Text = buttons[3]; }
 
-                btnResponse1.Visible = false;
                 dialog = new Timer();
                 dialog.Interval = 70;
                 dialog.Tick += dialog_Tick;
                 dialogTime = -1;
-                this.Focus();
                 dialog.Start();
             }
         #endregion
@@ -53,9 +53,6 @@ namespace prjHacker.forms
         #region Page Load
             private void frmDialogo_Load(object sender, EventArgs e)
             {
-                XmlDocument arquivo = new XmlDocument();
-                arquivo.Load(xml);
-                listaDialogos = arquivo.GetElementsByTagName("dialogo");
                 carregarDialogo();
             }
             private void dialog_Tick(object sender, EventArgs e)
@@ -65,7 +62,7 @@ namespace prjHacker.forms
                     play.key();
                     lblDialogo.Text += dialogo.Substring(dialogTime, 1);
                 }
-                else{ if (lblDialogo.Text.Length > 0){ endDialog(); } }
+                else { if (lblDialogo.Text.Length > 0) { endDialog(); } }
                 dialogTime++;
             }
 
@@ -73,20 +70,20 @@ namespace prjHacker.forms
                 private void endDialog()
                 {
                     dialog.Stop();
-                    btnResponse1.Visible = true;
+                    if (buttons[0] != "") { btnResponse1.Visible = true; }
+                    if (buttons[1] != "") { btnResponse2.Visible = true; }
+                    if (buttons[2] != "") { btnResponse3.Visible = true; }
+                    if (buttons[3] != "") { btnResponse4.Visible = true; }
                 }
             #endregion
 
         #endregion
 
-        #region Evento padrão do Botão de resposta 1
+        #region Evento padrão dos botões de resposta
             private void ClickPadrao(object sender, EventArgs e)
             {
                 play.click();
-                if(nDialog != (listaDialogos.Count - 1))
-                {
-                    nDialog++; carregarDialogo();
-                } else { Close(); }
+                Close();
             }
         #endregion
 

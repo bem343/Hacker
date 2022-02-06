@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<quests>
+	<quest>
+		<name>Mascarar IP</name>
+		<instruction>Seu IP estÁ esposto, É melhor mascarÁ-lo utilizando um VPN. VocÊ consegue fazer isso clicando em serviÇos, depois em VPN.</instruction>
+	</quest>
+	<quest>
+		<name>Dar a bunda</name>
+		<instruction>VocÊ precisa dar a bunda.</instruction>
+	</quest>
+</quests>
