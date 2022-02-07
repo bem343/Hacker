@@ -22,7 +22,7 @@ namespace prjHacker.forms
             private Timer janela = null;
             
             private XmlNodeList quests = null;
-            public static double dinheiro = 10;
+            public static double dinheiro = 5;
             public static int experiencia = 0;
             public static int programacao = 0;
         #endregion
@@ -37,7 +37,7 @@ namespace prjHacker.forms
         #region Page Load
             private void frmPrincipal_Load(object sender, EventArgs e)
             {
-                lblDinheiro.Text = "$" + dinheiro.ToString("##.00");
+                lblDinheiro.Text = "$" + dinheiro.ToString("#0.00");
                 lblExperiencia.Text = experiencia.ToString();
                 lblProgramacao.Text = programacao.ToString();
                 janela = new Timer();
@@ -55,19 +55,45 @@ namespace prjHacker.forms
 
         #region Métodos
 
+            #region Atualizar dinheiro
+                private void attDinheiro(double valor)
+                {
+                    dinheiro += valor;
+                    lblDinheiro.Text = "$" + dinheiro.ToString("#0.00");
+                }
+            #endregion
+
+            #region Fecha os panels da área de trabalho
+                private void fecharPanels()
+                {
+                    foreach (Panel panel in gbAreaDeTrabalho.Controls.OfType<Panel>())
+                    {
+                        panel.Visible = false;
+                    }
+                }
+            #endregion
+
             #region verifica o se o Vpn está ativo ou não para mostrar as labels
                 private void verificarVpn()
                 {
                     if (vpn.isActive)
                     {
-                        lblVpn.Text = (vpn.maximum - vpn.time).ToString();
-                        lblVpn.Visible = true;
+                        double segundos = vpn.maximum - vpn.time;
+                        TimeSpan time = TimeSpan.FromSeconds(segundos);
+                        lblVpn.Text = time.ToString(@"mm\:ss");
                         lblVpnAtivo.Visible = true;
+                        lblVpn.Visible = true;
+                        btnVpn1.Enabled = false;
+                        btnVpn2.Enabled = false;
+                        btnVpn3.Enabled = false;
                     }
                     else
                     {
                         lblVpn.Visible = false;
                         lblVpnAtivo.Visible = false;
+                        if (dinheiro >= 5) { btnVpn1.Enabled = true; }
+                        if (dinheiro >= 10) { btnVpn2.Enabled = true; }
+                        if (dinheiro >= 15) { btnVpn3.Enabled = true; }
                     }
                 }
             #endregion
@@ -130,7 +156,7 @@ namespace prjHacker.forms
             {
                 play.click();
                 verificarVpn();
-                panelMissao.Visible = false;
+                fecharPanels();
                 panelVpn.Visible = true;
             }
             private void programacaoTool_Click(object sender, EventArgs e)
@@ -213,8 +239,8 @@ namespace prjHacker.forms
                 play.click();
                 lblMissao.Text = quest.instruction;
                 gbAreaDeTrabalho.Text = "MissÃo: " + quest.name;
+                fecharPanels();
                 panelMissao.Visible = true;
-                panelVpn.Visible = false;
                 //switch (lstTrabalhos.SelectedItem.ToString())
                 //{
                 //    case "Mascarar IP":
@@ -243,6 +269,7 @@ namespace prjHacker.forms
                 {
                     vpn.sign(60);
                     verificarVpn();
+                    attDinheiro(-5);
                     if (quest.current == 1) { q1complete(); }
                 }
             }

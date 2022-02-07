@@ -3,7 +3,7 @@
 <quests>
 	<quest>
 		<name>Mascarar IP</name>
-		<instruction>Seu IP estÁ esposto, É melhor mascarÁ-lo utilizando um VPN. VocÊ consegue fazer isso clicando em serviÇos, depois em VPN.</instruction>
+		<instruction>Seu IP estÁ exposto, É melhor mascarÁ-lo utilizando um VPN. VocÊ consegue fazer isso clicando em serviÇos, depois em VPN.</instruction>
 	</quest>
 	<quest>
 		<name>Minerar BitCoins</name>
