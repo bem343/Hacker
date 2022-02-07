@@ -20,6 +20,7 @@ namespace prjHacker.forms
             private int Y = 0;
             private int exitTime = 0;
             private Timer janela = null;
+            
             private XmlNodeList quests = null;
             public static double dinheiro = 10;
             public static int experiencia = 0;
@@ -53,6 +54,23 @@ namespace prjHacker.forms
         #endregion
 
         #region Métodos
+
+            #region verifica o se o Vpn está ativo ou não para mostrar as labels
+                private void verificarVpn()
+                {
+                    if (vpn.isActive)
+                    {
+                        lblVpn.Text = (vpn.maximum - vpn.time).ToString();
+                        lblVpn.Visible = true;
+                        lblVpnAtivo.Visible = true;
+                    }
+                    else
+                    {
+                        lblVpn.Visible = false;
+                        lblVpnAtivo.Visible = false;
+                    }
+                }
+            #endregion
 
             #region Abrir uma caixa de Diálogos
                 private bool dialogo(string xml)
@@ -108,6 +126,21 @@ namespace prjHacker.forms
             {
                 play.click();
             }
+            private void vpn_click(object sender, EventArgs e)
+            {
+                play.click();
+                verificarVpn();
+                panelMissao.Visible = false;
+                panelVpn.Visible = true;
+            }
+            private void programacaoTool_Click(object sender, EventArgs e)
+            {
+                play.click();
+            }
+            private void bitCoins_Tick(object sender, EventArgs e)
+            {
+                play.click();
+            }
             private void configuracoesTool_Click(object sender, EventArgs e)
             {
                 play.click(); new frmConfiguracoes().ShowDialog();
@@ -123,7 +156,7 @@ namespace prjHacker.forms
                 buttons[1] = "NÃo";
                 buttons[2] = "";
                 buttons[3] = "";
-                if (abreDialogo("Aviso", "pc.jpg", "Tem certeza que deseja sair?", buttons) == DialogResult.OK)
+                if (abreDialogo("", "pc.jpg", "Tem certeza que deseja sair?", buttons) == DialogResult.OK)
                 {
                     Timer exitTimer = new Timer();
                     exitTimer.Interval = 400;
@@ -171,12 +204,6 @@ namespace prjHacker.forms
                     servicosTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
                 }
             }
-            private void vpn_click(object sender, EventArgs e)
-            {
-                play.click();
-                panelMissao.Visible = false;
-                panelVpn.Visible = true;
-            }
         #endregion
 
         #region Quando Seleciona um item da lista de missões
@@ -184,15 +211,15 @@ namespace prjHacker.forms
             {
                 if (lstTrabalhos.SelectedItems.Count <= 0) { return; }
                 play.click();
-                switch (lstTrabalhos.SelectedItem.ToString())
-                {
-                    case "Mascarar IP":
-                        lblMissao.Text = quest.instruction;
-                        gbAreaDeTrabalho.Text = "MissÃo: " + quest.name;
-                        panelMissao.Visible = true;
-                        panelVpn.Visible = false;
-                        break;
-                }
+                lblMissao.Text = quest.instruction;
+                gbAreaDeTrabalho.Text = "MissÃo: " + quest.name;
+                panelMissao.Visible = true;
+                panelVpn.Visible = false;
+                //switch (lstTrabalhos.SelectedItem.ToString())
+                //{
+                //    case "Mascarar IP":
+                //        break;
+                //}
             }
         #endregion
 
@@ -200,6 +227,39 @@ namespace prjHacker.forms
             private void lstTrabalhos_MouseLeave(object sender, EventArgs e)
             {
                 lstTrabalhos.ClearSelected();
+            }
+        #endregion
+
+        #region Botões do serviço VPN
+            private void btnVpn1_Click(object sender, EventArgs e)
+            {
+                play.click();
+                string[] buttons = new string[4];
+                buttons[0] = "Sim";
+                buttons[1] = "NÃo";
+                buttons[2] = "";
+                buttons[3] = "";
+                if (abreDialogo("", "pc.jpg", "Deseja pagar $5,00 para assinar serviÇo por 1 hora?", buttons) == DialogResult.OK)
+                {
+                    vpn.sign(60);
+                    verificarVpn();
+                    if (quest.current == 1) { q1complete(); }
+                }
+            }
+        #endregion
+
+        #region Conclusão das quests
+            private void q1complete()
+            {
+                quest.complete();
+                lstTrabalhos.Items.Remove("Mascarar IP");
+                dialogo("dialogs/q1complete.xml");
+                
+                startQuest();
+                programacaoTool.DropDownItems.Add("BitCoins");
+                programacaoTool.DropDownItems[0].Click += bitCoins_Tick;
+                programacaoTool.DropDownItems[0].BackColor = Color.Black;
+                programacaoTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
             }
         #endregion
 

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 2D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint7 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 2D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint8 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint9 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblProgramacao = new System.Windows.Forms.Label();
             this.lblExperiencia = new System.Windows.Forms.Label();
@@ -47,6 +47,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.servicosTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.programacaoTool = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracoesTool = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.novoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +55,11 @@
             this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gbAreaDeTrabalho = new System.Windows.Forms.GroupBox();
             this.panelVpn = new System.Windows.Forms.Panel();
+            this.lblVpnAtivo = new System.Windows.Forms.Label();
+            this.lblVpn = new System.Windows.Forms.Label();
+            this.btnVpn3 = new System.Windows.Forms.Button();
+            this.btnVpn2 = new System.Windows.Forms.Button();
+            this.btnVpn1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panelMissao = new System.Windows.Forms.Panel();
@@ -63,9 +69,6 @@
             this.rtbTeste = new System.Windows.Forms.RichTextBox();
             this.btnSair = new System.Windows.Forms.Button();
             this.pcbFundo = new System.Windows.Forms.PictureBox();
-            this.btnResponse1 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -216,6 +219,7 @@
             this.menuStrip.Font = new System.Drawing.Font("DS-Digital", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.servicosTool,
+            this.programacaoTool,
             this.configuracoesTool});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -232,6 +236,14 @@
             this.servicosTool.Size = new System.Drawing.Size(98, 25);
             this.servicosTool.Text = "ServiÇos";
             this.servicosTool.Click += new System.EventHandler(this.servicos_Click);
+            // 
+            // programacaoTool
+            // 
+            this.programacaoTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.programacaoTool.Name = "programacaoTool";
+            this.programacaoTool.Size = new System.Drawing.Size(134, 25);
+            this.programacaoTool.Text = "programaÇÃo";
+            this.programacaoTool.Click += new System.EventHandler(this.programacaoTool_Click);
             // 
             // configuracoesTool
             // 
@@ -293,9 +305,11 @@
             // 
             // panelVpn
             // 
-            this.panelVpn.Controls.Add(this.button2);
-            this.panelVpn.Controls.Add(this.button1);
-            this.panelVpn.Controls.Add(this.btnResponse1);
+            this.panelVpn.Controls.Add(this.lblVpnAtivo);
+            this.panelVpn.Controls.Add(this.lblVpn);
+            this.panelVpn.Controls.Add(this.btnVpn3);
+            this.panelVpn.Controls.Add(this.btnVpn2);
+            this.panelVpn.Controls.Add(this.btnVpn1);
             this.panelVpn.Controls.Add(this.label8);
             this.panelVpn.Controls.Add(this.label7);
             this.panelVpn.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -304,6 +318,80 @@
             this.panelVpn.Size = new System.Drawing.Size(455, 447);
             this.panelVpn.TabIndex = 2;
             this.panelVpn.Visible = false;
+            // 
+            // lblVpnAtivo
+            // 
+            this.lblVpnAtivo.AutoSize = true;
+            this.lblVpnAtivo.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVpnAtivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.lblVpnAtivo.Location = new System.Drawing.Point(102, 410);
+            this.lblVpnAtivo.Name = "lblVpnAtivo";
+            this.lblVpnAtivo.Size = new System.Drawing.Size(181, 29);
+            this.lblVpnAtivo.TabIndex = 15;
+            this.lblVpnAtivo.Text = "VPN ativo por:";
+            this.lblVpnAtivo.Visible = false;
+            // 
+            // lblVpn
+            // 
+            this.lblVpn.AutoSize = true;
+            this.lblVpn.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVpn.Location = new System.Drawing.Point(282, 410);
+            this.lblVpn.Name = "lblVpn";
+            this.lblVpn.Size = new System.Drawing.Size(75, 29);
+            this.lblVpn.TabIndex = 14;
+            this.lblVpn.Text = "00:00";
+            this.lblVpn.Visible = false;
+            // 
+            // btnVpn3
+            // 
+            this.btnVpn3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVpn3.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnVpn3.Enabled = false;
+            this.btnVpn3.FlatAppearance.BorderSize = 0;
+            this.btnVpn3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.btnVpn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVpn3.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVpn3.ForeColor = System.Drawing.Color.White;
+            this.btnVpn3.Location = new System.Drawing.Point(0, 303);
+            this.btnVpn3.Name = "btnVpn3";
+            this.btnVpn3.Size = new System.Drawing.Size(455, 38);
+            this.btnVpn3.TabIndex = 13;
+            this.btnVpn3.TabStop = false;
+            this.btnVpn3.Text = "Assinar serviÇo por 5 Horas";
+            // 
+            // btnVpn2
+            // 
+            this.btnVpn2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVpn2.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnVpn2.Enabled = false;
+            this.btnVpn2.FlatAppearance.BorderSize = 0;
+            this.btnVpn2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.btnVpn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVpn2.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVpn2.ForeColor = System.Drawing.Color.White;
+            this.btnVpn2.Location = new System.Drawing.Point(0, 259);
+            this.btnVpn2.Name = "btnVpn2";
+            this.btnVpn2.Size = new System.Drawing.Size(455, 38);
+            this.btnVpn2.TabIndex = 12;
+            this.btnVpn2.TabStop = false;
+            this.btnVpn2.Text = "Assinar serviÇo por 3 Horas";
+            // 
+            // btnVpn1
+            // 
+            this.btnVpn1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVpn1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnVpn1.FlatAppearance.BorderSize = 0;
+            this.btnVpn1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.btnVpn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVpn1.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVpn1.ForeColor = System.Drawing.Color.White;
+            this.btnVpn1.Location = new System.Drawing.Point(0, 215);
+            this.btnVpn1.Name = "btnVpn1";
+            this.btnVpn1.Size = new System.Drawing.Size(455, 38);
+            this.btnVpn1.TabIndex = 11;
+            this.btnVpn1.TabStop = false;
+            this.btnVpn1.Text = "Assinar serviÇo por 1 Hora";
+            this.btnVpn1.Click += new System.EventHandler(this.btnVpn1_Click);
             // 
             // label8
             // 
@@ -361,82 +449,82 @@
             // 
             this.chart.BackColor = System.Drawing.Color.Transparent;
             this.chart.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX2.TitleForeColor = System.Drawing.Color.White;
-            chartArea1.AxisY2.TitleForeColor = System.Drawing.Color.White;
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.BackImageTransparentColor = System.Drawing.Color.Transparent;
-            chartArea1.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea1.BorderColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.ShadowColor = System.Drawing.Color.DarkGray;
-            this.chart.ChartAreas.Add(chartArea1);
+            chartArea3.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea3.AxisX2.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisX2.TitleForeColor = System.Drawing.Color.White;
+            chartArea3.AxisY2.TitleForeColor = System.Drawing.Color.White;
+            chartArea3.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.BackImageTransparentColor = System.Drawing.Color.Transparent;
+            chartArea3.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea3.BorderColor = System.Drawing.Color.Transparent;
+            chartArea3.Name = "ChartArea1";
+            chartArea3.ShadowColor = System.Drawing.Color.DarkGray;
+            this.chart.ChartAreas.Add(chartArea3);
             this.chart.Dock = System.Windows.Forms.DockStyle.Top;
-            legend1.BackColor = System.Drawing.Color.Transparent;
-            legend1.BackSecondaryColor = System.Drawing.Color.Transparent;
-            legend1.BorderColor = System.Drawing.Color.DimGray;
-            legend1.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            legend1.InterlacedRowsColor = System.Drawing.Color.Transparent;
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend";
-            legend1.Title = "Legenda";
-            legend1.TitleBackColor = System.Drawing.Color.Transparent;
-            legend1.TitleFont = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.TitleForeColor = System.Drawing.Color.White;
-            legend1.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
-            legend1.TitleSeparatorColor = System.Drawing.Color.DimGray;
-            this.chart.Legends.Add(legend1);
+            legend3.BackColor = System.Drawing.Color.Transparent;
+            legend3.BackSecondaryColor = System.Drawing.Color.Transparent;
+            legend3.BorderColor = System.Drawing.Color.DimGray;
+            legend3.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            legend3.InterlacedRowsColor = System.Drawing.Color.Transparent;
+            legend3.IsTextAutoFit = false;
+            legend3.Name = "Legend";
+            legend3.Title = "Legenda";
+            legend3.TitleBackColor = System.Drawing.Color.Transparent;
+            legend3.TitleFont = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend3.TitleForeColor = System.Drawing.Color.White;
+            legend3.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
+            legend3.TitleSeparatorColor = System.Drawing.Color.DimGray;
+            this.chart.Legends.Add(legend3);
             this.chart.Location = new System.Drawing.Point(0, 0);
             this.chart.Name = "chart";
             this.chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))))};
-            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series1.BackSecondaryColor = System.Drawing.Color.Transparent;
-            series1.BorderColor = System.Drawing.Color.Transparent;
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            series1.LabelBackColor = System.Drawing.Color.White;
-            series1.LabelForeColor = System.Drawing.Color.White;
-            series1.Legend = "Legend";
-            series1.Name = "Execuções";
-            dataPoint1.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataPoint1.IsValueShownAsLabel = true;
-            dataPoint1.Label = "Cassino";
-            dataPoint1.LabelBackColor = System.Drawing.Color.Transparent;
-            dataPoint1.LabelBorderColor = System.Drawing.Color.Transparent;
-            dataPoint1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            dataPoint2.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataPoint2.IsValueShownAsLabel = true;
-            dataPoint2.Label = "Banco";
-            dataPoint2.LabelBackColor = System.Drawing.Color.Transparent;
-            dataPoint2.LabelBorderColor = System.Drawing.Color.Transparent;
-            dataPoint2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            dataPoint3.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataPoint3.IsValueShownAsLabel = true;
-            dataPoint3.Label = "Lojinha...";
-            dataPoint3.LabelBackColor = System.Drawing.Color.Transparent;
-            dataPoint3.LabelBorderColor = System.Drawing.Color.Transparent;
-            dataPoint3.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            series1.Points.Add(dataPoint1);
-            series1.Points.Add(dataPoint2);
-            series1.Points.Add(dataPoint3);
-            this.chart.Series.Add(series1);
+            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series3.BackSecondaryColor = System.Drawing.Color.Transparent;
+            series3.BorderColor = System.Drawing.Color.Transparent;
+            series3.ChartArea = "ChartArea1";
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            series3.LabelBackColor = System.Drawing.Color.White;
+            series3.LabelForeColor = System.Drawing.Color.White;
+            series3.Legend = "Legend";
+            series3.Name = "Execuções";
+            dataPoint7.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataPoint7.IsValueShownAsLabel = true;
+            dataPoint7.Label = "Cassino";
+            dataPoint7.LabelBackColor = System.Drawing.Color.Transparent;
+            dataPoint7.LabelBorderColor = System.Drawing.Color.Transparent;
+            dataPoint7.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            dataPoint8.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataPoint8.IsValueShownAsLabel = true;
+            dataPoint8.Label = "Banco";
+            dataPoint8.LabelBackColor = System.Drawing.Color.Transparent;
+            dataPoint8.LabelBorderColor = System.Drawing.Color.Transparent;
+            dataPoint8.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            dataPoint9.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataPoint9.IsValueShownAsLabel = true;
+            dataPoint9.Label = "Lojinha...";
+            dataPoint9.LabelBackColor = System.Drawing.Color.Transparent;
+            dataPoint9.LabelBorderColor = System.Drawing.Color.Transparent;
+            dataPoint9.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            series3.Points.Add(dataPoint7);
+            series3.Points.Add(dataPoint8);
+            series3.Points.Add(dataPoint9);
+            this.chart.Series.Add(series3);
             this.chart.Size = new System.Drawing.Size(455, 206);
             this.chart.TabIndex = 2;
             this.chart.TabStop = false;
             this.chart.Text = "CHART";
-            title1.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            title1.BackColor = System.Drawing.Color.Transparent;
-            title1.BackSecondaryColor = System.Drawing.Color.Transparent;
-            title1.DockingOffset = 5;
-            title1.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.ForeColor = System.Drawing.Color.White;
-            title1.Name = "Title1";
-            title1.Text = "Ultimos golpes";
-            this.chart.Titles.Add(title1);
+            title3.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            title3.BackColor = System.Drawing.Color.Transparent;
+            title3.BackSecondaryColor = System.Drawing.Color.Transparent;
+            title3.DockingOffset = 5;
+            title3.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title3.ForeColor = System.Drawing.Color.White;
+            title3.Name = "Title1";
+            title3.Text = "Ultimos golpes";
+            this.chart.Titles.Add(title3);
             // 
             // rtbTeste
             // 
@@ -480,56 +568,6 @@
             this.pcbFundo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbFundo.TabIndex = 12;
             this.pcbFundo.TabStop = false;
-            // 
-            // btnResponse1
-            // 
-            this.btnResponse1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnResponse1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnResponse1.FlatAppearance.BorderSize = 0;
-            this.btnResponse1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            this.btnResponse1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResponse1.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResponse1.ForeColor = System.Drawing.Color.White;
-            this.btnResponse1.Location = new System.Drawing.Point(0, 231);
-            this.btnResponse1.Name = "btnResponse1";
-            this.btnResponse1.Size = new System.Drawing.Size(455, 38);
-            this.btnResponse1.TabIndex = 11;
-            this.btnResponse1.TabStop = false;
-            this.btnResponse1.Text = "Assinar serviÇo por 1 Hora";
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Enabled = false;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 275);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(455, 38);
-            this.button1.TabIndex = 12;
-            this.button1.TabStop = false;
-            this.button1.Text = "Assinar serviÇo por 3 Horas";
-            // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button2.Enabled = false;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(0, 319);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(455, 38);
-            this.button2.TabIndex = 13;
-            this.button2.TabStop = false;
-            this.button2.Text = "Assinar serviÇo por 5 Horas";
             // 
             // frmPrincipal
             // 
@@ -601,8 +639,11 @@
         private System.Windows.Forms.Panel panelVpn;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnResponse1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnVpn1;
+        private System.Windows.Forms.Button btnVpn2;
+        private System.Windows.Forms.Button btnVpn3;
+        private System.Windows.Forms.ToolStripMenuItem programacaoTool;
+        private System.Windows.Forms.Label lblVpnAtivo;
+        private System.Windows.Forms.Label lblVpn;
     }
 }

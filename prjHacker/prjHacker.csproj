@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="classes\play.cs" />
     <Compile Include="classes\quest.cs" />
+    <Compile Include="classes\vpn.cs" />
     <Compile Include="forms\frmConfiguracoes.cs">
       <SubType>Form</SubType>
     </Compile>

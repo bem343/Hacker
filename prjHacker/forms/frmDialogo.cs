@@ -38,7 +38,8 @@ namespace prjHacker.forms
         #region Page Load
             private void frmDialogo_Load(object sender, EventArgs e)
             {
-                lblNome.Text = nome;
+                if (nome != "") { lblNome.Text = nome; }
+                else { lblNome.Visible = false; }
                 pcbAvatar.Image = Image.FromFile("images/" + imageName);
                 if (buttons[0] != "") { btnResponse1.Text = buttons[0]; }
                 if (buttons[1] != "") { btnResponse2.Text = buttons[1]; }

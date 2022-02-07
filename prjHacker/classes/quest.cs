@@ -24,6 +24,7 @@ namespace prjHacker.classes
             name = "";
             instruction = "";
             currentNow = false;
+            play.select();
         }
     }
 }
