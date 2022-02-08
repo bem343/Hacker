@@ -40,8 +40,8 @@
 
     <dialog>
         <name>ZECK</name>
-        <image>zeck.jpg</image>
-        <text>Para fazer isso basta clicar em programaÇÃo, depois em bitCoins.</text>
+        <image>zeck pc.jpg</image>
+        <text>Para fazer isso, vocÊ precisa de um script. VocÊ teria que fazer, mas eu vou mandar um.</text>
         <buttons>
             <button>Ok</button>
         </buttons>

@@ -22,7 +22,7 @@ namespace prjHacker.forms
             private Timer janela = null;
             
             private XmlNodeList quests = null;
-            public static double dinheiro = 5;
+            public static double dinheiro = 10;
             public static int experiencia = 0;
             public static int programacao = 0;
         #endregion
@@ -91,9 +91,12 @@ namespace prjHacker.forms
                     {
                         lblVpn.Visible = false;
                         lblVpnAtivo.Visible = false;
-                        if (dinheiro >= 5) { btnVpn1.Enabled = true; }
-                        if (dinheiro >= 10) { btnVpn2.Enabled = true; }
-                        if (dinheiro >= 15) { btnVpn3.Enabled = true; }
+                        if(quest.current != 1)
+                        {
+                            if (dinheiro >= 5) { btnVpn1.Enabled = true; }
+                            if (dinheiro >= 10) { btnVpn2.Enabled = true; }
+                            if (dinheiro >= 15) { btnVpn3.Enabled = true; }
+                        }
                     }
                 }
             #endregion
@@ -279,7 +282,7 @@ namespace prjHacker.forms
             private void q1complete()
             {
                 quest.complete();
-                lstTrabalhos.Items.Remove("Mascarar IP");
+                lstTrabalhos.Items.Remove(quests[0]["name"].InnerText);
                 dialogo("dialogs/q1complete.xml");
                 
                 startQuest();

@@ -5,7 +5,7 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>OlÁ, bem-vindo a deepweb >:D</text>
+        <text>OlÁ, eu sou Zeck e seja bem-vindo a deepweb >:D</text>
         <buttons>
             <button>Continuar</button>
         </buttons>
