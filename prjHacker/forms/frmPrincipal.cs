@@ -118,8 +118,10 @@ namespace prjHacker.forms
                         XmlNodeList listaBotoes = listaDialogos[nDialog]["buttons"].ChildNodes;
                         for (int i = 0; i < buttons.Length; i++)
                         {
-                            try { buttons[i] = listaBotoes[i].InnerText; }
-                            catch { buttons[i] = ""; }
+                            if (listaBotoes[i] != null)
+                                buttons[i] = listaBotoes[i].InnerText;
+                            else
+                                buttons[i] = "";
                         }
                         abreDialogo(nome, imageName, dialogo, buttons);
                         nDialog++;
