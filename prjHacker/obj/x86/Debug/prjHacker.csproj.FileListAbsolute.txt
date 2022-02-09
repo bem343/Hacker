@@ -9,3 +9,15 @@ D:\Downloads\PROJETOS\Hacker\prjHacker\prjHacker\obj\x86\Debug\prjHacker.forms.f
 D:\Downloads\PROJETOS\Hacker\prjHacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmConfiguracoes.resources
 D:\Downloads\PROJETOS\Hacker\prjHacker\prjHacker\obj\x86\Debug\prjHacker.csprojResolveAssemblyReference.cache
 D:\Downloads\PROJETOS\Hacker\prjHacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmDialogo.resources
+C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\bin\Debug\prjHacker.exe
+C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\bin\Debug\prjHacker.pdb
+C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.AssemblyReference.cache
+C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmConfiguracoes.resources
+C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmDialogo.resources
+C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmPrincipal.resources
+C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmSplash.resources
+C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.Properties.Resources.resources
+C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.GenerateResource.cache
+C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.CoreCompileInputs.cache
+C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.exe
+C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.pdb
