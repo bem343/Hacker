@@ -37,11 +37,14 @@ namespace prjHacker.forms
         #region Page Load
             private void frmPrincipal_Load(object sender, EventArgs e)
             {
+                foreach (Panel panel in gbAreaDeTrabalho.Controls.OfType<Panel>())
+                {
+                    panel.Dock = DockStyle.Fill;
+                }
                 lblDinheiro.Text = "$" + dinheiro.ToString("#0.00");
                 lblExperiencia.Text = experiencia.ToString();
                 lblProgramacao.Text = programacao.ToString();
-                janela = new Timer();
-                janela.Interval = 1;
+                janela = new Timer { Interval = 1 };
                 janela.Tick += janela_Tick;
                 XmlDocument arquivo = new XmlDocument();
                 arquivo.Load("quests.xml");
@@ -60,6 +63,17 @@ namespace prjHacker.forms
                 {
                     dinheiro += valor;
                     lblDinheiro.Text = "$" + dinheiro.ToString("#0.00");
+                }
+            #endregion
+
+            #region Entrega as recompensas ao jogador
+                private void receberRecompensas()
+                {
+                    experiencia += 50;
+                    lblExperiencia.Text = (experiencia / 100).ToString();
+                    pbExperiencia.Value += 50;
+                    Application.DoEvents();
+                    if (pbExperiencia.Value == 100) { pbExperiencia.Value = 0; }
                 }
             #endregion
 
@@ -123,7 +137,9 @@ namespace prjHacker.forms
                             else
                                 buttons[i] = "";
                         }
-                        abreDialogo(nome, imageName, dialogo, buttons);
+                        try { string color = listaDialogos[nDialog]["color"].InnerText;
+                        abreDialogo(nome, imageName, dialogo, buttons, color); }
+	                    catch { abreDialogo(nome, imageName, dialogo, buttons); }
                         nDialog++;
                     } while (nDialog != listaDialogos.Count);
                     return true;
@@ -131,6 +147,11 @@ namespace prjHacker.forms
                 private DialogResult abreDialogo(string nome, string imageName, string dialogo, string[] buttons)
                 {
                     frmDialogo frmDialog = new frmDialogo(nome, imageName, dialogo, buttons);
+                    return frmDialog.ShowDialog();
+                }
+                private DialogResult abreDialogo(string nome, string imageName, string dialogo, string[] buttons, string color)
+                {
+                    frmDialogo frmDialog = new frmDialogo(nome, imageName, dialogo, buttons, color);
                     return frmDialog.ShowDialog();
                 }
                 //private DialogResult dialogo(string xml)
@@ -144,8 +165,9 @@ namespace prjHacker.forms
                 private void startQuest()
                 {
                     quest.start(
-                            quests[quest.current]["name"].InnerText,
-                            quests[quest.current]["instruction"].InnerText);
+                        quests[quest.current]["name"].InnerText,
+                        quests[quest.current]["instruction"].InnerText
+                    );
                     lstTrabalhos.Items.Add(quest.name); play.select();
                 }
             #endregion
@@ -163,6 +185,7 @@ namespace prjHacker.forms
                 verificarVpn();
                 fecharPanels();
                 panelVpn.Visible = true;
+                gbAreaDeTrabalho.Text = "Área de Trabalho";
             }
             private void programacaoTool_Click(object sender, EventArgs e)
             {
@@ -171,6 +194,9 @@ namespace prjHacker.forms
             private void bitCoins_Tick(object sender, EventArgs e)
             {
                 play.click();
+                fecharPanels();
+                panelBitcoin.Visible = true;
+                gbAreaDeTrabalho.Text = "Área de Trabalho";
             }
             private void configuracoesTool_Click(object sender, EventArgs e)
             {
@@ -187,7 +213,7 @@ namespace prjHacker.forms
                 buttons[1] = "NÃo";
                 buttons[2] = "";
                 buttons[3] = "";
-                if (abreDialogo("", "pc.jpg", "Tem certeza que deseja sair?", buttons) == DialogResult.OK)
+                if (abreDialogo("S.H.A.R.K", "sharkgreen.png", "Tem certeza que deseja sair?", buttons) == DialogResult.OK)
                 {
                     Timer exitTimer = new Timer();
                     exitTimer.Interval = 400;
@@ -251,12 +277,6 @@ namespace prjHacker.forms
                 //    case "Mascarar IP":
                 //        break;
                 //}
-            }
-        #endregion
-
-        #region Limpa a seleção da lista de missões ao tirar o mouse de cima do controle
-            private void lstTrabalhos_MouseLeave(object sender, EventArgs e)
-            {
                 lstTrabalhos.ClearSelected();
             }
         #endregion
@@ -270,7 +290,7 @@ namespace prjHacker.forms
                 buttons[1] = "NÃo";
                 buttons[2] = "";
                 buttons[3] = "";
-                if (abreDialogo("", "pc.jpg", "Deseja pagar $5,00 para assinar serviÇo por 1 hora?", buttons) == DialogResult.OK)
+                if (abreDialogo("S.H.A.R.K", "sharkgreen.png", "Deseja pagar $5,00 para assinar serviÇo por 1 hora?", buttons) == DialogResult.OK)
                 {
                     vpn.sign(60);
                     verificarVpn();
@@ -281,10 +301,15 @@ namespace prjHacker.forms
         #endregion
 
         #region Conclusão das quests
-            private void q1complete()
+            private void qComplete()
             {
                 quest.complete();
-                lstTrabalhos.Items.Remove(quests[0]["name"].InnerText);
+                receberRecompensas();
+                lstTrabalhos.Items.Remove(quests[(quest.current - 1)]["name"].InnerText);
+            }
+            private void q1complete()
+            {
+                qComplete();
                 dialogo("dialogs/q1complete.xml");
                 
                 startQuest();
@@ -292,8 +317,52 @@ namespace prjHacker.forms
                 programacaoTool.DropDownItems[0].Click += bitCoins_Tick;
                 programacaoTool.DropDownItems[0].BackColor = Color.Black;
                 programacaoTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
+                my.scripts.Add(new script("js", "zeck_script.js", 3));
+            }
+            private void q2complete()
+            {
+                qComplete();
+                //dialogo("dialogs/q1complete.xml");
+
+                //startQuest();
+                //programacaoTool.DropDownItems.Add("BitCoins");
+                //programacaoTool.DropDownItems[0].Click += bitCoins_Tick;
+                //programacaoTool.DropDownItems[0].BackColor = Color.Black;
+                //programacaoTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
             }
         #endregion
 
+        #region Botão de carregar script
+            private void btnScript_Click(object sender, EventArgs e)
+            {
+                if (new frmScript().ShowDialog() == DialogResult.OK)
+                {
+                    btnMinerar.Enabled = true;
+                    pcbScript.Visible = true;
+                    lblScript.Visible = true;
+                    lblLinesTitle.Visible = true;
+                    lblLinesScript.Visible = true;
+                    lblScript.Text = my.selectedScript.name;
+                    lblLinesScript.Text = my.selectedScript.lines.ToString();
+                }
+            }
+        #endregion
+        
+        private void btnMinerar_Click(object sender, EventArgs e)
+        {
+            frmMineracao frmMineracao = new frmMineracao();
+            if (frmMineracao.ShowDialog() == DialogResult.Cancel)
+            {
+                attDinheiro(80);
+
+                btnMinerar.Enabled = false;
+                pcbScript.Visible = false;
+                lblScript.Visible = false;
+                lblLinesTitle.Visible = false;
+                lblLinesScript.Visible = false;
+
+                if (quest.current == 2) { q2complete(); }
+            }
+        }
     }
 }

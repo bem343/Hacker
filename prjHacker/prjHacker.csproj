@@ -51,8 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\my.cs" />
     <Compile Include="classes\play.cs" />
     <Compile Include="classes\quest.cs" />
+    <Compile Include="classes\script.cs" />
     <Compile Include="classes\vpn.cs" />
     <Compile Include="forms\frmConfiguracoes.cs">
       <SubType>Form</SubType>
@@ -66,11 +68,23 @@
     <Compile Include="forms\frmDialogo.Designer.cs">
       <DependentUpon>frmDialogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmMineracao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmMineracao.Designer.cs">
+      <DependentUpon>frmMineracao.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmScript.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmScript.Designer.cs">
+      <DependentUpon>frmScript.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\frmSplash.cs">
       <SubType>Form</SubType>
@@ -86,8 +100,14 @@
     <EmbeddedResource Include="forms\frmDialogo.resx">
       <DependentUpon>frmDialogo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmMineracao.resx">
+      <DependentUpon>frmMineracao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmScript.resx">
+      <DependentUpon>frmScript.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmSplash.resx">
       <DependentUpon>frmSplash.cs</DependentUpon>
@@ -130,6 +150,9 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="dlls\taglib-sharp.dll" />
+    <None Include="Resources\script1.png" />
+    <None Include="Resources\script.png" />
+    <None Include="Resources\Bitcoin-PNG.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

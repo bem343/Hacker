@@ -33,6 +33,20 @@ namespace prjHacker.forms
                 this.buttons = buttons;
                 InitializeComponent();
             }
+            public frmDialogo(string nome, string imageName, string dialogo, string[] buttons, string color)
+            {
+                this.nome = nome;
+                this.imageName = imageName;
+                this.dialogo = dialogo;
+                this.buttons = buttons;
+                InitializeComponent();
+                lblDialogo.ForeColor = Color.FromName(color);
+                lblNome.ForeColor = Color.FromName(color);
+                btnResponse1.FlatAppearance.MouseDownBackColor = Color.FromName(color);
+                btnResponse2.FlatAppearance.MouseDownBackColor = Color.FromName(color);
+                btnResponse3.FlatAppearance.MouseDownBackColor = Color.FromName(color);
+                btnResponse4.FlatAppearance.MouseDownBackColor = Color.FromName(color);
+            }
         #endregion
 
         #region Page Load
