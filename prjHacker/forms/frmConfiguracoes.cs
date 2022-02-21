@@ -63,6 +63,7 @@ namespace prjHacker.forms
             {
                 if (volume > 1)
                 {
+                    Music.decreaseVolume();
                     volume--;
                     btnMaisVol.Enabled = true;
                     lblVolume.Text = volume.ToString();
@@ -74,6 +75,7 @@ namespace prjHacker.forms
             {
                 if (volume < 5)
                 {
+                    Music.increaseVolume();
                     volume++;
                     btnMenosVol.Enabled = true;
                     lblVolume.Text = volume.ToString();

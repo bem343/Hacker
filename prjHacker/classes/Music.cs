@@ -32,5 +32,15 @@ namespace prjHacker.classes
         {
             player.controls.pause();
         }
+
+        public static void increaseVolume()
+        {
+            player.settings.volume += 20;
+        }
+
+        public static void decreaseVolume()
+        {
+            player.settings.volume -= 20;
+        }
     }
 }
