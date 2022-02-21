@@ -4,32 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Media;
 using prjHacker.forms;
+using WMPLib;
 
 namespace prjHacker.classes
 {
     static class play
     {
-        private static SoundPlayer c = new SoundPlayer();
-        private static SoundPlayer k = new SoundPlayer();
-        private static SoundPlayer s = new SoundPlayer();
+        private static WindowsMediaPlayer c = new WindowsMediaPlayer();
+        private static WindowsMediaPlayer k = new WindowsMediaPlayer();
+        private static WindowsMediaPlayer s = new WindowsMediaPlayer();
 
         public static void click()
         {
-            c.SoundLocation = "sounds/click" + frmConfiguracoes.volume + ".wav";
-            if (frmConfiguracoes.som) { c.Play(); }
+            if (frmConfiguracoes.som)
+            {
+                c.settings.volume = frmConfiguracoes.volume;
+                c.URL = "sounds/click5.wav";
+            }
         }
         public static void select()
         {
-            s.SoundLocation = "sounds/select.wav";
-            if (frmConfiguracoes.som) { s.Play(); }
+            if (frmConfiguracoes.som)
+            {
+                s.settings.volume = frmConfiguracoes.volume;
+                s.URL = "sounds/select.wav";
+            }
         }
         public static void key()
         {
             if (frmConfiguracoes.som)
             {
                 Random r = new Random();
-                k.SoundLocation = "sounds/key/" + frmConfiguracoes.volume + "/" + r.Next(1, 5) + ".wav";
-                k.Play();
+                k.settings.volume = frmConfiguracoes.volume;
+                k.URL = "sounds/key/5/" + r.Next(1, 5) + ".wav";
             }
         }
     }

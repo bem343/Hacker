@@ -194,7 +194,7 @@ namespace prjHacker.forms
                     exitTimer.Interval = 400;
                     exitTimer.Tick += exitTimer_Tick;
                     exitTimer.Start();
-                    Music.stopMusic();
+                    Music.stop();
                     Close();
                 }
             }

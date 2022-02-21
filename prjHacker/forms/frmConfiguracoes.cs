@@ -16,7 +16,8 @@ namespace prjHacker.forms
 
         #region Variáveis
             public static bool som = true;
-            public static int volume = 5;
+            public static int volume = 100;
+            public static int nVolume = 5;
         #endregion
 
         #region Construtores
@@ -29,10 +30,16 @@ namespace prjHacker.forms
         #region Page Load
             private void frmConfiguracoes_Load(object sender, EventArgs e)
             {
-                if (volume == 1) { btnMenosVol.Enabled = false; }
-                if (volume == 5) { btnMaisVol.Enabled = false; }
-                btnSom.Text = som.ToString();
-                lblVolume.Text = volume.ToString();
+                lblVolume.Text = nVolume.ToString();
+            }
+        #endregion
+
+        #region Verifica os botões de aumentar e diminuir volume, além de atualizar o valor do mesmo
+            private void verificaBotoes()
+            {
+                if (nVolume == 1) { btnMenosVol.Enabled = false; }
+                if (nVolume == 5) { btnMaisVol.Enabled = false; }
+                lblVolume.Text = nVolume.ToString();
             }
         #endregion
 
@@ -44,9 +51,9 @@ namespace prjHacker.forms
                 btnSom.Text = som.ToString();
                 
                 if(som)
-                    Music.playMusic();
+                    Music.play();
                 else
-                    Music.pauseMusic();
+                    Music.pause();
             }
         #endregion
 
@@ -61,25 +68,25 @@ namespace prjHacker.forms
         #region Botões para alterar volume
             private void btnMenosVol_Click(object sender, EventArgs e)
             {
-                if (volume > 1)
+                if (nVolume > 1)
                 {
+                    nVolume--;
+                    volume -= 20;
                     Music.decreaseVolume();
-                    volume--;
                     btnMaisVol.Enabled = true;
-                    lblVolume.Text = volume.ToString();
-                    if (volume == 1) { btnMenosVol.Enabled = false; }
+                    verificaBotoes();
                 } else { btnMenosVol.Enabled = false; }
                 play.click();
             }
             private void btnMaisVol_Click(object sender, EventArgs e)
             {
-                if (volume < 5)
+                if (nVolume < 5)
                 {
+                    nVolume++;
+                    volume += 20;
                     Music.increaseVolume();
-                    volume++;
                     btnMenosVol.Enabled = true;
-                    lblVolume.Text = volume.ToString();
-                    if (volume == 5) { btnMaisVol.Enabled = false; }
+                    verificaBotoes();
                 } else { btnMaisVol.Enabled = false; }
                 play.click();
             }
