@@ -157,7 +157,6 @@ namespace prjHacker.forms
             private void servicos_Click(object sender, EventArgs e)
             {
                 play.click();
-                Music.nextMusic();
             }
             private void vpn_click(object sender, EventArgs e)
             {
