@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using WMPLib;
@@ -12,9 +13,20 @@ namespace prjHacker.classes
 
         public static void initPlayer()
         {
+            IWMPPlaylist playlist = player.playlistCollection.newPlaylist("OST");
+            IWMPMedia media;
+
+            string[] music_paths = Directory.GetFiles("sounds/music");
+
+            foreach (string file in music_paths)
+            {
+                media = player.newMedia(file.Replace("\\", "/"));
+                playlist.appendItem(media);
+            }
+
             player.settings.volume = 100;
             player.settings.setMode("loop", true);
-            player.URL = "sounds/music/Dirty Ninoff - Fantastic.mp3";
+            player.currentPlaylist = playlist;
             playMusic();
         }
 
@@ -41,6 +53,11 @@ namespace prjHacker.classes
         public static void decreaseVolume()
         {
             player.settings.volume -= 20;
+        }
+
+        public static void nextMusic()
+        {
+            player.controls.next();
         }
     }
 }
