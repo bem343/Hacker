@@ -42,6 +42,11 @@ namespace prjHacker.forms
                 som = !som;
                 play.click();
                 btnSom.Text = som.ToString();
+                
+                if(som)
+                    Music.playMusic();
+                else
+                    Music.pauseMusic();
             }
         #endregion
 

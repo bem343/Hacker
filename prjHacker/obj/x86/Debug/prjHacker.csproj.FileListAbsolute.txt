@@ -21,3 +21,5 @@ C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.
 C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.CoreCompileInputs.cache
 C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.exe
 C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.pdb
+C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Rorschach\Desktop\me\Projetos\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.CopyComplete

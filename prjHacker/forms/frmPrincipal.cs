@@ -46,6 +46,7 @@ namespace prjHacker.forms
                 XmlDocument arquivo = new XmlDocument();
                 arquivo.Load("quests.xml");
                 quests = arquivo.GetElementsByTagName("quest");
+                Music.initPlayer();
             }
             private void janela_Tick(object sender, EventArgs e)
             {
@@ -193,6 +194,7 @@ namespace prjHacker.forms
                     exitTimer.Interval = 400;
                     exitTimer.Tick += exitTimer_Tick;
                     exitTimer.Start();
+                    Music.stopMusic();
                     Close();
                 }
             }
