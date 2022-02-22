@@ -284,21 +284,41 @@ namespace prjHacker.forms
         #endregion
 
         #region Botões do serviço VPN
-            private void btnVpn1_Click(object sender, EventArgs e)
+            private void btnVpn(int tempo, double valor)
             {
                 play.click();
+                int hora = (tempo / 60);
+                string s = "s"; if (hora == 1) { s = ""; }
                 string[] buttons = new string[4];
                 buttons[0] = "Sim";
                 buttons[1] = "NÃo";
                 buttons[2] = "";
                 buttons[3] = "";
-                if (abreDialogo("S.H.A.R.K", "sharkgreen.png", "Deseja pagar $5,00 para assinar serviÇo por 1 hora?", buttons) == DialogResult.OK)
+                if ( abreDialogo
+                (
+                    "S.H.A.R.K",
+                    "sharkgreen.png",
+                    "Deseja pagar $" + valor.ToString("#0.00") + " para assinar serviÇo por " + hora + " hora" + s + "?",
+                    buttons
+                ) == DialogResult.OK)
                 {
-                    vpn.sign(60);
+                    vpn.sign(tempo);
                     verificarVpn();
-                    attDinheiro(-5);
+                    attDinheiro(-valor);
                     if (quest.current == 1) { q1complete(); }
                 }
+            }
+            private void btnVpn1_Click(object sender, EventArgs e)
+            {
+                btnVpn(60, 5);
+            }
+            private void btnVpn2_Click(object sender, EventArgs e)
+            {
+                btnVpn(180, 15);
+            }
+            private void btnVpn3_Click(object sender, EventArgs e)
+            {
+                btnVpn(300, 25);
             }
         #endregion
 

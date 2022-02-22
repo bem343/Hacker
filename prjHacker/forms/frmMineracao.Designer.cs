@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.btnSair = new System.Windows.Forms.Button();
             this.gbControle = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblLinhas = new System.Windows.Forms.Label();
             this.txtLinha = new System.Windows.Forms.TextBox();
             this.lblLinha = new System.Windows.Forms.Label();
             this.lblVpnAtivo = new System.Windows.Forms.Label();
             this.lblVpn = new System.Windows.Forms.Label();
             this.pbLinha = new System.Windows.Forms.ProgressBar();
             this.timerVpn = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblLinhas = new System.Windows.Forms.Label();
             this.gbControle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,13 +82,36 @@
             this.gbControle.TabStop = false;
             this.gbControle.Text = "MineraÇÃo";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(156, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 29);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Linhas:";
+            // 
+            // lblLinhas
+            // 
+            this.lblLinhas.AutoSize = true;
+            this.lblLinhas.BackColor = System.Drawing.Color.Black;
+            this.lblLinhas.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLinhas.Location = new System.Drawing.Point(249, 0);
+            this.lblLinhas.Name = "lblLinhas";
+            this.lblLinhas.Size = new System.Drawing.Size(48, 29);
+            this.lblLinhas.TabIndex = 20;
+            this.lblLinhas.Text = "1/3";
+            // 
             // txtLinha
             // 
             this.txtLinha.BackColor = System.Drawing.Color.Black;
             this.txtLinha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtLinha.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtLinha.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLinha.ForeColor = System.Drawing.Color.White;
+            this.txtLinha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
             this.txtLinha.Location = new System.Drawing.Point(10, 95);
             this.txtLinha.Multiline = true;
             this.txtLinha.Name = "txtLinha";
@@ -100,7 +123,7 @@
             // lblLinha
             // 
             this.lblLinha.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblLinha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.lblLinha.ForeColor = System.Drawing.Color.White;
             this.lblLinha.Location = new System.Drawing.Point(10, 33);
             this.lblLinha.Name = "lblLinha";
             this.lblLinha.Size = new System.Drawing.Size(720, 59);
@@ -143,29 +166,6 @@
             // 
             this.timerVpn.Interval = 1000;
             this.timerVpn.Tick += new System.EventHandler(this.timerVpn_Tick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(156, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 29);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Linhas:";
-            // 
-            // lblLinhas
-            // 
-            this.lblLinhas.AutoSize = true;
-            this.lblLinhas.BackColor = System.Drawing.Color.Black;
-            this.lblLinhas.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLinhas.Location = new System.Drawing.Point(249, 0);
-            this.lblLinhas.Name = "lblLinhas";
-            this.lblLinhas.Size = new System.Drawing.Size(48, 29);
-            this.lblLinhas.TabIndex = 20;
-            this.lblLinhas.Text = "1/3";
             // 
             // frmMineracao
             // 

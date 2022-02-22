@@ -89,7 +89,8 @@ namespace prjHacker.forms
             play.key();
             if (txtLinha.TextLength == pbLinha.Value) { return; }
             if (linha.Substring(pbLinha.Value, 1) == txtLinha.Text.Substring(pbLinha.Value, 1))
-            { pbLinha.Value++; } else { return; } verificaLinha();
+            { pbLinha.Value++; txtLinha.ForeColor = Color.FromArgb(0, 200, 0); }
+            else { txtLinha.ForeColor = Color.FromArgb(200, 0, 0); return; } verificaLinha();
         }
 
         private void txtLinha_KeyDown(object sender, KeyEventArgs e)
