@@ -19,7 +19,7 @@ namespace prjHacker.classes
             if (frmConfiguracoes.som)
             {
                 c.settings.volume = frmConfiguracoes.volume;
-                c.URL = "sounds/click5.wav";
+                c.URL = "sounds/click.wav";
             }
         }
         public static void select()
@@ -36,7 +36,7 @@ namespace prjHacker.classes
             {
                 Random r = new Random();
                 k.settings.volume = frmConfiguracoes.volume;
-                k.URL = "sounds/key/5/" + r.Next(1, 5) + ".wav";
+                k.URL = "sounds/key/" + r.Next(1, 5) + ".wav";
             }
         }
     }

@@ -58,6 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\my.cs" />
     <Compile Include="classes\Music.cs" />
     <Compile Include="classes\play.cs" />
     <Compile Include="classes\quest.cs" />

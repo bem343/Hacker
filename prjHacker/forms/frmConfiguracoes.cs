@@ -30,7 +30,7 @@ namespace prjHacker.forms
         #region Page Load
             private void frmConfiguracoes_Load(object sender, EventArgs e)
             {
-                lblVolume.Text = nVolume.ToString();
+                verificaBotoes();
             }
         #endregion
 
@@ -39,6 +39,7 @@ namespace prjHacker.forms
             {
                 if (nVolume == 1) { btnMenosVol.Enabled = false; }
                 if (nVolume == 5) { btnMaisVol.Enabled = false; }
+                btnSom.Text = som.ToString();
                 lblVolume.Text = nVolume.ToString();
             }
         #endregion
