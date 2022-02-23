@@ -39,6 +39,7 @@
             this.lblVpn = new System.Windows.Forms.Label();
             this.pbLinha = new System.Windows.Forms.ProgressBar();
             this.timerVpn = new System.Windows.Forms.Timer(this.components);
+            this.btnConcluir = new System.Windows.Forms.Button();
             this.gbControle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +65,7 @@
             // gbControle
             // 
             this.gbControle.BackColor = System.Drawing.Color.Transparent;
+            this.gbControle.Controls.Add(this.btnConcluir);
             this.gbControle.Controls.Add(this.label1);
             this.gbControle.Controls.Add(this.lblLinhas);
             this.gbControle.Controls.Add(this.txtLinha);
@@ -167,6 +169,27 @@
             this.timerVpn.Interval = 1000;
             this.timerVpn.Tick += new System.EventHandler(this.timerVpn_Tick);
             // 
+            // btnConcluir
+            // 
+            this.btnConcluir.BackColor = System.Drawing.Color.Transparent;
+            this.btnConcluir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConcluir.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnConcluir.FlatAppearance.BorderSize = 0;
+            this.btnConcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnConcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.btnConcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConcluir.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConcluir.ForeColor = System.Drawing.Color.White;
+            this.btnConcluir.Location = new System.Drawing.Point(309, 72);
+            this.btnConcluir.Name = "btnConcluir";
+            this.btnConcluir.Size = new System.Drawing.Size(129, 38);
+            this.btnConcluir.TabIndex = 22;
+            this.btnConcluir.TabStop = false;
+            this.btnConcluir.Text = "Finalizar";
+            this.btnConcluir.UseVisualStyleBackColor = false;
+            this.btnConcluir.Visible = false;
+            this.btnConcluir.Click += new System.EventHandler(this.btnConcluir_Click);
+            // 
             // frmMineracao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,5 +223,6 @@
         private System.Windows.Forms.Timer timerVpn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblLinhas;
+        private System.Windows.Forms.Button btnConcluir;
     }
 }

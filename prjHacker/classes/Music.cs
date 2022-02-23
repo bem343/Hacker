@@ -41,6 +41,11 @@ namespace prjHacker.classes
             player.controls.play();
         }
 
+        public static void play(string name)
+        {
+            player.URL = "sounds/music/" + name;
+        }
+
         public static void stop()
         {
             player.controls.stop();

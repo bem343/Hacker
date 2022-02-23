@@ -22,8 +22,8 @@ namespace prjHacker.forms
             private Timer janela = null;
             
             private XmlNodeList quests = null;
-            public static double dinheiro = 10;
-            public static int experiencia = 0;
+            public static double dinheiro = 15;
+            public static double experiencia = 0;
             public static int programacao = 0;
         #endregion
 
@@ -59,22 +59,32 @@ namespace prjHacker.forms
 
         #region Métodos
 
-            #region Atualizar dinheiro
+            #region Atualizar valores do personagem
                 private void attDinheiro(double valor)
                 {
                     dinheiro += valor;
                     lblDinheiro.Text = "$" + dinheiro.ToString("#0.00");
+                }
+                private void attProgramacao(int valor)
+                {
+                    programacao += valor;
+                    lblProgramacao.Text = programacao.ToString();
                 }
             #endregion
 
             #region Entrega as recompensas ao jogador
                 private void receberRecompensas()
                 {
-                    experiencia += 50;
-                    lblExperiencia.Text = (experiencia / 100).ToString();
-                    pbExperiencia.Value += 50;
+                    double valor = 55;
+                    experiencia += valor;
+                    double total = experiencia / 100;
+                    lblExperiencia.Text = (int.Parse(experiencia.ToString()) / 100).ToString();
+                    double quebrado = (total - int.Parse(lblExperiencia.Text));
+                    double porcentagem = quebrado * 100;
+                    pbExperiencia.Value = int.Parse(porcentagem.ToString());
                     Application.DoEvents();
-                    if (pbExperiencia.Value == 100) { pbExperiencia.Value = 0; }
+                    //if (pbExperiencia.Value == 100)
+                    //{ pbExperiencia.Value = 0; }
                 }
             #endregion
 
@@ -310,15 +320,15 @@ namespace prjHacker.forms
             }
             private void btnVpn1_Click(object sender, EventArgs e)
             {
-                btnVpn(60, 5);
+                btnVpn(60, 10);
             }
             private void btnVpn2_Click(object sender, EventArgs e)
             {
-                btnVpn(180, 15);
+                btnVpn(90, 15);
             }
             private void btnVpn3_Click(object sender, EventArgs e)
             {
-                btnVpn(300, 25);
+                btnVpn(120, 20);
             }
         #endregion
 
@@ -372,19 +382,35 @@ namespace prjHacker.forms
         
         private void btnMinerar_Click(object sender, EventArgs e)
         {
+            Music.play("# (4).mp3");
             frmMineracao frmMineracao = new frmMineracao();
-            if (frmMineracao.ShowDialog() == DialogResult.Cancel)
+            if (frmMineracao.ShowDialog() == DialogResult.OK)
             {
-                attDinheiro(80);
-
+                Music.play("# (5).mp3");
                 btnMinerar.Enabled = false;
                 pcbScript.Visible = false;
                 lblScript.Visible = false;
                 lblLinesTitle.Visible = false;
                 lblLinesScript.Visible = false;
 
+                int vProgramacao = my.selectedScript.lines * 10;
+                double vDinheiro = my.selectedScript.lines * 15.5;
+
+                string mensagem = "MineraÇÃo finalizada! VocÊ conseguiu ";
+                mensagem += "$" + vDinheiro.ToString("#0.00") + "  e  ";
+                mensagem += vProgramacao + " P. ProgramaÇÃo";
+                string[] buttons = new string[4];
+                buttons[0] = "Ok";
+                buttons[1] = "";
+                buttons[2] = "";
+                buttons[3] = "";
+                abreDialogo("S.H.A.R.K", "sharkgreen.png", mensagem, buttons);
+
+                attProgramacao(vProgramacao);
+                attDinheiro(vDinheiro);
                 if (quest.current == 2) { q2complete(); }
             }
+            else { vpn.stop(); Music.play("# (5).mp3"); }
         }
     }
 }
