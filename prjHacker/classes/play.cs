@@ -13,6 +13,9 @@ namespace prjHacker.classes
         private static WindowsMediaPlayer c = new WindowsMediaPlayer();
         private static WindowsMediaPlayer k = new WindowsMediaPlayer();
         private static WindowsMediaPlayer s = new WindowsMediaPlayer();
+        public static WindowsMediaPlayer h = new WindowsMediaPlayer();
+        private static WindowsMediaPlayer f = new WindowsMediaPlayer();
+        private static WindowsMediaPlayer co = new WindowsMediaPlayer();
 
         public static void click()
         {
@@ -37,6 +40,31 @@ namespace prjHacker.classes
                 Random r = new Random();
                 k.settings.volume = frmConfiguracoes.volume;
                 k.URL = "sounds/key/" + r.Next(1, 5) + ".wav";
+            }
+        }
+        public static void hacking()
+        {
+            if (frmConfiguracoes.som)
+            {
+                h.settings.volume = frmConfiguracoes.volume;
+                h.settings.setMode("loop", true);
+                h.URL = "sounds/hacking.wav";
+            }
+        }
+        public static void fail()
+        {
+            if (frmConfiguracoes.som)
+            {
+                f.settings.volume = frmConfiguracoes.volume;
+                f.URL = "sounds/fail.wav";
+            }
+        }
+        public static void complete()
+        {
+            if (frmConfiguracoes.som)
+            {
+                co.settings.volume = frmConfiguracoes.volume;
+                co.URL = "sounds/complete.wav";
             }
         }
     }

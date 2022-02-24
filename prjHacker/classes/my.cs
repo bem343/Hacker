@@ -7,12 +7,27 @@ namespace prjHacker.classes
 {
     static class my
     {
-        public static List<script> scripts = new List<script>();
-        public static script selectedScript = null;
+        private static List<script> scripts = new List<script>();
+        private static int selectedScript = -1;
 
-        public static void selecionarScript(int index)
+        public static void scriptsAdd(script script)
         {
-            selectedScript = scripts[index];
+            scripts.Add(script);
+        }
+
+        public static void scriptsRemove()
+        {
+            scripts.RemoveAt(selectedScript);
+        }
+
+        public static script currentScript()
+        {
+            return scripts[selectedScript];
+        }
+
+        public static void selectScript(int index)
+        {
+            selectedScript = index;
         }
 
         public static List<string> scriptNames()

@@ -70,21 +70,16 @@ namespace prjHacker.forms
                     programacao += valor;
                     lblProgramacao.Text = programacao.ToString();
                 }
-            #endregion
-
-            #region Entrega as recompensas ao jogador
-                private void receberRecompensas()
+                private void attExperiencia(double valor)
                 {
-                    double valor = 55;
                     experiencia += valor;
                     double total = experiencia / 100;
-                    lblExperiencia.Text = (int.Parse(experiencia.ToString()) / 100).ToString();
-                    double quebrado = (total - int.Parse(lblExperiencia.Text));
+                    int inteiro = Convert.ToInt32(Math.Floor(total));
+                    lblExperiencia.Text = inteiro.ToString();
+                    double quebrado = (total - inteiro);
                     double porcentagem = quebrado * 100;
-                    pbExperiencia.Value = int.Parse(porcentagem.ToString());
+                    pbExperiencia.Value = Convert.ToInt32(Math.Floor(porcentagem));
                     Application.DoEvents();
-                    //if (pbExperiencia.Value == 100)
-                    //{ pbExperiencia.Value = 0; }
                 }
             #endregion
 
@@ -293,7 +288,7 @@ namespace prjHacker.forms
             }
         #endregion
 
-        #region Botões do serviço VPN
+        #region Área de serviço VPN
             private void btnVpn(int tempo, double valor)
             {
                 play.click();
@@ -336,7 +331,7 @@ namespace prjHacker.forms
             private void qComplete()
             {
                 quest.complete();
-                receberRecompensas();
+                attExperiencia(55 + (0.5 * quest.current));
                 lstTrabalhos.Items.Remove(quests[(quest.current - 1)]["name"].InnerText);
             }
             private void q1complete()
@@ -349,7 +344,7 @@ namespace prjHacker.forms
                 programacaoTool.DropDownItems[0].Click += bitCoins_Tick;
                 programacaoTool.DropDownItems[0].BackColor = Color.Black;
                 programacaoTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
-                my.scripts.Add(new script("js", "zeck_script.js", 3));
+                my.scriptsAdd(new script("js", "zeck_script.js", 3));
             }
             private void q2complete()
             {
@@ -364,7 +359,7 @@ namespace prjHacker.forms
             }
         #endregion
 
-        #region Botão de carregar script
+        #region Área de mineração de Bitcoin
             private void btnScript_Click(object sender, EventArgs e)
             {
                 if (new frmScript().ShowDialog() == DialogResult.OK)
@@ -374,43 +369,49 @@ namespace prjHacker.forms
                     lblScript.Visible = true;
                     lblLinesTitle.Visible = true;
                     lblLinesScript.Visible = true;
-                    lblScript.Text = my.selectedScript.name;
-                    lblLinesScript.Text = my.selectedScript.lines.ToString();
+                    lblScript.Text = my.currentScript().name;
+                    lblLinesScript.Text = my.currentScript().lines.ToString();
                 }
             }
-        #endregion
-        
-        private void btnMinerar_Click(object sender, EventArgs e)
-        {
-            Music.play("# (4).mp3");
-            frmMineracao frmMineracao = new frmMineracao();
-            if (frmMineracao.ShowDialog() == DialogResult.OK)
+            private void btnMinerar_Click(object sender, EventArgs e)
             {
-                Music.play("# (5).mp3");
-                btnMinerar.Enabled = false;
-                pcbScript.Visible = false;
-                lblScript.Visible = false;
-                lblLinesTitle.Visible = false;
-                lblLinesScript.Visible = false;
 
-                int vProgramacao = my.selectedScript.lines * 10;
-                double vDinheiro = my.selectedScript.lines * 15.5;
+                Music.play("# (4).mp3");
+                frmMineracao frmMineracao = new frmMineracao();
+                if (frmMineracao.ShowDialog() == DialogResult.OK)
+                {
+                    Music.play("# (5).mp3");
+                    btnMinerar.Enabled = false;
+                    pcbScript.Visible = false;
+                    lblScript.Visible = false;
+                    lblLinesTitle.Visible = false;
+                    lblLinesScript.Visible = false;
 
-                string mensagem = "MineraÇÃo finalizada! VocÊ conseguiu ";
-                mensagem += "$" + vDinheiro.ToString("#0.00") + "  e  ";
-                mensagem += vProgramacao + " P. ProgramaÇÃo";
-                string[] buttons = new string[4];
-                buttons[0] = "Ok";
-                buttons[1] = "";
-                buttons[2] = "";
-                buttons[3] = "";
-                abreDialogo("S.H.A.R.K", "sharkgreen.png", mensagem, buttons);
+                    //Recompensas
+                    int vProgramacao = my.currentScript().lines * 10;
+                    double vDinheiro = my.currentScript().lines * 15.5;
+                    double vExperiencia = my.currentScript().lines * 5.5;
+                    //Relatório final da mineração
+                    string mensagem = "MineraÇÃo finalizada! VocÊ conseguiu ";
+                    mensagem += "$" + vDinheiro.ToString("#0.00") + ";  ";
+                    mensagem += vProgramacao + " P. ProgramaÇÃo;  ";
+                    mensagem += vExperiencia.ToString("#0.0") + " de ExperiÊncia.";
+                    string[] buttons = new string[4];
+                    buttons[0] = "Ok";
+                    buttons[1] = "";
+                    buttons[2] = "";
+                    buttons[3] = "";
+                    abreDialogo("S.H.A.R.K", "sharkgreen.png", mensagem, buttons);
 
-                attProgramacao(vProgramacao);
-                attDinheiro(vDinheiro);
-                if (quest.current == 2) { q2complete(); }
+                    attProgramacao(vProgramacao);
+                    attDinheiro(vDinheiro);
+                    attExperiencia(vExperiencia);
+                    if (quest.current == 2) { q2complete(); }
+                    my.scriptsRemove();
+                }
+                else { vpn.stop(); Music.play("# (5).mp3"); }
             }
-            else { vpn.stop(); Music.play("# (5).mp3"); }
-        }
+        #endregion
+
     }
 }

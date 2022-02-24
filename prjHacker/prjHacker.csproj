@@ -63,7 +63,14 @@
     <Compile Include="classes\play.cs" />
     <Compile Include="classes\quest.cs" />
     <Compile Include="classes\script.cs" />
+    <Compile Include="classes\stop.cs" />
     <Compile Include="classes\vpn.cs" />
+    <Compile Include="forms\frmAtaque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmAtaque.Designer.cs">
+      <DependentUpon>frmAtaque.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmConfiguracoes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +109,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forms\frmAtaque.resx">
+      <DependentUpon>frmAtaque.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmConfiguracoes.resx">
       <DependentUpon>frmConfiguracoes.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +169,8 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="dlls\taglib-sharp.dll" />
+    <None Include="Resources\sharkred.png" />
+    <None Include="Resources\zeck mal.jpg" />
     <None Include="Resources\script1.png" />
     <None Include="Resources\script.png" />
     <None Include="Resources\Bitcoin-PNG.png" />

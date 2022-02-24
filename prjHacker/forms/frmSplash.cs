@@ -24,7 +24,7 @@ namespace prjHacker.forms
         #region Page Load
             private void frmSplash_Load(object sender, EventArgs e)
             {
-                pbCarregamento.Maximum = 3;
+                pbCarregamento.Maximum = 30;
                 timer.Start();
             }
         #endregion
@@ -33,14 +33,13 @@ namespace prjHacker.forms
             private void timer_Tick(object sender, EventArgs e)
             {
                 tempo++;
-                if (tempo > 3)
+                if (tempo > pbCarregamento.Maximum)
                 {
                     frmPrincipal principal = new frmPrincipal();
                     principal.Show();
                     timer.Stop();
-                    Hide();
-                }
-                else { pbCarregamento.Value++; }
+                    this.Hide();
+                } else { pbCarregamento.Value++; }
             }
         #endregion
 

@@ -28,7 +28,7 @@ namespace prjHacker.classes
 
             player.settings.volume = 50;
             player.settings.setMode("loop", true);
-            player.URL = "sounds/music/# (5).mp3";
+            play("# (5).mp3");
         }
 
         //public static void next()
@@ -38,12 +38,15 @@ namespace prjHacker.classes
 
         public static void play()
         {
-            player.controls.play();
+            if (frmConfiguracoes.som)
+            { player.controls.play(); }
+            else { pause(); }
         }
 
         public static void play(string name)
         {
-            player.URL = "sounds/music/" + name;
+            if (frmConfiguracoes.som)
+            { player.URL = "sounds/music/" + name; }
         }
 
         public static void stop()

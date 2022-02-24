@@ -20,6 +20,8 @@ namespace prjHacker.forms
                 "if (x > 0) { x--; }",
                 "if (x < 0) { x++; }"
             };
+            private int proximoAtaque = 0;
+            private int tempoAtaque = 0;
             private string linha = "";
             private int nLinha = 0;
         #endregion
@@ -65,6 +67,7 @@ namespace prjHacker.forms
                     {
                         vpn.stop();
                         timerVpn.Stop();
+                        timerAtaque.Stop();
                         txtLinha.TextChanged -= txtLinha_TextChanged;
                         txtLinha.Clear();
                         lblLinha.Text = "";
@@ -73,7 +76,7 @@ namespace prjHacker.forms
                     }
                 }
             }
-            private void verificarVpn()
+            private bool verificarVpn()
             {
                 if (vpn.isActive)
                 {
@@ -84,12 +87,11 @@ namespace prjHacker.forms
                     lblVpn.Visible = true;
                     if ((vpn.maximum - vpn.time) <= 10) {
                     lblVpn.ForeColor = Color.FromArgb(200, 0, 0); }
+                    return true;
                 }
-                else
-                {
-                    lblVpn.Visible = false;
-                    lblVpnAtivo.Visible = false;
-                }
+                lblVpn.Visible = false;
+                lblVpnAtivo.Visible = false;
+                return false;
             }
         #endregion
 
@@ -127,15 +129,29 @@ namespace prjHacker.forms
             }
         #endregion
 
-        #region Timer 
+        #region Evento Tick dos Timers
+            private void setAtaque()
+            {
+                proximoAtaque = new Random().Next(6, 16);
+            }
             private void timerVpn_Tick(object sender, EventArgs e)
             {
-                verificarVpn();
+                if (!verificarVpn()) { timerVpn.Stop(); setAtaque(); timerAtaque.Start(); }
+            }
+            private void timerAtaque_Tick(object sender, EventArgs e)
+            {
+                tempoAtaque++; if (tempoAtaque == proximoAtaque) {
+                    frmAtaque ataque = new frmAtaque();
+                    if (ataque.ShowDialog() != DialogResult.OK)
+                    { pbLinha.Value = 0; txtLinha.Clear(); txtLinha.Focus(); play.fail(); }
+                    else { play.complete(); } stop.hacking(); tempoAtaque = 0; setAtaque();
+                }
             }
         #endregion
 
         private void btnConcluir_Click(object sender, EventArgs e)
         {
+            play.complete();
             Close();
         }
     }

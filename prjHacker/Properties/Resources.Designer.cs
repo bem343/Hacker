@@ -123,9 +123,29 @@ namespace prjHacker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sharkred {
+            get {
+                object obj = ResourceManager.GetObject("sharkred", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap splash_screen {
             get {
                 object obj = ResourceManager.GetObject("splash screen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zeck_mal {
+            get {
+                object obj = ResourceManager.GetObject("zeck mal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

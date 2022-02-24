@@ -33,7 +33,7 @@ namespace prjHacker.forms
         private void btnCarregar_Click(object sender, EventArgs e)
         {
             play.click();
-            my.selecionarScript(selecionado);
+            my.selectScript(selecionado);
             Close();
         }
 
