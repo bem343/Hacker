@@ -118,11 +118,12 @@
             this.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAtaque";
             this.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "frmAtaque";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAtaque_FormClosing);
             this.Load += new System.EventHandler(this.frmAtaque_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcbAvatar)).EndInit();

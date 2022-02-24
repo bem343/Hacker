@@ -28,7 +28,8 @@ namespace prjHacker.forms
         private void timer_Tick(object sender, EventArgs e)
         {
             ataque++;
-            if (ataque >= pbAtaque.Maximum) { timer.Stop(); Close(); }
+            if (ataque >= pbAtaque.Maximum)
+            { Close(); return; }
             if (ataque >= 0) { pbAtaque.Value = ataque; }
         }
 
@@ -36,8 +37,9 @@ namespace prjHacker.forms
         {
             play.click();
             ataque -= 2;
+            if (ataque <= 0)
+            { DialogResult = DialogResult.OK; Close(); return; }
             if (ataque >= 0) { pbAtaque.Value = ataque; }
-            if (ataque <= 0) { timer.Stop(); DialogResult = DialogResult.OK; Close(); }
         }
 
         private void frmAtaque_Load(object sender, EventArgs e)
@@ -46,6 +48,11 @@ namespace prjHacker.forms
             timer.Interval = 70;
             timer.Start();
             pbAtaque.Maximum = 22;
+        }
+
+        private void frmAtaque_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer.Stop();
         }
     }
 }

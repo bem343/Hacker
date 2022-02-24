@@ -142,7 +142,13 @@ namespace prjHacker.forms
             {
                 tempoAtaque++; if (tempoAtaque == proximoAtaque) {
                     frmAtaque ataque = new frmAtaque();
-                    if (ataque.ShowDialog() != DialogResult.OK)
+                    DialogResult resultado = ataque.ShowDialog();
+                    if (resultado == DialogResult.None)
+                    {
+                        do { resultado = ataque.DialogResult; }
+                        while (ataque.DialogResult == DialogResult.None);
+                    }
+                    if (resultado != DialogResult.OK)
                     { pbLinha.Value = 0; txtLinha.Clear(); txtLinha.Focus(); play.fail(); }
                     else { play.complete(); } stop.hacking(); tempoAtaque = 0; setAtaque();
                 }
@@ -153,6 +159,12 @@ namespace prjHacker.forms
         {
             play.complete();
             Close();
+        }
+
+        private void frmMineracao_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timerAtaque.Stop();
+            timerVpn.Stop();
         }
     }
 }

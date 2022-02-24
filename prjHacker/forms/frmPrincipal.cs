@@ -315,7 +315,7 @@ namespace prjHacker.forms
             }
             private void btnVpn1_Click(object sender, EventArgs e)
             {
-                btnVpn(60, 10);
+                btnVpn(5, 10);
             }
             private void btnVpn2_Click(object sender, EventArgs e)
             {
