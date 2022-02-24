@@ -73,6 +73,7 @@ namespace prjHacker.forms
                         lblLinha.Text = "";
                         btnConcluir.Visible = true;
                         btnConcluir.Focus();
+                        play.complete();
                     }
                 }
             }
@@ -157,7 +158,6 @@ namespace prjHacker.forms
 
         private void btnConcluir_Click(object sender, EventArgs e)
         {
-            play.complete();
             Close();
         }
 

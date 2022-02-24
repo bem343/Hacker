@@ -3,14 +3,14 @@
 <quests>
 	<quest>
 		<name>Mascarar IP</name>
-		<instruction>Seu IP estÁ exposto, É melhor mascarÁ-lo utilizando um VPN. VocÊ consegue fazer isso clicando em serviÇos, depois em VPN.</instruction>
+		<instruction>Seu IP estÁ exposto, É melhor mascarÁ-lo utilizando um VPN. VocÊ consegue fazer isso clicando em 'serviÇos', depois em 'VPN'.</instruction>
 	</quest>
 	<quest>
 		<name>Minerar BitCoins</name>
-		<instruction>Um jeito fÁcil de ganhar um bom dinheiro na deepweb É minerando BitCoins. Para fazer isso basta clicar em programaÇÃo, depois em 'bitCoins'. Minere um bitCoin Usando o script do Zeck.</instruction>
+		<instruction>Um jeito fÁcil de ganhar um bom dinheiro na deepweb É minerando BitCoins. Para fazer isso basta clicar em 'programaÇÃo', depois em 'bitCoins'. Minere um bitCoin Usando o script do Zeck.</instruction>
 	</quest>
 	<quest>
 		<name>Revisar CÓdigos</name>
-		<instruction>Revise cÓdigos para ganhar experiÊncia e P. ProgramaÇÃo. Para fazer isso basta clicar em programaÇÃo, depois em 'Revisar CÓdigos'.</instruction>
+		<instruction>Revise cÓdigos para ganhar experiÊncia e P. Skill. Para fazer isso basta clicar em 'programaÇÃo', depois em 'Revisar CÓdigos'.</instruction>
 	</quest>
 </quests>

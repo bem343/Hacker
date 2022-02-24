@@ -23,7 +23,7 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>"O quÊ raios sÃo esses Pontos programaÇÃo?"</text>
+        <text>"O quÊ raios sÃo esses Pontos de Skill?"</text>
         <buttons>
             <button>Continuar</button>
         </buttons>
@@ -41,7 +41,7 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Um jeito bom de ganhar experiÊncia e P. ProgramaÇÃo É revisando cÓdigos. Tente fazer isso.</text>
+        <text>Um jeito bom de ganhar experiÊncia e P. Skill É revisando cÓdigos. Tente fazer isso.</text>
         <buttons>
             <button>Ok</button>
         </buttons>

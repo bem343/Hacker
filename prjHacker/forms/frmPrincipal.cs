@@ -24,7 +24,8 @@ namespace prjHacker.forms
             private XmlNodeList quests = null;
             public static double dinheiro = 15;
             public static double experiencia = 0;
-            public static int programacao = 0;
+            public static int skill = 0;
+            public static int nivel = 0;
         #endregion
 
         #region Construtores
@@ -43,7 +44,7 @@ namespace prjHacker.forms
                 }
                 lblDinheiro.Text = "$" + dinheiro.ToString("#0.00");
                 lblExperiencia.Text = experiencia.ToString();
-                lblProgramacao.Text = programacao.ToString();
+                lblProgramacao.Text = skill.ToString();
                 janela = new Timer { Interval = 1 };
                 janela.Tick += janela_Tick;
                 XmlDocument arquivo = new XmlDocument();
@@ -67,16 +68,16 @@ namespace prjHacker.forms
                 }
                 private void attProgramacao(int valor)
                 {
-                    programacao += valor;
-                    lblProgramacao.Text = programacao.ToString();
+                    skill += valor;
+                    lblProgramacao.Text = skill.ToString();
                 }
                 private void attExperiencia(double valor)
                 {
                     experiencia += valor;
                     double total = experiencia / 100;
-                    int inteiro = Convert.ToInt32(Math.Floor(total));
-                    lblExperiencia.Text = inteiro.ToString();
-                    double quebrado = (total - inteiro);
+                    nivel = Convert.ToInt32(Math.Floor(total));
+                    lblExperiencia.Text = nivel.ToString();
+                    double quebrado = (total - nivel);
                     double porcentagem = quebrado * 100;
                     pbExperiencia.Value = Convert.ToInt32(Math.Floor(porcentagem));
                     Application.DoEvents();
@@ -201,7 +202,7 @@ namespace prjHacker.forms
             {
                 play.click();
                 fecharPanels();
-                //panelBitcoin.Visible = true;
+                panelCodigos.Visible = true;
                 gbAreaDeTrabalho.Text = "Área de Trabalho";
             }
             private void bitCoins_Tick(object sender, EventArgs e)
@@ -228,13 +229,16 @@ namespace prjHacker.forms
                 buttons[3] = "";
                 if (abreDialogo("S.H.A.R.K", "sharkgreen.png", "Tem certeza que deseja sair?", buttons) == DialogResult.OK)
                 {
-                    Timer exitTimer = new Timer();
-                    exitTimer.Interval = 400;
-                    exitTimer.Tick += exitTimer_Tick;
-                    exitTimer.Start();
-                    Music.stop();
                     Close();
                 }
+            }
+            private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+            {
+                Timer exitTimer = new Timer();
+                exitTimer.Interval = 400;
+                exitTimer.Tick += exitTimer_Tick;
+                exitTimer.Start();
+                Music.stop();
             }
             private void exitTimer_Tick(object sender, EventArgs e)
             {
@@ -406,7 +410,7 @@ namespace prjHacker.forms
                     //Relatório final da mineração
                     string mensagem = "MineraÇÃo finalizada! VocÊ conseguiu: ";
                     mensagem += "$" + vDinheiro.ToString("#0.00") + ";  ";
-                    mensagem += vProgramacao + " P. ProgramaÇÃo;  ";
+                    mensagem += vProgramacao + " P. Skill;  ";
                     mensagem += vExperiencia.ToString("#0.0") + " de ExperiÊncia. ";
                     mensagem += "Minerando BitCoins.";
                     string[] buttons = new string[4];
@@ -423,6 +427,59 @@ namespace prjHacker.forms
                     my.scriptsRemove();
                 }
                 else { vpn.stop(); Music.play("# (5).mp3"); }
+            }
+        #endregion
+
+        #region Área de Revisar códigos
+            int buscarTime = 0;
+            int buscarMax = 0;
+            bool primeiraVez = true;
+            Timer buscaTimer = new Timer();
+            private void panelCodigos_VisibleChanged(object sender, EventArgs e)
+            {
+                if (primeiraVez)
+                { buscaTimer.Tick += buscaTimer_Tick; primeiraVez = false; }
+                if (panelCodigos.Visible)
+                { listCodigosRefresh(); }
+                else { buscaTimer.Stop(); lstCodigos.Items.Clear(); }
+            }
+            private void buscaTimer_Tick(object sender, EventArgs e)
+            {
+                buscarTime++; if (buscarTime == buscarMax)
+                { 
+                    buscaTimer.Stop();
+                    pcbLoad.Visible = false;
+                    btnRefresh.Enabled = true;
+                    play.complete(); return;
+                } int erros = new Random().Next(3, 4 + (nivel * 2));
+                lstCodigos.Items.Add("xX_Gamer_Xx - " + erros + " erros");
+                play.select(); buscaTimer.Interval = new Random().Next(500, 2001);
+            }
+            private void btnRefresh_Click(object sender, EventArgs e)
+            {
+                play.click(); listCodigosRefresh();
+            }
+            private void listCodigosRefresh()
+            {
+                buscarTime = 0;
+                buscarMax = 6;
+                btnRefresh.Enabled = false;
+                lstCodigos.ClearSelected();
+                lstCodigos.Items.Clear();
+                btnRevisar.Enabled = false;
+                buscaTimer.Interval = 1000;
+                pcbLoad.Visible = true;
+                buscaTimer.Start();
+            }
+            private void lstCodigos_SelectedIndexChanged(object sender, EventArgs e)
+            {
+                play.click();
+                if (lstCodigos.SelectedItems.Count > 0) { btnRevisar.Enabled = true; }
+                lstCodigos.ClearSelected();
+            }
+            private void btnRevisar_Click(object sender, EventArgs e)
+            {
+                play.click();
             }
         #endregion
 

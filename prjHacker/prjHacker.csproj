@@ -169,6 +169,8 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="dlls\taglib-sharp.dll" />
+    <None Include="Resources\Carregando2.gif" />
+    <None Include="Resources\carregando.gif" />
     <None Include="Resources\sharkred.png" />
     <None Include="Resources\zeck mal.jpg" />
     <None Include="Resources\script1.png" />

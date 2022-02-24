@@ -73,6 +73,26 @@ namespace prjHacker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap carregando {
+            get {
+                object obj = ResourceManager.GetObject("carregando", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Carregando2 {
+            get {
+                object obj = ResourceManager.GetObject("Carregando2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hacker1__fumaça_verde_ {
             get {
                 object obj = ResourceManager.GetObject("hacker1 (fumaça verde)", resourceCulture);
