@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<dialogs>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>Perfeito, VocÊ É rÁpido no teclado hein!</text>
+        <buttons>
+            <button>Obrigado</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>Enfim, nesse momento vocÊ deve estar se perguntando...</text>
+        <buttons>
+            <button>Continuar</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>"O quÊ raios sÃo esses Pontos programaÇÃo?"</text>
+        <buttons>
+            <button>Continuar</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>VocÊ usa eles para programar, seja um script ou um vÍrus. EntÃo, quanto mais melhor!</text>
+        <buttons>
+            <button>Entendi</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>Um jeito bom de ganhar experiÊncia e P. ProgramaÇÃo É revisando cÓdigos. Tente fazer isso.</text>
+        <buttons>
+            <button>Ok</button>
+        </buttons>
+    </dialog>
+
+</dialogs>

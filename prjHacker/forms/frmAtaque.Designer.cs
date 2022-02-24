@@ -45,6 +45,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.pbAtaque);
             this.groupBox1.Controls.Add(this.btnContraAtaque);
@@ -87,14 +88,14 @@
             this.btnContraAtaque.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnContraAtaque.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnContraAtaque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContraAtaque.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContraAtaque.Font = new System.Drawing.Font("DS-Digital", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContraAtaque.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
             this.btnContraAtaque.Location = new System.Drawing.Point(157, 29);
             this.btnContraAtaque.Name = "btnContraAtaque";
             this.btnContraAtaque.Size = new System.Drawing.Size(225, 183);
             this.btnContraAtaque.TabIndex = 5;
             this.btnContraAtaque.TabStop = false;
-            this.btnContraAtaque.Text = "Contra-Ataque";
+            this.btnContraAtaque.Text = "Impedir!";
             this.btnContraAtaque.UseVisualStyleBackColor = false;
             this.btnContraAtaque.Click += new System.EventHandler(this.btnContraAtaque_Click);
             // 

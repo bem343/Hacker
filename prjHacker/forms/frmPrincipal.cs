@@ -197,6 +197,13 @@ namespace prjHacker.forms
             {
                 play.click();
             }
+            private void revisarCodigos_Tick(object sender, EventArgs e)
+            {
+                play.click();
+                fecharPanels();
+                //panelBitcoin.Visible = true;
+                gbAreaDeTrabalho.Text = "Área de Trabalho";
+            }
             private void bitCoins_Tick(object sender, EventArgs e)
             {
                 play.click();
@@ -315,7 +322,7 @@ namespace prjHacker.forms
             }
             private void btnVpn1_Click(object sender, EventArgs e)
             {
-                btnVpn(5, 10);
+                btnVpn(60, 10);
             }
             private void btnVpn2_Click(object sender, EventArgs e)
             {
@@ -349,13 +356,18 @@ namespace prjHacker.forms
             private void q2complete()
             {
                 qComplete();
-                //dialogo("dialogs/q1complete.xml");
+                dialogo("dialogs/q2complete.xml");
 
-                //startQuest();
-                //programacaoTool.DropDownItems.Add("BitCoins");
-                //programacaoTool.DropDownItems[0].Click += bitCoins_Tick;
-                //programacaoTool.DropDownItems[0].BackColor = Color.Black;
-                //programacaoTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
+                startQuest();
+                programacaoTool.DropDownItems.Add("Revisar cÓdigos");
+                programacaoTool.DropDownItems.Insert(0, programacaoTool.DropDownItems[1]);
+                programacaoTool.DropDownItems.Add("-");
+                programacaoTool.DropDownItems.Insert(1, programacaoTool.DropDownItems[2]);
+                programacaoTool.DropDownItems[0].Click += revisarCodigos_Tick;
+                programacaoTool.DropDownItems[0].BackColor = Color.Black;
+                programacaoTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
+                programacaoTool.DropDownItems[1].BackColor = Color.Black;
+                programacaoTool.DropDownItems[1].ForeColor = Color.FromArgb(0, 200, 0);
             }
         #endregion
 
@@ -390,12 +402,13 @@ namespace prjHacker.forms
                     //Recompensas
                     int vProgramacao = my.currentScript().lines * 10;
                     double vDinheiro = my.currentScript().lines * 15.5;
-                    double vExperiencia = my.currentScript().lines * 5.5;
+                    double vExperiencia = my.currentScript().lines * 5.2;
                     //Relatório final da mineração
-                    string mensagem = "MineraÇÃo finalizada! VocÊ conseguiu ";
+                    string mensagem = "MineraÇÃo finalizada! VocÊ conseguiu: ";
                     mensagem += "$" + vDinheiro.ToString("#0.00") + ";  ";
                     mensagem += vProgramacao + " P. ProgramaÇÃo;  ";
-                    mensagem += vExperiencia.ToString("#0.0") + " de ExperiÊncia.";
+                    mensagem += vExperiencia.ToString("#0.0") + " de ExperiÊncia. ";
+                    mensagem += "Minerando BitCoins.";
                     string[] buttons = new string[4];
                     buttons[0] = "Ok";
                     buttons[1] = "";

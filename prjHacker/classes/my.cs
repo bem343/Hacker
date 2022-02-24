@@ -18,6 +18,7 @@ namespace prjHacker.classes
         public static void scriptsRemove()
         {
             scripts.RemoveAt(selectedScript);
+            selectedScript = -1;
         }
 
         public static script currentScript()
