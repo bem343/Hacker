@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -37,6 +36,7 @@
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblExperiencia = new System.Windows.Forms.Label();
             this.pbExperiencia = new System.Windows.Forms.ProgressBar();
@@ -61,18 +61,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnRevisar = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lstCodigos = new System.Windows.Forms.ListBox();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.pcbLoad = new System.Windows.Forms.PictureBox();
             this.panelBitcoin = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblLinesScript = new System.Windows.Forms.Label();
             this.lblLinesTitle = new System.Windows.Forms.Label();
             this.lblScript = new System.Windows.Forms.Label();
-            this.pcbScript = new System.Windows.Forms.PictureBox();
             this.btnMinerar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnScript = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -90,6 +86,10 @@
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.rtbTeste = new System.Windows.Forms.RichTextBox();
             this.btnSair = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pcbLoad = new System.Windows.Forms.PictureBox();
+            this.pcbScript = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pcbFundo = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -97,16 +97,16 @@
             this.contextMenuStrip.SuspendLayout();
             this.gbAreaDeTrabalho.SuspendLayout();
             this.panelCodigos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbLoad)).BeginInit();
             this.panelBitcoin.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbScript)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelVpn.SuspendLayout();
             this.panelMissao.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLoad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbScript)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFundo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -251,7 +251,7 @@
             // 
             // menuStrip
             // 
-            this.menuStrip.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.menuStrip.Font = new System.Drawing.Font("DS-Digital", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.servicosTool,
@@ -351,7 +351,8 @@
             this.panelCodigos.Controls.Add(this.lstCodigos);
             this.panelCodigos.Controls.Add(this.btnRefresh);
             this.panelCodigos.Controls.Add(this.pcbLoad);
-            this.panelCodigos.Location = new System.Drawing.Point(10, 540);
+            this.panelCodigos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCodigos.Location = new System.Drawing.Point(10, 33);
             this.panelCodigos.Name = "panelCodigos";
             this.panelCodigos.Size = new System.Drawing.Size(455, 447);
             this.panelCodigos.TabIndex = 4;
@@ -408,16 +409,6 @@
             this.btnRevisar.UseVisualStyleBackColor = false;
             this.btnRevisar.Click += new System.EventHandler(this.btnRevisar_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(291, 232);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(153, 157);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 25;
-            this.pictureBox2.TabStop = false;
-            // 
             // lstCodigos
             // 
             this.lstCodigos.BackColor = System.Drawing.Color.Black;
@@ -451,17 +442,6 @@
             this.btnRefresh.Text = "Atualizar";
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // pcbLoad
-            // 
-            this.pcbLoad.Image = global::prjHacker.Properties.Resources.Carregando2;
-            this.pcbLoad.Location = new System.Drawing.Point(289, 184);
-            this.pcbLoad.Name = "pcbLoad";
-            this.pcbLoad.Size = new System.Drawing.Size(26, 26);
-            this.pcbLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcbLoad.TabIndex = 0;
-            this.pcbLoad.TabStop = false;
-            this.pcbLoad.Visible = false;
             // 
             // panelBitcoin
             // 
@@ -530,17 +510,6 @@
             this.lblScript.Text = "script.js";
             this.lblScript.Visible = false;
             // 
-            // pcbScript
-            // 
-            this.pcbScript.Image = global::prjHacker.Properties.Resources.script;
-            this.pcbScript.Location = new System.Drawing.Point(7, 12);
-            this.pcbScript.Name = "pcbScript";
-            this.pcbScript.Size = new System.Drawing.Size(97, 102);
-            this.pcbScript.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcbScript.TabIndex = 0;
-            this.pcbScript.TabStop = false;
-            this.pcbScript.Visible = false;
-            // 
             // btnMinerar
             // 
             this.btnMinerar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -558,16 +527,6 @@
             this.btnMinerar.TabStop = false;
             this.btnMinerar.Text = "Iniciar MineraÇÃo";
             this.btnMinerar.Click += new System.EventHandler(this.btnMinerar_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::prjHacker.Properties.Resources.Bitcoin_PNG;
-            this.pictureBox1.Location = new System.Drawing.Point(272, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(153, 151);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
             // 
             // btnScript
             // 
@@ -845,20 +804,64 @@
             // 
             // btnSair
             // 
+            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSair.FlatAppearance.BorderSize = 0;
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.ForeColor = System.Drawing.Color.Transparent;
+            this.btnSair.ForeColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(876, 3);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(25, 25);
             this.btnSair.TabIndex = 11;
             this.btnSair.TabStop = false;
             this.btnSair.Text = "X";
+            this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(291, 232);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(153, 157);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 25;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pcbLoad
+            // 
+            this.pcbLoad.Image = global::prjHacker.Properties.Resources.Carregando2;
+            this.pcbLoad.Location = new System.Drawing.Point(289, 184);
+            this.pcbLoad.Name = "pcbLoad";
+            this.pcbLoad.Size = new System.Drawing.Size(26, 26);
+            this.pcbLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbLoad.TabIndex = 0;
+            this.pcbLoad.TabStop = false;
+            this.pcbLoad.Visible = false;
+            // 
+            // pcbScript
+            // 
+            this.pcbScript.Image = global::prjHacker.Properties.Resources.script;
+            this.pcbScript.Location = new System.Drawing.Point(7, 12);
+            this.pcbScript.Name = "pcbScript";
+            this.pcbScript.Size = new System.Drawing.Size(97, 102);
+            this.pcbScript.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbScript.TabIndex = 0;
+            this.pcbScript.TabStop = false;
+            this.pcbScript.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::prjHacker.Properties.Resources.Bitcoin_PNG;
+            this.pictureBox1.Location = new System.Drawing.Point(272, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(153, 151);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
             // 
             // pcbFundo
             // 
@@ -905,19 +908,19 @@
             this.gbAreaDeTrabalho.ResumeLayout(false);
             this.panelCodigos.ResumeLayout(false);
             this.panelCodigos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbLoad)).EndInit();
             this.panelBitcoin.ResumeLayout(false);
             this.panelBitcoin.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbScript)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelVpn.ResumeLayout(false);
             this.panelVpn.PerformLayout();
             this.panelMissao.ResumeLayout(false);
             this.panelPrincipal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLoad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbScript)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFundo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

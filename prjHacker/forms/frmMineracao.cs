@@ -41,8 +41,7 @@ namespace prjHacker.forms
                 linha = linhas[0];
                 lblLinha.Text = linha;
                 pbLinha.Maximum = linha.Length;
-                txtLinha.Focus();
-                vpn.start();
+                txtLinha.Focus(); vpn.start();
                 timerVpn.Start();
             }
         #endregion
@@ -124,8 +123,6 @@ namespace prjHacker.forms
             private void btnSair_Click(object sender, EventArgs e)
             {
                 play.click();
-                vpn.stop();
-                timerVpn.Stop();
                 Close();
             }
         #endregion
@@ -165,6 +162,7 @@ namespace prjHacker.forms
         {
             timerAtaque.Stop();
             timerVpn.Stop();
+            vpn.stop();
         }
     }
 }

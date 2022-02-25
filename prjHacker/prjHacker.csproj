@@ -71,6 +71,12 @@
     <Compile Include="forms\frmAtaque.Designer.cs">
       <DependentUpon>frmAtaque.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmCodigo.Designer.cs">
+      <DependentUpon>frmCodigo.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmConfiguracoes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="forms\frmAtaque.resx">
       <DependentUpon>frmAtaque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmCodigo.resx">
+      <DependentUpon>frmCodigo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmConfiguracoes.resx">
       <DependentUpon>frmConfiguracoes.cs</DependentUpon>

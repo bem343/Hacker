@@ -65,11 +65,11 @@
             this.gbControle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbControle.Font = new System.Drawing.Font("DS-Digital", 21.75F);
             this.gbControle.ForeColor = System.Drawing.Color.White;
-            this.gbControle.Location = new System.Drawing.Point(10, 22);
+            this.gbControle.Location = new System.Drawing.Point(10, 3);
             this.gbControle.Margin = new System.Windows.Forms.Padding(10);
             this.gbControle.Name = "gbControle";
             this.gbControle.Padding = new System.Windows.Forms.Padding(10, 4, 10, 10);
-            this.gbControle.Size = new System.Drawing.Size(529, 385);
+            this.gbControle.Size = new System.Drawing.Size(529, 387);
             this.gbControle.TabIndex = 13;
             this.gbControle.TabStop = false;
             this.gbControle.Text = "Selecione o Script";
@@ -104,7 +104,7 @@
             // 
             // lstScripts
             // 
-            this.lstScripts.BackColor = System.Drawing.Color.Black;
+            this.lstScripts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.lstScripts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstScripts.Dock = System.Windows.Forms.DockStyle.Left;
             this.lstScripts.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic);
@@ -113,7 +113,7 @@
             this.lstScripts.ItemHeight = 27;
             this.lstScripts.Location = new System.Drawing.Point(10, 33);
             this.lstScripts.Name = "lstScripts";
-            this.lstScripts.Size = new System.Drawing.Size(338, 342);
+            this.lstScripts.Size = new System.Drawing.Size(338, 344);
             this.lstScripts.TabIndex = 0;
             this.lstScripts.SelectedIndexChanged += new System.EventHandler(this.lstScripts_SelectedIndexChanged);
             // 
@@ -121,13 +121,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(549, 417);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.ClientSize = new System.Drawing.Size(549, 400);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.gbControle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmScript";
-            this.Padding = new System.Windows.Forms.Padding(10, 22, 10, 10);
+            this.Padding = new System.Windows.Forms.Padding(10, 3, 10, 10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Script";
             this.Load += new System.EventHandler(this.frmScript_Load);

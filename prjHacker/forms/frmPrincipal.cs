@@ -373,6 +373,22 @@ namespace prjHacker.forms
                 programacaoTool.DropDownItems[1].BackColor = Color.Black;
                 programacaoTool.DropDownItems[1].ForeColor = Color.FromArgb(0, 200, 0);
             }
+            private void q3complete()
+            {
+                qComplete();
+                //dialogo("dialogs/q2complete.xml");
+
+                //startQuest();
+                //programacaoTool.DropDownItems.Add("Revisar cÓdigos");
+                //programacaoTool.DropDownItems.Insert(0, programacaoTool.DropDownItems[1]);
+                //programacaoTool.DropDownItems.Add("-");
+                //programacaoTool.DropDownItems.Insert(1, programacaoTool.DropDownItems[2]);
+                //programacaoTool.DropDownItems[0].Click += revisarCodigos_Tick;
+                //programacaoTool.DropDownItems[0].BackColor = Color.Black;
+                //programacaoTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
+                //programacaoTool.DropDownItems[1].BackColor = Color.Black;
+                //programacaoTool.DropDownItems[1].ForeColor = Color.FromArgb(0, 200, 0);
+            }
         #endregion
 
         #region Área de mineração de Bitcoin
@@ -391,7 +407,6 @@ namespace prjHacker.forms
             }
             private void btnMinerar_Click(object sender, EventArgs e)
             {
-
                 Music.play("# (4).mp3");
                 frmMineracao frmMineracao = new frmMineracao();
                 if (frmMineracao.ShowDialog() == DialogResult.OK)
@@ -425,8 +440,7 @@ namespace prjHacker.forms
                     attExperiencia(vExperiencia);
                     if (quest.current == 2) { q2complete(); }
                     my.scriptsRemove();
-                }
-                else { vpn.stop(); Music.play("# (5).mp3"); }
+                } else { Music.play("# (5).mp3"); }
             }
         #endregion
 
@@ -439,14 +453,13 @@ namespace prjHacker.forms
             {
                 if (primeiraVez)
                 { buscaTimer.Tick += buscaTimer_Tick; primeiraVez = false; }
-                if (panelCodigos.Visible)
-                { listCodigosRefresh(); }
+                if (panelCodigos.Visible) { listCodigosRefresh(); }
                 else { buscaTimer.Stop(); lstCodigos.Items.Clear(); }
             }
             private void buscaTimer_Tick(object sender, EventArgs e)
             {
                 buscarTime++; if (buscarTime == buscarMax)
-                { 
+                {
                     buscaTimer.Stop();
                     pcbLoad.Visible = false;
                     btnRefresh.Enabled = true;
@@ -461,8 +474,7 @@ namespace prjHacker.forms
             }
             private void listCodigosRefresh()
             {
-                buscarTime = 0;
-                buscarMax = 6;
+                buscarTime = 0; buscarMax = 6;
                 btnRefresh.Enabled = false;
                 lstCodigos.ClearSelected();
                 lstCodigos.Items.Clear();
@@ -479,7 +491,41 @@ namespace prjHacker.forms
             }
             private void btnRevisar_Click(object sender, EventArgs e)
             {
-                play.click();
+                play.click(); buscaTimer.Stop();
+                btnRefresh.Enabled = false;
+                btnRevisar.Enabled = false;
+                pcbLoad.Visible = false;
+                lstCodigos.Items.Clear();
+                Music.play("# (4).mp3");
+                frmCodigo frmCodigo = new frmCodigo();
+                if (frmCodigo.ShowDialog() == DialogResult.OK)
+                {
+                    Music.play("# (5).mp3");
+
+                    //Recompensas
+                    double vDinheiro = 0; if (
+                        new Random().Next(0, 2) == 1 ? true : false
+                    ) { vDinheiro = 2.5; }
+                    double vExperiencia = 80;
+                    int vProgramacao = 300;
+                    //Relatório final da mineração
+                    string mensagem = "RevisÃo ConcluÍda! VocÊ conseguiu: ";
+                    mensagem += "$" + vDinheiro.ToString("#0.00") + ";  ";
+                    mensagem += vProgramacao + " P. Skill;  ";
+                    mensagem += vExperiencia.ToString("#0.0") + " de ExperiÊncia. ";
+                    mensagem += "Revisando CÓdigos";
+                    string[] buttons = new string[4];
+                    buttons[0] = "Ok";
+                    buttons[1] = "";
+                    buttons[2] = "";
+                    buttons[3] = "";
+                    abreDialogo("S.H.A.R.K", "sharkgreen.png", mensagem, buttons);
+
+                    attProgramacao(vProgramacao);
+                    attDinheiro(vDinheiro);
+                    attExperiencia(vExperiencia);
+                    if (quest.current == 3) { q3complete(); }
+                } else { Music.play("# (5).mp3"); } listCodigosRefresh();
             }
         #endregion
 

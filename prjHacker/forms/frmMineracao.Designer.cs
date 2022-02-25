@@ -76,11 +76,11 @@
             this.gbControle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbControle.Font = new System.Drawing.Font("DS-Digital", 21.75F);
             this.gbControle.ForeColor = System.Drawing.Color.White;
-            this.gbControle.Location = new System.Drawing.Point(10, 22);
+            this.gbControle.Location = new System.Drawing.Point(10, 3);
             this.gbControle.Margin = new System.Windows.Forms.Padding(10);
             this.gbControle.Name = "gbControle";
             this.gbControle.Padding = new System.Windows.Forms.Padding(10, 4, 10, 10);
-            this.gbControle.Size = new System.Drawing.Size(740, 164);
+            this.gbControle.Size = new System.Drawing.Size(740, 183);
             this.gbControle.TabIndex = 15;
             this.gbControle.TabStop = false;
             this.gbControle.Text = "MineraÇÃo";
@@ -96,9 +96,9 @@
             this.btnConcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConcluir.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConcluir.ForeColor = System.Drawing.Color.White;
-            this.btnConcluir.Location = new System.Drawing.Point(309, 72);
+            this.btnConcluir.Location = new System.Drawing.Point(309, 73);
             this.btnConcluir.Name = "btnConcluir";
-            this.btnConcluir.Size = new System.Drawing.Size(129, 38);
+            this.btnConcluir.Size = new System.Drawing.Size(129, 39);
             this.btnConcluir.TabIndex = 22;
             this.btnConcluir.TabStop = false;
             this.btnConcluir.Text = "Finalizar";
@@ -109,7 +109,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.label1.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(156, 0);
@@ -121,7 +121,7 @@
             // lblLinhas
             // 
             this.lblLinhas.AutoSize = true;
-            this.lblLinhas.BackColor = System.Drawing.Color.Black;
+            this.lblLinhas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.lblLinhas.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLinhas.Location = new System.Drawing.Point(249, 0);
             this.lblLinhas.Name = "lblLinhas";
@@ -136,7 +136,7 @@
             this.txtLinha.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtLinha.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLinha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            this.txtLinha.Location = new System.Drawing.Point(10, 95);
+            this.txtLinha.Location = new System.Drawing.Point(10, 114);
             this.txtLinha.Multiline = true;
             this.txtLinha.Name = "txtLinha";
             this.txtLinha.Size = new System.Drawing.Size(720, 59);
@@ -157,7 +157,7 @@
             // lblVpnAtivo
             // 
             this.lblVpnAtivo.AutoSize = true;
-            this.lblVpnAtivo.BackColor = System.Drawing.Color.Black;
+            this.lblVpnAtivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.lblVpnAtivo.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVpnAtivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
             this.lblVpnAtivo.Location = new System.Drawing.Point(312, 0);
@@ -170,7 +170,7 @@
             // lblVpn
             // 
             this.lblVpn.AutoSize = true;
-            this.lblVpn.BackColor = System.Drawing.Color.Black;
+            this.lblVpn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.lblVpn.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVpn.Location = new System.Drawing.Point(492, 0);
             this.lblVpn.Name = "lblVpn";
@@ -200,14 +200,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.ClientSize = new System.Drawing.Size(760, 208);
             this.Controls.Add(this.pbLinha);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.gbControle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMineracao";
-            this.Padding = new System.Windows.Forms.Padding(10, 22, 10, 22);
+            this.Padding = new System.Windows.Forms.Padding(10, 3, 10, 22);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmMineracao";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMineracao_FormClosing);
