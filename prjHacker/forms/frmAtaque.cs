@@ -45,7 +45,7 @@ namespace prjHacker.forms
         private void frmAtaque_Load(object sender, EventArgs e)
         {
             play.hacking();
-            timer.Interval = 70;
+            timer.Interval = 80;
             timer.Start();
             pbAtaque.Maximum = 22;
         }

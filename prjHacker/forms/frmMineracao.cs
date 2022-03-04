@@ -16,9 +16,10 @@ namespace prjHacker.forms
         #region Variáveis
             private List<string> linhas = new List<string>()
             {
-                "if (x == 0) { this.numero = x; }",
-                "if (x > 0) { x--; }",
-                "if (x < 0) { x++; }"
+                //"if (x == 0) { this.numero = x; }",
+                //"if (x > 0) { x--; }",
+                //"if (x < 0) { x++; }"
+                "teste", "teste", "teste"
             };
             private int proximoAtaque = 0;
             private int tempoAtaque = 0;

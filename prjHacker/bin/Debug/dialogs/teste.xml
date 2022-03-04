@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<dialogs>
+
+    <dialog>
+        <name>S.H.A.R.K</name>
+        <image>sharkgreen.png</image>
+        <text>teste</text>
+        <buttons>
+            <button>teste</button>
+        </buttons>
+    </dialog>
+
+</dialogs>

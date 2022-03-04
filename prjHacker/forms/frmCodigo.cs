@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using prjHacker.classes;
+using System.Xml;
 
 namespace prjHacker.forms
 {
@@ -20,11 +21,13 @@ namespace prjHacker.forms
             string codigoFinal = "";
             private int proximoAtaque = 0;
             private int tempoAtaque = 0;
+            private XmlNodeList codes = null;
         #endregion
 
         #region Construtores
-            public frmCodigo()
+            public frmCodigo(int erros)
             {
+                this.erros = erros;
                 DialogResult = DialogResult.Abort;
                 InitializeComponent();
             }   
@@ -55,8 +58,19 @@ namespace prjHacker.forms
         #region Page Load
             private void frmCodigo_Load(object sender, EventArgs e)
             {
-                codigoOriginal = "if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }";
-                codigoFinal = "if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return }if (x == 0) { return; }if (x == 0) { return; }if (x == 0) { return; }";
+                XmlDocument arquivo = new XmlDocument();
+                arquivo.Load("codes.xml");
+                codes = arquivo.GetElementsByTagName("code");
+
+                int r = new Random().Next(0, codes.Count);
+                codigoOriginal = codes[r].InnerText;
+                Random posicaoAleatoria = new Random();
+                int init = 0; for (int i = 0; i < erros; i++)
+                {
+                    int fim = posicaoAleatoria.Next(init, (codigoOriginal.Length - (erros - i)));
+                    codigoFinal += codigoOriginal.Substring(init, (fim - init)); init = fim + 1;
+                } codigoFinal += codigoOriginal.Substring(init, (codigoOriginal.Length - init));
+
                 lblOriginal.Text = codigoOriginal; rtbFinal.Text = codigoFinal;
                 lblUsuario.Text = "Script de: bem343"; verificarVpn();
                 lblErros.Text = errosCorrigidos + "/" + erros;

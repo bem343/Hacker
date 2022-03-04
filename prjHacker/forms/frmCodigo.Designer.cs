@@ -30,18 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblOriginal = new System.Windows.Forms.Label();
-            this.rtbFinal = new System.Windows.Forms.RichTextBox();
+            this.btnConcluir = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblErros = new System.Windows.Forms.Label();
             this.lblVpnAtivo = new System.Windows.Forms.Label();
             this.lblVpn = new System.Windows.Forms.Label();
-            this.btnSair = new System.Windows.Forms.Button();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblOriginal = new System.Windows.Forms.Label();
+            this.rtbFinal = new System.Windows.Forms.RichTextBox();
             this.timerVpn = new System.Windows.Forms.Timer(this.components);
             this.timerAtaque = new System.Windows.Forms.Timer(this.components);
-            this.btnConcluir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,48 +69,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "RevisÃo de CÓdigo";
             // 
-            // lblUsuario
+            // btnConcluir
             // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(471, 40);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(311, 29);
-            this.lblUsuario.TabIndex = 3;
-            this.lblUsuario.Text = "Script de: xX_Gamer_Xx";
+            this.btnConcluir.BackColor = System.Drawing.Color.Transparent;
+            this.btnConcluir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConcluir.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnConcluir.FlatAppearance.BorderSize = 0;
+            this.btnConcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnConcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.btnConcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConcluir.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConcluir.ForeColor = System.Drawing.Color.White;
+            this.btnConcluir.Location = new System.Drawing.Point(745, 474);
+            this.btnConcluir.Name = "btnConcluir";
+            this.btnConcluir.Size = new System.Drawing.Size(129, 39);
+            this.btnConcluir.TabIndex = 26;
+            this.btnConcluir.TabStop = false;
+            this.btnConcluir.Text = "Finalizar";
+            this.btnConcluir.UseVisualStyleBackColor = false;
+            this.btnConcluir.Visible = false;
+            this.btnConcluir.Click += new System.EventHandler(this.btnConcluir_Click);
             // 
-            // label1
+            // btnSair
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 29);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Script Original";
-            // 
-            // lblOriginal
-            // 
-            this.lblOriginal.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblOriginal.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOriginal.Location = new System.Drawing.Point(10, 69);
-            this.lblOriginal.Name = "lblOriginal";
-            this.lblOriginal.Size = new System.Drawing.Size(455, 444);
-            this.lblOriginal.TabIndex = 1;
-            // 
-            // rtbFinal
-            // 
-            this.rtbFinal.BackColor = System.Drawing.Color.Black;
-            this.rtbFinal.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbFinal.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rtbFinal.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            this.rtbFinal.Location = new System.Drawing.Point(476, 69);
-            this.rtbFinal.Name = "rtbFinal";
-            this.rtbFinal.Size = new System.Drawing.Size(398, 444);
-            this.rtbFinal.TabIndex = 0;
-            this.rtbFinal.Text = "";
-            this.rtbFinal.TextChanged += new System.EventHandler(this.rtbFinal_TextChanged);
+            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSair.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSair.FlatAppearance.BorderSize = 0;
+            this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.ForeColor = System.Drawing.Color.Transparent;
+            this.btnSair.Location = new System.Drawing.Point(867, -1);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(25, 25);
+            this.btnSair.TabIndex = 15;
+            this.btnSair.TabStop = false;
+            this.btnSair.Text = "X";
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Visible = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // label3
             // 
@@ -160,25 +158,48 @@
             this.lblVpn.Text = "00:00";
             this.lblVpn.Visible = false;
             // 
-            // btnSair
+            // lblUsuario
             // 
-            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSair.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSair.FlatAppearance.BorderSize = 0;
-            this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSair.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.ForeColor = System.Drawing.Color.Transparent;
-            this.btnSair.Location = new System.Drawing.Point(867, -1);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(25, 25);
-            this.btnSair.TabIndex = 15;
-            this.btnSair.TabStop = false;
-            this.btnSair.Text = "X";
-            this.btnSair.UseVisualStyleBackColor = false;
-            this.btnSair.Visible = false;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(471, 40);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(311, 29);
+            this.lblUsuario.TabIndex = 3;
+            this.lblUsuario.Text = "Script de: xX_Gamer_Xx";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(213, 29);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Script Original";
+            // 
+            // lblOriginal
+            // 
+            this.lblOriginal.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblOriginal.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOriginal.Location = new System.Drawing.Point(10, 69);
+            this.lblOriginal.Name = "lblOriginal";
+            this.lblOriginal.Size = new System.Drawing.Size(398, 444);
+            this.lblOriginal.TabIndex = 1;
+            // 
+            // rtbFinal
+            // 
+            this.rtbFinal.BackColor = System.Drawing.Color.Black;
+            this.rtbFinal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbFinal.Dock = System.Windows.Forms.DockStyle.Right;
+            this.rtbFinal.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.rtbFinal.Location = new System.Drawing.Point(476, 69);
+            this.rtbFinal.Name = "rtbFinal";
+            this.rtbFinal.Size = new System.Drawing.Size(398, 444);
+            this.rtbFinal.TabIndex = 0;
+            this.rtbFinal.Text = "";
+            this.rtbFinal.TextChanged += new System.EventHandler(this.rtbFinal_TextChanged);
             // 
             // timerVpn
             // 
@@ -189,27 +210,6 @@
             // 
             this.timerAtaque.Interval = 1000;
             this.timerAtaque.Tick += new System.EventHandler(this.timerAtaque_Tick);
-            // 
-            // btnConcluir
-            // 
-            this.btnConcluir.BackColor = System.Drawing.Color.Transparent;
-            this.btnConcluir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConcluir.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConcluir.FlatAppearance.BorderSize = 0;
-            this.btnConcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnConcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            this.btnConcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConcluir.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConcluir.ForeColor = System.Drawing.Color.White;
-            this.btnConcluir.Location = new System.Drawing.Point(745, 474);
-            this.btnConcluir.Name = "btnConcluir";
-            this.btnConcluir.Size = new System.Drawing.Size(129, 39);
-            this.btnConcluir.TabIndex = 26;
-            this.btnConcluir.TabStop = false;
-            this.btnConcluir.Text = "Finalizar";
-            this.btnConcluir.UseVisualStyleBackColor = false;
-            this.btnConcluir.Visible = false;
-            this.btnConcluir.Click += new System.EventHandler(this.btnConcluir_Click);
             // 
             // frmCodigo
             // 

@@ -114,9 +114,9 @@ namespace prjHacker.forms
                         lblVpnAtivo.Visible = false;
                         if(quest.current != 1)
                         {
-                            if (dinheiro >= 5) { btnVpn1.Enabled = true; }
-                            if (dinheiro >= 10) { btnVpn2.Enabled = true; }
-                            if (dinheiro >= 15) { btnVpn3.Enabled = true; }
+                            if (dinheiro >= 10) { btnVpn1.Enabled = true; }
+                            if (dinheiro >= 15) { btnVpn2.Enabled = true; }
+                            if (dinheiro >= 20) { btnVpn3.Enabled = true; }
                         }
                     }
                 }
@@ -270,7 +270,8 @@ namespace prjHacker.forms
         #region Mostra o diálogo de bem-vindo ao abrir o formulário
             private void frmPrincipal_Shown(object sender, EventArgs e)
             {
-                if (dialogo("dialogs/welcome.xml"))
+                //if (dialogo("dialogs/welcome.xml"))
+                if (dialogo("dialogs/teste.xml"))
                 {
                     startQuest();
                     servicosTool.DropDownItems.Add("VPN");
@@ -348,7 +349,8 @@ namespace prjHacker.forms
             private void q1complete()
             {
                 qComplete();
-                dialogo("dialogs/q1complete.xml");
+                //dialogo("dialogs/q1complete.xml");
+                dialogo("dialogs/teste.xml");
                 
                 startQuest();
                 programacaoTool.DropDownItems.Add("BitCoins");
@@ -360,7 +362,8 @@ namespace prjHacker.forms
             private void q2complete()
             {
                 qComplete();
-                dialogo("dialogs/q2complete.xml");
+                //dialogo("dialogs/q2complete.xml");
+                dialogo("dialogs/teste.xml");
 
                 startQuest();
                 programacaoTool.DropDownItems.Add("Revisar cÓdigos");
@@ -497,7 +500,7 @@ namespace prjHacker.forms
                 pcbLoad.Visible = false;
                 lstCodigos.Items.Clear();
                 Music.play("# (4).mp3");
-                frmCodigo frmCodigo = new frmCodigo();
+                frmCodigo frmCodigo = new frmCodigo(3);
                 if (frmCodigo.ShowDialog() == DialogResult.OK)
                 {
                     Music.play("# (5).mp3");
