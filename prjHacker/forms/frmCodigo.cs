@@ -16,8 +16,8 @@ namespace prjHacker.forms
 
         #region Variáveis
             int erros = 0;
-            int errosCorrigidos = 0;
             string codigoOriginal = "";
+            string originalSeco = "";
             string codigoFinal = "";
             private int proximoAtaque = 0;
             private int tempoAtaque = 0;
@@ -65,16 +65,19 @@ namespace prjHacker.forms
                 int r = new Random().Next(0, codes.Count);
                 codigoOriginal = codes[r].InnerText;
                 Random posicaoAleatoria = new Random();
+                originalSeco = codigoOriginal.Replace(" ", "");
                 int init = 0; for (int i = 0; i < erros; i++)
                 {
-                    int fim = posicaoAleatoria.Next(init, (codigoOriginal.Length - (erros - i)));
+                    int fim = 0; do {
+                        fim = posicaoAleatoria.Next(init, (codigoOriginal.Length - (erros - i)));
+                    } while (codigoOriginal.Substring(fim, 1) == " ");
                     codigoFinal += codigoOriginal.Substring(init, (fim - init)); init = fim + 1;
                 } codigoFinal += codigoOriginal.Substring(init, (codigoOriginal.Length - init));
 
                 lblOriginal.Text = codigoOriginal; rtbFinal.Text = codigoFinal;
                 lblUsuario.Text = "Script de: bem343"; verificarVpn();
-                lblErros.Text = errosCorrigidos + "/" + erros;
-                rtbFinal.Focus(); vpn.start(); timerVpn.Start();
+                lblErros.Text = erros.ToString(); rtbFinal.Focus();
+                vpn.start(); timerVpn.Start();
             }
         #endregion
 
@@ -108,11 +111,24 @@ namespace prjHacker.forms
         #region Verifica as mudanças digitadas no código final
             private void rtbFinal_TextChanged(object sender, EventArgs e)
             {
-                if (rtbFinal.Text == codigoOriginal)
+                string rascunhoSeco = rtbFinal.Text.Replace(" ", "").Replace("\n", "");
+                //Verificação dos erros
+                erros = 0;
+                for (int i = 0; i < originalSeco.Length; i++)
+                {
+                    if(rascunhoSeco.Substring(i - erros, 1) != originalSeco.Substring(i, 1))
+                    {
+                        erros++;
+                    }
+                } lblErros.Text = erros.ToString();
+                //Verificação do todo
+                if (rascunhoSeco == originalSeco)
                 {
                     vpn.stop();
                     timerVpn.Stop();
                     timerAtaque.Stop();
+                    rtbFinal.ReadOnly = true;
+                    btnRefazer.Visible = false;
                     btnConcluir.Visible = true;
                     btnConcluir.Focus();
                 }
@@ -124,7 +140,7 @@ namespace prjHacker.forms
         #endregion
 
         #region Botão Sair personalizado
-        private void btnSair_Click(object sender, EventArgs e)
+            private void btnSair_Click(object sender, EventArgs e)
             {
                 Close();
             }
@@ -133,6 +149,13 @@ namespace prjHacker.forms
                 timerAtaque.Stop();
                 timerVpn.Stop();
                 vpn.stop();
+            }
+        #endregion
+
+        #region Botão Refazer
+            private void btnRefazer_Click(object sender, EventArgs e)
+            {
+                rtbFinal.Text = codigoFinal;
             }
         #endregion
 

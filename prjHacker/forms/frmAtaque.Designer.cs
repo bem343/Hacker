@@ -123,7 +123,7 @@
             this.Name = "frmAtaque";
             this.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "frmAtaque";
+            this.Text = "Ataque";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAtaque_FormClosing);
             this.Load += new System.EventHandler(this.frmAtaque_Load);
             this.groupBox1.ResumeLayout(false);

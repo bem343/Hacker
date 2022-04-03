@@ -209,7 +209,7 @@
             this.Name = "frmMineracao";
             this.Padding = new System.Windows.Forms.Padding(10, 3, 10, 22);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmMineracao";
+            this.Text = "Mineração de Bitcoins";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMineracao_FormClosing);
             this.Load += new System.EventHandler(this.frmMineracao_Load);
             this.gbControle.ResumeLayout(false);

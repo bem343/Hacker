@@ -59,6 +59,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSplash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Hacker";
             this.Load += new System.EventHandler(this.frmSplash_Load);
             this.ResumeLayout(false);
 

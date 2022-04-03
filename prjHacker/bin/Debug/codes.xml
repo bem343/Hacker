@@ -149,6 +149,6 @@
         }
     </code> -->
 
-    <code>private void menuStrip_MouseDown(object sender, MouseEventArgs e) { X = Cursor.Position.X - this.Location.X; Y = Cursor.Position.Y - this.Location.Y; janela.Start(); } private void menuStrip_MouseUp(object sender, MouseEventArgs e) { janela.Stop(); }</code>
+    <code>private void menustrip_mousedown(object sender, mouseeventargs e) { x = cursor.position.x - this.location.x; y = cursor.position.y - this.location.y; janela.start(); } private void menustrip_mouseup(object sender, mouseeventargs e) { janela.stop(); }</code>
 
 </codes>

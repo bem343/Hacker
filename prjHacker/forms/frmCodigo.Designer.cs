@@ -42,12 +42,14 @@
             this.rtbFinal = new System.Windows.Forms.RichTextBox();
             this.timerVpn = new System.Windows.Forms.Timer(this.components);
             this.timerAtaque = new System.Windows.Forms.Timer(this.components);
+            this.btnRefazer = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.btnRefazer);
             this.groupBox1.Controls.Add(this.btnConcluir);
             this.groupBox1.Controls.Add(this.btnSair);
             this.groupBox1.Controls.Add(this.label3);
@@ -118,20 +120,20 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
             this.label3.Location = new System.Drawing.Point(253, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(224, 29);
+            this.label3.Size = new System.Drawing.Size(222, 29);
             this.label3.TabIndex = 25;
-            this.label3.Text = "Erros corrigidos:";
+            this.label3.Text = "Erros restantes:";
             // 
             // lblErros
             // 
             this.lblErros.AutoSize = true;
             this.lblErros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.lblErros.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErros.Location = new System.Drawing.Point(477, 0);
+            this.lblErros.Location = new System.Drawing.Point(474, 0);
             this.lblErros.Name = "lblErros";
-            this.lblErros.Size = new System.Drawing.Size(82, 29);
+            this.lblErros.Size = new System.Drawing.Size(41, 29);
             this.lblErros.TabIndex = 24;
-            this.lblErros.Text = "20/20";
+            this.lblErros.Text = "20";
             // 
             // lblVpnAtivo
             // 
@@ -211,6 +213,25 @@
             this.timerAtaque.Interval = 1000;
             this.timerAtaque.Tick += new System.EventHandler(this.timerAtaque_Tick);
             // 
+            // btnRefazer
+            // 
+            this.btnRefazer.BackColor = System.Drawing.Color.Transparent;
+            this.btnRefazer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefazer.FlatAppearance.BorderSize = 0;
+            this.btnRefazer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRefazer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.btnRefazer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefazer.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefazer.ForeColor = System.Drawing.Color.White;
+            this.btnRefazer.Location = new System.Drawing.Point(13, 474);
+            this.btnRefazer.Name = "btnRefazer";
+            this.btnRefazer.Size = new System.Drawing.Size(129, 39);
+            this.btnRefazer.TabIndex = 27;
+            this.btnRefazer.TabStop = false;
+            this.btnRefazer.Text = "Refazer";
+            this.btnRefazer.UseVisualStyleBackColor = false;
+            this.btnRefazer.Click += new System.EventHandler(this.btnRefazer_Click);
+            // 
             // frmCodigo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,7 +243,7 @@
             this.Name = "frmCodigo";
             this.Padding = new System.Windows.Forms.Padding(10, 3, 10, 10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmCodigo";
+            this.Text = "Revisão de códigos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCodigo_FormClosing);
             this.Load += new System.EventHandler(this.frmCodigo_Load);
             this.groupBox1.ResumeLayout(false);
@@ -246,5 +267,6 @@
         private System.Windows.Forms.Timer timerVpn;
         private System.Windows.Forms.Timer timerAtaque;
         private System.Windows.Forms.Button btnConcluir;
+        private System.Windows.Forms.Button btnRefazer;
     }
 }

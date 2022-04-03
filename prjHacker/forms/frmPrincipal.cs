@@ -179,6 +179,32 @@ namespace prjHacker.forms
                 }
             #endregion
 
+            #region Adiciona um item na dropdown dos itens do menu
+                private void addItem(int item, string nome, EventHandler evento)
+                {
+                    int indice = 0;
+                    switch (item)
+                    {
+                        case 0:
+                            servicosTool.DropDownItems.Add(nome);
+                            indice = servicosTool.DropDownItems.Count - 1;
+                            servicosTool.DropDownItems.Insert(0, servicosTool.DropDownItems[indice]);
+                            servicosTool.DropDownItems[0].Click += evento;
+                            servicosTool.DropDownItems[0].BackColor = Color.Black;
+                            servicosTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
+                            break;
+                        case 1:
+                            programacaoTool.DropDownItems.Add(nome);
+                            indice = programacaoTool.DropDownItems.Count - 1;
+                            programacaoTool.DropDownItems.Insert(0, programacaoTool.DropDownItems[indice]);
+                            programacaoTool.DropDownItems[0].Click += evento;
+                            programacaoTool.DropDownItems[0].BackColor = Color.Black;
+                            programacaoTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
+                            break;
+                    }
+                }
+            #endregion
+
         #endregion
 
         #region Clicks do stripMenu
@@ -274,10 +300,7 @@ namespace prjHacker.forms
                 if (dialogo("dialogs/teste.xml"))
                 {
                     startQuest();
-                    servicosTool.DropDownItems.Add("VPN");
-                    servicosTool.DropDownItems[0].Click += vpn_click;
-                    servicosTool.DropDownItems[0].BackColor = Color.Black;
-                    servicosTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
+                    addItem(0, "VPN", vpn_click);
                 }
             }
         #endregion
@@ -353,10 +376,7 @@ namespace prjHacker.forms
                 dialogo("dialogs/teste.xml");
                 
                 startQuest();
-                programacaoTool.DropDownItems.Add("BitCoins");
-                programacaoTool.DropDownItems[0].Click += bitCoins_Tick;
-                programacaoTool.DropDownItems[0].BackColor = Color.Black;
-                programacaoTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
+                addItem(1, "BitCoins", bitCoins_Tick);
                 my.scriptsAdd(new script("js", "zeck_script.js", 3));
             }
             private void q2complete()
@@ -366,31 +386,15 @@ namespace prjHacker.forms
                 dialogo("dialogs/teste.xml");
 
                 startQuest();
-                programacaoTool.DropDownItems.Add("Revisar cÓdigos");
-                programacaoTool.DropDownItems.Insert(0, programacaoTool.DropDownItems[1]);
-                programacaoTool.DropDownItems.Add("-");
-                programacaoTool.DropDownItems.Insert(1, programacaoTool.DropDownItems[2]);
-                programacaoTool.DropDownItems[0].Click += revisarCodigos_Tick;
-                programacaoTool.DropDownItems[0].BackColor = Color.Black;
-                programacaoTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
-                programacaoTool.DropDownItems[1].BackColor = Color.Black;
-                programacaoTool.DropDownItems[1].ForeColor = Color.FromArgb(0, 200, 0);
+                addItem(1, "Revisar cÓdigos", revisarCodigos_Tick);
             }
             private void q3complete()
             {
                 qComplete();
-                //dialogo("dialogs/q2complete.xml");
+                //dialogo("dialogs/q3complete.xml");
 
                 //startQuest();
-                //programacaoTool.DropDownItems.Add("Revisar cÓdigos");
-                //programacaoTool.DropDownItems.Insert(0, programacaoTool.DropDownItems[1]);
-                //programacaoTool.DropDownItems.Add("-");
-                //programacaoTool.DropDownItems.Insert(1, programacaoTool.DropDownItems[2]);
-                //programacaoTool.DropDownItems[0].Click += revisarCodigos_Tick;
-                //programacaoTool.DropDownItems[0].BackColor = Color.Black;
-                //programacaoTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
-                //programacaoTool.DropDownItems[1].BackColor = Color.Black;
-                //programacaoTool.DropDownItems[1].ForeColor = Color.FromArgb(0, 200, 0);
+                //addItem(1, "", );
             }
         #endregion
 

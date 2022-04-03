@@ -179,7 +179,7 @@
             this.Name = "frmDialogo";
             this.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmDialogo";
+            this.Text = "Diálogo";
             this.Load += new System.EventHandler(this.frmDialogo_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmDialogo_KeyDown);
             this.groupBox1.ResumeLayout(false);
