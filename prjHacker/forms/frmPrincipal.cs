@@ -323,6 +323,42 @@ namespace prjHacker.forms
             }
         #endregion
 
+        #region Conclusão das quests
+            private void qComplete()
+            {
+                quest.complete();
+                attExperiencia(55 + (0.5 * quest.current));
+                lstTrabalhos.Items.Remove(quests[(quest.current - 1)]["name"].InnerText);
+            }
+            private void q1complete()
+            {
+                qComplete();
+                //dialogo("dialogs/q1complete.xml");
+                dialogo("dialogs/teste.xml");
+
+                startQuest();
+                addItem(1, "BitCoins", bitCoins_Tick);
+                my.scriptsAdd(new script("js", "zeck_script.js", 3));
+            }
+            private void q2complete()
+            {
+                qComplete();
+                //dialogo("dialogs/q2complete.xml");
+                dialogo("dialogs/teste.xml");
+
+                startQuest();
+                addItem(1, "Revisar cÓdigos", revisarCodigos_Tick);
+            }
+            private void q3complete()
+            {
+                qComplete();
+                //dialogo("dialogs/q3complete.xml");
+
+                //startQuest();
+                //addItem(1, "", );
+            }
+        #endregion
+
         #region Área de serviço VPN
             private void btnVpn(int tempo, double valor)
             {
@@ -359,42 +395,6 @@ namespace prjHacker.forms
             private void btnVpn3_Click(object sender, EventArgs e)
             {
                 btnVpn(120, 20);
-            }
-        #endregion
-
-        #region Conclusão das quests
-            private void qComplete()
-            {
-                quest.complete();
-                attExperiencia(55 + (0.5 * quest.current));
-                lstTrabalhos.Items.Remove(quests[(quest.current - 1)]["name"].InnerText);
-            }
-            private void q1complete()
-            {
-                qComplete();
-                //dialogo("dialogs/q1complete.xml");
-                dialogo("dialogs/teste.xml");
-                
-                startQuest();
-                addItem(1, "BitCoins", bitCoins_Tick);
-                my.scriptsAdd(new script("js", "zeck_script.js", 3));
-            }
-            private void q2complete()
-            {
-                qComplete();
-                //dialogo("dialogs/q2complete.xml");
-                dialogo("dialogs/teste.xml");
-
-                startQuest();
-                addItem(1, "Revisar cÓdigos", revisarCodigos_Tick);
-            }
-            private void q3complete()
-            {
-                qComplete();
-                //dialogo("dialogs/q3complete.xml");
-
-                //startQuest();
-                //addItem(1, "", );
             }
         #endregion
 
@@ -473,7 +473,7 @@ namespace prjHacker.forms
                     play.complete(); return;
                 } int erros = new Random().Next(3, 4 + (nivel * 2));
                 lstCodigos.Items.Add("xX_Gamer_Xx - " + erros + " erros");
-                play.select(); buscaTimer.Interval = new Random().Next(500, 2001);
+                play.select(); buscaTimer.Interval = new Random().Next(100, 1001);
             }
             private void btnRefresh_Click(object sender, EventArgs e)
             {

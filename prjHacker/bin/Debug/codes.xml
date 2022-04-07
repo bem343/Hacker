@@ -1,153 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <codes>
+
+    <!-- Blocos sem formatação e com no máximo 386 caracteres -->
     
-    <!-- <code>
-        play.click(); buscaTimer.Stop();
-        btnRefresh.Enabled = false;
-        btnRevisar.Enabled = false;
-        pcbLoad.Visible = false;
-        lstCodigos.Items.Clear();
-        Music.play("# (4).mp3");
-        frmCodigo frmCodigo = new frmCodigo();
-        if (frmCodigo.ShowDialog() == DialogResult.OK)
-        {
-            Music.play("# (5).mp3");
+    <code>play.click(); buscatimer.stop(); btnrefresh.enabled = false; btnrevisar.enabled = false; pcbload.visible = false; lstcodigos.items.clear(); music.play('# (4).mp3'); frmcodigo frmcodigo = new frmcodigo(); if (frmcodigo.showdialog() == dialogresult.ok) { music.play('# (5).mp3');</code>
 
-            //Recompensas
-            double vDinheiro = 0; if (
-                new Random().Next(0, 2) == 1 ? true : false
-            ) { vDinheiro = 2.5; }
-            double vExperiencia = 80;
-            int vProgramacao = 300;
-            //Relatório final da mineração
-            string mensagem = "RevisÃo ConcluÍda! VocÊ conseguiu: ";
-            mensagem += "$" + vDinheiro.ToString("#0.00") + ";  ";
-            mensagem += vProgramacao + " P. Skill;  ";
-            mensagem += vExperiencia.ToString("#0.0") + " de ExperiÊncia. ";
-            mensagem += "Revisando CÓdigos";
-            string[] buttons = new string[4];
-            buttons[0] = "Ok";
-            buttons[1] = "";
-            buttons[2] = "";
-            buttons[3] = "";
-            abreDialogo("S.H.A.R.K", "sharkgreen.png", mensagem, buttons);
+    <code>play.click(); int hora = (tempo / 60); string s = 's'; if (hora == 1) { s = ''; } string[] buttons = new string[4]; buttons[0] = 'sim'; buttons[1] = 'nao'; buttons[2] = ''; buttons[3] = ''; if ( abredialogo ( 's.h.a.r.k', 'sharkgreen.png', 'deseja pagar $' + valor.tostring('#0.00') hora + ' hora' + s + '?', buttons ) == dialogresult.ok) { vpn.sign(tempo); }}</code>
 
-            attProgramacao(vProgramacao);
-            attDinheiro(vDinheiro);
-            attExperiencia(vExperiencia);
-            if (quest.current == 3) { q3complete(); }
-        } else { Music.play("# (5).mp3"); } listCodigosRefresh();
-    </code>
+    <code>private void menustrip_mousedown(objectsender, mouseeventargse){ x=cursor.position.x - this.location.x; y=cursor.position.y - this.location.y; janela.start(); } private void menustrip_mouseup ( object sender, mouseeventargs e ) { janela.stop(); }</code>
 
-    <code>
-        qComplete();
-        dialogo("dialogs/q2complete.xml");
+    <code>private int x=0; private int y=0; private int exittime=0; private timer janela=null; private xmlnodelistquests=null; public static double dinheiro=15; public static double experiencia=0; public static int skill=0; public static int nivel=0; public frmprincipal() { initializecomponent(); }</code>
 
-        startQuest();
-        programacaoTool.DropDownItems.Add("Revisar cÓdigos");
-        programacaoTool.DropDownItems.Insert(0, programacaoTool.DropDownItems[1]);
-        programacaoTool.DropDownItems.Add("-");
-        programacaoTool.DropDownItems.Insert(1, programacaoTool.DropDownItems[2]);
-        programacaoTool.DropDownItems[0].Click += revisarCodigos_Tick;
-        programacaoTool.DropDownItems[0].BackColor = Color.Black;
-        programacaoTool.DropDownItems[0].ForeColor = Color.FromArgb(0, 200, 0);
-        programacaoTool.DropDownItems[1].BackColor = Color.Black;
-        programacaoTool.DropDownItems[1].ForeColor = Color.FromArgb(0, 200, 0);
-    </code>
+    <code>foreach (panel panel in gbareadetrabalho.controls.oftype[panel]()) { panel.dock = dockstyle.fill; } lbldinheiro.text = '$' + dinheiro.tostring('#0.00'); lblexperiencia.text = experiencia.tostring(); lblprogramacao.text = skill.tostring(); janela = new timer { interval = 1 }; janela.tick; xmldocument arquivo = new xmldocument(); arquivo.load('quests.xml'); music.initplayer();</code>
 
-    <code>
-        play.click();
-        int hora = (tempo / 60);
-        string s = "s"; if (hora == 1) { s = ""; }
-        string[] buttons = new string[4];
-        buttons[0] = "Sim";
-        buttons[1] = "NÃo";
-        buttons[2] = "";
-        buttons[3] = "";
-        if ( abreDialogo
-        (
-            "S.H.A.R.K",
-            "sharkgreen.png",
-            "Deseja pagar $" + valor.ToString("#0.00") + " para assinar serviÇo por " + hora + " hora" + s + "?",
-            buttons
-        ) == DialogResult.OK)
-        {
-            vpn.sign(tempo);
-            verificarVpn();
-            attDinheiro(-valor);
-            if (quest.current == 1) { q1complete(); }
-        }
-    </code>
-
-    <code>
-        private void menuStrip_MouseDown(object sender, MouseEventArgs e)
-        {
-            X = Cursor.Position.X - this.Location.X;
-            Y = Cursor.Position.Y - this.Location.Y;
-            janela.Start();
-        }
-        private void menuStrip_MouseUp(object sender, MouseEventArgs e)
-        {
-            janela.Stop();
-        }
-    </code>
-
-    <code>
-        private int X = 0;
-        private int Y = 0;
-        private int exitTime = 0;
-        private Timer janela = null;
-        
-        private XmlNodeList quests = null;
-        public static double dinheiro = 15;
-        public static double experiencia = 0;
-        public static int skill = 0;
-        public static int nivel = 0;
-
-        public frmPrincipal()
-        {
-            InitializeComponent();
-        }
-    </code>
-
-    <code>
-        foreach (Panel panel in gbAreaDeTrabalho.Controls.OfType[Panel]())
-        {
-            panel.Dock = DockStyle.Fill;
-        }
-        lblDinheiro.Text = "$" + dinheiro.ToString("#0.00");
-        lblExperiencia.Text = experiencia.ToString();
-        lblProgramacao.Text = skill.ToString();
-        janela = new Timer { Interval = 1 };
-        janela.Tick += janela_Tick;
-        XmlDocument arquivo = new XmlDocument();
-        arquivo.Load("quests.xml");
-        quests = arquivo.GetElementsByTagName("quest");
-        Music.initPlayer();
-    </code>
-
-    <code>
-        private bool verificarVpn()
-        {
-            if (vpn.isActive)
-            {
-                double segundos = vpn.maximum - vpn.time;
-                TimeSpan time = TimeSpan.FromSeconds(segundos);
-                lblVpn.Text = time.ToString(@"mm\:ss");
-                lblVpnAtivo.Visible = true;
-                lblVpn.Visible = true;
-                if ((vpn.maximum - vpn.time) == 10)
-                {
-                    lblVpn.ForeColor = Color.FromArgb(200, 0, 0);
-                }
-                return true;
-            }
-            lblVpn.Visible = false;
-            lblVpnAtivo.Visible = false;
-            return false;
-        }
-    </code> -->
+    <code>private bool verificarvpn() { if (vpn.isactive) { double segundos = vpn.maximum - vpn.time; timespan time = timespan.fromseconds(segundos); lblvpn.text = time.tostring(@'mm\:ss'); lblvpnativo.visible = true; lblvpn.visible = true; if ((vpn.maximum - vpn.time) == 10) { lblvpn.forecolor = color.fromargb(200, 0, 0); } return true; } lblvpn.visible = false; lblvpnativo.visible = false; }</code>
 
     <code>private void menustrip_mousedown(object sender, mouseeventargs e) { x = cursor.position.x - this.location.x; y = cursor.position.y - this.location.y; janela.start(); } private void menustrip_mouseup(object sender, mouseeventargs e) { janela.stop(); }</code>
 

@@ -16,8 +16,8 @@ namespace prjHacker.forms
 
         #region Variáveis
             public static bool som = true;
-            public static int volume = 100;
-            public static int nVolume = 5;
+            public static int volume = 20;
+            public static int nVolume = 1;
         #endregion
 
         #region Construtores

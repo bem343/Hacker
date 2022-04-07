@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRefazer = new System.Windows.Forms.Button();
             this.btnConcluir = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
             this.rtbFinal = new System.Windows.Forms.RichTextBox();
             this.timerVpn = new System.Windows.Forms.Timer(this.components);
             this.timerAtaque = new System.Windows.Forms.Timer(this.components);
-            this.btnRefazer = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,24 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "RevisÃo de CÓdigo";
+            // 
+            // btnRefazer
+            // 
+            this.btnRefazer.BackColor = System.Drawing.Color.Transparent;
+            this.btnRefazer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefazer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRefazer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.btnRefazer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefazer.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefazer.ForeColor = System.Drawing.Color.White;
+            this.btnRefazer.Location = new System.Drawing.Point(13, 475);
+            this.btnRefazer.Name = "btnRefazer";
+            this.btnRefazer.Size = new System.Drawing.Size(129, 39);
+            this.btnRefazer.TabIndex = 27;
+            this.btnRefazer.TabStop = false;
+            this.btnRefazer.Text = "Refazer";
+            this.btnRefazer.UseVisualStyleBackColor = false;
+            this.btnRefazer.Click += new System.EventHandler(this.btnRefazer_Click);
             // 
             // btnConcluir
             // 
@@ -141,7 +159,7 @@
             this.lblVpnAtivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.lblVpnAtivo.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVpnAtivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            this.lblVpnAtivo.Location = new System.Drawing.Point(577, 0);
+            this.lblVpnAtivo.Location = new System.Drawing.Point(564, 0);
             this.lblVpnAtivo.Name = "lblVpnAtivo";
             this.lblVpnAtivo.Size = new System.Drawing.Size(181, 29);
             this.lblVpnAtivo.TabIndex = 23;
@@ -153,7 +171,7 @@
             this.lblVpn.AutoSize = true;
             this.lblVpn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.lblVpn.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVpn.Location = new System.Drawing.Point(757, 0);
+            this.lblVpn.Location = new System.Drawing.Point(744, 0);
             this.lblVpn.Name = "lblVpn";
             this.lblVpn.Size = new System.Drawing.Size(75, 29);
             this.lblVpn.TabIndex = 22;
@@ -212,25 +230,6 @@
             // 
             this.timerAtaque.Interval = 1000;
             this.timerAtaque.Tick += new System.EventHandler(this.timerAtaque_Tick);
-            // 
-            // btnRefazer
-            // 
-            this.btnRefazer.BackColor = System.Drawing.Color.Transparent;
-            this.btnRefazer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefazer.FlatAppearance.BorderSize = 0;
-            this.btnRefazer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnRefazer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            this.btnRefazer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefazer.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefazer.ForeColor = System.Drawing.Color.White;
-            this.btnRefazer.Location = new System.Drawing.Point(13, 474);
-            this.btnRefazer.Name = "btnRefazer";
-            this.btnRefazer.Size = new System.Drawing.Size(129, 39);
-            this.btnRefazer.TabIndex = 27;
-            this.btnRefazer.TabStop = false;
-            this.btnRefazer.Text = "Refazer";
-            this.btnRefazer.UseVisualStyleBackColor = false;
-            this.btnRefazer.Click += new System.EventHandler(this.btnRefazer_Click);
             // 
             // frmCodigo
             // 

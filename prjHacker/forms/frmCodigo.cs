@@ -84,7 +84,7 @@ namespace prjHacker.forms
         #region Evento Tick dos Timers
             private void setAtaque()
             {
-                proximoAtaque = new Random().Next(6, 16);
+                proximoAtaque = new Random().Next(15, 31);
             }
             private void timerVpn_Tick(object sender, EventArgs e)
             {
@@ -102,7 +102,7 @@ namespace prjHacker.forms
                         while (ataque.DialogResult == DialogResult.None);
                     }
                     if (resultado != DialogResult.OK)
-                    { rtbFinal.Text = codigoFinal; lblErros.Text = "0"; rtbFinal.Focus(); play.fail(); }
+                    { rtbFinal.Text = codigoFinal; rtbFinal.Focus(); play.fail(); }
                     else { play.complete(); } stop.hacking(); tempoAtaque = 0; setAtaque();
                 }
             }
@@ -112,15 +112,19 @@ namespace prjHacker.forms
             private void rtbFinal_TextChanged(object sender, EventArgs e)
             {
                 string rascunhoSeco = rtbFinal.Text.Replace(" ", "").Replace("\n", "");
+
                 //Verificação dos erros
-                erros = 0;
+                int errosA = erros; erros = 0;
                 for (int i = 0; i < originalSeco.Length; i++)
                 {
-                    if(rascunhoSeco.Substring(i - erros, 1) != originalSeco.Substring(i, 1))
+                    if (rascunhoSeco.Substring(i - erros, 1) != originalSeco.Substring(i, 1))
                     {
                         erros++;
                     }
-                } lblErros.Text = erros.ToString();
+                } lblErros.Text = erros.ToString(); if ((errosA - erros) < -1)
+                { lblErros.ForeColor = Color.FromArgb(200, 0, 0); }
+                else { lblErros.ForeColor = Color.White; }
+
                 //Verificação do todo
                 if (rascunhoSeco == originalSeco)
                 {
@@ -142,6 +146,7 @@ namespace prjHacker.forms
         #region Botão Sair personalizado
             private void btnSair_Click(object sender, EventArgs e)
             {
+                play.click();
                 Close();
             }
             private void frmCodigo_FormClosing(object sender, FormClosingEventArgs e)
@@ -155,7 +160,9 @@ namespace prjHacker.forms
         #region Botão Refazer
             private void btnRefazer_Click(object sender, EventArgs e)
             {
+                play.select();
                 rtbFinal.Text = codigoFinal;
+                rtbFinal.Focus();
             }
         #endregion
 
