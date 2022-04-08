@@ -60,6 +60,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lblOriginal);
             this.groupBox1.Controls.Add(this.rtbFinal);
+            this.groupBox1.Cursor = System.Windows.Forms.Cursors.PanNW;
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
@@ -201,7 +202,7 @@
             // lblOriginal
             // 
             this.lblOriginal.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblOriginal.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOriginal.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOriginal.Location = new System.Drawing.Point(10, 69);
             this.lblOriginal.Name = "lblOriginal";
             this.lblOriginal.Size = new System.Drawing.Size(398, 444);
@@ -212,7 +213,7 @@
             this.rtbFinal.BackColor = System.Drawing.Color.Black;
             this.rtbFinal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbFinal.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rtbFinal.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbFinal.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
             this.rtbFinal.Location = new System.Drawing.Point(476, 69);
             this.rtbFinal.Name = "rtbFinal";

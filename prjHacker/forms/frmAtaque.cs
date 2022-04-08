@@ -13,7 +13,9 @@ namespace prjHacker.forms
     public partial class frmAtaque : Form
     {
 
+        double perdaT = 0;
         int ataque = 0;
+        int tempo = 0;
 
         public frmAtaque()
         {
@@ -25,12 +27,37 @@ namespace prjHacker.forms
             InitializeComponent();
         }
 
+        private void frmAtaque_Load(object sender, EventArgs e)
+        {
+            play.hacking();
+            timer.Interval = 82;
+            pbAtaque.Maximum = 22;
+            segundos.Start();
+            timer.Start();
+        }
+
+        private void frmAtaque_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            stop.hacking();
+            timer.Stop();
+            segundos.Stop();
+        }
+
         private void timer_Tick(object sender, EventArgs e)
         {
             ataque++;
-            if (ataque >= pbAtaque.Maximum)
-            { Close(); return; }
+            if (ataque >= pbAtaque.Maximum) { Close(); return; }
             if (ataque >= 0) { pbAtaque.Value = ataque; }
+        }
+        private void segundos_Tick(object sender, EventArgs e)
+        {
+            if (tempo > 2)
+            {
+                double perdaI = new Random().Next(2);
+                double perdaQ = new Random().NextDouble();
+                perdaT += perdaQ + perdaI; my.lost += perdaT;
+                lblPerda.Text = "- $" + perdaT.ToString("#0.00");
+            } else { tempo++; }
         }
 
         private void btnContraAtaque_Click(object sender, EventArgs e)
@@ -42,17 +69,5 @@ namespace prjHacker.forms
             if (ataque >= 0) { pbAtaque.Value = ataque; }
         }
 
-        private void frmAtaque_Load(object sender, EventArgs e)
-        {
-            play.hacking();
-            timer.Interval = 82;
-            timer.Start();
-            pbAtaque.Maximum = 22;
-        }
-
-        private void frmAtaque_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            timer.Stop();
-        }
     }
 }

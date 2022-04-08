@@ -149,7 +149,7 @@ namespace prjHacker.forms
                     }
                     if (resultado != DialogResult.OK)
                     { pbLinha.Value = 0; txtLinha.Clear(); txtLinha.Focus(); play.fail(); }
-                    else { play.complete(); } stop.hacking(); tempoAtaque = 0; setAtaque();
+                    else { play.complete(); } tempoAtaque = 0; setAtaque();
                 }
             }
         #endregion

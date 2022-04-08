@@ -51,3 +51,4 @@ D:\Downloads\PROJETOS\prjHacker\Hacker\prjHacker\bin\Debug\AxInterop.WMPLib.dll
 D:\Downloads\PROJETOS\prjHacker\Hacker\prjHacker\bin\Debug\taglib-sharp.dll
 D:\Downloads\PROJETOS\prjHacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmAtaque.resources
 D:\Downloads\PROJETOS\prjHacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmCodigo.resources
+D:\Downloads\PROJETOS\prjHacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmRelatorio.resources

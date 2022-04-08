@@ -103,7 +103,7 @@ namespace prjHacker.forms
                     }
                     if (resultado != DialogResult.OK)
                     { rtbFinal.Text = codigoFinal; rtbFinal.Focus(); play.fail(); }
-                    else { play.complete(); } stop.hacking(); tempoAtaque = 0; setAtaque();
+                    else { play.complete(); } tempoAtaque = 0; setAtaque();
                 }
             }
         #endregion

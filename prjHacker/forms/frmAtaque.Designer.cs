@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAtaque));
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblPerda = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pbAtaque = new System.Windows.Forms.ProgressBar();
             this.btnContraAtaque = new System.Windows.Forms.Button();
             this.pcbAvatar = new System.Windows.Forms.PictureBox();
+            this.segundos = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAvatar)).BeginInit();
             this.SuspendLayout();
@@ -46,6 +49,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.groupBox1.Controls.Add(this.lblPerda);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.pbAtaque);
             this.groupBox1.Controls.Add(this.btnContraAtaque);
@@ -59,6 +63,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ATAQUE HACKER!";
+            // 
+            // lblPerda
+            // 
+            this.lblPerda.AutoSize = true;
+            this.lblPerda.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPerda.Location = new System.Drawing.Point(11, 32);
+            this.lblPerda.Name = "lblPerda";
+            this.lblPerda.Size = new System.Drawing.Size(86, 27);
+            this.lblPerda.TabIndex = 8;
+            this.lblPerda.Text = "- $0,00";
             // 
             // label1
             // 
@@ -85,7 +99,7 @@
             // 
             this.btnContraAtaque.BackColor = System.Drawing.Color.Transparent;
             this.btnContraAtaque.FlatAppearance.BorderSize = 0;
-            this.btnContraAtaque.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnContraAtaque.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnContraAtaque.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnContraAtaque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContraAtaque.Font = new System.Drawing.Font("DS-Digital", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -109,6 +123,11 @@
             this.pcbAvatar.TabIndex = 4;
             this.pcbAvatar.TabStop = false;
             // 
+            // segundos
+            // 
+            this.segundos.Interval = 1000;
+            this.segundos.Tick += new System.EventHandler(this.segundos_Tick);
+            // 
             // frmAtaque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -119,6 +138,7 @@
             this.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAtaque";
             this.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
@@ -127,6 +147,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAtaque_FormClosing);
             this.Load += new System.EventHandler(this.frmAtaque_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAvatar)).EndInit();
             this.ResumeLayout(false);
 
@@ -140,5 +161,7 @@
         private System.Windows.Forms.ProgressBar pbAtaque;
         private System.Windows.Forms.Button btnContraAtaque;
         private System.Windows.Forms.PictureBox pcbAvatar;
+        private System.Windows.Forms.Label lblPerda;
+        private System.Windows.Forms.Timer segundos;
     }
 }

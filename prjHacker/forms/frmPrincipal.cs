@@ -414,7 +414,7 @@ namespace prjHacker.forms
             }
             private void btnMinerar_Click(object sender, EventArgs e)
             {
-                Music.play("# (4).mp3");
+                Music.play("# (4).mp3"); my.lost = 0;
                 frmMineracao frmMineracao = new frmMineracao();
                 if (frmMineracao.ShowDialog() == DialogResult.OK)
                 {
@@ -430,24 +430,16 @@ namespace prjHacker.forms
                     double vDinheiro = my.currentScript().lines * 15.5;
                     double vExperiencia = my.currentScript().lines * 5.2;
                     //Relatório final da mineração
-                    string mensagem = "MineraÇÃo finalizada! VocÊ conseguiu: ";
-                    mensagem += "$" + vDinheiro.ToString("#0.00") + ";  ";
-                    mensagem += vProgramacao + " P. Skill;  ";
-                    mensagem += vExperiencia.ToString("#0.0") + " de ExperiÊncia. ";
-                    mensagem += "Minerando BitCoins.";
-                    string[] buttons = new string[4];
-                    buttons[0] = "Ok";
-                    buttons[1] = "";
-                    buttons[2] = "";
-                    buttons[3] = "";
-                    abreDialogo("S.H.A.R.K", "sharkgreen.png", mensagem, buttons);
+                    frmRelatorio relatorio = new frmRelatorio
+                    ((vDinheiro - my.lost), vProgramacao, vExperiencia, "MineraÇÃo ConcluÍda!");
+                    relatorio.ShowDialog();
 
                     attProgramacao(vProgramacao);
-                    attDinheiro(vDinheiro);
+                    attDinheiro(vDinheiro - my.lost);
                     attExperiencia(vExperiencia);
                     if (quest.current == 2) { q2complete(); }
                     my.scriptsRemove();
-                } else { Music.play("# (5).mp3"); }
+                } else { Music.play("# (5).mp3"); attDinheiro(-my.lost); }
             }
         #endregion
 
@@ -503,36 +495,26 @@ namespace prjHacker.forms
                 btnRevisar.Enabled = false;
                 pcbLoad.Visible = false;
                 lstCodigos.Items.Clear();
-                Music.play("# (4).mp3");
+                Music.play("# (4).mp3"); my.lost = 0;
                 frmCodigo frmCodigo = new frmCodigo(3);
                 if (frmCodigo.ShowDialog() == DialogResult.OK)
                 {
                     Music.play("# (5).mp3");
 
                     //Recompensas
-                    double vDinheiro = 0; if (
-                        new Random().Next(0, 2) == 1 ? true : false
-                    ) { vDinheiro = 2.5; }
+                    double vDinheiro = new Random().Next(0, 2) == 1 ? 0 : 2.5;
                     double vExperiencia = 80;
                     int vProgramacao = 300;
-                    //Relatório final da mineração
-                    string mensagem = "RevisÃo ConcluÍda! VocÊ conseguiu: ";
-                    mensagem += "$" + vDinheiro.ToString("#0.00") + ";  ";
-                    mensagem += vProgramacao + " P. Skill;  ";
-                    mensagem += vExperiencia.ToString("#0.0") + " de ExperiÊncia. ";
-                    mensagem += "Revisando CÓdigos";
-                    string[] buttons = new string[4];
-                    buttons[0] = "Ok";
-                    buttons[1] = "";
-                    buttons[2] = "";
-                    buttons[3] = "";
-                    abreDialogo("S.H.A.R.K", "sharkgreen.png", mensagem, buttons);
+                    //Relatório final da revisão
+                    frmRelatorio relatorio = new frmRelatorio
+                    ((vDinheiro - my.lost), vProgramacao, vExperiencia, "RevisÃo ConcluÍda!");
+                    relatorio.ShowDialog();
 
                     attProgramacao(vProgramacao);
-                    attDinheiro(vDinheiro);
+                    attDinheiro(vDinheiro - my.lost);
                     attExperiencia(vExperiencia);
                     if (quest.current == 3) { q3complete(); }
-                } else { Music.play("# (5).mp3"); } listCodigosRefresh();
+                } else { Music.play("# (5).mp3"); attDinheiro(-my.lost); } listCodigosRefresh();
             }
         #endregion
 
