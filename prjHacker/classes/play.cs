@@ -16,6 +16,7 @@ namespace prjHacker.classes
         public static WindowsMediaPlayer h = new WindowsMediaPlayer();
         private static WindowsMediaPlayer f = new WindowsMediaPlayer();
         private static WindowsMediaPlayer co = new WindowsMediaPlayer();
+        private static WindowsMediaPlayer con = new WindowsMediaPlayer();
 
         public static void click()
         {
@@ -65,6 +66,14 @@ namespace prjHacker.classes
             {
                 co.settings.volume = frmConfiguracoes.volume;
                 co.URL = "sounds/complete.wav";
+            }
+        }
+        public static void congrats()
+        {
+            if (frmConfiguracoes.som)
+            {
+                con.settings.volume = frmConfiguracoes.volume;
+                con.URL = "sounds/congrats.wav";
             }
         }
     }

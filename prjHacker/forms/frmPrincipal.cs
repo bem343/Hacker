@@ -502,7 +502,7 @@ namespace prjHacker.forms
                     Music.play("# (5).mp3");
 
                     //Recompensas
-                    double vDinheiro = new Random().Next(0, 2) == 1 ? 0 : 2.5;
+                    double vDinheiro = new Random().Next(0, 2) == 1 ? 0 : pagamento();
                     double vExperiencia = 80;
                     int vProgramacao = 300;
                     //Relatório final da revisão
@@ -516,6 +516,8 @@ namespace prjHacker.forms
                     if (quest.current == 3) { q3complete(); }
                 } else { Music.play("# (5).mp3"); attDinheiro(-my.lost); } listCodigosRefresh();
             }
+            // Método para gerar o pagamento, caso o usuário deseje
+            private double pagamento() { return new Random().Next(2, 4) + new Random().NextDouble(); }
         #endregion
 
     }

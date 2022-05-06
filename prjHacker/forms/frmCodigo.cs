@@ -135,11 +135,12 @@ namespace prjHacker.forms
                     btnRefazer.Visible = false;
                     btnConcluir.Visible = true;
                     btnConcluir.Focus();
+                    play.complete();
                 }
             }
             private void btnConcluir_Click(object sender, EventArgs e)
             {
-                play.complete(); Close();
+                Close();
             }
         #endregion
 

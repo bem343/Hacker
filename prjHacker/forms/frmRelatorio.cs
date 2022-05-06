@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using prjHacker.classes;
 
 namespace prjHacker.forms
 {
@@ -30,6 +31,7 @@ namespace prjHacker.forms
 
         private void frmRelatorio_Load(object sender, EventArgs e)
         {
+            play.congrats();
             if (dinheiro >= 0) { lblDinheiro.Text = "+ $" + dinheiro.ToString("#0.00"); }
             else {
                 lblDinheiro.Text = "- $" + dinheiro.ToString("#0.00");
@@ -51,6 +53,7 @@ namespace prjHacker.forms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            play.click();
             Close();
         }
 
