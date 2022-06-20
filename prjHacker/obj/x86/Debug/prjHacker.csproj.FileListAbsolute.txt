@@ -52,3 +52,21 @@ D:\Downloads\PROJETOS\prjHacker\Hacker\prjHacker\bin\Debug\taglib-sharp.dll
 D:\Downloads\PROJETOS\prjHacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmAtaque.resources
 D:\Downloads\PROJETOS\prjHacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmCodigo.resources
 D:\Downloads\PROJETOS\prjHacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmRelatorio.resources
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.exe
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.pdb
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\bin\Debug\prjHacker.exe
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\bin\Debug\prjHacker.pdb
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\bin\Debug\taglib-sharp.dll
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.csprojResolveAssemblyReference.cache
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmAtaque.resources
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmCodigo.resources
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmConfiguracoes.resources
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmDialogo.resources
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmMineracao.resources
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmPrincipal.resources
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmRelatorio.resources
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmScript.resources
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmSplash.resources
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.Properties.Resources.resources
+C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.GenerateResource.Cache

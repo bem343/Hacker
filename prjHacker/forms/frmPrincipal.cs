@@ -212,7 +212,7 @@ namespace prjHacker.forms
             {
                 play.click();
             }
-            private void vpn_click(object sender, EventArgs e)
+            private void vpn_Click(object sender, EventArgs e)
             {
                 play.click();
                 verificarVpn();
@@ -224,18 +224,25 @@ namespace prjHacker.forms
             {
                 play.click();
             }
-            private void revisarCodigos_Tick(object sender, EventArgs e)
+            private void revisarCodigos_Click(object sender, EventArgs e)
             {
                 play.click();
                 fecharPanels();
                 panelCodigos.Visible = true;
                 gbAreaDeTrabalho.Text = "Área de Trabalho";
             }
-            private void bitCoins_Tick(object sender, EventArgs e)
+            private void bitCoins_Click(object sender, EventArgs e)
             {
                 play.click();
                 fecharPanels();
                 panelBitcoin.Visible = true;
+                gbAreaDeTrabalho.Text = "Área de Trabalho";
+            }
+            private void criarScripts_Click(object sender, EventArgs e)
+            {
+                play.click();
+                fecharPanels();
+                panelScripts.Visible = true;
                 gbAreaDeTrabalho.Text = "Área de Trabalho";
             }
             private void configuracoesTool_Click(object sender, EventArgs e)
@@ -300,7 +307,7 @@ namespace prjHacker.forms
                 if (dialogo("dialogs/teste.xml"))
                 {
                     startQuest();
-                    addItem(0, "VPN", vpn_click);
+                    addItem(0, "VPN", vpn_Click);
                 }
             }
         #endregion
@@ -337,7 +344,7 @@ namespace prjHacker.forms
                 dialogo("dialogs/teste.xml");
 
                 startQuest();
-                addItem(1, "BitCoins", bitCoins_Tick);
+                addItem(1, "BitCoins", bitCoins_Click);
                 my.scriptsAdd(new script("js", "zeck_script.js", 3));
             }
             private void q2complete()
@@ -347,15 +354,15 @@ namespace prjHacker.forms
                 dialogo("dialogs/teste.xml");
 
                 startQuest();
-                addItem(1, "Revisar cÓdigos", revisarCodigos_Tick);
+                addItem(1, "Revisar cÓdigos", revisarCodigos_Click);
             }
             private void q3complete()
             {
                 qComplete();
                 //dialogo("dialogs/q3complete.xml");
+                dialogo("dialogs/teste.xml");
 
-                //startQuest();
-                //addItem(1, "", );
+                addItem(1, "Criar script", criarScripts_Click);
             }
         #endregion
 

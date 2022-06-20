@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 2D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint10 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 2D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint11 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint12 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblExperiencia = new System.Windows.Forms.Label();
             this.pbExperiencia = new System.Windows.Forms.ProgressBar();
@@ -89,8 +89,28 @@
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.rtbTeste = new System.Windows.Forms.RichTextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
             this.pcbFundo = new System.Windows.Forms.PictureBox();
+            this.panelScripts = new System.Windows.Forms.Panel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.btnCriarScript = new System.Windows.Forms.Button();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -107,7 +127,14 @@
             this.panelMissao.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFundo)).BeginInit();
+            this.panelScripts.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -325,6 +352,7 @@
             // gbAreaDeTrabalho
             // 
             this.gbAreaDeTrabalho.BackColor = System.Drawing.Color.Transparent;
+            this.gbAreaDeTrabalho.Controls.Add(this.panelScripts);
             this.gbAreaDeTrabalho.Controls.Add(this.panelCodigos);
             this.gbAreaDeTrabalho.Controls.Add(this.panelBitcoin);
             this.gbAreaDeTrabalho.Controls.Add(this.panelVpn);
@@ -351,8 +379,7 @@
             this.panelCodigos.Controls.Add(this.lstCodigos);
             this.panelCodigos.Controls.Add(this.btnRefresh);
             this.panelCodigos.Controls.Add(this.pcbLoad);
-            this.panelCodigos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCodigos.Location = new System.Drawing.Point(10, 33);
+            this.panelCodigos.Location = new System.Drawing.Point(0, 540);
             this.panelCodigos.Name = "panelCodigos";
             this.panelCodigos.Size = new System.Drawing.Size(455, 447);
             this.panelCodigos.TabIndex = 4;
@@ -472,7 +499,7 @@
             this.panelBitcoin.Controls.Add(this.btnScript);
             this.panelBitcoin.Controls.Add(this.label6);
             this.panelBitcoin.Controls.Add(this.label9);
-            this.panelBitcoin.Location = new System.Drawing.Point(10, 540);
+            this.panelBitcoin.Location = new System.Drawing.Point(0, 540);
             this.panelBitcoin.Name = "panelBitcoin";
             this.panelBitcoin.Size = new System.Drawing.Size(455, 447);
             this.panelBitcoin.TabIndex = 3;
@@ -616,7 +643,7 @@
             this.panelVpn.Controls.Add(this.btnVpn1);
             this.panelVpn.Controls.Add(this.label8);
             this.panelVpn.Controls.Add(this.label7);
-            this.panelVpn.Location = new System.Drawing.Point(10, 540);
+            this.panelVpn.Location = new System.Drawing.Point(0, 540);
             this.panelVpn.Name = "panelVpn";
             this.panelVpn.Size = new System.Drawing.Size(455, 447);
             this.panelVpn.TabIndex = 2;
@@ -723,7 +750,7 @@
             // 
             this.panelMissao.Controls.Add(this.lblMissao);
             this.panelMissao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            this.panelMissao.Location = new System.Drawing.Point(10, 540);
+            this.panelMissao.Location = new System.Drawing.Point(0, 540);
             this.panelMissao.Name = "panelMissao";
             this.panelMissao.Size = new System.Drawing.Size(455, 447);
             this.panelMissao.TabIndex = 1;
@@ -743,7 +770,7 @@
             this.panelPrincipal.Controls.Add(this.chart);
             this.panelPrincipal.Controls.Add(this.rtbTeste);
             this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            this.panelPrincipal.Location = new System.Drawing.Point(10, 520);
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 540);
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(455, 447);
             this.panelPrincipal.TabIndex = 0;
@@ -753,82 +780,82 @@
             // 
             this.chart.BackColor = System.Drawing.Color.Transparent;
             this.chart.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX2.TitleForeColor = System.Drawing.Color.White;
-            chartArea1.AxisY2.TitleForeColor = System.Drawing.Color.White;
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.BackImageTransparentColor = System.Drawing.Color.Transparent;
-            chartArea1.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea1.BorderColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.ShadowColor = System.Drawing.Color.DarkGray;
-            this.chart.ChartAreas.Add(chartArea1);
+            chartArea4.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea4.AxisX2.LineColor = System.Drawing.Color.White;
+            chartArea4.AxisX2.TitleForeColor = System.Drawing.Color.White;
+            chartArea4.AxisY2.TitleForeColor = System.Drawing.Color.White;
+            chartArea4.BackColor = System.Drawing.Color.Transparent;
+            chartArea4.BackImageTransparentColor = System.Drawing.Color.Transparent;
+            chartArea4.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea4.BorderColor = System.Drawing.Color.Transparent;
+            chartArea4.Name = "ChartArea1";
+            chartArea4.ShadowColor = System.Drawing.Color.DarkGray;
+            this.chart.ChartAreas.Add(chartArea4);
             this.chart.Dock = System.Windows.Forms.DockStyle.Top;
-            legend1.BackColor = System.Drawing.Color.Transparent;
-            legend1.BackSecondaryColor = System.Drawing.Color.Transparent;
-            legend1.BorderColor = System.Drawing.Color.DimGray;
-            legend1.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            legend1.InterlacedRowsColor = System.Drawing.Color.Transparent;
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend";
-            legend1.Title = "Legenda";
-            legend1.TitleBackColor = System.Drawing.Color.Transparent;
-            legend1.TitleFont = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.TitleForeColor = System.Drawing.Color.White;
-            legend1.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
-            legend1.TitleSeparatorColor = System.Drawing.Color.DimGray;
-            this.chart.Legends.Add(legend1);
+            legend4.BackColor = System.Drawing.Color.Transparent;
+            legend4.BackSecondaryColor = System.Drawing.Color.Transparent;
+            legend4.BorderColor = System.Drawing.Color.DimGray;
+            legend4.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            legend4.InterlacedRowsColor = System.Drawing.Color.Transparent;
+            legend4.IsTextAutoFit = false;
+            legend4.Name = "Legend";
+            legend4.Title = "Legenda";
+            legend4.TitleBackColor = System.Drawing.Color.Transparent;
+            legend4.TitleFont = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend4.TitleForeColor = System.Drawing.Color.White;
+            legend4.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
+            legend4.TitleSeparatorColor = System.Drawing.Color.DimGray;
+            this.chart.Legends.Add(legend4);
             this.chart.Location = new System.Drawing.Point(0, 0);
             this.chart.Name = "chart";
             this.chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))))};
-            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series1.BackSecondaryColor = System.Drawing.Color.Transparent;
-            series1.BorderColor = System.Drawing.Color.Transparent;
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            series1.LabelBackColor = System.Drawing.Color.White;
-            series1.LabelForeColor = System.Drawing.Color.White;
-            series1.Legend = "Legend";
-            series1.Name = "Execuções";
-            dataPoint1.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataPoint1.IsValueShownAsLabel = true;
-            dataPoint1.Label = "Cassino";
-            dataPoint1.LabelBackColor = System.Drawing.Color.Transparent;
-            dataPoint1.LabelBorderColor = System.Drawing.Color.Transparent;
-            dataPoint1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            dataPoint2.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataPoint2.IsValueShownAsLabel = true;
-            dataPoint2.Label = "Banco";
-            dataPoint2.LabelBackColor = System.Drawing.Color.Transparent;
-            dataPoint2.LabelBorderColor = System.Drawing.Color.Transparent;
-            dataPoint2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            dataPoint3.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataPoint3.IsValueShownAsLabel = true;
-            dataPoint3.Label = "Lojinha...";
-            dataPoint3.LabelBackColor = System.Drawing.Color.Transparent;
-            dataPoint3.LabelBorderColor = System.Drawing.Color.Transparent;
-            dataPoint3.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-            series1.Points.Add(dataPoint1);
-            series1.Points.Add(dataPoint2);
-            series1.Points.Add(dataPoint3);
-            this.chart.Series.Add(series1);
+            series4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series4.BackSecondaryColor = System.Drawing.Color.Transparent;
+            series4.BorderColor = System.Drawing.Color.Transparent;
+            series4.ChartArea = "ChartArea1";
+            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            series4.LabelBackColor = System.Drawing.Color.White;
+            series4.LabelForeColor = System.Drawing.Color.White;
+            series4.Legend = "Legend";
+            series4.Name = "Execuções";
+            dataPoint10.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataPoint10.IsValueShownAsLabel = true;
+            dataPoint10.Label = "Cassino";
+            dataPoint10.LabelBackColor = System.Drawing.Color.Transparent;
+            dataPoint10.LabelBorderColor = System.Drawing.Color.Transparent;
+            dataPoint10.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            dataPoint11.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataPoint11.IsValueShownAsLabel = true;
+            dataPoint11.Label = "Banco";
+            dataPoint11.LabelBackColor = System.Drawing.Color.Transparent;
+            dataPoint11.LabelBorderColor = System.Drawing.Color.Transparent;
+            dataPoint11.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            dataPoint12.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataPoint12.IsValueShownAsLabel = true;
+            dataPoint12.Label = "Lojinha...";
+            dataPoint12.LabelBackColor = System.Drawing.Color.Transparent;
+            dataPoint12.LabelBorderColor = System.Drawing.Color.Transparent;
+            dataPoint12.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            series4.Points.Add(dataPoint10);
+            series4.Points.Add(dataPoint11);
+            series4.Points.Add(dataPoint12);
+            this.chart.Series.Add(series4);
             this.chart.Size = new System.Drawing.Size(455, 206);
             this.chart.TabIndex = 2;
             this.chart.TabStop = false;
             this.chart.Text = "CHART";
-            title1.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            title1.BackColor = System.Drawing.Color.Transparent;
-            title1.BackSecondaryColor = System.Drawing.Color.Transparent;
-            title1.DockingOffset = 5;
-            title1.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.ForeColor = System.Drawing.Color.White;
-            title1.Name = "Title1";
-            title1.Text = "Ultimos golpes";
-            this.chart.Titles.Add(title1);
+            title4.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            title4.BackColor = System.Drawing.Color.Transparent;
+            title4.BackSecondaryColor = System.Drawing.Color.Transparent;
+            title4.DockingOffset = 5;
+            title4.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title4.ForeColor = System.Drawing.Color.White;
+            title4.Name = "Title1";
+            title4.Text = "Ultimos golpes";
+            this.chart.Titles.Add(title4);
             // 
             // rtbTeste
             // 
@@ -843,6 +870,133 @@
             this.rtbTeste.TabIndex = 1;
             this.rtbTeste.Text = "";
             this.rtbTeste.TextChanged += new System.EventHandler(this.rtbTeste_TextChanged);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.pictureBox3);
+            this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox4.Font = new System.Drawing.Font("DS-Digital", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.Color.White;
+            this.groupBox4.Location = new System.Drawing.Point(0, 234);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(6, 0, 3, 3);
+            this.groupBox4.Size = new System.Drawing.Size(455, 122);
+            this.groupBox4.TabIndex = 14;
+            this.groupBox4.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(189, 48);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(32, 27);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "10";
+            this.label11.Visible = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.label12.Location = new System.Drawing.Point(110, 47);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 27);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Lines:";
+            this.label12.Visible = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.label13.Location = new System.Drawing.Point(110, 20);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(115, 27);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "script.js";
+            this.label13.Visible = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::prjHacker.Properties.Resources.script;
+            this.pictureBox3.Location = new System.Drawing.Point(7, 12);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(97, 102);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.button1.Enabled = false;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(98, 373);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(259, 38);
+            this.button1.TabIndex = 13;
+            this.button1.TabStop = false;
+            this.button1.Text = "Iniciar MineraÇÃo";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::prjHacker.Properties.Resources.Bitcoin_PNG;
+            this.pictureBox4.Location = new System.Drawing.Point(272, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(153, 151);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 12;
+            this.pictureBox4.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(0, 190);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(455, 38);
+            this.button2.TabIndex = 11;
+            this.button2.TabStop = false;
+            this.button2.Text = "Carregar Script de mineraÇÃo";
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.label14.Location = new System.Drawing.Point(0, 42);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(217, 109);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Minere bitcoins a partir de scripts de mineraÇÃo, com o bitcoinminer.com";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("DS-Digital", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(3, 3);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(236, 31);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "BitcoinMiner.com";
             // 
             // btnSair
             // 
@@ -874,6 +1028,131 @@
             this.pcbFundo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcbFundo.TabIndex = 12;
             this.pcbFundo.TabStop = false;
+            // 
+            // panelScripts
+            // 
+            this.panelScripts.Controls.Add(this.groupBox5);
+            this.panelScripts.Controls.Add(this.btnCriarScript);
+            this.panelScripts.Controls.Add(this.pictureBox6);
+            this.panelScripts.Controls.Add(this.label19);
+            this.panelScripts.Controls.Add(this.label20);
+            this.panelScripts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelScripts.Location = new System.Drawing.Point(10, 33);
+            this.panelScripts.Name = "panelScripts";
+            this.panelScripts.Size = new System.Drawing.Size(455, 447);
+            this.panelScripts.TabIndex = 5;
+            this.panelScripts.Visible = false;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox5.Controls.Add(this.label16);
+            this.groupBox5.Controls.Add(this.label17);
+            this.groupBox5.Controls.Add(this.label18);
+            this.groupBox5.Controls.Add(this.pictureBox5);
+            this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox5.Font = new System.Drawing.Font("DS-Digital", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.ForeColor = System.Drawing.Color.White;
+            this.groupBox5.Location = new System.Drawing.Point(0, 261);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(6, 0, 3, 3);
+            this.groupBox5.Size = new System.Drawing.Size(455, 122);
+            this.groupBox5.TabIndex = 14;
+            this.groupBox5.TabStop = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic);
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(189, 48);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(25, 27);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "0";
+            this.label16.Visible = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic);
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.label17.Location = new System.Drawing.Point(110, 47);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(77, 27);
+            this.label17.TabIndex = 2;
+            this.label17.Text = "Lines:";
+            this.label17.Visible = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic);
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.label18.Location = new System.Drawing.Point(110, 20);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(133, 27);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "script_1.js";
+            this.label18.Visible = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::prjHacker.Properties.Resources.script;
+            this.pictureBox5.Location = new System.Drawing.Point(7, 12);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(97, 102);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Visible = false;
+            // 
+            // btnCriarScript
+            // 
+            this.btnCriarScript.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCriarScript.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnCriarScript.Enabled = false;
+            this.btnCriarScript.FlatAppearance.BorderSize = 0;
+            this.btnCriarScript.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.btnCriarScript.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCriarScript.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCriarScript.ForeColor = System.Drawing.Color.White;
+            this.btnCriarScript.Location = new System.Drawing.Point(98, 217);
+            this.btnCriarScript.Name = "btnCriarScript";
+            this.btnCriarScript.Size = new System.Drawing.Size(259, 38);
+            this.btnCriarScript.TabIndex = 13;
+            this.btnCriarScript.TabStop = false;
+            this.btnCriarScript.Text = "Criar Script";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::prjHacker.Properties.Resources.script;
+            this.pictureBox6.Location = new System.Drawing.Point(302, 0);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(153, 151);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 12;
+            this.pictureBox6.TabStop = false;
+            // 
+            // label19
+            // 
+            this.label19.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+            this.label19.Location = new System.Drawing.Point(4, 42);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(269, 109);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "MyScript.com É um site em que vocÊ cria seus prÓprios scripts de mineraÇÃo.";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("DS-Digital", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(3, 3);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(188, 31);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "MyScript.com";
             // 
             // frmPrincipal
             // 
@@ -922,7 +1201,17 @@
             this.panelMissao.ResumeLayout(false);
             this.panelPrincipal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFundo)).EndInit();
+            this.panelScripts.ResumeLayout(false);
+            this.panelScripts.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -984,5 +1273,25 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panelScripts;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button btnCriarScript;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
     }
 }
