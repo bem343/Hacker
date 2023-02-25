@@ -439,7 +439,7 @@ namespace prjHacker.forms
             private void btnMinerar_Click(object sender, EventArgs e)
             {
                 script script = my.currentScript();
-                Music.play("# (4).mp3"); my.lost = 0;
+                Music.play("# (6).mp3"); my.lost = 0;
                 frmMineracao frmMineracao = new frmMineracao(script.lines);
                 if (frmMineracao.ShowDialog() == DialogResult.OK)
                 {
@@ -586,7 +586,7 @@ namespace prjHacker.forms
                 } else { return; }
 
                 Music.play("# (4).mp3"); my.lost = 0;
-                if (new frmMineracao(frmNovoScript.script.lines).ShowDialog() == DialogResult.OK)
+                if (new frmCodigoScript(frmNovoScript.script.lines).ShowDialog() == DialogResult.OK)
                 {
                     Music.play("# (5).mp3");
                     btnCriarScript.Enabled = true;

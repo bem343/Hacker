@@ -79,3 +79,4 @@ D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmS
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.CoreCompileInputs.cache
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.CopyComplete
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmNovoScript.resources
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmCodigoScript.resources

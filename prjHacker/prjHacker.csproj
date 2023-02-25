@@ -89,6 +89,12 @@
     <Compile Include="forms\frmDialogo.Designer.cs">
       <DependentUpon>frmDialogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmCodigoScript.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmCodigoScript.Designer.cs">
+      <DependentUpon>frmCodigoScript.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmMineracao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmDialogo.resx">
       <DependentUpon>frmDialogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmCodigoScript.resx">
+      <DependentUpon>frmCodigoScript.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmMineracao.resx">
       <DependentUpon>frmMineracao.cs</DependentUpon>
