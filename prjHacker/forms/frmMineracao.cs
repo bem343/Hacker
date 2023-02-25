@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 using prjHacker.classes;
 
 namespace prjHacker.forms
@@ -14,22 +15,19 @@ namespace prjHacker.forms
     {
 
         #region Variáveis
-            private List<string> linhas = new List<string>()
-            {
-                //"if (x == 0) { this.numero = x; }",
-                //"if (x > 0) { x--; }",
-                //"if (x < 0) { x++; }"
-                "teste", "teste", "teste"
-            };
+            private List<string> linhas = new List<string>();
+            private XmlNodeList lines = null;
             private int proximoAtaque = 0;
             private int tempoAtaque = 0;
             private string linha = "";
             private int nLinha = 0;
+            private int nLinhaTotal = 0;
         #endregion
 
         #region Contrutores
-            public frmMineracao()
+            public frmMineracao(int nLinhaTotal)
             {
+                this.nLinhaTotal = nLinhaTotal;
                 InitializeComponent();
             }
         #endregion
@@ -37,6 +35,17 @@ namespace prjHacker.forms
         #region Form Load
             private void frmMineracao_Load(object sender, EventArgs e)
             {
+                XmlDocument arquivo = new XmlDocument();
+                arquivo.Load("lines.xml");
+                lines = arquivo.GetElementsByTagName("line");
+
+                Random r = new Random();
+			    for (int i = 0; i < nLinhaTotal; i++)
+			    {
+                    int nr = r.Next(lines.Count);
+                    linhas.Add(lines[nr].InnerText);
+			    }
+
                 verificarVpn();
                 lblLinhas.Text = (nLinha + 1) + "/" + linhas.Count;
                 linha = linhas[0];
@@ -100,11 +109,11 @@ namespace prjHacker.forms
             private void txtLinha_TextChanged(object sender, EventArgs e)
             {
                 play.key();
-                if (txtLinha.TextLength == 0)
-                { pbLinha.Value = 0; return; }
+                if (txtLinha.TextLength == 0) { pbLinha.Value = 0; return; }
                 if (txtLinha.TextLength == pbLinha.Value) {
                     if (linha.Substring(0, pbLinha.Value) == txtLinha.Text.Substring(0, pbLinha.Value))
-                    { txtLinha.ForeColor = Color.FromArgb(0, 200, 0); } return; }
+                    { txtLinha.ForeColor = Color.FromArgb(0, 200, 0); } return;
+                }
                 if (linha.Substring(pbLinha.Value, 1) == txtLinha.Text.Substring(pbLinha.Value, 1))
                 { pbLinha.Value++; txtLinha.ForeColor = Color.FromArgb(0, 200, 0); }
                 else { txtLinha.ForeColor = Color.FromArgb(200, 0, 0); return; } verificaLinha();

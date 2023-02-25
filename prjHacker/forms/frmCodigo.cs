@@ -16,6 +16,7 @@ namespace prjHacker.forms
 
         #region Variáveis
             int erros = 0;
+            string user = "";
             string codigoOriginal = "";
             string originalSeco = "";
             string codigoFinal = "";
@@ -25,9 +26,10 @@ namespace prjHacker.forms
         #endregion
 
         #region Construtores
-            public frmCodigo(int erros)
+            public frmCodigo(string user, int erros)
             {
                 this.erros = erros;
+                this.user = user;
                 DialogResult = DialogResult.Abort;
                 InitializeComponent();
             }   
@@ -75,7 +77,7 @@ namespace prjHacker.forms
                 } codigoFinal += codigoOriginal.Substring(init, (codigoOriginal.Length - init));
 
                 lblOriginal.Text = codigoOriginal; rtbFinal.Text = codigoFinal;
-                lblUsuario.Text = "Script de: bem343"; verificarVpn();
+                lblUsuario.Text = "Script de: " + user; verificarVpn();
                 lblErros.Text = erros.ToString(); rtbFinal.Focus();
                 vpn.start(); timerVpn.Start();
             }

@@ -22,7 +22,8 @@ namespace prjHacker.forms
             private Timer janela = null;
             
             private XmlNodeList quests = null;
-            public static double dinheiro = 15;
+            private XmlNodeList users = null;
+            public static double dinheiro = 100;
             public static double experiencia = 0;
             public static int skill = 0;
             public static int nivel = 0;
@@ -47,9 +48,17 @@ namespace prjHacker.forms
                 lblProgramacao.Text = skill.ToString();
                 janela = new Timer { Interval = 1 };
                 janela.Tick += janela_Tick;
-                XmlDocument arquivo = new XmlDocument();
+                XmlDocument arquivo = null;
+
+                //Carrega as quests do xml
+                arquivo = new XmlDocument();
                 arquivo.Load("quests.xml");
                 quests = arquivo.GetElementsByTagName("quest");
+                //Carrega os users do xml
+                arquivo = new XmlDocument();
+                arquivo.Load("users.xml");
+                users = arquivo.GetElementsByTagName("user");
+
                 Music.initPlayer();
             }
             private void janela_Tick(object sender, EventArgs e)
@@ -144,9 +153,10 @@ namespace prjHacker.forms
                             else
                                 buttons[i] = "";
                         }
-                        try { string color = listaDialogos[nDialog]["color"].InnerText;
-                        abreDialogo(nome, imageName, dialogo, buttons, color); }
-	                    catch { abreDialogo(nome, imageName, dialogo, buttons); }
+                        if(listaDialogos[nDialog]["color"] != null) {
+                            string color = listaDialogos[nDialog]["color"].InnerText;
+                            abreDialogo(nome, imageName, dialogo, buttons, color);
+                        } else { abreDialogo(nome, imageName, dialogo, buttons); }
                         nDialog++;
                     } while (nDialog != listaDialogos.Count);
                     return true;
@@ -166,17 +176,6 @@ namespace prjHacker.forms
                 //    frmDialogo frmDialog = new frmDialogo(xml);
                 //    return frmDialog.ShowDialog();
                 //}
-            #endregion
-
-            #region Começa uma quest nova, adicionando ela na listBox
-                private void startQuest()
-                {
-                    quest.start(
-                        quests[quest.current]["name"].InnerText,
-                        quests[quest.current]["instruction"].InnerText
-                    );
-                    lstTrabalhos.Items.Add(quest.name); play.select();
-                }
             #endregion
 
             #region Adiciona um item na dropdown dos itens do menu
@@ -337,6 +336,14 @@ namespace prjHacker.forms
                 attExperiencia(55 + (0.5 * quest.current));
                 lstTrabalhos.Items.Remove(quests[(quest.current - 1)]["name"].InnerText);
             }
+            private void startQuest()
+                {
+                    quest.start(
+                        quests[quest.current]["name"].InnerText,
+                        quests[quest.current]["instruction"].InnerText
+                    );
+                    lstTrabalhos.Items.Add(quest.name); play.select();
+                }
             private void q1complete()
             {
                 qComplete();
@@ -362,7 +369,17 @@ namespace prjHacker.forms
                 //dialogo("dialogs/q3complete.xml");
                 dialogo("dialogs/teste.xml");
 
+                startQuest();
                 addItem(1, "Criar script", criarScripts_Click);
+            }
+            private void q4complete()
+            {
+                qComplete();
+                //dialogo("dialogs/q4complete.xml");
+                dialogo("dialogs/teste.xml");
+
+                startQuest();
+                //addItem(1, "", _Click);
             }
         #endregion
 
@@ -421,8 +438,9 @@ namespace prjHacker.forms
             }
             private void btnMinerar_Click(object sender, EventArgs e)
             {
+                script script = my.currentScript();
                 Music.play("# (4).mp3"); my.lost = 0;
-                frmMineracao frmMineracao = new frmMineracao();
+                frmMineracao frmMineracao = new frmMineracao(script.lines);
                 if (frmMineracao.ShowDialog() == DialogResult.OK)
                 {
                     Music.play("# (5).mp3");
@@ -433,28 +451,39 @@ namespace prjHacker.forms
                     lblLinesScript.Visible = false;
 
                     //Recompensas
-                    int vProgramacao = my.currentScript().lines * 10;
-                    double vDinheiro = my.currentScript().lines * 15.5;
-                    double vExperiencia = my.currentScript().lines * 5.2;
+                    double vDinheiro = (script.lines * 15.5) * LanguageLevel(script.language);
+                    double vExperiencia = script.lines * 5;
                     //Relatório final da mineração
                     frmRelatorio relatorio = new frmRelatorio
-                    ((vDinheiro - my.lost), vProgramacao, vExperiencia, "MineraÇÃo ConcluÍda!");
+                    ((vDinheiro - my.lost), 0, vExperiencia, "MineraÇÃo ConcluÍda!");
                     relatorio.ShowDialog();
 
-                    attProgramacao(vProgramacao);
                     attDinheiro(vDinheiro - my.lost);
                     attExperiencia(vExperiencia);
                     if (quest.current == 2) { q2complete(); }
                     my.scriptsRemove();
                 } else { Music.play("# (5).mp3"); attDinheiro(-my.lost); }
             }
+            private int LanguageLevel(string languageTarget)
+            {
+                int i = 1;
+                List<string> languages = new List<string>()
+                { "js", "c", "c#", "c++" };
+                foreach(string language in languages) {
+                    if(language == languageTarget)
+                        return i;
+                        i++;
+                } return 0;
+            }
         #endregion
 
         #region Área de Revisar códigos
             int buscarTime = 0;
             int buscarMax = 0;
+            int selectedIndex = 0;
             bool primeiraVez = true;
             Timer buscaTimer = new Timer();
+            List<object[]> itensRevisao = new List<object[]>();
             private void panelCodigos_VisibleChanged(object sender, EventArgs e)
             {
                 if (primeiraVez)
@@ -464,14 +493,18 @@ namespace prjHacker.forms
             }
             private void buscaTimer_Tick(object sender, EventArgs e)
             {
-                buscarTime++; if (buscarTime == buscarMax)
-                {
+                buscarTime++;
+                if (buscarTime == buscarMax) {
                     buscaTimer.Stop();
                     pcbLoad.Visible = false;
                     btnRefresh.Enabled = true;
                     play.complete(); return;
-                } int erros = new Random().Next(3, 4 + (nivel * 2));
-                lstCodigos.Items.Add("xX_Gamer_Xx - " + erros + " erros");
+                }
+
+                string user = users[new Random().Next(users.Count)].InnerText;
+                int erros = new Random().Next(3, 4 + (nivel * 2));
+                itensRevisao.Add(new object[2] { user, erros });
+                lstCodigos.Items.Add(user + " - " + erros + " erros");
                 play.select(); buscaTimer.Interval = new Random().Next(100, 1001);
             }
             private void btnRefresh_Click(object sender, EventArgs e)
@@ -487,13 +520,16 @@ namespace prjHacker.forms
                 btnRevisar.Enabled = false;
                 buscaTimer.Interval = 1000;
                 pcbLoad.Visible = true;
+                itensRevisao.Clear();
                 buscaTimer.Start();
             }
             private void lstCodigos_SelectedIndexChanged(object sender, EventArgs e)
             {
                 play.click();
-                if (lstCodigos.SelectedItems.Count > 0) { btnRevisar.Enabled = true; }
-                lstCodigos.ClearSelected();
+                if (lstCodigos.SelectedItems.Count > 0) {
+                    selectedIndex = lstCodigos.SelectedIndex;
+                    btnRevisar.Enabled = true;
+                } lstCodigos.ClearSelected();
             }
             private void btnRevisar_Click(object sender, EventArgs e)
             {
@@ -503,15 +539,18 @@ namespace prjHacker.forms
                 pcbLoad.Visible = false;
                 lstCodigos.Items.Clear();
                 Music.play("# (4).mp3"); my.lost = 0;
-                frmCodigo frmCodigo = new frmCodigo(3);
+
+                string user = itensRevisao[selectedIndex][0].ToString();
+                int erros = int.Parse(itensRevisao[selectedIndex][1].ToString());
+                frmCodigo frmCodigo = new frmCodigo(user, erros);
                 if (frmCodigo.ShowDialog() == DialogResult.OK)
                 {
                     Music.play("# (5).mp3");
 
                     //Recompensas
                     double vDinheiro = new Random().Next(0, 2) == 1 ? 0 : pagamento();
-                    double vExperiencia = 80;
-                    int vProgramacao = 300;
+                    double vExperiencia = erros * 10;
+                    int vProgramacao = erros * 22;
                     //Relatório final da revisão
                     frmRelatorio relatorio = new frmRelatorio
                     ((vDinheiro - my.lost), vProgramacao, vExperiencia, "RevisÃo ConcluÍda!");
@@ -524,8 +563,71 @@ namespace prjHacker.forms
                 } else { Music.play("# (5).mp3"); attDinheiro(-my.lost); } listCodigosRefresh();
             }
             // Método para gerar o pagamento, caso o usuário deseje
-            private double pagamento() { return new Random().Next(2, 4) + new Random().NextDouble(); }
-        #endregion
+            private double pagamento() { return new Random().Next(2, 6) + new Random().NextDouble(); }
+		#endregion
 
-    }
+		#region Área de criação de códigos
+		    private void btnCriarScript_Click(object sender, EventArgs e)
+		    {
+                play.click();
+                if(new frmNovoScript().ShowDialog() == DialogResult.OK)
+                {
+                    script script = frmNovoScript.script;
+                    lblLinesScript2.Text = script.lines.ToString();
+                    lblScript2.Text = script.name;
+                    pcbScript2.Visible = true;
+                    lblScript2.Visible = true;
+                    lblLinesTitle2.Visible = true;
+                    lblLinesScript2.Visible = true;
+                    btnCriarScript.Enabled = false;
+                    btnContinuarScript.Visible = true;
+                    attProgramacao(-frmNovoScript.skill);
+                } else { return; }
+
+                Music.play("# (4).mp3"); my.lost = 0;
+                if (new frmMineracao(frmNovoScript.script.lines).ShowDialog() == DialogResult.OK)
+                {
+                    Music.play("# (5).mp3");
+                    btnCriarScript.Enabled = true;
+                    btnContinuarScript.Visible = false;
+                    pcbScript2.Visible = false;
+                    lblScript2.Visible = false;
+                    lblLinesTitle2.Visible = false;
+                    lblLinesScript2.Visible = false;
+
+                    //Recompensas
+                    double vExperiencia = frmNovoScript.script.lines * 5.2;
+                    //Relatório final da mineração
+                    frmRelatorio relatorio = new frmRelatorio
+                    (-my.lost, 0, vExperiencia, "Script concluÍdo!");
+                    relatorio.ShowDialog();
+
+                    attDinheiro(-my.lost);
+                    attExperiencia(vExperiencia);
+                    frmNovoScript.concluirScript();
+                    if (quest.current == 4) { /*q4complete();*/ }
+                } else { Music.play("# (5).mp3"); attDinheiro(-my.lost); }
+
+		    }
+            private void btnContinuarScript_Click(object sender, EventArgs e)
+		    {
+                play.click();
+		    }
+            private void panelScripts_VisibleChanged(object sender, EventArgs e)
+	        {
+                //if(panelScripts.Visible)
+                //{
+                //    if(my.currentScript() == null)
+                //    {
+                //        btnCriarScript.Enabled = true;
+                //    }
+                //    else
+                //    {
+                //        btnContinuarScript.Visible = true;
+                //    }
+                //}
+	        }
+		#endregion
+
+	}
 }

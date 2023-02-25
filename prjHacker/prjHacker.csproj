@@ -95,6 +95,12 @@
     <Compile Include="forms\frmMineracao.Designer.cs">
       <DependentUpon>frmMineracao.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmNovoScript.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmNovoScript.Designer.cs">
+      <DependentUpon>frmNovoScript.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmMineracao.resx">
       <DependentUpon>frmMineracao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmNovoScript.resx">
+      <DependentUpon>frmNovoScript.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
@@ -187,6 +196,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="dlls\taglib-sharp.dll" />
+    <None Include="Resources\popup %281%29.gif" />
     <None Include="Resources\Carregando2.gif" />
     <None Include="Resources\carregando.gif" />
     <None Include="Resources\sharkred.png" />

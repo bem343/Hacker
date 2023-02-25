@@ -27,7 +27,6 @@ D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.pdb
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\bin\Debug\prjHacker.exe
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\bin\Debug\prjHacker.pdb
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\bin\Debug\AxInterop.WMPLib.dll
-D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.csprojResolveAssemblyReference.cache
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmConfiguracoes.resources
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmDialogo.resources
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmPrincipal.resources
@@ -70,3 +69,13 @@ C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.
 C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmSplash.resources
 C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.Properties.Resources.resources
 C:\Users\João Marcus\Downloads\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.GenerateResource.Cache
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\bin\Debug\taglib-sharp.dll
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.AssemblyReference.cache
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmAtaque.resources
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmCodigo.resources
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmMineracao.resources
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmRelatorio.resources
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmScript.resources
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.CoreCompileInputs.cache
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.CopyComplete
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmNovoScript.resources

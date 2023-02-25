@@ -13,4 +13,8 @@
 		<name>Revisar CÓdigos</name>
 		<instruction>Revise cÓdigos para ganhar experiÊncia e P. Skill. Para fazer isso basta clicar em 'programaÇÃo', depois em 'Revisar CÓdigos'.</instruction>
 	</quest>
+	<quest>
+		<name>Criar um script</name>
+		<instruction>Continue revisando cÓdigos atÉ cosenguir pontos de skill suficientes para criar um novo script de mineraÇÃo. Para isso basta clicar me 'programaÇÃo', depois em 'criar script'.</instruction>
+	</quest>
 </quests>
