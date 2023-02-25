@@ -34,7 +34,7 @@ namespace prjHacker.forms
             play.congrats();
             if (dinheiro >= 0) { lblDinheiro.Text = "+ $" + dinheiro.ToString("#0.00"); }
             else {
-                lblDinheiro.Text = "- $" + dinheiro.ToString("#0.00");
+                lblDinheiro.Text = "- $" + (dinheiro * -1).ToString("#0.00");
                 lblDinheiro.BackColor = Color.Red;
             }
             if (experiencia >= 0) { lblExperiencia.Text = "+ " + experiencia.ToString("#0.##"); }

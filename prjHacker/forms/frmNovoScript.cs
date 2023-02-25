@@ -87,17 +87,24 @@ namespace prjHacker.forms
 			}
 			private void txtNome_TextChanged(object sender, EventArgs e)
 			{
+				play.key();
 				verificaCriar();
 			}
 			private void cbLinguagem_SelectedIndexChanged(object sender, EventArgs e)
 			{
-				
+				play.select();
 				verificaCriar();
 			}
 			private void nLines_ValueChanged(object sender, EventArgs e)
 			{
+				play.select();
 				verificaCriar();
 			}
+			private void nLines_KeyPress(object sender, KeyPressEventArgs e)
+			{
+				play.key();
+			}
 		#endregion
+
 	}
 }

@@ -3,8 +3,7 @@
 <codes>
 
     <!-- Blocos sem formatação e com no máximo 386 caracteres -->
-    
-    <!--
+
     <code>play.click(); buscatimer.stop(); btnrefresh.enabled = false; btnrevisar.enabled = false; pcbload.visible = false; lstcodigos.items.clear(); music.play('# (4).mp3'); frmcodigo frmcodigo = new frmcodigo(); if (frmcodigo.showdialog() == dialogresult.ok) { music.play('# (5).mp3');</code>
 
     <code>play.click(); int hora = (tempo / 60); string s = 's'; if (hora == 1) { s = ''; } string[] buttons = new string[4]; buttons[0] = 'sim'; buttons[1] = 'nao'; buttons[2] = ''; buttons[3] = ''; if ( abredialogo ( 's.h.a.r.k', 'sharkgreen.png', 'deseja pagar $' + valor.tostring('#0.00') hora + ' hora' + s + '?', buttons ) == dialogresult.ok) { vpn.sign(tempo); }}</code>
@@ -24,8 +23,9 @@
     <code>using system; using system.collections.generic; using system.componentmodel; using system.data; using system.drawing; using system.linq;</code>
 
     <code>using system.text; using system.windows.forms; using system.media; using prjhacker.classes; using system.xml;</code>
-    -->
 
-    <code>teste123; teste123; teste123; teste123; teste123;</code>
+    <!--
+    <code>teste123;</code>
+    -->
 
 </codes>

@@ -3,10 +3,7 @@
 <lines>
 
     <!-- Linhas sem formatação e com no máximo 150 caracteres -->
-
-    <line>teste</line>
-
-    <!--
+    
     <line>if (x == 0) { this.numero = x; }</line>
     <line>if (x > 0) { x-1; }</line>
     <line>xmldocument arquivo = new xmldocument();</line>
@@ -21,6 +18,9 @@
     <line>codes = arquivo.getelementsbytagname("code");</line>
     <line>codigofinal += codigooriginal.substring(init, 10);</line>
     <line>rtbfinal.readonly = true; btnrefazer.visible = false;</line>
+
+    <!--
+    <line>teste</line>
     -->
 
 </lines>

@@ -66,15 +66,20 @@ namespace prjHacker.forms
 
                 int r = new Random().Next(0, codes.Count);
                 codigoOriginal = codes[r].InnerText;
+
                 Random posicaoAleatoria = new Random();
                 originalSeco = codigoOriginal.Replace(" ", "");
-                int init = 0; for (int i = 0; i < erros; i++)
+
+                //Gera os erros no código
+                codigoFinal = codigoOriginal;
+                for (int i = 0; i < erros; i++)
                 {
-                    int fim = 0; do {
-                        fim = posicaoAleatoria.Next(init, (codigoOriginal.Length - (erros - i)));
-                    } while (codigoOriginal.Substring(fim, 1) == " ");
-                    codigoFinal += codigoOriginal.Substring(init, (fim - init)); init = fim + 1;
-                } codigoFinal += codigoOriginal.Substring(init, (codigoOriginal.Length - init));
+                    int posicao;
+                    do {
+                        posicao = posicaoAleatoria.Next(codigoFinal.Length);
+                    } while (codigoFinal.Substring(posicao, 1) == " ");
+                    codigoFinal = codigoFinal.Remove(posicao, 1);
+                }
 
                 lblOriginal.Text = codigoOriginal; rtbFinal.Text = codigoFinal;
                 lblUsuario.Text = "Script de: " + user; verificarVpn();
@@ -113,16 +118,17 @@ namespace prjHacker.forms
         #region Verifica as mudanças digitadas no código final
             private void rtbFinal_TextChanged(object sender, EventArgs e)
             {
+                play.key();
                 string rascunhoSeco = rtbFinal.Text.Replace(" ", "").Replace("\n", "");
 
                 //Verificação dos erros
                 int errosA = erros; erros = 0;
                 for (int i = 0; i < originalSeco.Length; i++)
                 {
-                    if (rascunhoSeco.Substring(i - erros, 1) != originalSeco.Substring(i, 1))
-                    {
-                        erros++;
-                    }
+                    if(i - erros < rascunhoSeco.Length) {
+                        if (rascunhoSeco.Substring(i - erros, 1) != originalSeco.Substring(i, 1))
+                            erros++;
+                    } else { erros++; }
                 } lblErros.Text = erros.ToString(); if ((errosA - erros) < -1)
                 { lblErros.ForeColor = Color.FromArgb(200, 0, 0); }
                 else { lblErros.ForeColor = Color.White; }
@@ -142,6 +148,7 @@ namespace prjHacker.forms
             }
             private void btnConcluir_Click(object sender, EventArgs e)
             {
+                play.click();
                 Close();
             }
         #endregion

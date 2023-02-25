@@ -110,6 +110,7 @@ namespace prjHacker.forms
             0,
             0});
 			this.nLines.ValueChanged += new System.EventHandler(this.nLines_ValueChanged);
+			this.nLines.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nLines_KeyPress);
 			// 
 			// lblSkill
 			// 

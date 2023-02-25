@@ -483,6 +483,7 @@ namespace prjHacker.forms
             int selectedIndex = 0;
             bool primeiraVez = true;
             Timer buscaTimer = new Timer();
+            Random aleatorize = new Random();
             List<object[]> itensRevisao = new List<object[]>();
             private void panelCodigos_VisibleChanged(object sender, EventArgs e)
             {
@@ -501,11 +502,11 @@ namespace prjHacker.forms
                     play.complete(); return;
                 }
 
-                string user = users[new Random().Next(users.Count)].InnerText;
-                int erros = new Random().Next(3, 4 + (nivel * 2));
+                string user = users[aleatorize.Next(users.Count)].InnerText;
+                int erros = aleatorize.Next(3, 5 + (nivel / 3));
                 itensRevisao.Add(new object[2] { user, erros });
                 lstCodigos.Items.Add(user + " - " + erros + " erros");
-                play.select(); buscaTimer.Interval = new Random().Next(100, 1001);
+                play.select(); buscaTimer.Interval = aleatorize.Next(100, 1001);
             }
             private void btnRefresh_Click(object sender, EventArgs e)
             {
