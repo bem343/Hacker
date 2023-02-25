@@ -134,32 +134,59 @@ namespace prjHacker.forms
             #region Abrir uma caixa de Diálogos
                 private bool dialogo(string xml)
                 {
-                    XmlDocument arquivo = new XmlDocument();
-                    arquivo.Load(xml);
+                    XmlDocument arquivo = new XmlDocument(); arquivo.Load(xml);
                     XmlNodeList listaDialogos = arquivo.GetElementsByTagName("dialog");
-                    int nDialog = 0;
-
-                    do
-                    {
+                    int nDialog = 0; do {
                         string[] buttons = new string[4];
                         string nome = listaDialogos[nDialog]["name"].InnerText;
                         string imageName = listaDialogos[nDialog]["image"].InnerText;
                         string dialogo = listaDialogos[nDialog]["text"].InnerText;
                         XmlNodeList listaBotoes = listaDialogos[nDialog]["buttons"].ChildNodes;
-                        for (int i = 0; i < buttons.Length; i++)
-                        {
-                            if (listaBotoes[i] != null)
-                                buttons[i] = listaBotoes[i].InnerText;
-                            else
-                                buttons[i] = "";
-                        }
-                        if(listaDialogos[nDialog]["color"] != null) {
+                        for (int i = 0; i < buttons.Length; i++) {
+                            buttons[i] = listaBotoes[i]?.InnerText ?? "";
+                        } if(listaDialogos[nDialog]["color"] != null) {
                             string color = listaDialogos[nDialog]["color"].InnerText;
                             abreDialogo(nome, imageName, dialogo, buttons, color);
                         } else { abreDialogo(nome, imageName, dialogo, buttons); }
                         nDialog++;
                     } while (nDialog != listaDialogos.Count);
                     return true;
+                }
+                private DialogResult dialogoComRetorno(string xml)
+                {
+                    XmlDocument arquivo = new XmlDocument(); arquivo.Load(xml);
+                    XmlNodeList listaDialogos = arquivo.GetElementsByTagName("dialog");
+                    DialogResult dr = DialogResult.OK; int nDialog = 0; do {
+                        string[] buttons = new string[4];
+                        string nome = listaDialogos[nDialog]["name"].InnerText;
+                        string imageName = listaDialogos[nDialog]["image"].InnerText;
+                        string dialogo = listaDialogos[nDialog]["text"].InnerText;
+                        XmlNodeList listaBotoes = listaDialogos[nDialog]["buttons"].ChildNodes;
+                        for (int i = 0; i < buttons.Length; i++) {
+                            buttons[i] = listaBotoes[i]?.InnerText ?? "";
+                        } if(listaDialogos[nDialog]["color"] != null) {
+                            string color = listaDialogos[nDialog]["color"].InnerText;
+                            dr = abreDialogo(nome, imageName, dialogo, buttons, color);
+                        } else { dr = abreDialogo(nome, imageName, dialogo, buttons); }
+                        if(dr != DialogResult.OK) return dr; nDialog++;
+                    } while (nDialog != listaDialogos.Count); return dr;
+                }
+                private DialogResult dialogoUnico(string xml)
+                {
+                    XmlDocument arquivo = new XmlDocument(); arquivo.Load(xml);
+                    XmlNodeList listaDialogos = arquivo.GetElementsByTagName("dialog");
+
+                    int nDialog = 0; string[] buttons = new string[4];
+                    string nome = listaDialogos[nDialog]["name"].InnerText;
+                    string imageName = listaDialogos[nDialog]["image"].InnerText;
+                    string dialogo = listaDialogos[nDialog]["text"].InnerText;
+                    XmlNodeList listaBotoes = listaDialogos[nDialog]["buttons"].ChildNodes;
+                    for (int i = 0; i < buttons.Length; i++) {
+                        buttons[i] = listaBotoes[i]?.InnerText ?? "";
+                    } if(listaDialogos[nDialog]["color"] != null) {
+                        string color = listaDialogos[nDialog]["color"].InnerText;
+                        return abreDialogo(nome, imageName, dialogo, buttons, color);
+                    } else { return abreDialogo(nome, imageName, dialogo, buttons); }
                 }
                 private DialogResult abreDialogo(string nome, string imageName, string dialogo, string[] buttons)
                 {
@@ -628,6 +655,21 @@ namespace prjHacker.forms
                 //    }
                 //}
 	        }
+		#endregion
+
+		#region Menu de contexto
+            int contAjuda = 0;
+		    private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
+		    {
+                switch(contAjuda)
+                {
+                    case 0:
+                        if(dialogoComRetorno("dialogs/ajuda/1.xml") == DialogResult.Cancel)
+                            dialogo("dialogs/ajuda/2.xml"); contAjuda++; break;
+                    case 1: dialogo("dialogs/ajuda/3.xml"); contAjuda++; break;
+                    default: dialogo("dialogs/ajuda/4.xml"); Application.Exit(); break;
+                }
+            }
 		#endregion
 
 	}

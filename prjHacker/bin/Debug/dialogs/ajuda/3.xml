@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<dialogs>
+
+    <dialog>
+        <name>S.H.A.R.K</name>
+        <image>sharkgreen.png</image>
+        <text>VocÊ de novo?</text>
+        <buttons>
+            <button>...</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>S.H.A.R.K</name>
+        <image>sharkred.png</image>
+        <text>NÃo se atreva a voltar aqui >:[</text>
+        <color>Red</color>
+        <buttons>
+            <button>Ok</button>
+        </buttons>
+    </dialog>
+
+</dialogs>

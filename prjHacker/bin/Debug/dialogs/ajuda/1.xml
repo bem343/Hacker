@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<dialogs>
+
+    <dialog>
+        <name>S.H.A.R.K</name>
+        <image>sharkgreen.png</image>
+        <text>Parece que vocÊ descobriu o menu de contexto...</text>
+        <buttons>
+            <button>...</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>S.H.A.R.K</name>
+        <image>sharkgreen.png</image>
+        <text>O que vocÊ quer saber?</text>
+        <buttons>
+            <button>...</button>
+            <button>NÃo sei</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>S.H.A.R.K</name>
+        <image>sharkgreen.png</image>
+        <text>Bom, se vocÊ apertar 'x' durante um diÁlogo, É possÍvel pular a animaÇÃo...</text>
+        <buttons>
+            <button>Legal!</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>S.H.A.R.K</name>
+        <image>sharkgreen.png</image>
+        <text>EstÁ bom pra vocÊ?</text>
+        <buttons>
+            <button>Sim</button>
+            <button>NÃo</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>S.H.A.R.K</name>
+        <image>sharkgreen.png</image>
+        <text>Ótimo, Adeus</text>
+        <buttons>
+            <button>Obrigado</button>
+        </buttons>
+    </dialog>
+
+</dialogs>
