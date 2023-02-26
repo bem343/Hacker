@@ -7,7 +7,7 @@
         <image>zeck.jpg</image>
         <text>OlÁ, eu sou Zeck, bem-vindo a deepweb >:D</text>
         <buttons>
-            <button>Continuar</button>
+            <button>OlÁ</button>
         </buttons>
     </dialog>
 
@@ -25,7 +25,7 @@
         <image>zeck.jpg</image>
         <text>Certo, a escolha É sua.</text>
         <buttons>
-            <button>Continuar</button>
+            <button>...</button>
         </buttons>
     </dialog>
 
@@ -33,7 +33,7 @@
         <name>ZECK</name>
         <image>zeck.jpg</image>
         <text>Este É o seu endereco de IP: 193.923.167.7
-        vocÊ estÁ na deepweb, É melhor mascarÁ-lo com um VPN.</text>
+        vocÊ estÁ na deepweb, É melhor mascarÁ-lo com uma VPN.</text>
         <buttons>
             <button>Ok</button>
         </buttons>

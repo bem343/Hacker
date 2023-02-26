@@ -2,22 +2,27 @@
 
 <lines>
 
-    <!-- Linhas sem formatação e com no máximo 150 caracteres -->
+    <!-- Linhas sem formatação e com no máximo 50 caracteres -->
     
     <line>if (x == 0) { this.numero = x; }</line>
     <line>if (x > 0) { x-1; }</line>
     <line>xmldocument arquivo = new xmldocument();</line>
     <line>lbllinhas.text = (nlinha + 1);</line>
     <line>linha = linhas[0].innertext;</line>
-    <line>txtlinha.focus(); vpn.start();</line>
+    <line>txtlinha.focus();</line>
+    <line>vpn.start();</line>
     <line>private bool verificalinha() { return true; }</line>
-    <line>txtlinha.focus(); vpn.stado { resultado = ataque.dialogresult; }rt();</line>
-    <line>while (ataque.dialogresult == dialogresult.none);</line>
-    <line>using system.media; using prjhacker.classes;</line>
-    <line>txtlinha.clear(); txtlinha.focus();</line>
+    <line>do { i++; } while (ataque.dialogresult == none);</line>
+    <line>using system.media;</line>
+    <line>txtlinha.clear();</line>
+    <line>txtlinha.focus();</line>
     <line>codes = arquivo.getelementsbytagname("code");</line>
     <line>codigofinal += codigooriginal.substring(init, 10);</line>
-    <line>rtbfinal.readonly = true; btnrefazer.visible = false;</line>
+    <line>rtbfinal.readonly = true;</line>
+    <line>btnrefazer.visible = false;</line>
+    <line>using prjhacker.classes;</line>
+    <line>attdinheiro(-my.lost);</line>
+    <line>attexperiencia(vexperiencia);</line>
 
     <!--
     <line>teste</line>

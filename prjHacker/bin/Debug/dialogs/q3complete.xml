@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<dialogs>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>ParabÉns, vocÊ acaba de revisar o seu primeiro cÓdigo</text>
+        <buttons>
+            <button>Legal</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>Quanto mais vocÊ revisa cÓdigos, mais pontos de skill e xp vocÊ ganha</text>
+        <buttons>
+            <button>Entendi</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>Revisa mais alguns e vocÊ terÁ o suficiente para fazer um script</text>
+        <buttons>
+            <button>Ok</button>
+        </buttons>
+    </dialog>
+
+</dialogs>

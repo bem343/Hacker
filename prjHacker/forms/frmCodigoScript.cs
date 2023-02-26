@@ -15,8 +15,7 @@ namespace prjHacker.forms
     {
 
         #region Variáveis
-            private List<string> linhas = new List<string>();
-            private XmlNodeList lines = null;
+            private List<string> linhas = null; 
             private int proximoAtaque = 0;
             private int tempoAtaque = 0;
             private string linha = "";
@@ -25,9 +24,8 @@ namespace prjHacker.forms
         #endregion
 
         #region Contrutores
-            public frmCodigoScript(int nLinhaTotal)
-            {
-                this.nLinhaTotal = nLinhaTotal;
+            public frmCodigoScript()
+            {                
                 InitializeComponent();
             }
         #endregion
@@ -35,20 +33,15 @@ namespace prjHacker.forms
         #region Form Load
             private void frmMineracao_Load(object sender, EventArgs e)
             {
-                XmlDocument arquivo = new XmlDocument();
-                arquivo.Load("lines.xml");
-                lines = arquivo.GetElementsByTagName("line");
+                linhas = frmNovoScript.script.lines;
+                nLinha = frmNovoScript.script.linesP;
+                nLinhaTotal = linhas.Count;
 
-                Random r = new Random();
-			    for (int i = 0; i < nLinhaTotal; i++)
-			    {
-                    int nr = r.Next(lines.Count);
-                    linhas.Add(lines[nr].InnerText);
-			    }
+                if(nLinha == nLinhaTotal) { DialogResult = DialogResult.OK; Close(); return; }
 
                 verificarVpn();
-                lblLinhas.Text = (nLinha + 1) + "/" + linhas.Count;
-                linha = linhas[0];
+                lblLinhas.Text = nLinha + "/" + linhas.Count;
+                linha = linhas[nLinha];
                 lblLinha.Text = linha;
                 pbLinha.Maximum = linha.Length;
                 txtLinha.Focus(); vpn.start();
@@ -61,10 +54,10 @@ namespace prjHacker.forms
             {
                 if (pbLinha.Value == pbLinha.Maximum)
                 {
-                    nLinha++;
-                    if (nLinha != linhas.Count)
+                    nLinha++; frmNovoScript.script.linesP++;
+                    lblLinhas.Text = nLinha + "/" + linhas.Count;
+                    if (nLinha != nLinhaTotal)
                     {
-                        lblLinhas.Text = (nLinha + 1) + "/" + linhas.Count;
                         linha = linhas[nLinha];
                         lblLinha.Text = linha;
                         pbLinha.Value = 0;
@@ -165,6 +158,7 @@ namespace prjHacker.forms
 
         private void btnConcluir_Click(object sender, EventArgs e)
         {
+            play.click();
             Close();
         }
 

@@ -23,9 +23,10 @@ namespace prjHacker.forms
             
             private XmlNodeList quests = null;
             private XmlNodeList users = null;
-            public static double dinheiro = 100;
+            public static double dinheiro = 150;
             public static double experiencia = 0;
-            public static int skill = 0;
+            //public static int skill = 0;
+            public static int skill = 1000;
             public static int nivel = 0;
         #endregion
 
@@ -66,6 +67,32 @@ namespace prjHacker.forms
                 this.Location = new Point(Cursor.Position.X - X, Cursor.Position.Y - Y);
             }
         #endregion
+
+        #region Mostra o diálogo de bem-vindo ao abrir o formulário
+            private void frmPrincipal_Shown(object sender, EventArgs e)
+            {
+                //if (dialogo("dialogs/welcome.xml"))
+                if (dialogo("dialogs/teste.xml"))
+                {
+                    startQuest();
+                    addItem(0, "VPN", vpn_Click);
+                }
+            }
+        #endregion
+
+        #region Movimentação da janela
+            private void menuStrip_MouseDown(object sender, MouseEventArgs e)
+            {
+                X = Cursor.Position.X - this.Location.X;
+                Y = Cursor.Position.Y - this.Location.Y;
+                janela.Start();
+            }
+            private void menuStrip_MouseUp(object sender, MouseEventArgs e)
+            {
+                janela.Stop();
+            }
+        #endregion
+
 
         #region Métodos
 
@@ -277,6 +304,21 @@ namespace prjHacker.forms
             }
         #endregion
 
+        #region Menu de contexto
+            int contAjuda = 0;
+            private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                switch (contAjuda)
+                {
+                    case 0:
+                        if (dialogoComRetorno("dialogs/ajuda/1.xml") == DialogResult.Cancel)
+                            dialogo("dialogs/ajuda/2.xml"); contAjuda++; break;
+                    case 1: dialogo("dialogs/ajuda/3.xml"); contAjuda++; break;
+                    default: dialogo("dialogs/ajuda/4.xml"); Application.Exit(); break;
+                }
+            }
+        #endregion
+
         #region Botão Sair personalizado
             private void btnSair_Click(object sender, EventArgs e)
             {
@@ -303,38 +345,6 @@ namespace prjHacker.forms
             {
                 if (exitTime == 1) { Application.Exit(); }
                 exitTime++;
-            }
-        #endregion
-
-        #region Movimentação da janela
-            private void menuStrip_MouseDown(object sender, MouseEventArgs e)
-            {
-                X = Cursor.Position.X - this.Location.X;
-                Y = Cursor.Position.Y - this.Location.Y;
-                janela.Start();
-            }
-            private void menuStrip_MouseUp(object sender, MouseEventArgs e)
-            {
-                janela.Stop();
-            }
-        #endregion
-
-        #region Digitação na text box
-            private void rtbTeste_TextChanged(object sender, EventArgs e)
-            {
-                play.key();
-            }
-        #endregion
-
-        #region Mostra o diálogo de bem-vindo ao abrir o formulário
-            private void frmPrincipal_Shown(object sender, EventArgs e)
-            {
-                //if (dialogo("dialogs/welcome.xml"))
-                if (dialogo("dialogs/teste.xml"))
-                {
-                    startQuest();
-                    addItem(0, "VPN", vpn_Click);
-                }
             }
         #endregion
 
@@ -402,274 +412,291 @@ namespace prjHacker.forms
             private void q4complete()
             {
                 qComplete();
-                //dialogo("dialogs/q4complete.xml");
-                dialogo("dialogs/teste.xml");
+                dialogo("dialogs/q4complete.xml");
+                //dialogo("dialogs/teste.xml");
 
                 startQuest();
                 //addItem(1, "", _Click);
             }
-        #endregion
+		#endregion
 
-        #region Área de serviço VPN
-            private void btnVpn(int tempo, double valor)
-            {
-                play.click();
-                int hora = (tempo / 60);
-                string s = "s"; if (hora == 1) { s = ""; }
-                string[] buttons = new string[4];
-                buttons[0] = "Sim";
-                buttons[1] = "NÃo";
-                buttons[2] = "";
-                buttons[3] = "";
-                if ( abreDialogo
-                (
-                    "S.H.A.R.K",
-                    "sharkgreen.png",
-                    "Deseja pagar $" + valor.ToString("#0.00") + " para assinar serviÇo por " + hora + " hora" + s + "?",
-                    buttons
-                ) == DialogResult.OK)
+
+		#region Áreas do jogo (Panels)
+
+		    #region Área de serviço VPN
+		        private void btnVpn(int tempo, double valor)
                 {
-                    vpn.sign(tempo);
-                    verificarVpn();
-                    attDinheiro(-valor);
-                    if (quest.current == 1) { q1complete(); }
+                    play.click();
+                    int hora = (tempo / 60);
+                    string s = "s"; if (hora == 1) { s = ""; }
+                    string[] buttons = new string[4];
+                    buttons[0] = "Sim";
+                    buttons[1] = "NÃo";
+                    buttons[2] = "";
+                    buttons[3] = "";
+                    if ( abreDialogo
+                    (
+                        "S.H.A.R.K",
+                        "sharkgreen.png",
+                        "Deseja pagar $" + valor.ToString("#0.00") + " para assinar serviÇo por " + hora + " hora" + s + "?",
+                        buttons
+                    ) == DialogResult.OK)
+                    {
+                        vpn.sign(tempo);
+                        verificarVpn();
+                        attDinheiro(-valor);
+                        if (quest.current == 1) { q1complete(); }
+                    }
                 }
-            }
-            private void btnVpn1_Click(object sender, EventArgs e)
-            {
-                btnVpn(60, 10);
-            }
-            private void btnVpn2_Click(object sender, EventArgs e)
-            {
-                btnVpn(90, 15);
-            }
-            private void btnVpn3_Click(object sender, EventArgs e)
-            {
-                btnVpn(120, 20);
-            }
-        #endregion
-
-        #region Área de mineração de Bitcoin
-            private void btnScript_Click(object sender, EventArgs e)
-            {
-                if (new frmScript().ShowDialog() == DialogResult.OK)
+                private void btnVpn1_Click(object sender, EventArgs e)
                 {
-                    btnMinerar.Enabled = true;
-                    pcbScript.Visible = true;
-                    lblScript.Visible = true;
-                    lblLinesTitle.Visible = true;
-                    lblLinesScript.Visible = true;
-                    lblScript.Text = my.currentScript().name;
-                    lblLinesScript.Text = my.currentScript().lines.ToString();
+                    btnVpn(60, 30);
                 }
-            }
-            private void btnMinerar_Click(object sender, EventArgs e)
-            {
-                script script = my.currentScript();
-                Music.play("# (6).mp3"); my.lost = 0;
-                frmMineracao frmMineracao = new frmMineracao(script.lines);
-                if (frmMineracao.ShowDialog() == DialogResult.OK)
+                private void btnVpn2_Click(object sender, EventArgs e)
                 {
-                    Music.play("# (5).mp3");
-                    btnMinerar.Enabled = false;
-                    pcbScript.Visible = false;
-                    lblScript.Visible = false;
-                    lblLinesTitle.Visible = false;
-                    lblLinesScript.Visible = false;
+                    btnVpn(90, 45);
+                }
+                private void btnVpn3_Click(object sender, EventArgs e)
+                {
+                    btnVpn(120, 60);
+                }
+            #endregion
 
-                    //Recompensas
-                    double vDinheiro = (script.lines * 15.5) * LanguageLevel(script.language);
-                    double vExperiencia = script.lines * 5;
-                    //Relatório final da mineração
-                    frmRelatorio relatorio = new frmRelatorio
-                    ((vDinheiro - my.lost), 0, vExperiencia, "MineraÇÃo ConcluÍda!");
-                    relatorio.ShowDialog();
+            #region Área de mineração de Bitcoin
+                private void btnScript_Click(object sender, EventArgs e)
+                {
+                    if (new frmScript().ShowDialog() == DialogResult.OK)
+                    {
+                        script script = my.currentScript();
+                        btnMinerar.Text = "Iniciar MineraÇÃo";
+                        btnMinerar.Enabled = true;
+                        pcbScript.Visible = true;
+                        lblScript.Visible = true;
+                        lblLinesTitle.Visible = true;
+                        lblLinesScript.Visible = true;
+                        lblScript.Text = script.name;
+                        lblLinesScript.Text = script.lines.Count.ToString();
+                    }
+                }
+                private void btnMinerar_Click(object sender, EventArgs e)
+                {
+                    btnScript.Enabled = false;
+                    script script = my.currentScript();
+                    Music.play("# (6).mp3"); my.lost = 0;
+                    frmMineracao frmMineracao = new frmMineracao(script);
+                    if (frmMineracao.ShowDialog() == DialogResult.OK)
+                    {
+                        Music.play("# (5).mp3");
+                        btnMinerar.Enabled = false;
+                        pcbScript.Visible = false;
+                        lblScript.Visible = false;
+                        lblLinesTitle.Visible = false;
+                        lblLinesScript.Visible = false;
+                        btnScript.Enabled = true;
 
-                    attDinheiro(vDinheiro - my.lost);
-                    attExperiencia(vExperiencia);
-                    if (quest.current == 2) { q2complete(); }
-                    my.scriptsRemove();
-                } else { Music.play("# (5).mp3"); attDinheiro(-my.lost); }
-            }
-            private int LanguageLevel(string languageTarget)
-            {
-                int i = 1;
-                List<string> languages = new List<string>()
-                { "js", "c", "c#", "c++" };
-                foreach(string language in languages) {
-                    if(language == languageTarget)
-                        return i;
-                        i++;
-                } return 0;
-            }
-        #endregion
+                        //Recompensas
+                        double vDinheiro = (script.lines.Count * 25) * LanguageLevel(script.language);
+                        double vExperiencia = script.lines.Count * 6;
+                        //Relatório final da mineração
+                        frmRelatorio relatorio = new frmRelatorio
+                        ((vDinheiro - my.lost), 0, vExperiencia, "MineraÇÃo ConcluÍda!");
+                        relatorio.ShowDialog();
 
-        #region Área de Revisar códigos
-            int buscarTime = 0;
-            int buscarMax = 0;
-            int selectedIndex = 0;
-            bool primeiraVez = true;
-            Timer buscaTimer = new Timer();
-            Random aleatorize = new Random();
-            List<object[]> itensRevisao = new List<object[]>();
-            private void panelCodigos_VisibleChanged(object sender, EventArgs e)
-            {
-                if (primeiraVez)
-                { buscaTimer.Tick += buscaTimer_Tick; primeiraVez = false; }
-                if (panelCodigos.Visible) { listCodigosRefresh(); }
-                else { buscaTimer.Stop(); lstCodigos.Items.Clear(); }
-            }
-            private void buscaTimer_Tick(object sender, EventArgs e)
-            {
-                buscarTime++;
-                if (buscarTime == buscarMax) {
-                    buscaTimer.Stop();
+                        attDinheiro(vDinheiro - my.lost);
+                        attExperiencia(vExperiencia);
+                        if (quest.current == 2) { q2complete(); }
+                        my.scriptsRemove();
+                    } else {
+                        Music.play("# (5).mp3"); attDinheiro(-my.lost);
+                        if(frmMineracao.minerado) btnMinerar.Text = "Concluir MineraÇÃo";
+                    }
+                }
+                private int LanguageLevel(string languageTarget)
+                {
+                    int i = 1;
+                    List<string> languages = new List<string>()
+                    { "js", "c", "c#", "c++" };
+                    foreach(string language in languages) {
+                        if(language == languageTarget)
+                            return i;
+                            i++;
+                    } return 0;
+                }
+            #endregion
+
+            #region Área de Revisar códigos
+                int buscarTime = 0;
+                int buscarMax = 0;
+                int selectedIndex = 0;
+                bool primeiraVez = true;
+                Timer buscaTimer = new Timer();
+                Random aleatorize = new Random();
+                List<object[]> itensRevisao = new List<object[]>();
+                private void panelCodigos_VisibleChanged(object sender, EventArgs e)
+                {
+                    if (primeiraVez)
+                    { buscaTimer.Tick += buscaTimer_Tick; primeiraVez = false; }
+                    if (panelCodigos.Visible) { listCodigosRefresh(); }
+                    else { buscaTimer.Stop(); lstCodigos.Items.Clear(); }
+                }
+                private void buscaTimer_Tick(object sender, EventArgs e)
+                {
+                    buscarTime++;
+                    if (buscarTime == buscarMax) {
+                        buscaTimer.Stop();
+                        pcbLoad.Visible = false;
+                        btnRefresh.Enabled = true;
+                        play.complete(); return;
+                    }
+
+                    string user = users[aleatorize.Next(users.Count)].InnerText;
+                    int erros = aleatorize.Next(3, 5 + (nivel / 3));
+                    itensRevisao.Add(new object[2] { user, erros });
+                    lstCodigos.Items.Add(user + " - " + erros + " erros");
+                    play.select(); buscaTimer.Interval = aleatorize.Next(100, 1001);
+                }
+                private void btnRefresh_Click(object sender, EventArgs e)
+                {
+                    play.click(); listCodigosRefresh();
+                }
+                private void listCodigosRefresh()
+                {
+                    buscarTime = 0; buscarMax = 6;
+                    btnRefresh.Enabled = false;
+                    lstCodigos.ClearSelected();
+                    lstCodigos.Items.Clear();
+                    btnRevisar.Enabled = false;
+                    buscaTimer.Interval = 1000;
+                    pcbLoad.Visible = true;
+                    itensRevisao.Clear();
+                    buscaTimer.Start();
+                }
+                private void lstCodigos_SelectedIndexChanged(object sender, EventArgs e)
+                {
+                    play.click();
+                    if (lstCodigos.SelectedItems.Count > 0) {
+                        selectedIndex = lstCodigos.SelectedIndex;
+                        btnRevisar.Enabled = true;
+                    } lstCodigos.ClearSelected();
+                }
+                private void btnRevisar_Click(object sender, EventArgs e)
+                {
+                    play.click(); buscaTimer.Stop();
+                    btnRefresh.Enabled = false;
+                    btnRevisar.Enabled = false;
                     pcbLoad.Visible = false;
-                    btnRefresh.Enabled = true;
-                    play.complete(); return;
+                    lstCodigos.Items.Clear();
+                    Music.play("# (4).mp3"); my.lost = 0;
+
+                    string user = itensRevisao[selectedIndex][0].ToString();
+                    int erros = int.Parse(itensRevisao[selectedIndex][1].ToString());
+                    frmCodigo frmCodigo = new frmCodigo(user, erros);
+                    if (frmCodigo.ShowDialog() == DialogResult.OK)
+                    {
+                        Music.play("# (5).mp3");
+
+                        //Recompensas
+                        double vDinheiro = new Random().Next(0, 2) == 1 ? 0 : pagamento();
+                        double vExperiencia = erros * 10;
+                        int vProgramacao = erros * 22;
+                        //Relatório final da revisão
+                        frmRelatorio relatorio = new frmRelatorio
+                        ((vDinheiro - my.lost), vProgramacao, vExperiencia, "RevisÃo ConcluÍda!");
+                        relatorio.ShowDialog();
+
+                        attProgramacao(vProgramacao);
+                        attDinheiro(vDinheiro - my.lost);
+                        attExperiencia(vExperiencia);
+                        if (quest.current == 3) { q3complete(); }
+                    } else { Music.play("# (5).mp3"); attDinheiro(-my.lost); } listCodigosRefresh();
                 }
+                // Método para gerar o pagamento, caso o usuário deseje
+                private double pagamento() { return new Random().Next(2, 6) + new Random().NextDouble(); }
+		    #endregion
 
-                string user = users[aleatorize.Next(users.Count)].InnerText;
-                int erros = aleatorize.Next(3, 5 + (nivel / 3));
-                itensRevisao.Add(new object[2] { user, erros });
-                lstCodigos.Items.Add(user + " - " + erros + " erros");
-                play.select(); buscaTimer.Interval = aleatorize.Next(100, 1001);
-            }
-            private void btnRefresh_Click(object sender, EventArgs e)
-            {
-                play.click(); listCodigosRefresh();
-            }
-            private void listCodigosRefresh()
-            {
-                buscarTime = 0; buscarMax = 6;
-                btnRefresh.Enabled = false;
-                lstCodigos.ClearSelected();
-                lstCodigos.Items.Clear();
-                btnRevisar.Enabled = false;
-                buscaTimer.Interval = 1000;
-                pcbLoad.Visible = true;
-                itensRevisao.Clear();
-                buscaTimer.Start();
-            }
-            private void lstCodigos_SelectedIndexChanged(object sender, EventArgs e)
-            {
-                play.click();
-                if (lstCodigos.SelectedItems.Count > 0) {
-                    selectedIndex = lstCodigos.SelectedIndex;
-                    btnRevisar.Enabled = true;
-                } lstCodigos.ClearSelected();
-            }
-            private void btnRevisar_Click(object sender, EventArgs e)
-            {
-                play.click(); buscaTimer.Stop();
-                btnRefresh.Enabled = false;
-                btnRevisar.Enabled = false;
-                pcbLoad.Visible = false;
-                lstCodigos.Items.Clear();
-                Music.play("# (4).mp3"); my.lost = 0;
+		    #region Área de criação de códigos
+		        private void btnCriarScript_Click(object sender, EventArgs e)
+		        {
+                    play.click();
+                    if(new frmNovoScript().ShowDialog() == DialogResult.OK)
+                    {
+                        script script = frmNovoScript.script;
+                        lblLinesScript2.Text = script.linesP + "/" + script.lines.Count;
+                        lblScript2.Text = script.name;
+                        pcbScript2.Visible = true;
+                        lblScript2.Visible = true;
+                        lblLinesTitle2.Visible = true;
+                        lblLinesScript2.Visible = true;
+                        btnCriarScript.Enabled = false;
+                        btnContinuarScript.Visible = true;
+                        btnContinuarScript.Text = "Continuar";
+                        attProgramacao(-frmNovoScript.skill);
+                    } else { return; }
 
-                string user = itensRevisao[selectedIndex][0].ToString();
-                int erros = int.Parse(itensRevisao[selectedIndex][1].ToString());
-                frmCodigo frmCodigo = new frmCodigo(user, erros);
-                if (frmCodigo.ShowDialog() == DialogResult.OK)
-                {
-                    Music.play("# (5).mp3");
+                    Music.play("# (4).mp3"); my.lost = 0;
+                    if (new frmCodigoScript().ShowDialog() == DialogResult.OK)
+                    {
+                        Music.play("# (5).mp3");
+                        btnCriarScript.Enabled = true;
+                        btnContinuarScript.Visible = false;
+                        pcbScript2.Visible = false;
+                        lblScript2.Visible = false;
+                        lblLinesTitle2.Visible = false;
+                        lblLinesScript2.Visible = false;
 
-                    //Recompensas
-                    double vDinheiro = new Random().Next(0, 2) == 1 ? 0 : pagamento();
-                    double vExperiencia = erros * 10;
-                    int vProgramacao = erros * 22;
-                    //Relatório final da revisão
-                    frmRelatorio relatorio = new frmRelatorio
-                    ((vDinheiro - my.lost), vProgramacao, vExperiencia, "RevisÃo ConcluÍda!");
-                    relatorio.ShowDialog();
+                        //Recompensas
+                        double vExperiencia = frmNovoScript.script.lines.Count * 5.2;
+                        //Relatório final da mineração
+                        frmRelatorio relatorio = new frmRelatorio
+                        (-my.lost, 0, vExperiencia, "Script concluÍdo!");
+                        relatorio.ShowDialog();
 
-                    attProgramacao(vProgramacao);
-                    attDinheiro(vDinheiro - my.lost);
-                    attExperiencia(vExperiencia);
-                    if (quest.current == 3) { q3complete(); }
-                } else { Music.play("# (5).mp3"); attDinheiro(-my.lost); } listCodigosRefresh();
-            }
-            // Método para gerar o pagamento, caso o usuário deseje
-            private double pagamento() { return new Random().Next(2, 6) + new Random().NextDouble(); }
-		#endregion
+                        attDinheiro(-my.lost);
+                        attExperiencia(vExperiencia);
+                        frmNovoScript.concluirScript();
+                        if (quest.current == 4) { /*q4complete();*/ }
+                    } else {
+                        Music.play("# (5).mp3"); attDinheiro(-my.lost);
+                        script script = frmNovoScript.script;
+                        lblLinesScript2.Text = script.linesP + "/" + script.lines.Count;
+                        if(script.linesP == script.lines.Count) btnContinuarScript.Text = "Terminar";
+                    }
 
-		#region Área de criação de códigos
-		    private void btnCriarScript_Click(object sender, EventArgs e)
-		    {
-                play.click();
-                if(new frmNovoScript().ShowDialog() == DialogResult.OK)
-                {
-                    script script = frmNovoScript.script;
-                    lblLinesScript2.Text = script.lines.ToString();
-                    lblScript2.Text = script.name;
-                    pcbScript2.Visible = true;
-                    lblScript2.Visible = true;
-                    lblLinesTitle2.Visible = true;
-                    lblLinesScript2.Visible = true;
-                    btnCriarScript.Enabled = false;
-                    btnContinuarScript.Visible = true;
-                    attProgramacao(-frmNovoScript.skill);
-                } else { return; }
+		        }
+                private void btnContinuarScript_Click(object sender, EventArgs e)
+		        {
+                    play.click();
+                    Music.play("# (4).mp3"); my.lost = 0;
+                    if (new frmCodigoScript().ShowDialog() == DialogResult.OK)
+                    {
+                        Music.play("# (5).mp3");
+                        btnCriarScript.Enabled = true;
+                        btnContinuarScript.Visible = false;
+                        pcbScript2.Visible = false;
+                        lblScript2.Visible = false;
+                        lblLinesTitle2.Visible = false;
+                        lblLinesScript2.Visible = false;
 
-                Music.play("# (4).mp3"); my.lost = 0;
-                if (new frmCodigoScript(frmNovoScript.script.lines).ShowDialog() == DialogResult.OK)
-                {
-                    Music.play("# (5).mp3");
-                    btnCriarScript.Enabled = true;
-                    btnContinuarScript.Visible = false;
-                    pcbScript2.Visible = false;
-                    lblScript2.Visible = false;
-                    lblLinesTitle2.Visible = false;
-                    lblLinesScript2.Visible = false;
+                        //Recompensas
+                        double vExperiencia = frmNovoScript.script.lines.Count * 5.2;
+                        //Relatório final da mineração
+                        frmRelatorio relatorio = new frmRelatorio
+                        (-my.lost, 0, vExperiencia, "Script concluÍdo!");
+                        relatorio.ShowDialog();
 
-                    //Recompensas
-                    double vExperiencia = frmNovoScript.script.lines * 5.2;
-                    //Relatório final da mineração
-                    frmRelatorio relatorio = new frmRelatorio
-                    (-my.lost, 0, vExperiencia, "Script concluÍdo!");
-                    relatorio.ShowDialog();
+                        attDinheiro(-my.lost);
+                        attExperiencia(vExperiencia);
+                        frmNovoScript.concluirScript();
+                        if (quest.current == 4) { /*q4complete();*/ }
+                    } else {
+                        Music.play("# (5).mp3"); attDinheiro(-my.lost);
+                        script script = frmNovoScript.script;
+                        lblLinesScript2.Text = script.linesP + "/" + script.lines.Count;
+                        if(script.linesP == script.lines.Count) btnContinuarScript.Text = "Terminar";
+                    }
+		        }
+		    #endregion
 
-                    attDinheiro(-my.lost);
-                    attExperiencia(vExperiencia);
-                    frmNovoScript.concluirScript();
-                    if (quest.current == 4) { /*q4complete();*/ }
-                } else { Music.play("# (5).mp3"); attDinheiro(-my.lost); }
-
-		    }
-            private void btnContinuarScript_Click(object sender, EventArgs e)
-		    {
-                play.click();
-		    }
-            private void panelScripts_VisibleChanged(object sender, EventArgs e)
-	        {
-                //if(panelScripts.Visible)
-                //{
-                //    if(my.currentScript() == null)
-                //    {
-                //        btnCriarScript.Enabled = true;
-                //    }
-                //    else
-                //    {
-                //        btnContinuarScript.Visible = true;
-                //    }
-                //}
-	        }
-		#endregion
-
-		#region Menu de contexto
-            int contAjuda = 0;
-		    private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
-		    {
-                switch(contAjuda)
-                {
-                    case 0:
-                        if(dialogoComRetorno("dialogs/ajuda/1.xml") == DialogResult.Cancel)
-                            dialogo("dialogs/ajuda/2.xml"); contAjuda++; break;
-                    case 1: dialogo("dialogs/ajuda/3.xml"); contAjuda++; break;
-                    default: dialogo("dialogs/ajuda/4.xml"); Application.Exit(); break;
-                }
-            }
 		#endregion
 
 	}

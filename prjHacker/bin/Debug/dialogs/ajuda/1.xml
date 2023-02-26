@@ -26,7 +26,7 @@
         <image>sharkgreen.png</image>
         <text>Bom, se vocÊ apertar 'x' durante um diÁlogo, É possÍvel pular a animaÇÃo...</text>
         <buttons>
-            <button>Legal!</button>
+            <button>Legal</button>
         </buttons>
     </dialog>
 

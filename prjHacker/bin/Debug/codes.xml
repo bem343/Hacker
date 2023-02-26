@@ -4,17 +4,23 @@
 
     <!-- Blocos sem formatação e com no máximo 386 caracteres -->
 
-    <code>play.click(); buscatimer.stop(); btnrefresh.enabled = false; btnrevisar.enabled = false; pcbload.visible = false; lstcodigos.items.clear(); music.play('# (4).mp3'); frmcodigo frmcodigo = new frmcodigo(); if (frmcodigo.showdialog() == dialogresult.ok) { music.play('# (5).mp3');</code>
+    <code>play.click(); buscatimer.stop(); btnrefresh.enabled = false; btnrevisar.enabled = false; pcbload.visible = false; lstcodigos.items.clear();</code>
 
-    <code>play.click(); int hora = (tempo / 60); string s = 's'; if (hora == 1) { s = ''; } string[] buttons = new string[4]; buttons[0] = 'sim'; buttons[1] = 'nao'; buttons[2] = ''; buttons[3] = ''; if ( abredialogo ( 's.h.a.r.k', 'sharkgreen.png', 'deseja pagar $' + valor.tostring('#0.00') hora + ' hora' + s + '?', buttons ) == dialogresult.ok) { vpn.sign(tempo); }}</code>
+    <code>music.play('# (4).mp3'); frmcodigo frmcodigo = new frmcodigo(); if (frmcodigo.showdialog() == dialogresult.ok) { music.play('# (5).mp3');</code>
+
+    <code>play.click(); int hora = (tempo / 60); string s = 's'; if (hora == 1) { s = ''; } string[] buttons = new string[4]; buttons[0] = 'sim'; buttons[1] = 'nao'; buttons[2] = ''; buttons[3] = '';</code>
+
+    <code>if ( abredialogo ( 's.h.a.r.k', 'sharkgreen.png', 'deseja pagar $' + valor.tostring('#0.00') hora + ' hora' + s + '?', buttons ) == dialogresult.ok) { vpn.sign(tempo); }}</code>
 
     <code>private void menustrip_mousedown(objectsender, mouseeventargse){ x=cursor.position.x - this.location.x; y=cursor.position.y - this.location.y; janela.start(); } private void menustrip_mouseup ( object sender, mouseeventargs e ) { janela.stop(); }</code>
 
-    <code>private int x=0; private int y=0; private int exittime=0; private timer janela=null; private xmlnodelistquests=null; public static double dinheiro=15; public static double experiencia=0; public static int skill=0; public static int nivel=0; public frmprincipal() { initializecomponent(); }</code>
+    <code>private int x=0; private int y=0; private int exittime=0; private timer janela=null; private xmlnodelistquests=null; public static double dinheiro=15;</code>
 
-    <code>foreach (panel panel in gbareadetrabalho.controls.oftype[panel]()) { panel.dock = dockstyle.fill; } lbldinheiro.text = '$' + dinheiro.tostring('#0.00'); lblexperiencia.text = experiencia.tostring(); lblprogramacao.text = skill.tostring(); janela = new timer { interval = 1 }; janela.tick; xmldocument arquivo = new xmldocument(); arquivo.load('quests.xml'); music.initplayer();</code>
+    <code>public static double experiencia=0; public static int skill=0; public static int nivel=0; public frmprincipal() { initializecomponent(); }</code>
 
-    <code>private bool verificarvpn() { if (vpn.isactive) { double segundos = vpn.maximum - vpn.time; timespan time = timespan.fromseconds(segundos); lblvpn.text = time.tostring(@'mm\:ss'); lblvpnativo.visible = true; lblvpn.visible = true; if ((vpn.maximum - vpn.time) == 10) { lblvpn.forecolor = color.fromargb(200, 0, 0); } return true; } lblvpn.visible = false; lblvpnativo.visible = false; }</code>
+    <code>foreach (panel panel in gbareadetrabalho.controls.oftype[panel]()) { panel.dock = dockstyle.fill; } lbldinheiro.text = '$' + dinheiro.tostring('#0.00'); lblexperiencia.text = experiencia.tostring();</code>
+
+    <code>private bool verificarvpn() { if (vpn.isactive) { double segundos = vpn.maximum - vpn.time; timespan time = timespan.fromseconds(segundos); lblvpn.text = time.tostring(@'mm\:ss'); lblvpnativo.visible = true;</code>
 
     <code>private void menustrip_mousedown(object sender, mouseeventargs e) { x = cursor.position.x - this.location.x; y = cursor.position.y - this.location.y; janela.start(); } private void menustrip_mouseup(object sender, mouseeventargs e) { janela.stop(); }</code>
 
@@ -23,6 +29,10 @@
     <code>using system; using system.collections.generic; using system.componentmodel; using system.data; using system.drawing; using system.linq;</code>
 
     <code>using system.text; using system.windows.forms; using system.media; using prjhacker.classes; using system.xml;</code>
+
+    <code>lblvpn.visible = true; if ((vpn.maximum - vpn.time) == 10) { lblvpn.forecolor = color.fromargb(200, 0, 0); } return true; } lblvpn.visible = false; lblvpnativo.visible = false; }</code>
+
+    <code>lblprogramacao.text = skill.tostring(); janela = new timer { interval = 1 }; janela.tick; xmldocument arquivo = new xmldocument(); arquivo.load('quests.xml'); music.initplayer();</code>
 
     <!--
     <code>teste123;</code>

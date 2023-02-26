@@ -60,7 +60,6 @@
 			this.btnSair.TabStop = false;
 			this.btnSair.Text = "X";
 			this.btnSair.UseVisualStyleBackColor = false;
-			this.btnSair.Visible = false;
 			this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
 			// 
 			// gbControle
@@ -196,7 +195,7 @@
 			this.timerAtaque.Interval = 1000;
 			this.timerAtaque.Tick += new System.EventHandler(this.timerAtaque_Tick);
 			// 
-			// frmMineracao
+			// frmCodigoScript
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -206,7 +205,7 @@
 			this.Controls.Add(this.btnSair);
 			this.Controls.Add(this.gbControle);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Name = "frmMineracao";
+			this.Name = "frmCodigoScript";
 			this.Padding = new System.Windows.Forms.Padding(10, 3, 10, 22);
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Mineração de Bitcoins";

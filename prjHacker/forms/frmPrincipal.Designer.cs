@@ -30,13 +30,13 @@
         {
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint13 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 2D);
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint14 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint15 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
-			System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 2D);
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
+			System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.lblExperiencia = new System.Windows.Forms.Label();
 			this.pbExperiencia = new System.Windows.Forms.ProgressBar();
@@ -52,6 +52,7 @@
 			this.programacaoTool = new System.Windows.Forms.ToolStripMenuItem();
 			this.configuracoesTool = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.gbAreaDeTrabalho = new System.Windows.Forms.GroupBox();
 			this.panelScripts = new System.Windows.Forms.Panel();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -96,7 +97,6 @@
 			this.lblMissao = new System.Windows.Forms.Label();
 			this.panelPrincipal = new System.Windows.Forms.Panel();
 			this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-			this.rtbTeste = new System.Windows.Forms.RichTextBox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
@@ -109,7 +109,6 @@
 			this.label15 = new System.Windows.Forms.Label();
 			this.btnSair = new System.Windows.Forms.Button();
 			this.pcbFundo = new System.Windows.Forms.PictureBox();
-			this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.menuStrip.SuspendLayout();
@@ -323,7 +322,15 @@
             this.ajudaToolStripMenuItem});
 			this.contextMenuStrip.Name = "contextMenuStrip";
 			this.contextMenuStrip.ShowImageMargin = false;
-			this.contextMenuStrip.Size = new System.Drawing.Size(156, 52);
+			this.contextMenuStrip.Size = new System.Drawing.Size(106, 30);
+			// 
+			// ajudaToolStripMenuItem
+			// 
+			this.ajudaToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+			this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(105, 26);
+			this.ajudaToolStripMenuItem.Text = "Ajuda";
+			this.ajudaToolStripMenuItem.Click += new System.EventHandler(this.ajudaToolStripMenuItem_Click);
 			// 
 			// gbAreaDeTrabalho
 			// 
@@ -358,7 +365,6 @@
 			this.panelScripts.Size = new System.Drawing.Size(455, 447);
 			this.panelScripts.TabIndex = 5;
 			this.panelScripts.Visible = false;
-			this.panelScripts.VisibleChanged += new System.EventHandler(this.panelScripts_VisibleChanged);
 			// 
 			// groupBox5
 			// 
@@ -499,8 +505,7 @@
 			this.panelCodigos.Controls.Add(this.lstCodigos);
 			this.panelCodigos.Controls.Add(this.btnRefresh);
 			this.panelCodigos.Controls.Add(this.pcbLoad);
-			this.panelCodigos.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelCodigos.Location = new System.Drawing.Point(10, 33);
+			this.panelCodigos.Location = new System.Drawing.Point(0, 540);
 			this.panelCodigos.Name = "panelCodigos";
 			this.panelCodigos.Size = new System.Drawing.Size(455, 447);
 			this.panelCodigos.TabIndex = 4;
@@ -620,7 +625,8 @@
 			this.panelBitcoin.Controls.Add(this.btnScript);
 			this.panelBitcoin.Controls.Add(this.label6);
 			this.panelBitcoin.Controls.Add(this.label9);
-			this.panelBitcoin.Location = new System.Drawing.Point(0, 540);
+			this.panelBitcoin.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panelBitcoin.Location = new System.Drawing.Point(10, 33);
 			this.panelBitcoin.Name = "panelBitcoin";
 			this.panelBitcoin.Size = new System.Drawing.Size(455, 447);
 			this.panelBitcoin.TabIndex = 3;
@@ -863,9 +869,9 @@
 			this.label7.Font = new System.Drawing.Font("DS-Digital", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label7.Location = new System.Drawing.Point(3, 3);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(313, 31);
+			this.label7.Size = new System.Drawing.Size(321, 31);
 			this.label7.TabIndex = 0;
-			this.label7.Text = "ServiÇo VPN - $10,00/h";
+			this.label7.Text = "ServiÇo VPN - $30,00/h";
 			// 
 			// panelMissao
 			// 
@@ -889,7 +895,6 @@
 			// 
 			this.panelPrincipal.BackColor = System.Drawing.Color.Transparent;
 			this.panelPrincipal.Controls.Add(this.chart);
-			this.panelPrincipal.Controls.Add(this.rtbTeste);
 			this.panelPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
 			this.panelPrincipal.Location = new System.Drawing.Point(0, 540);
 			this.panelPrincipal.Name = "panelPrincipal";
@@ -901,96 +906,82 @@
 			// 
 			this.chart.BackColor = System.Drawing.Color.Transparent;
 			this.chart.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			chartArea5.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-			chartArea5.AxisX2.LineColor = System.Drawing.Color.White;
-			chartArea5.AxisX2.TitleForeColor = System.Drawing.Color.White;
-			chartArea5.AxisY2.TitleForeColor = System.Drawing.Color.White;
-			chartArea5.BackColor = System.Drawing.Color.Transparent;
-			chartArea5.BackImageTransparentColor = System.Drawing.Color.Transparent;
-			chartArea5.BackSecondaryColor = System.Drawing.Color.Transparent;
-			chartArea5.BorderColor = System.Drawing.Color.Transparent;
-			chartArea5.Name = "ChartArea1";
-			chartArea5.ShadowColor = System.Drawing.Color.DarkGray;
-			this.chart.ChartAreas.Add(chartArea5);
+			chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+			chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
+			chartArea1.AxisX2.TitleForeColor = System.Drawing.Color.White;
+			chartArea1.AxisY2.TitleForeColor = System.Drawing.Color.White;
+			chartArea1.BackColor = System.Drawing.Color.Transparent;
+			chartArea1.BackImageTransparentColor = System.Drawing.Color.Transparent;
+			chartArea1.BackSecondaryColor = System.Drawing.Color.Transparent;
+			chartArea1.BorderColor = System.Drawing.Color.Transparent;
+			chartArea1.Name = "ChartArea1";
+			chartArea1.ShadowColor = System.Drawing.Color.DarkGray;
+			this.chart.ChartAreas.Add(chartArea1);
 			this.chart.Dock = System.Windows.Forms.DockStyle.Top;
-			legend5.BackColor = System.Drawing.Color.Transparent;
-			legend5.BackSecondaryColor = System.Drawing.Color.Transparent;
-			legend5.BorderColor = System.Drawing.Color.DimGray;
-			legend5.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			legend5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			legend5.InterlacedRowsColor = System.Drawing.Color.Transparent;
-			legend5.IsTextAutoFit = false;
-			legend5.Name = "Legend";
-			legend5.Title = "Legenda";
-			legend5.TitleBackColor = System.Drawing.Color.Transparent;
-			legend5.TitleFont = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			legend5.TitleForeColor = System.Drawing.Color.White;
-			legend5.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
-			legend5.TitleSeparatorColor = System.Drawing.Color.DimGray;
-			this.chart.Legends.Add(legend5);
+			legend1.BackColor = System.Drawing.Color.Transparent;
+			legend1.BackSecondaryColor = System.Drawing.Color.Transparent;
+			legend1.BorderColor = System.Drawing.Color.DimGray;
+			legend1.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			legend1.InterlacedRowsColor = System.Drawing.Color.Transparent;
+			legend1.IsTextAutoFit = false;
+			legend1.Name = "Legend";
+			legend1.Title = "Legenda";
+			legend1.TitleBackColor = System.Drawing.Color.Transparent;
+			legend1.TitleFont = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			legend1.TitleForeColor = System.Drawing.Color.White;
+			legend1.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
+			legend1.TitleSeparatorColor = System.Drawing.Color.DimGray;
+			this.chart.Legends.Add(legend1);
 			this.chart.Location = new System.Drawing.Point(0, 0);
 			this.chart.Name = "chart";
 			this.chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
 			this.chart.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))))};
-			series5.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-			series5.BackSecondaryColor = System.Drawing.Color.Transparent;
-			series5.BorderColor = System.Drawing.Color.Transparent;
-			series5.ChartArea = "ChartArea1";
-			series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			series5.LabelBackColor = System.Drawing.Color.White;
-			series5.LabelForeColor = System.Drawing.Color.White;
-			series5.Legend = "Legend";
-			series5.Name = "Execuções";
-			dataPoint13.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint13.IsValueShownAsLabel = true;
-			dataPoint13.Label = "Cassino";
-			dataPoint13.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint13.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint13.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataPoint14.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint14.IsValueShownAsLabel = true;
-			dataPoint14.Label = "Banco";
-			dataPoint14.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint14.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint14.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataPoint15.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint15.IsValueShownAsLabel = true;
-			dataPoint15.Label = "Lojinha...";
-			dataPoint15.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint15.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint15.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			series5.Points.Add(dataPoint13);
-			series5.Points.Add(dataPoint14);
-			series5.Points.Add(dataPoint15);
-			this.chart.Series.Add(series5);
+			series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+			series1.BackSecondaryColor = System.Drawing.Color.Transparent;
+			series1.BorderColor = System.Drawing.Color.Transparent;
+			series1.ChartArea = "ChartArea1";
+			series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			series1.LabelBackColor = System.Drawing.Color.White;
+			series1.LabelForeColor = System.Drawing.Color.White;
+			series1.Legend = "Legend";
+			series1.Name = "Execuções";
+			dataPoint1.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint1.IsValueShownAsLabel = true;
+			dataPoint1.Label = "Cassino";
+			dataPoint1.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint1.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataPoint2.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint2.IsValueShownAsLabel = true;
+			dataPoint2.Label = "Banco";
+			dataPoint2.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint2.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataPoint3.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint3.IsValueShownAsLabel = true;
+			dataPoint3.Label = "Lojinha...";
+			dataPoint3.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint3.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint3.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			series1.Points.Add(dataPoint1);
+			series1.Points.Add(dataPoint2);
+			series1.Points.Add(dataPoint3);
+			this.chart.Series.Add(series1);
 			this.chart.Size = new System.Drawing.Size(455, 206);
 			this.chart.TabIndex = 2;
 			this.chart.TabStop = false;
 			this.chart.Text = "CHART";
-			title5.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-			title5.BackColor = System.Drawing.Color.Transparent;
-			title5.BackSecondaryColor = System.Drawing.Color.Transparent;
-			title5.DockingOffset = 5;
-			title5.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			title5.ForeColor = System.Drawing.Color.White;
-			title5.Name = "Title1";
-			title5.Text = "Ultimos golpes";
-			this.chart.Titles.Add(title5);
-			// 
-			// rtbTeste
-			// 
-			this.rtbTeste.BackColor = System.Drawing.Color.Black;
-			this.rtbTeste.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.rtbTeste.Cursor = System.Windows.Forms.Cursors.PanNW;
-			this.rtbTeste.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.rtbTeste.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.rtbTeste.Location = new System.Drawing.Point(0, 212);
-			this.rtbTeste.Name = "rtbTeste";
-			this.rtbTeste.Size = new System.Drawing.Size(455, 235);
-			this.rtbTeste.TabIndex = 1;
-			this.rtbTeste.Text = "";
-			this.rtbTeste.TextChanged += new System.EventHandler(this.rtbTeste_TextChanged);
+			title1.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+			title1.BackColor = System.Drawing.Color.Transparent;
+			title1.BackSecondaryColor = System.Drawing.Color.Transparent;
+			title1.DockingOffset = 5;
+			title1.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			title1.ForeColor = System.Drawing.Color.White;
+			title1.Name = "Title1";
+			title1.Text = "Ultimos golpes";
+			this.chart.Titles.Add(title1);
 			// 
 			// groupBox4
 			// 
@@ -1150,14 +1141,6 @@
 			this.pcbFundo.TabIndex = 12;
 			this.pcbFundo.TabStop = false;
 			// 
-			// ajudaToolStripMenuItem
-			// 
-			this.ajudaToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-			this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
-			this.ajudaToolStripMenuItem.Text = "Ajuda";
-			this.ajudaToolStripMenuItem.Click += new System.EventHandler(this.ajudaToolStripMenuItem_Click);
-			// 
 			// frmPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1239,7 +1222,6 @@
         private System.Windows.Forms.ToolStripMenuItem configuracoesTool;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Panel panelPrincipal;
-        private System.Windows.Forms.RichTextBox rtbTeste;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
         private System.Windows.Forms.PictureBox pcbFundo;
         private System.Windows.Forms.Panel panelMissao;

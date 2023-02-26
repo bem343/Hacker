@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<dialogs>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>Perfeito, agora é só minerar e ser feliz</text>
+        <buttons>
+            <button>Ok</button>
+        </buttons>
+    </dialog>
+
+</dialogs>

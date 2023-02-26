@@ -5,7 +5,7 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Perfeito, VocÊ É rÁpido no teclado hein!</text>
+        <text>Bom trabalho!</text>
         <buttons>
             <button>Obrigado</button>
         </buttons>
@@ -14,18 +14,18 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Enfim, nesse momento vocÊ deve estar se perguntando...</text>
+        <text>Talvez vocÊ esteja se perguntando...</text>
         <buttons>
-            <button>Continuar</button>
+            <button>...</button>
         </buttons>
     </dialog>
 
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>"O quÊ raios sÃo esses Pontos de Skill?"</text>
+        <text>"O quÊ raios sÃo Pontos de Skill?"</text>
         <buttons>
-            <button>Continuar</button>
+            <button>...</button>
         </buttons>
     </dialog>
 

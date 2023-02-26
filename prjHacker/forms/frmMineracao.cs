@@ -15,8 +15,8 @@ namespace prjHacker.forms
 	{
 
 		#region Variáveis
-			private List<string> linhas = new List<string>();
-			private XmlNodeList lines = null;
+			public static bool minerado = false;
+			private List<string> linhas = null;
 			Random r = new Random();
 
 			private int proximoAtaque = 0;
@@ -27,9 +27,10 @@ namespace prjHacker.forms
 		#endregion
 
 		#region Contrutores
-		public frmMineracao(int nLinhaTotal)
+		public frmMineracao(script script)
 			{
-				this.nLinhaTotal = nLinhaTotal;
+				this.linhas = script.lines;
+				this.nLinhaTotal = linhas.Count;
 				DialogResult = DialogResult.Abort;
 				InitializeComponent();
 			}
@@ -42,29 +43,26 @@ namespace prjHacker.forms
 		}
 		private void btnConcluir_Click(object sender, EventArgs e)
 		{
-			play.click();
-			Close();
+			play.click(); minerado = false; Close();
 		}
 
 		private void frmMineracao_Load(object sender, EventArgs e)
 		{
+			if(minerado) {
+				DialogResult = DialogResult.OK;
+				minerado = false;
+				Close();
+				return;
+			}
+
 			tempoMineracaoLimite = 7 * nLinhaTotal;
 			pgProgresso.Maximum = tempoMineracaoLimite;
-			rtbComandos.Text = "Carregando...";
-
-			XmlDocument arquivo = new XmlDocument();
-			arquivo.Load("lines.xml");
-			lines = arquivo.GetElementsByTagName("line");
-
-			for (int i = 0; i < nLinhaTotal; i++)
-			{
-				int nr = r.Next(lines.Count);
-				linhas.Add(lines[nr].InnerText);
-			}
+			rtbComandos.Text = "Loading script...\n";
 
 			verificarVpn();
 			vpn.start();
 			timerVpn.Start();
+			timerTexto.Start();
 			timerMineracao.Start();
 		}
 
@@ -92,19 +90,23 @@ namespace prjHacker.forms
 			{
 				proximoAtaque = new Random().Next(6, 11);
 			}
+			private void timerTexto_Tick(object sender, EventArgs e)
+			{
+				rtbComandos.AppendText(linhas[r.Next(nLinhaTotal)] + " ");
+			}
 			private void timerMineracao_Tick(object sender, EventArgs e)
 			{
 				if (tempoMineracao < tempoMineracaoLimite) {
-					rtbComandos.AppendText(linhas[r.Next(nLinhaTotal)]);
 					tempoMineracao++; pgProgresso.Value = tempoMineracao;
 				} else {
+					timerMineracao.Stop();
 					timerAtaque.Stop();
+					timerTexto.Stop();
 					timerVpn.Stop();
 					vpn.stop();
 					play.complete();
+					minerado = true;
 					btnConcluir.Visible = true;
-					timerMineracao.Stop();
-					return;
 				}
 			}
 			private void timerVpn_Tick(object sender, EventArgs e)
@@ -138,10 +140,9 @@ namespace prjHacker.forms
 		{
 			timerMineracao.Stop();
 			timerAtaque.Stop();
+			timerTexto.Stop();
 			timerVpn.Stop();
 			vpn.stop();
 		}
-
-		
 	}
 }
