@@ -13,24 +13,25 @@ namespace prjHacker.forms
 	public partial class frmNovoScript : Form
 	{
 
-		public static script script = null;
+		public static Script script = null;
 		public static int skill = 0;
 
 		public frmNovoScript()
 		{
 			InitializeComponent();
+			MyFont.applyff(this.Controls);
 		}
 
 		public static void concluirScript()
 		{
-			my.scriptsAdd(frmNovoScript.script);
+			My.scriptsAdd(frmNovoScript.script);
 			script = null;
 			skill = 0;
 		}
 
 		private void btnSair_Click(object sender, EventArgs e)
 		{
-			play.click();
+			Play.click();
 			Close();
 		}
 
@@ -42,11 +43,11 @@ namespace prjHacker.forms
 		}
 		private void btnCriar_Click(object sender, EventArgs e)
 		{
-			play.click();
+			Play.click();
 			string language = cbLinguagem.SelectedItem.ToString();
 			string name = extension(txtNome.Text);
 			int lines = (int)nLines.Value;
-			script = new script(language, name, lines);
+			script = new Script(language, name, lines);
 
 			Close();
 		}
@@ -87,22 +88,22 @@ namespace prjHacker.forms
 			}
 			private void txtNome_TextChanged(object sender, EventArgs e)
 			{
-				play.key();
+				Play.key();
 				verificaCriar();
 			}
 			private void cbLinguagem_SelectedIndexChanged(object sender, EventArgs e)
 			{
-				play.select();
+				Play.select();
 				verificaCriar();
 			}
 			private void nLines_ValueChanged(object sender, EventArgs e)
 			{
-				play.select();
+				Play.select();
 				verificaCriar();
 			}
 			private void nLines_KeyPress(object sender, KeyPressEventArgs e)
 			{
-				play.key();
+				Play.key();
 			}
 		#endregion
 

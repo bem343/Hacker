@@ -21,26 +21,27 @@ namespace prjHacker.forms
             public frmScript()
             {
                 InitializeComponent();
+                MyFont.applyff(this.Controls);
             }
         #endregion
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            play.click();
+            Play.click();
             Close();
         }
 
         private void btnCarregar_Click(object sender, EventArgs e)
         {
-            play.click();
-            my.selectScript(selecionado);
+            Play.click();
+            My.selectScript(selecionado);
             Close();
         }
 
         private void lstScripts_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstScripts.SelectedItems.Count <= 0) { return; }
-            play.click();
+            Play.click();
             selecionado = lstScripts.SelectedIndex;
             btnCarregar.Enabled = true;
             lstScripts.ClearSelected();
@@ -48,7 +49,7 @@ namespace prjHacker.forms
 
         private void frmScript_Load(object sender, EventArgs e)
         {
-            lstScripts.DataSource = my.scriptNames();
+            lstScripts.DataSource = My.scriptNames();
             btnCarregar.Enabled = false;
         }
     }

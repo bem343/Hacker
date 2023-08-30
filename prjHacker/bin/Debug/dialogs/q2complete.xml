@@ -5,9 +5,9 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Bom trabalho!</text>
+        <text>FÁcil nÉ?</text>
         <buttons>
-            <button>Obrigado</button>
+            <button>Sim</button>
         </buttons>
     </dialog>
 

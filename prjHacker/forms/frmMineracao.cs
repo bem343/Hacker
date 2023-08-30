@@ -27,23 +27,24 @@ namespace prjHacker.forms
 		#endregion
 
 		#region Contrutores
-		public frmMineracao(script script)
+		public frmMineracao(Script script)
 			{
 				this.linhas = script.lines;
 				this.nLinhaTotal = linhas.Count;
 				DialogResult = DialogResult.Abort;
 				InitializeComponent();
+				MyFont.applyff(this.Controls);
 			}
 		#endregion
 
 		private void btnSair_Click(object sender, EventArgs e)
 		{
-			play.click();
+			Play.click();
 			Close();
 		}
 		private void btnConcluir_Click(object sender, EventArgs e)
 		{
-			play.click(); minerado = false; Close();
+			Play.click(); minerado = false; Close();
 		}
 
 		private void frmMineracao_Load(object sender, EventArgs e)
@@ -60,7 +61,7 @@ namespace prjHacker.forms
 			rtbComandos.Text = "Loading script...\n";
 
 			verificarVpn();
-			vpn.start();
+			Vpn.start();
 			timerVpn.Start();
 			timerTexto.Start();
 			timerMineracao.Start();
@@ -69,14 +70,14 @@ namespace prjHacker.forms
 		#region Evento Tick dos Timers
 			private bool verificarVpn()
 			{
-				if (vpn.isActive)
+				if (Vpn.isActive)
 				{
-					double segundos = vpn.maximum - vpn.time;
+					double segundos = Vpn.maximum - Vpn.time;
 					TimeSpan time = TimeSpan.FromSeconds(segundos);
 					lblVpn.Text = time.ToString(@"mm\:ss");
 					lblVpnAtivo.Visible = true;
 					lblVpn.Visible = true;
-					if ((vpn.maximum - vpn.time) <= 10)
+					if ((Vpn.maximum - Vpn.time) <= 10)
 					{
 						lblVpn.ForeColor = Color.FromArgb(200, 0, 0);
 					}
@@ -103,8 +104,8 @@ namespace prjHacker.forms
 					timerAtaque.Stop();
 					timerTexto.Stop();
 					timerVpn.Stop();
-					vpn.stop();
-					play.complete();
+					Vpn.stop();
+					Play.complete();
 					minerado = true;
 					btnConcluir.Visible = true;
 				}
@@ -125,12 +126,12 @@ namespace prjHacker.forms
 						while (ataque.DialogResult == DialogResult.None);
 					}
 					if (resultado != DialogResult.OK) {
-						play.fail();
+						Play.fail();
 						tempoMineracao = 0;
 						pgProgresso.Value = tempoMineracao;
 						rtbComandos.Clear();
 					}
-					else { play.complete(); }
+					else { Play.complete(); }
 					tempoAtaque = 0; setAtaque();
 				}
 			}
@@ -142,7 +143,7 @@ namespace prjHacker.forms
 			timerAtaque.Stop();
 			timerTexto.Stop();
 			timerVpn.Stop();
-			vpn.stop();
+			Vpn.stop();
 		}
 	}
 }

@@ -35,13 +35,13 @@ namespace prjHacker.forms
 			this.btnConcluir = new System.Windows.Forms.Button();
 			this.rtbComandos = new System.Windows.Forms.RichTextBox();
 			this.pgProgresso = new System.Windows.Forms.ProgressBar();
-			this.pcbBitcoin = new System.Windows.Forms.PictureBox();
 			this.lblVpnAtivo = new System.Windows.Forms.Label();
 			this.lblVpn = new System.Windows.Forms.Label();
 			this.timerVpn = new System.Windows.Forms.Timer(this.components);
 			this.timerAtaque = new System.Windows.Forms.Timer(this.components);
 			this.timerMineracao = new System.Windows.Forms.Timer(this.components);
 			this.timerTexto = new System.Windows.Forms.Timer(this.components);
+			this.pcbBitcoin = new System.Windows.Forms.PictureBox();
 			this.gbControle.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pcbBitcoin)).BeginInit();
 			this.SuspendLayout();
@@ -109,7 +109,7 @@ namespace prjHacker.forms
 			// 
 			// rtbComandos
 			// 
-			this.rtbComandos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+			this.rtbComandos.BackColor = System.Drawing.Color.Black;
 			this.rtbComandos.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.rtbComandos.Font = new System.Drawing.Font("DS-Digital", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.rtbComandos.ForeColor = System.Drawing.Color.White;
@@ -126,16 +126,6 @@ namespace prjHacker.forms
 			this.pgProgresso.Name = "pgProgresso";
 			this.pgProgresso.Size = new System.Drawing.Size(473, 31);
 			this.pgProgresso.TabIndex = 24;
-			// 
-			// pcbBitcoin
-			// 
-			this.pcbBitcoin.Image = global::prjHacker.Properties.Resources.Bitcoin_PNG;
-			this.pcbBitcoin.Location = new System.Drawing.Point(10, 36);
-			this.pcbBitcoin.Name = "pcbBitcoin";
-			this.pcbBitcoin.Size = new System.Drawing.Size(238, 344);
-			this.pcbBitcoin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pcbBitcoin.TabIndex = 23;
-			this.pcbBitcoin.TabStop = false;
 			// 
 			// lblVpnAtivo
 			// 
@@ -182,15 +172,26 @@ namespace prjHacker.forms
 			this.timerTexto.Interval = 200;
 			this.timerTexto.Tick += new System.EventHandler(this.timerTexto_Tick);
 			// 
+			// pcbBitcoin
+			// 
+			this.pcbBitcoin.BackColor = System.Drawing.Color.Transparent;
+			this.pcbBitcoin.Image = global::prjHacker.Properties.Resources.Bitcoin_PNG;
+			this.pcbBitcoin.Location = new System.Drawing.Point(10, 36);
+			this.pcbBitcoin.Name = "pcbBitcoin";
+			this.pcbBitcoin.Size = new System.Drawing.Size(238, 344);
+			this.pcbBitcoin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pcbBitcoin.TabIndex = 23;
+			this.pcbBitcoin.TabStop = false;
+			// 
 			// frmMineracao
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.Black;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.ClientSize = new System.Drawing.Size(760, 406);
 			this.Controls.Add(this.btnSair);
 			this.Controls.Add(this.gbControle);
-			this.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "frmMineracao";
 			this.Padding = new System.Windows.Forms.Padding(10, 3, 10, 10);

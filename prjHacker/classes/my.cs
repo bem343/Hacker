@@ -5,13 +5,13 @@ using System.Text;
 
 namespace prjHacker.classes
 {
-    static class my
+    static class My
     {
-        private static List<script> scripts = new List<script>();
+        private static List<Script> scripts = new List<Script>();
         private static int selectedScript = -1;
         public static double lost = 0;
 
-        public static void scriptsAdd(script script)
+        public static void scriptsAdd(Script script)
         {
             scripts.Add(script);
         }
@@ -22,7 +22,7 @@ namespace prjHacker.classes
             selectedScript = -1;
         }
 
-        public static script currentScript()
+        public static Script currentScript()
         {
             return scripts[selectedScript];
         }
@@ -35,7 +35,7 @@ namespace prjHacker.classes
         public static List<string> scriptNames()
         {
             List<string> names = new List<string>();
-            foreach (script item in scripts){
+            foreach (Script item in scripts){
                 names.Add(item.name);
             } return names;
         }

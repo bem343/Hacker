@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace prjHacker.classes
 {
-    static class vpn
+    static class Vpn
     {
         private static Timer timer = null;
         public static int time = 0;

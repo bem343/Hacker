@@ -8,7 +8,7 @@ using WMPLib;
 
 namespace prjHacker.classes
 {
-    static class play
+    static class Play
     {
         private static WindowsMediaPlayer c = new WindowsMediaPlayer();
         private static WindowsMediaPlayer k = new WindowsMediaPlayer();

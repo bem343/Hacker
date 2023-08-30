@@ -27,11 +27,12 @@ namespace prjHacker.forms
             this.titulo = titulo;
             DialogResult = DialogResult.Abort;
             InitializeComponent();
+            MyFont.applyff(this.Controls);
         }
 
         private void frmRelatorio_Load(object sender, EventArgs e)
         {
-            play.congrats();
+            Play.congrats();
             if (dinheiro >= 0) { lblDinheiro.Text = "+ $" + dinheiro.ToString("#0.00"); }
             else {
                 lblDinheiro.Text = "- $" + (dinheiro * -1).ToString("#0.00");
@@ -53,7 +54,7 @@ namespace prjHacker.forms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            play.click();
+            Play.click();
             Close();
         }
 

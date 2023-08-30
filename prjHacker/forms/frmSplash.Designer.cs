@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.timer = new System.Windows.Forms.Timer(this.components);
-            this.pbCarregamento = new System.Windows.Forms.ProgressBar();
-            this.SuspendLayout();
-            // 
-            // timer
-            // 
-            this.timer.Interval = 30;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // pbCarregamento
-            // 
-            this.pbCarregamento.BackColor = System.Drawing.Color.Black;
-            this.pbCarregamento.Location = new System.Drawing.Point(164, 191);
-            this.pbCarregamento.MarqueeAnimationSpeed = 10;
-            this.pbCarregamento.Name = "pbCarregamento";
-            this.pbCarregamento.Size = new System.Drawing.Size(275, 40);
-            this.pbCarregamento.TabIndex = 0;
-            // 
-            // frmSplash
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::prjHacker.Properties.Resources.splash_screen;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(600, 338);
-            this.Controls.Add(this.pbCarregamento);
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmSplash";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Hacker";
-            this.Load += new System.EventHandler(this.frmSplash_Load);
-            this.ResumeLayout(false);
+			this.components = new System.ComponentModel.Container();
+			this.timer = new System.Windows.Forms.Timer(this.components);
+			this.pbCarregamento = new System.Windows.Forms.ProgressBar();
+			this.SuspendLayout();
+			// 
+			// timer
+			// 
+			this.timer.Interval = 30;
+			this.timer.Tick += new System.EventHandler(this.timer_Tick);
+			// 
+			// pbCarregamento
+			// 
+			this.pbCarregamento.BackColor = System.Drawing.Color.Black;
+			this.pbCarregamento.Location = new System.Drawing.Point(164, 191);
+			this.pbCarregamento.MarqueeAnimationSpeed = 10;
+			this.pbCarregamento.Name = "pbCarregamento";
+			this.pbCarregamento.Size = new System.Drawing.Size(275, 40);
+			this.pbCarregamento.TabIndex = 0;
+			// 
+			// frmSplash
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackgroundImage = global::prjHacker.Properties.Resources.splash_screen;
+			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.ClientSize = new System.Drawing.Size(600, 338);
+			this.Controls.Add(this.pbCarregamento);
+			this.DoubleBuffered = true;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.Name = "frmSplash";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Hacker";
+			this.Load += new System.EventHandler(this.frmSplash_Load);
+			this.ResumeLayout(false);
 
         }
 
@@ -69,8 +69,6 @@
 
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ProgressBar pbCarregamento;
-
-
-    }
+	}
 }
 

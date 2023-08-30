@@ -5,11 +5,11 @@ using System.Text;
 
 namespace prjHacker.classes
 {
-    static class stop
+    static class Stop
     {
         public static void hacking()
         {
-            play.h.controls.stop();
+            Play.h.controls.stop();
         }
     }
 }

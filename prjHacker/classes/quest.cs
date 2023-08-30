@@ -5,7 +5,7 @@ using System.Text;
 
 namespace prjHacker.classes
 {
-    static class quest
+    static class Quest
     {
         public static string name = "";
         public static string instruction = "";
@@ -24,7 +24,7 @@ namespace prjHacker.classes
             name = "";
             instruction = "";
             currentNow = false;
-            play.select();
+            Play.select();
         }
     }
 }

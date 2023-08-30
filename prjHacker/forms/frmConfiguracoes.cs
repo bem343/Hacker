@@ -24,6 +24,7 @@ namespace prjHacker.forms
             public frmConfiguracoes()
             {
                 InitializeComponent();
+                MyFont.applyff(this.Controls);
             }
         #endregion
 
@@ -48,7 +49,7 @@ namespace prjHacker.forms
             private void btnSom_Click(object sender, EventArgs e)
             {
                 som = !som;
-                play.click();
+                Play.click();
                 btnSom.Text = som.ToString();
                 Music.play();
             }
@@ -57,7 +58,7 @@ namespace prjHacker.forms
         #region Botão Sair personalizado
             private void btnSair_Click(object sender, EventArgs e)
             {
-                play.click();
+                Play.click();
                 Close();
             }
         #endregion
@@ -73,7 +74,7 @@ namespace prjHacker.forms
                     btnMaisVol.Enabled = true;
                     verificaBotoes();
                 } else { btnMenosVol.Enabled = false; }
-                play.click();
+                Play.click();
             }
             private void btnMaisVol_Click(object sender, EventArgs e)
             {
@@ -85,7 +86,7 @@ namespace prjHacker.forms
                     btnMenosVol.Enabled = true;
                     verificaBotoes();
                 } else { btnMaisVol.Enabled = false; }
-                play.click();
+                Play.click();
             }
         #endregion
 

@@ -103,12 +103,12 @@
 			this.label13 = new System.Windows.Forms.Label();
 			this.pictureBox3 = new System.Windows.Forms.PictureBox();
 			this.button1 = new System.Windows.Forms.Button();
-			this.pictureBox4 = new System.Windows.Forms.PictureBox();
 			this.button2 = new System.Windows.Forms.Button();
 			this.label14 = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
 			this.btnSair = new System.Windows.Forms.Button();
 			this.pcbFundo = new System.Windows.Forms.PictureBox();
+			this.pictureBox4 = new System.Windows.Forms.PictureBox();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.menuStrip.SuspendLayout();
@@ -131,8 +131,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
 			this.groupBox4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pcbFundo)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// groupBox1
@@ -322,13 +322,13 @@
             this.ajudaToolStripMenuItem});
 			this.contextMenuStrip.Name = "contextMenuStrip";
 			this.contextMenuStrip.ShowImageMargin = false;
-			this.contextMenuStrip.Size = new System.Drawing.Size(106, 30);
+			this.contextMenuStrip.Size = new System.Drawing.Size(156, 52);
 			// 
 			// ajudaToolStripMenuItem
 			// 
 			this.ajudaToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
 			this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-			this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(105, 26);
+			this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
 			this.ajudaToolStripMenuItem.Text = "Ajuda";
 			this.ajudaToolStripMenuItem.Click += new System.EventHandler(this.ajudaToolStripMenuItem_Click);
 			// 
@@ -360,7 +360,8 @@
 			this.panelScripts.Controls.Add(this.pictureBox6);
 			this.panelScripts.Controls.Add(this.label19);
 			this.panelScripts.Controls.Add(this.label20);
-			this.panelScripts.Location = new System.Drawing.Point(0, 540);
+			this.panelScripts.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panelScripts.Location = new System.Drawing.Point(10, 33);
 			this.panelScripts.Name = "panelScripts";
 			this.panelScripts.Size = new System.Drawing.Size(455, 447);
 			this.panelScripts.TabIndex = 5;
@@ -625,8 +626,7 @@
 			this.panelBitcoin.Controls.Add(this.btnScript);
 			this.panelBitcoin.Controls.Add(this.label6);
 			this.panelBitcoin.Controls.Add(this.label9);
-			this.panelBitcoin.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelBitcoin.Location = new System.Drawing.Point(10, 33);
+			this.panelBitcoin.Location = new System.Drawing.Point(0, 540);
 			this.panelBitcoin.Name = "panelBitcoin";
 			this.panelBitcoin.Size = new System.Drawing.Size(455, 447);
 			this.panelBitcoin.TabIndex = 3;
@@ -1064,16 +1064,6 @@
 			this.button1.TabStop = false;
 			this.button1.Text = "Iniciar MineraÇÃo";
 			// 
-			// pictureBox4
-			// 
-			this.pictureBox4.Image = global::prjHacker.Properties.Resources.Bitcoin_PNG;
-			this.pictureBox4.Location = new System.Drawing.Point(272, 0);
-			this.pictureBox4.Name = "pictureBox4";
-			this.pictureBox4.Size = new System.Drawing.Size(153, 151);
-			this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox4.TabIndex = 12;
-			this.pictureBox4.TabStop = false;
-			// 
 			// button2
 			// 
 			this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1141,6 +1131,16 @@
 			this.pcbFundo.TabIndex = 12;
 			this.pcbFundo.TabStop = false;
 			// 
+			// pictureBox4
+			// 
+			this.pictureBox4.Image = global::prjHacker.Properties.Resources.Bitcoin_PNG;
+			this.pictureBox4.Location = new System.Drawing.Point(272, 0);
+			this.pictureBox4.Name = "pictureBox4";
+			this.pictureBox4.Size = new System.Drawing.Size(153, 151);
+			this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox4.TabIndex = 12;
+			this.pictureBox4.TabStop = false;
+			// 
 			// frmPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1197,8 +1197,8 @@
 			this.groupBox4.ResumeLayout(false);
 			this.groupBox4.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pcbFundo)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

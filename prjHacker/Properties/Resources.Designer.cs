@@ -63,9 +63,29 @@ namespace prjHacker.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bitcoin_Blockchain_Code {
+            get {
+                object obj = ResourceManager.GetObject("Bitcoin-Blockchain-Code", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Bitcoin_PNG {
             get {
                 object obj = ResourceManager.GetObject("Bitcoin-PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap c3fe39022a20662bed8ecb5db0fb8083 {
+            get {
+                object obj = ResourceManager.GetObject("c3fe39022a20662bed8ecb5db0fb8083", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -87,6 +107,16 @@ namespace prjHacker.Properties {
             get {
                 object obj = ResourceManager.GetObject("Carregando2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Byte[].
+        /// </summary>
+        internal static byte[] DS_DIGI {
+            get {
+                object obj = ResourceManager.GetObject("DS_DIGI", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

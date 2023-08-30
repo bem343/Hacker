@@ -32,20 +32,21 @@ namespace prjHacker.forms
                 this.user = user;
                 DialogResult = DialogResult.Abort;
                 InitializeComponent();
+                MyFont.applyff(this.Controls);
             }   
         #endregion
 
         #region Métodos
             private bool verificarVpn()
             {
-                if (vpn.isActive)
+                if (Vpn.isActive)
                 {
-                    double segundos = vpn.maximum - vpn.time;
+                    double segundos = Vpn.maximum - Vpn.time;
                     TimeSpan time = TimeSpan.FromSeconds(segundos);
                     lblVpn.Text = time.ToString(@"mm\:ss");
                     lblVpnAtivo.Visible = true;
                     lblVpn.Visible = true;
-                    if ((vpn.maximum - vpn.time) <= 10)
+                    if ((Vpn.maximum - Vpn.time) <= 10)
                     {
                         lblVpn.ForeColor = Color.FromArgb(200, 0, 0);
                     }
@@ -84,7 +85,7 @@ namespace prjHacker.forms
                 lblOriginal.Text = codigoOriginal; rtbFinal.Text = codigoFinal;
                 lblUsuario.Text = "Script de: " + user; verificarVpn();
                 lblErros.Text = erros.ToString(); rtbFinal.Focus();
-                vpn.start(); timerVpn.Start();
+                Vpn.start(); timerVpn.Start();
             }
         #endregion
 
@@ -109,8 +110,8 @@ namespace prjHacker.forms
                         while (ataque.DialogResult == DialogResult.None);
                     }
                     if (resultado != DialogResult.OK)
-                    { rtbFinal.Text = codigoFinal; rtbFinal.Focus(); play.fail(); }
-                    else { play.complete(); } tempoAtaque = 0; setAtaque();
+                    { rtbFinal.Text = codigoFinal; rtbFinal.Focus(); Play.fail(); }
+                    else { Play.complete(); } tempoAtaque = 0; setAtaque();
                 }
             }
         #endregion
@@ -118,7 +119,7 @@ namespace prjHacker.forms
         #region Verifica as mudanças digitadas no código final
             private void rtbFinal_TextChanged(object sender, EventArgs e)
             {
-                play.key();
+                Play.key();
                 string rascunhoSeco = rtbFinal.Text.Replace(" ", "").Replace("\n", "");
 
                 //Verificação dos erros
@@ -136,19 +137,19 @@ namespace prjHacker.forms
                 //Verificação do todo
                 if (rascunhoSeco == originalSeco)
                 {
-                    vpn.stop();
+                    Vpn.stop();
                     timerVpn.Stop();
                     timerAtaque.Stop();
                     rtbFinal.ReadOnly = true;
                     btnRefazer.Visible = false;
                     btnConcluir.Visible = true;
                     btnConcluir.Focus();
-                    play.complete();
+                    Play.complete();
                 }
             }
             private void btnConcluir_Click(object sender, EventArgs e)
             {
-                play.click();
+                Play.click();
                 Close();
             }
         #endregion
@@ -156,21 +157,21 @@ namespace prjHacker.forms
         #region Botão Sair personalizado
             private void btnSair_Click(object sender, EventArgs e)
             {
-                play.click();
+                Play.click();
                 Close();
             }
             private void frmCodigo_FormClosing(object sender, FormClosingEventArgs e)
             {
                 timerAtaque.Stop();
                 timerVpn.Stop();
-                vpn.stop();
+                Vpn.stop();
             }
         #endregion
 
         #region Botão Refazer
             private void btnRefazer_Click(object sender, EventArgs e)
             {
-                play.select();
+                Play.select();
                 rtbFinal.Text = codigoFinal;
                 rtbFinal.Focus();
             }

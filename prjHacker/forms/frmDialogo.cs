@@ -32,6 +32,7 @@ namespace prjHacker.forms
                 this.dialogo = dialogo;
                 this.buttons = buttons;
                 InitializeComponent();
+                MyFont.applyff(this.Controls);
             }
             public frmDialogo(string nome, string imageName, string dialogo, string[] buttons, string color)
             {
@@ -40,6 +41,7 @@ namespace prjHacker.forms
                 this.dialogo = dialogo;
                 this.buttons = buttons;
                 InitializeComponent();
+                MyFont.applyff(this.Controls);
                 lblDialogo.ForeColor = Color.FromName(color);
                 lblNome.ForeColor = Color.FromName(color);
                 btnResponse1.FlatAppearance.MouseDownBackColor = Color.FromName(color);
@@ -70,7 +72,7 @@ namespace prjHacker.forms
             {
                 if (dialogTime >= 0 && dialogTime < dialogo.Length)
                 {
-                    play.key();
+                    Play.key();
                     lblDialogo.Text += dialogo.Substring(dialogTime, 1);
                 }
                 else { if (lblDialogo.Text.Length > 0) { endDialog(); } }
@@ -93,7 +95,7 @@ namespace prjHacker.forms
         #region Evento padrão dos botões de resposta
             private void ClickPadrao(object sender, EventArgs e)
             {
-                play.click();
+                Play.click();
                 Close();
             }
         #endregion

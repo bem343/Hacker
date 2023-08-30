@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Text;
+using System.Runtime.InteropServices;
+using prjHacker.classes;
 
 namespace prjHacker.forms
 {
     public partial class frmSplash : Form
     {
 
-        public static PrivateFontCollection pfc = new PrivateFontCollection();
         private int tempo = 0;
 
         #region Construtores
@@ -26,8 +27,10 @@ namespace prjHacker.forms
         #region Page Load
             private void frmSplash_Load(object sender, EventArgs e)
             {
-                //Adiciona as fontes
-                pfc.AddFontFile("DS-DIGI.TTF");
+                //Carrega as fontes
+                MyFont.load(Properties.Resources.DS_DIGI);
+                MyFont.applyff(this.Controls);
+
                 //Começa um loading fake
                 pbCarregamento.Maximum = 30;
                 timer.Start();

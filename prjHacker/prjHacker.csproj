@@ -58,13 +58,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classes\my.cs" />
+    <Compile Include="classes\MyFont.cs" />
+    <Compile Include="classes\My.cs" />
     <Compile Include="classes\Music.cs" />
-    <Compile Include="classes\play.cs" />
-    <Compile Include="classes\quest.cs" />
-    <Compile Include="classes\script.cs" />
-    <Compile Include="classes\stop.cs" />
-    <Compile Include="classes\vpn.cs" />
+    <Compile Include="classes\Play.cs" />
+    <Compile Include="classes\Quest.cs" />
+    <Compile Include="classes\Script.cs" />
+    <Compile Include="classes\Stop.cs" />
+    <Compile Include="classes\Vpn.cs" />
     <Compile Include="forms\frmAtaque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +136,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="forms\frmAtaque.resx">
       <DependentUpon>frmAtaque.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmCodigo.resx">
       <DependentUpon>frmCodigo.cs</DependentUpon>
@@ -176,6 +178,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="bin\Debug\DS-DIGI.TTF" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -188,6 +191,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\DS-DIGI.TTF" />
     <None Include="Resources\splash screen.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +209,8 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="dlls\taglib-sharp.dll" />
+    <None Include="Resources\c3fe39022a20662bed8ecb5db0fb8083.gif" />
+    <None Include="Resources\Bitcoin-Blockchain-Code.gif" />
     <None Include="Resources\popup %281%29.gif" />
     <None Include="Resources\Carregando2.gif" />
     <None Include="Resources\carregando.gif" />

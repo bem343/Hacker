@@ -27,6 +27,7 @@ namespace prjHacker.forms
             public frmCodigoScript()
             {                
                 InitializeComponent();
+                MyFont.applyff(this.Controls);
             }
         #endregion
 
@@ -44,7 +45,7 @@ namespace prjHacker.forms
                 linha = linhas[nLinha];
                 lblLinha.Text = linha;
                 pbLinha.Maximum = linha.Length;
-                txtLinha.Focus(); vpn.start();
+                txtLinha.Focus(); Vpn.start();
                 timerVpn.Start();
             }
         #endregion
@@ -67,28 +68,29 @@ namespace prjHacker.forms
                     }
                     else
                     {
-                        vpn.stop();
+                        Vpn.stop();
                         timerVpn.Stop();
                         timerAtaque.Stop();
                         txtLinha.TextChanged -= txtLinha_TextChanged;
                         txtLinha.Clear();
                         lblLinha.Text = "";
+                        btnSair.Visible = false;
                         btnConcluir.Visible = true;
                         btnConcluir.Focus();
-                        play.complete();
+                        Play.complete();
                     }
                 }
             }
             private bool verificarVpn()
             {
-                if (vpn.isActive)
+                if (Vpn.isActive)
                 {
-                    double segundos = vpn.maximum - vpn.time;
+                    double segundos = Vpn.maximum - Vpn.time;
                     TimeSpan time = TimeSpan.FromSeconds(segundos);
                     lblVpn.Text = time.ToString(@"mm\:ss");
                     lblVpnAtivo.Visible = true;
                     lblVpn.Visible = true;
-                    if ((vpn.maximum - vpn.time) <= 10) {
+                    if ((Vpn.maximum - Vpn.time) <= 10) {
                     lblVpn.ForeColor = Color.FromArgb(200, 0, 0); }
                     return true;
                 }
@@ -101,7 +103,7 @@ namespace prjHacker.forms
         #region Quando digita na caixa de texto
             private void txtLinha_TextChanged(object sender, EventArgs e)
             {
-                play.key();
+                Play.key();
                 if (txtLinha.TextLength == 0) { pbLinha.Value = 0; return; }
                 if (txtLinha.TextLength == pbLinha.Value) {
                     if (linha.Substring(0, pbLinha.Value) == txtLinha.Text.Substring(0, pbLinha.Value))
@@ -125,7 +127,7 @@ namespace prjHacker.forms
         #region Botão de sair personalizado
             private void btnSair_Click(object sender, EventArgs e)
             {
-                play.click();
+                Play.click();
                 Close();
             }
         #endregion
@@ -150,15 +152,15 @@ namespace prjHacker.forms
                         while (ataque.DialogResult == DialogResult.None);
                     }
                     if (resultado != DialogResult.OK)
-                    { pbLinha.Value = 0; txtLinha.Clear(); txtLinha.Focus(); play.fail(); }
-                    else { play.complete(); } tempoAtaque = 0; setAtaque();
+                    { pbLinha.Value = 0; txtLinha.Clear(); txtLinha.Focus(); Play.fail(); }
+                    else { Play.complete(); } tempoAtaque = 0; setAtaque();
                 }
             }
         #endregion
 
         private void btnConcluir_Click(object sender, EventArgs e)
         {
-            play.click();
+            Play.click();
             Close();
         }
 
@@ -166,7 +168,7 @@ namespace prjHacker.forms
         {
             timerAtaque.Stop();
             timerVpn.Stop();
-            vpn.stop();
+            Vpn.stop();
         }
     }
 }

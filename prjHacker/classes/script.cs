@@ -6,14 +6,14 @@ using System.Xml;
 
 namespace prjHacker.classes
 {
-    public class script
+    public class Script
     {
         public string language { get; set; }
         public string name { get; set; }
         public int linesP { get; set; } = 0;
         public List<string> lines { get; set; }
 
-		public script(string language, string name, int lines)
+		public Script(string language, string name, int lines)
         {
             this.lines = new List<string>();
             this.language = language;

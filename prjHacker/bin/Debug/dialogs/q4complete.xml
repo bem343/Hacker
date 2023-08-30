@@ -5,7 +5,16 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Perfeito, agora é só minerar e ser feliz</text>
+        <text>Perfeito, agora É sÓ minerar.</text>
+        <buttons>
+            <button>Ok</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>Minere quantos scripts conseguir.</text>
         <buttons>
             <button>Ok</button>
         </buttons>

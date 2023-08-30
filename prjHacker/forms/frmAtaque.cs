@@ -25,11 +25,12 @@ namespace prjHacker.forms
             this.Location = new Point(x, y);
             DialogResult = DialogResult.Abort;
             InitializeComponent();
+            MyFont.applyff(this.Controls);
         }
 
         private void frmAtaque_Load(object sender, EventArgs e)
         {
-            play.hacking();
+            Play.hacking();
             timer.Interval = 82;
             pbAtaque.Maximum = 22;
             segundos.Start();
@@ -38,7 +39,7 @@ namespace prjHacker.forms
 
         private void frmAtaque_FormClosing(object sender, FormClosingEventArgs e)
         {
-            stop.hacking();
+            Stop.hacking();
             timer.Stop();
             segundos.Stop();
         }
@@ -55,14 +56,14 @@ namespace prjHacker.forms
             {
                 double perdaI = new Random().Next(2);
                 double perdaQ = new Random().NextDouble();
-                perdaT += perdaQ + perdaI; my.lost += perdaT;
+                perdaT += perdaQ + perdaI; My.lost += perdaT;
                 lblPerda.Text = "- $" + perdaT.ToString("#0.00");
             } else { tempo++; }
         }
 
         private void btnContraAtaque_Click(object sender, EventArgs e)
         {
-            play.click();
+            Play.click();
             ataque -= 2;
             if (ataque <= 0)
             { DialogResult = DialogResult.OK; Close(); return; }
