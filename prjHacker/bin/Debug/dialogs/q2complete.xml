@@ -5,34 +5,16 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>FÁcil nÉ?</text>
+        <text>ParabÉns, vocÊ acaba de revisar o seu primeiro cÓdigo.</text>
         <buttons>
-            <button>Sim</button>
+            <button>Obrigado</button>
         </buttons>
     </dialog>
 
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Talvez vocÊ esteja se perguntando...</text>
-        <buttons>
-            <button>...</button>
-        </buttons>
-    </dialog>
-
-    <dialog>
-        <name>ZECK</name>
-        <image>zeck.jpg</image>
-        <text>"O quÊ raios sÃo Pontos de Skill?"</text>
-        <buttons>
-            <button>...</button>
-        </buttons>
-    </dialog>
-
-    <dialog>
-        <name>ZECK</name>
-        <image>zeck.jpg</image>
-        <text>VocÊ usa eles para programar, seja um script ou um vÍrus. EntÃo, quanto mais melhor!</text>
+        <text>Quanto mais vocÊ revisa cÓdigos, mais pontos de skill e xp vocÊ ganha.</text>
         <buttons>
             <button>Entendi</button>
         </buttons>
@@ -41,7 +23,25 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Um jeito bom de ganhar experiÊncia e P. Skill É revisando cÓdigos. Tente fazer isso.</text>
+        <text>Revise mais alguns e vocÊ terÁ o suficiente para fazer um script.</text>
+        <buttons>
+            <button>Ok</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>Uma dica, quanto mais linhas puder fazer, maior É o pagamento. AlÉm disso, É bom aprender novas linguagens.</text>
+        <buttons>
+            <button>Ok</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>Usar linguagens melhores acelera o processo de mineraÇÃo e multiplica o valor do pagamento.</text>
         <buttons>
             <button>Ok</button>
         </buttons>

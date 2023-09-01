@@ -5,25 +5,7 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>ParabÉns, vocÊ acaba de revisar o seu primeiro cÓdigo.</text>
-        <buttons>
-            <button>Obrigado</button>
-        </buttons>
-    </dialog>
-
-    <dialog>
-        <name>ZECK</name>
-        <image>zeck.jpg</image>
-        <text>Quanto mais vocÊ revisa cÓdigos, mais pontos de skill e xp vocÊ ganha.</text>
-        <buttons>
-            <button>Entendi</button>
-        </buttons>
-    </dialog>
-
-    <dialog>
-        <name>ZECK</name>
-        <image>zeck.jpg</image>
-        <text>Revise mais alguns e vocÊ terÁ o suficiente para fazer um script.</text>
+        <text>Perfeito, agora É sÓ minerar.</text>
         <buttons>
             <button>Ok</button>
         </buttons>
@@ -32,16 +14,7 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Uma dica, quanto mais linhas puder fazer, maior É o pagamento. AlÉm disso, É bom aprender novas linguagens.</text>
-        <buttons>
-            <button>Ok</button>
-        </buttons>
-    </dialog>
-
-    <dialog>
-        <name>ZECK</name>
-        <image>zeck.jpg</image>
-        <text>Usar linguagens melhores acelera o processo de mineraÇÃo e multiplica o valor do pagamento.</text>
+        <text>Minere quantos scripts conseguir.</text>
         <buttons>
             <button>Ok</button>
         </buttons>

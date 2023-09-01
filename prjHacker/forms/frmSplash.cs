@@ -9,12 +9,14 @@ using System.Windows.Forms;
 using System.Drawing.Text;
 using System.Runtime.InteropServices;
 using prjHacker.classes;
+using System.Xml;
 
 namespace prjHacker.forms
 {
     public partial class frmSplash : Form
     {
-
+        
+        private XmlDocument arquivo = null;
         private int tempo = 0;
 
         #region Construtores
@@ -30,6 +32,16 @@ namespace prjHacker.forms
                 //Carrega as fontes
                 MyFont.load(Properties.Resources.DS_DIGI);
                 MyFont.applyff(this.Controls);
+
+                //Carrega as quests do xml
+                arquivo = new XmlDocument();
+                arquivo.Load("quests.xml");
+                frmPrincipal.quests = arquivo.GetElementsByTagName("quest");
+
+                //Carrega os users do xml
+                arquivo = new XmlDocument();
+                arquivo.Load("users.xml");
+                frmPrincipal.users = arquivo.GetElementsByTagName("user");
 
                 //Começa um loading fake
                 pbCarregamento.Maximum = 30;

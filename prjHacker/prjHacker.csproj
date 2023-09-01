@@ -62,7 +62,6 @@
     <Compile Include="classes\My.cs" />
     <Compile Include="classes\Music.cs" />
     <Compile Include="classes\Play.cs" />
-    <Compile Include="classes\Quest.cs" />
     <Compile Include="classes\Script.cs" />
     <Compile Include="classes\Stop.cs" />
     <Compile Include="classes\Vpn.cs" />

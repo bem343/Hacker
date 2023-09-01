@@ -5,43 +5,43 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Ótimo, agora vocÊ pode navegar a vontade sem sofrer ataques de outros hackers...</text>
+        <text>FÁcil nÉ?</text>
         <buttons>
-            <button>Maravilha</button>
+            <button>Sim</button>
         </buttons>
     </dialog>
 
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Mas seja rÁpido, serviÇos de VPN custam caro.</text>
+        <text>Talvez vocÊ esteja se perguntando...</text>
         <buttons>
-            <button>Ok</button>
+            <button>...</button>
         </buttons>
     </dialog>
 
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Agora vamos atrÁs de dinheiro!</text>
+        <text>"O quÊ raios sÃo Pontos de Skill?"</text>
         <buttons>
-            <button>Vamos!</button>
+            <button>...</button>
         </buttons>
     </dialog>
 
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Um jeito fÁcil de ganhar um bom dinheiro na deepweb É minerando BitCoins.</text>
+        <text>VocÊ usa eles para programar, seja um script ou um vÍrus. EntÃo, quanto mais melhor!</text>
         <buttons>
-            <button>Ok</button>
+            <button>Entendi</button>
         </buttons>
     </dialog>
 
     <dialog>
         <name>ZECK</name>
-        <image>zeck pc.jpg</image>
-        <text>Para fazer isso, vocÊ precisa de um script. VocÊ teria que fazer, mas eu tenho um para vocÊ usar.</text>
+        <image>zeck.jpg</image>
+        <text>Um jeito bom de ganhar experiÊncia e P. Skill É revisando cÓdigos. Tente fazer isso.</text>
         <buttons>
             <button>Ok</button>
         </buttons>
