@@ -208,6 +208,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="dlls\taglib-sharp.dll" />
+    <None Include="Resources\config.ico" />
     <None Include="Resources\c3fe39022a20662bed8ecb5db0fb8083.gif" />
     <None Include="Resources\Bitcoin-Blockchain-Code.gif" />
     <None Include="Resources\popup %281%29.gif" />

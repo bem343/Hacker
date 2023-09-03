@@ -85,9 +85,7 @@ namespace prjHacker.forms
             {
                 if (Vpn.isActive)
                 {
-                    double segundos = Vpn.maximum - Vpn.time;
-                    TimeSpan time = TimeSpan.FromSeconds(segundos);
-                    lblVpn.Text = time.ToString(@"mm\:ss");
+                    lblVpn.Text = Vpn.timeRemaining();
                     lblVpnAtivo.Visible = true;
                     lblVpn.Visible = true;
                     if ((Vpn.maximum - Vpn.time) <= 10) {

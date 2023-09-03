@@ -126,9 +126,7 @@ namespace prjHacker.forms
                 {
                     if (Vpn.isActive)
                     {
-                        double segundos = Vpn.maximum - Vpn.time;
-                        TimeSpan time = TimeSpan.FromSeconds(segundos);
-                        lblVpn.Text = time.ToString(@"mm\:ss");
+                        lblVpn.Text = Vpn.timeRemaining();
                         lblVpnAtivo.Visible = true;
                         lblVpn.Visible = true;
                         btnVpn1.Enabled = false;
@@ -141,9 +139,9 @@ namespace prjHacker.forms
                         lblVpnAtivo.Visible = false;
                         if(!CurrentQuests.Contains(0))
                         {
-                            if (dinheiro >= 10) { btnVpn1.Enabled = true; }
-                            if (dinheiro >= 15) { btnVpn2.Enabled = true; }
-                            if (dinheiro >= 20) { btnVpn3.Enabled = true; }
+                            if (dinheiro >= 30) { btnVpn1.Enabled = true; }
+                            if (dinheiro >= 75) { btnVpn2.Enabled = true; }
+                            if (dinheiro >= 150) { btnVpn3.Enabled = true; }
                         }
                     }
                 }
@@ -391,25 +389,25 @@ namespace prjHacker.forms
 		        private void btnVpn(int tempo, double valor)
                 {
                     Play.click();
-                    int hora = (tempo / 60);
-                    string s = "s"; if (hora == 1) { s = ""; }
+                    int horas = tempo / 60;
+                    int minutos = tempo % 60;
+
+                    string dialogo = "Deseja pagar $" + valor.ToString("#0.00");
+                    dialogo += " para assinar o serviÇo por " + horas + " hora" + (horas != 1 ? "s" : "");
+                    if(minutos > 0) dialogo += " e " + minutos + " minuto" + (minutos != 1 ? "s" : "");
+                    dialogo += "?";
+
                     string[] buttons = new string[4];
                     buttons[0] = "Sim";
                     buttons[1] = "NÃo";
                     buttons[2] = "";
                     buttons[3] = "";
-                    if ( abreDialogo
-                    (
-                        "S.H.A.R.K",
-                        "sharkgreen.png",
-                        "Deseja pagar $" + valor.ToString("#0.00") + " para assinar serviÇo por " + hora + " hora" + s + "?",
-                        buttons
-                    ) == DialogResult.OK)
-                    {
+                    
+                    if (abreDialogo("S.H.A.R.K", "sharkgreen.png", dialogo, buttons) == DialogResult.OK) {
                         Vpn.sign(tempo);
                         verificarVpn();
                         attDinheiro(-valor);
-                        if (CurrentQuests.Contains(0)) { q0complete(); }
+                        if (CurrentQuests.Contains(0)) q0complete();
                     }
                 }
                 private void btnVpn1_Click(object sender, EventArgs e)
@@ -418,11 +416,11 @@ namespace prjHacker.forms
                 }
                 private void btnVpn2_Click(object sender, EventArgs e)
                 {
-                    btnVpn(90, 45);
+                    btnVpn(150, 75);
                 }
                 private void btnVpn3_Click(object sender, EventArgs e)
                 {
-                    btnVpn(120, 60);
+                    btnVpn(300, 150);
                 }
             #endregion
 
@@ -468,7 +466,7 @@ namespace prjHacker.forms
 
                         attDinheiro(vDinheiro - My.lost);
                         attExperiencia(vExperiencia);
-                        if (CurrentQuests.Contains(1)) { q1complete(); }
+                        if (CurrentQuests.Contains(1)) q1complete();
                         My.scriptsRemove();
                     } else {
                         Music.play("# (5).mp3"); attDinheiro(-My.lost);
@@ -571,7 +569,7 @@ namespace prjHacker.forms
                         attProgramacao(vProgramacao);
                         attDinheiro(vDinheiro - My.lost);
                         attExperiencia(vExperiencia);
-                        if (CurrentQuests.Contains(2)) { q2complete(); }
+                        if (CurrentQuests.Contains(2)) q2complete();
                     } else { Music.play("# (5).mp3"); attDinheiro(-My.lost); } listCodigosRefresh();
                 }
                 // Método para gerar o pagamento, caso o usuário deseje
@@ -618,7 +616,7 @@ namespace prjHacker.forms
                         attDinheiro(-My.lost);
                         attExperiencia(vExperiencia);
                         frmNovoScript.concluirScript();
-                        if (CurrentQuests.Contains(3)) { q3complete(); }
+                        if (CurrentQuests.Contains(3)) q3complete();
                     } else {
                         Music.play("# (5).mp3"); attDinheiro(-My.lost);
                         Script script = frmNovoScript.script;
@@ -651,7 +649,7 @@ namespace prjHacker.forms
                         attDinheiro(-My.lost);
                         attExperiencia(vExperiencia);
                         frmNovoScript.concluirScript();
-                        if (CurrentQuests.Contains(3)) { q3complete(); }
+                        if (CurrentQuests.Contains(3)) q3complete();
                     } else {
                         Music.play("# (5).mp3"); attDinheiro(-My.lost);
                         Script script = frmNovoScript.script;

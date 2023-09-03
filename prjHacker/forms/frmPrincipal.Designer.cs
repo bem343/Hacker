@@ -30,13 +30,13 @@
         {
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint7 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 2D);
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint8 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint9 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
-			System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 2D);
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
+			System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.lblExperiencia = new System.Windows.Forms.Label();
 			this.pbExperiencia = new System.Windows.Forms.ProgressBar();
@@ -52,16 +52,6 @@
 			this.vpnMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.antiVirusMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.hospedagemMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.aprenderTool = new System.Windows.Forms.ToolStripMenuItem();
-			this.revisarCodigosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.linguagensMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.desenvTool = new System.Windows.Forms.ToolStripMenuItem();
-			this.scriptMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.virusMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.paginaFakeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.divisorMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-			this.dsenvAntiVirusMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.dsenvVpnMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.receitasTool = new System.Windows.Forms.ToolStripMenuItem();
 			this.minerarBitcoinMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.venderVirusMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,7 +67,16 @@
 			this.atentadoPentagonoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.atentadoNAZAMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.atentadoICBCMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.configTool = new System.Windows.Forms.ToolStripMenuItem();
+			this.desenvTool = new System.Windows.Forms.ToolStripMenuItem();
+			this.scriptMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.virusMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.paginaFakeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.divisorMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+			this.dsenvAntiVirusMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.dsenvVpnMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.aprenderTool = new System.Windows.Forms.ToolStripMenuItem();
+			this.revisarCodigosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.linguagensMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.gbAreaDeTrabalho = new System.Windows.Forms.GroupBox();
@@ -136,6 +135,7 @@
 			this.btnSair = new System.Windows.Forms.Button();
 			this.pcbFundo = new System.Windows.Forms.PictureBox();
 			this.pictureBox4 = new System.Windows.Forms.PictureBox();
+			this.btnConfig = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.menuStrip.SuspendLayout();
@@ -309,8 +309,7 @@
             this.servicosTool,
             this.receitasTool,
             this.desenvTool,
-            this.aprenderTool,
-            this.configTool});
+            this.aprenderTool});
 			this.menuStrip.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip.Name = "menuStrip";
 			this.menuStrip.Size = new System.Drawing.Size(904, 29);
@@ -358,107 +357,6 @@
 			this.hospedagemMenuItem.Size = new System.Drawing.Size(180, 26);
 			this.hospedagemMenuItem.Text = "Hospedagem";
 			this.hospedagemMenuItem.Visible = false;
-			// 
-			// aprenderTool
-			// 
-			this.aprenderTool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.revisarCodigosMenuItem,
-            this.linguagensMenuItem});
-			this.aprenderTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.aprenderTool.Name = "aprenderTool";
-			this.aprenderTool.Size = new System.Drawing.Size(102, 25);
-			this.aprenderTool.Text = "Aprender";
-			this.aprenderTool.Visible = false;
-			this.aprenderTool.Click += new System.EventHandler(this.defaultTool_Click);
-			// 
-			// revisarCodigosMenuItem
-			// 
-			this.revisarCodigosMenuItem.BackColor = System.Drawing.Color.Black;
-			this.revisarCodigosMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.revisarCodigosMenuItem.Name = "revisarCodigosMenuItem";
-			this.revisarCodigosMenuItem.Size = new System.Drawing.Size(217, 26);
-			this.revisarCodigosMenuItem.Text = "Revisar cÓdigos";
-			this.revisarCodigosMenuItem.Visible = false;
-			this.revisarCodigosMenuItem.Click += new System.EventHandler(this.revisarCodigosMenuItem_Click);
-			// 
-			// linguagensMenuItem
-			// 
-			this.linguagensMenuItem.BackColor = System.Drawing.Color.Black;
-			this.linguagensMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.linguagensMenuItem.Name = "linguagensMenuItem";
-			this.linguagensMenuItem.Size = new System.Drawing.Size(217, 26);
-			this.linguagensMenuItem.Text = "Linguagens";
-			this.linguagensMenuItem.Visible = false;
-			// 
-			// desenvTool
-			// 
-			this.desenvTool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.scriptMenuItem,
-            this.virusMenuItem,
-            this.paginaFakeMenuItem,
-            this.divisorMenuItem1,
-            this.dsenvAntiVirusMenuItem,
-            this.dsenvVpnMenuItem});
-			this.desenvTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.desenvTool.Name = "desenvTool";
-			this.desenvTool.Size = new System.Drawing.Size(132, 25);
-			this.desenvTool.Text = "Desenvolver";
-			this.desenvTool.Visible = false;
-			this.desenvTool.Click += new System.EventHandler(this.defaultTool_Click);
-			// 
-			// scriptMenuItem
-			// 
-			this.scriptMenuItem.BackColor = System.Drawing.Color.Black;
-			this.scriptMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.scriptMenuItem.Name = "scriptMenuItem";
-			this.scriptMenuItem.Size = new System.Drawing.Size(181, 26);
-			this.scriptMenuItem.Text = "Script";
-			this.scriptMenuItem.Visible = false;
-			this.scriptMenuItem.Click += new System.EventHandler(this.scriptMenuItem_Click);
-			// 
-			// virusMenuItem
-			// 
-			this.virusMenuItem.BackColor = System.Drawing.Color.Black;
-			this.virusMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.virusMenuItem.Name = "virusMenuItem";
-			this.virusMenuItem.Size = new System.Drawing.Size(181, 26);
-			this.virusMenuItem.Text = "Vírus";
-			this.virusMenuItem.Visible = false;
-			// 
-			// paginaFakeMenuItem
-			// 
-			this.paginaFakeMenuItem.BackColor = System.Drawing.Color.Black;
-			this.paginaFakeMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.paginaFakeMenuItem.Name = "paginaFakeMenuItem";
-			this.paginaFakeMenuItem.Size = new System.Drawing.Size(181, 26);
-			this.paginaFakeMenuItem.Text = "PÁgina fake";
-			this.paginaFakeMenuItem.Visible = false;
-			// 
-			// divisorMenuItem1
-			// 
-			this.divisorMenuItem1.BackColor = System.Drawing.Color.Black;
-			this.divisorMenuItem1.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.divisorMenuItem1.Name = "divisorMenuItem1";
-			this.divisorMenuItem1.Size = new System.Drawing.Size(178, 6);
-			this.divisorMenuItem1.Visible = false;
-			// 
-			// dsenvAntiVirusMenuItem
-			// 
-			this.dsenvAntiVirusMenuItem.BackColor = System.Drawing.Color.Black;
-			this.dsenvAntiVirusMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.dsenvAntiVirusMenuItem.Name = "dsenvAntiVirusMenuItem";
-			this.dsenvAntiVirusMenuItem.Size = new System.Drawing.Size(181, 26);
-			this.dsenvAntiVirusMenuItem.Text = "Anti-Virus";
-			this.dsenvAntiVirusMenuItem.Visible = false;
-			// 
-			// dsenvVpnMenuItem
-			// 
-			this.dsenvVpnMenuItem.BackColor = System.Drawing.Color.Black;
-			this.dsenvVpnMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.dsenvVpnMenuItem.Name = "dsenvVpnMenuItem";
-			this.dsenvVpnMenuItem.Size = new System.Drawing.Size(181, 26);
-			this.dsenvVpnMenuItem.Text = "VPN";
-			this.dsenvVpnMenuItem.Visible = false;
 			// 
 			// receitasTool
 			// 
@@ -607,13 +505,106 @@
 			this.atentadoICBCMenuItem.Text = "Atentado ao ICBC";
 			this.atentadoICBCMenuItem.Visible = false;
 			// 
-			// configTool
+			// desenvTool
 			// 
-			this.configTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.configTool.Name = "configTool";
-			this.configTool.Size = new System.Drawing.Size(150, 25);
-			this.configTool.Text = "ConfiguraÇÕes";
-			this.configTool.Click += new System.EventHandler(this.configTool_Click);
+			this.desenvTool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.scriptMenuItem,
+            this.virusMenuItem,
+            this.paginaFakeMenuItem,
+            this.divisorMenuItem1,
+            this.dsenvAntiVirusMenuItem,
+            this.dsenvVpnMenuItem});
+			this.desenvTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.desenvTool.Name = "desenvTool";
+			this.desenvTool.Size = new System.Drawing.Size(132, 25);
+			this.desenvTool.Text = "Desenvolver";
+			this.desenvTool.Visible = false;
+			this.desenvTool.Click += new System.EventHandler(this.defaultTool_Click);
+			// 
+			// scriptMenuItem
+			// 
+			this.scriptMenuItem.BackColor = System.Drawing.Color.Black;
+			this.scriptMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.scriptMenuItem.Name = "scriptMenuItem";
+			this.scriptMenuItem.Size = new System.Drawing.Size(181, 26);
+			this.scriptMenuItem.Text = "Script";
+			this.scriptMenuItem.Visible = false;
+			this.scriptMenuItem.Click += new System.EventHandler(this.scriptMenuItem_Click);
+			// 
+			// virusMenuItem
+			// 
+			this.virusMenuItem.BackColor = System.Drawing.Color.Black;
+			this.virusMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.virusMenuItem.Name = "virusMenuItem";
+			this.virusMenuItem.Size = new System.Drawing.Size(181, 26);
+			this.virusMenuItem.Text = "Vírus";
+			this.virusMenuItem.Visible = false;
+			// 
+			// paginaFakeMenuItem
+			// 
+			this.paginaFakeMenuItem.BackColor = System.Drawing.Color.Black;
+			this.paginaFakeMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.paginaFakeMenuItem.Name = "paginaFakeMenuItem";
+			this.paginaFakeMenuItem.Size = new System.Drawing.Size(181, 26);
+			this.paginaFakeMenuItem.Text = "PÁgina fake";
+			this.paginaFakeMenuItem.Visible = false;
+			// 
+			// divisorMenuItem1
+			// 
+			this.divisorMenuItem1.BackColor = System.Drawing.Color.Black;
+			this.divisorMenuItem1.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.divisorMenuItem1.Name = "divisorMenuItem1";
+			this.divisorMenuItem1.Size = new System.Drawing.Size(178, 6);
+			this.divisorMenuItem1.Visible = false;
+			// 
+			// dsenvAntiVirusMenuItem
+			// 
+			this.dsenvAntiVirusMenuItem.BackColor = System.Drawing.Color.Black;
+			this.dsenvAntiVirusMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.dsenvAntiVirusMenuItem.Name = "dsenvAntiVirusMenuItem";
+			this.dsenvAntiVirusMenuItem.Size = new System.Drawing.Size(181, 26);
+			this.dsenvAntiVirusMenuItem.Text = "Anti-Virus";
+			this.dsenvAntiVirusMenuItem.Visible = false;
+			// 
+			// dsenvVpnMenuItem
+			// 
+			this.dsenvVpnMenuItem.BackColor = System.Drawing.Color.Black;
+			this.dsenvVpnMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.dsenvVpnMenuItem.Name = "dsenvVpnMenuItem";
+			this.dsenvVpnMenuItem.Size = new System.Drawing.Size(181, 26);
+			this.dsenvVpnMenuItem.Text = "VPN";
+			this.dsenvVpnMenuItem.Visible = false;
+			// 
+			// aprenderTool
+			// 
+			this.aprenderTool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.revisarCodigosMenuItem,
+            this.linguagensMenuItem});
+			this.aprenderTool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.aprenderTool.Name = "aprenderTool";
+			this.aprenderTool.Size = new System.Drawing.Size(102, 25);
+			this.aprenderTool.Text = "Aprender";
+			this.aprenderTool.Visible = false;
+			this.aprenderTool.Click += new System.EventHandler(this.defaultTool_Click);
+			// 
+			// revisarCodigosMenuItem
+			// 
+			this.revisarCodigosMenuItem.BackColor = System.Drawing.Color.Black;
+			this.revisarCodigosMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.revisarCodigosMenuItem.Name = "revisarCodigosMenuItem";
+			this.revisarCodigosMenuItem.Size = new System.Drawing.Size(217, 26);
+			this.revisarCodigosMenuItem.Text = "Revisar cÓdigos";
+			this.revisarCodigosMenuItem.Visible = false;
+			this.revisarCodigosMenuItem.Click += new System.EventHandler(this.revisarCodigosMenuItem_Click);
+			// 
+			// linguagensMenuItem
+			// 
+			this.linguagensMenuItem.BackColor = System.Drawing.Color.Black;
+			this.linguagensMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.linguagensMenuItem.Name = "linguagensMenuItem";
+			this.linguagensMenuItem.Size = new System.Drawing.Size(217, 26);
+			this.linguagensMenuItem.Text = "Linguagens";
+			this.linguagensMenuItem.Visible = false;
 			// 
 			// contextMenuStrip
 			// 
@@ -661,8 +652,7 @@
 			this.panelScripts.Controls.Add(this.pictureBox6);
 			this.panelScripts.Controls.Add(this.label19);
 			this.panelScripts.Controls.Add(this.label20);
-			this.panelScripts.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelScripts.Location = new System.Drawing.Point(10, 33);
+			this.panelScripts.Location = new System.Drawing.Point(0, 540);
 			this.panelScripts.Name = "panelScripts";
 			this.panelScripts.Size = new System.Drawing.Size(455, 447);
 			this.panelScripts.TabIndex = 5;
@@ -1071,7 +1061,8 @@
 			this.panelVpn.Controls.Add(this.btnVpn1);
 			this.panelVpn.Controls.Add(this.label8);
 			this.panelVpn.Controls.Add(this.label7);
-			this.panelVpn.Location = new System.Drawing.Point(0, 540);
+			this.panelVpn.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panelVpn.Location = new System.Drawing.Point(10, 33);
 			this.panelVpn.Name = "panelVpn";
 			this.panelVpn.Size = new System.Drawing.Size(455, 447);
 			this.panelVpn.TabIndex = 2;
@@ -1115,7 +1106,7 @@
 			this.btnVpn3.Size = new System.Drawing.Size(455, 38);
 			this.btnVpn3.TabIndex = 13;
 			this.btnVpn3.TabStop = false;
-			this.btnVpn3.Text = "Assinar serviÇo por 2:00 Horas";
+			this.btnVpn3.Text = "Assinar serviÇo por 5:00 Horas";
 			this.btnVpn3.Click += new System.EventHandler(this.btnVpn3_Click);
 			// 
 			// btnVpn2
@@ -1133,7 +1124,7 @@
 			this.btnVpn2.Size = new System.Drawing.Size(455, 38);
 			this.btnVpn2.TabIndex = 12;
 			this.btnVpn2.TabStop = false;
-			this.btnVpn2.Text = "Assinar serviÇo por 1:30 Horas";
+			this.btnVpn2.Text = "Assinar serviÇo por 2:30 Horas";
 			this.btnVpn2.Click += new System.EventHandler(this.btnVpn2_Click);
 			// 
 			// btnVpn1
@@ -1207,82 +1198,82 @@
 			// 
 			this.chart.BackColor = System.Drawing.Color.Transparent;
 			this.chart.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			chartArea3.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-			chartArea3.AxisX2.LineColor = System.Drawing.Color.White;
-			chartArea3.AxisX2.TitleForeColor = System.Drawing.Color.White;
-			chartArea3.AxisY2.TitleForeColor = System.Drawing.Color.White;
-			chartArea3.BackColor = System.Drawing.Color.Transparent;
-			chartArea3.BackImageTransparentColor = System.Drawing.Color.Transparent;
-			chartArea3.BackSecondaryColor = System.Drawing.Color.Transparent;
-			chartArea3.BorderColor = System.Drawing.Color.Transparent;
-			chartArea3.Name = "ChartArea1";
-			chartArea3.ShadowColor = System.Drawing.Color.DarkGray;
-			this.chart.ChartAreas.Add(chartArea3);
+			chartArea2.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+			chartArea2.AxisX2.LineColor = System.Drawing.Color.White;
+			chartArea2.AxisX2.TitleForeColor = System.Drawing.Color.White;
+			chartArea2.AxisY2.TitleForeColor = System.Drawing.Color.White;
+			chartArea2.BackColor = System.Drawing.Color.Transparent;
+			chartArea2.BackImageTransparentColor = System.Drawing.Color.Transparent;
+			chartArea2.BackSecondaryColor = System.Drawing.Color.Transparent;
+			chartArea2.BorderColor = System.Drawing.Color.Transparent;
+			chartArea2.Name = "ChartArea1";
+			chartArea2.ShadowColor = System.Drawing.Color.DarkGray;
+			this.chart.ChartAreas.Add(chartArea2);
 			this.chart.Dock = System.Windows.Forms.DockStyle.Top;
-			legend3.BackColor = System.Drawing.Color.Transparent;
-			legend3.BackSecondaryColor = System.Drawing.Color.Transparent;
-			legend3.BorderColor = System.Drawing.Color.DimGray;
-			legend3.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			legend3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			legend3.InterlacedRowsColor = System.Drawing.Color.Transparent;
-			legend3.IsTextAutoFit = false;
-			legend3.Name = "Legend";
-			legend3.Title = "Legenda";
-			legend3.TitleBackColor = System.Drawing.Color.Transparent;
-			legend3.TitleFont = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			legend3.TitleForeColor = System.Drawing.Color.White;
-			legend3.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
-			legend3.TitleSeparatorColor = System.Drawing.Color.DimGray;
-			this.chart.Legends.Add(legend3);
+			legend2.BackColor = System.Drawing.Color.Transparent;
+			legend2.BackSecondaryColor = System.Drawing.Color.Transparent;
+			legend2.BorderColor = System.Drawing.Color.DimGray;
+			legend2.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			legend2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			legend2.InterlacedRowsColor = System.Drawing.Color.Transparent;
+			legend2.IsTextAutoFit = false;
+			legend2.Name = "Legend";
+			legend2.Title = "Legenda";
+			legend2.TitleBackColor = System.Drawing.Color.Transparent;
+			legend2.TitleFont = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			legend2.TitleForeColor = System.Drawing.Color.White;
+			legend2.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
+			legend2.TitleSeparatorColor = System.Drawing.Color.DimGray;
+			this.chart.Legends.Add(legend2);
 			this.chart.Location = new System.Drawing.Point(0, 0);
 			this.chart.Name = "chart";
 			this.chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
 			this.chart.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))))};
-			series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-			series3.BackSecondaryColor = System.Drawing.Color.Transparent;
-			series3.BorderColor = System.Drawing.Color.Transparent;
-			series3.ChartArea = "ChartArea1";
-			series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			series3.LabelBackColor = System.Drawing.Color.White;
-			series3.LabelForeColor = System.Drawing.Color.White;
-			series3.Legend = "Legend";
-			series3.Name = "Execuções";
-			dataPoint7.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint7.IsValueShownAsLabel = true;
-			dataPoint7.Label = "Cassino";
-			dataPoint7.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint7.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint7.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataPoint8.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint8.IsValueShownAsLabel = true;
-			dataPoint8.Label = "Banco";
-			dataPoint8.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint8.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint8.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataPoint9.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint9.IsValueShownAsLabel = true;
-			dataPoint9.Label = "Lojinha...";
-			dataPoint9.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint9.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint9.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			series3.Points.Add(dataPoint7);
-			series3.Points.Add(dataPoint8);
-			series3.Points.Add(dataPoint9);
-			this.chart.Series.Add(series3);
+			series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+			series2.BackSecondaryColor = System.Drawing.Color.Transparent;
+			series2.BorderColor = System.Drawing.Color.Transparent;
+			series2.ChartArea = "ChartArea1";
+			series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			series2.LabelBackColor = System.Drawing.Color.White;
+			series2.LabelForeColor = System.Drawing.Color.White;
+			series2.Legend = "Legend";
+			series2.Name = "Execuções";
+			dataPoint4.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint4.IsValueShownAsLabel = true;
+			dataPoint4.Label = "Cassino";
+			dataPoint4.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint4.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint4.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataPoint5.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint5.IsValueShownAsLabel = true;
+			dataPoint5.Label = "Banco";
+			dataPoint5.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint5.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint5.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataPoint6.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint6.IsValueShownAsLabel = true;
+			dataPoint6.Label = "Lojinha...";
+			dataPoint6.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint6.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint6.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			series2.Points.Add(dataPoint4);
+			series2.Points.Add(dataPoint5);
+			series2.Points.Add(dataPoint6);
+			this.chart.Series.Add(series2);
 			this.chart.Size = new System.Drawing.Size(455, 206);
 			this.chart.TabIndex = 2;
 			this.chart.TabStop = false;
 			this.chart.Text = "CHART";
-			title3.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-			title3.BackColor = System.Drawing.Color.Transparent;
-			title3.BackSecondaryColor = System.Drawing.Color.Transparent;
-			title3.DockingOffset = 5;
-			title3.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			title3.ForeColor = System.Drawing.Color.White;
-			title3.Name = "Title1";
-			title3.Text = "Ultimos golpes";
-			this.chart.Titles.Add(title3);
+			title2.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+			title2.BackColor = System.Drawing.Color.Transparent;
+			title2.BackSecondaryColor = System.Drawing.Color.Transparent;
+			title2.DockingOffset = 5;
+			title2.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			title2.ForeColor = System.Drawing.Color.White;
+			title2.Name = "Title1";
+			title2.Text = "Ultimos golpes";
+			this.chart.Titles.Add(title2);
 			// 
 			// groupBox4
 			// 
@@ -1442,6 +1433,25 @@
 			this.pictureBox4.TabIndex = 12;
 			this.pictureBox4.TabStop = false;
 			// 
+			// btnConfig
+			// 
+			this.btnConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+			this.btnConfig.BackgroundImage = global::prjHacker.Properties.Resources.config;
+			this.btnConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnConfig.FlatAppearance.BorderSize = 0;
+			this.btnConfig.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+			this.btnConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnConfig.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnConfig.ForeColor = System.Drawing.Color.White;
+			this.btnConfig.Location = new System.Drawing.Point(847, 3);
+			this.btnConfig.Name = "btnConfig";
+			this.btnConfig.Size = new System.Drawing.Size(25, 25);
+			this.btnConfig.TabIndex = 13;
+			this.btnConfig.TabStop = false;
+			this.btnConfig.UseVisualStyleBackColor = false;
+			this.btnConfig.Click += new System.EventHandler(this.configTool_Click);
+			// 
 			// frmPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1449,6 +1459,7 @@
 			this.BackColor = System.Drawing.Color.Black;
 			this.ClientSize = new System.Drawing.Size(904, 536);
 			this.ContextMenuStrip = this.contextMenuStrip;
+			this.Controls.Add(this.btnConfig);
 			this.Controls.Add(this.btnSair);
 			this.Controls.Add(this.gbAreaDeTrabalho);
 			this.Controls.Add(this.menuStrip);
@@ -1520,7 +1531,6 @@
         private System.Windows.Forms.ToolStripMenuItem servicosTool;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.GroupBox gbAreaDeTrabalho;
-        private System.Windows.Forms.ToolStripMenuItem configTool;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Panel panelPrincipal;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
@@ -1606,5 +1616,6 @@
 		private System.Windows.Forms.ToolStripMenuItem atentadoPentagonoMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem atentadoNAZAMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem atentadoICBCMenuItem;
+		private System.Windows.Forms.Button btnConfig;
 	}
 }

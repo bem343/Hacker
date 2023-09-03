@@ -22,7 +22,7 @@ namespace prjHacker.forms
             string codigoFinal = "";
             private int proximoAtaque = 0;
             private int tempoAtaque = 0;
-            private XmlNodeList codes = null;
+            public static XmlNodeList codes = null;
         #endregion
 
         #region Construtores
@@ -41,9 +41,7 @@ namespace prjHacker.forms
             {
                 if (Vpn.isActive)
                 {
-                    double segundos = Vpn.maximum - Vpn.time;
-                    TimeSpan time = TimeSpan.FromSeconds(segundos);
-                    lblVpn.Text = time.ToString(@"mm\:ss");
+                    lblVpn.Text = Vpn.timeRemaining();
                     lblVpnAtivo.Visible = true;
                     lblVpn.Visible = true;
                     if ((Vpn.maximum - Vpn.time) <= 10)
@@ -61,10 +59,6 @@ namespace prjHacker.forms
         #region Page Load
             private void frmCodigo_Load(object sender, EventArgs e)
             {
-                XmlDocument arquivo = new XmlDocument();
-                arquivo.Load("codes.xml");
-                codes = arquivo.GetElementsByTagName("code");
-
                 int r = new Random().Next(0, codes.Count);
                 codigoOriginal = codes[r].InnerText;
 

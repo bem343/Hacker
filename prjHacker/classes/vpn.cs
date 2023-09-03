@@ -29,10 +29,14 @@ namespace prjHacker.classes
                 time = 0;
                 timer.Stop();
                 isActive = false;
-            }
-            time++;
+            } else { time++; }
         }
         public static void start() { timer.Start(); }
         public static void stop() { timer.Stop(); }
+        public static string timeRemaining()
+        {
+            TimeSpan timeSpan = TimeSpan.FromSeconds(maximum - time);
+            return string.Format("{0:D2}:{1:D2}", (int)timeSpan.TotalMinutes, timeSpan.Seconds);
+        }
     }
 }

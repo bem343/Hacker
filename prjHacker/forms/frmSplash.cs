@@ -43,6 +43,11 @@ namespace prjHacker.forms
                 arquivo.Load("users.xml");
                 frmPrincipal.users = arquivo.GetElementsByTagName("user");
 
+                //Carrega os codes do xml
+                arquivo = new XmlDocument();
+                arquivo.Load("codes.xml");
+                frmCodigo.codes = arquivo.GetElementsByTagName("code");
+
                 //Começa um loading fake
                 pbCarregamento.Maximum = 30;
                 timer.Start();
