@@ -27,21 +27,21 @@ namespace prjHacker.forms
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            Play.click();
+            Sound.click();
             Close();
         }
 
         private void btnCarregar_Click(object sender, EventArgs e)
         {
-            Play.click();
-            My.selectScript(selecionado);
+            Sound.click();
+            MyScripts.Select(selecionado);
             Close();
         }
 
         private void lstScripts_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstScripts.SelectedItems.Count <= 0) { return; }
-            Play.click();
+            Sound.click();
             selecionado = lstScripts.SelectedIndex;
             btnCarregar.Enabled = true;
             lstScripts.ClearSelected();
@@ -49,7 +49,7 @@ namespace prjHacker.forms
 
         private void frmScript_Load(object sender, EventArgs e)
         {
-            lstScripts.DataSource = My.scriptNames();
+            lstScripts.DataSource = MyScripts.Names();
             btnCarregar.Enabled = false;
         }
     }

@@ -59,11 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\MyFont.cs" />
-    <Compile Include="classes\My.cs" />
+    <Compile Include="classes\MyScripts.cs" />
     <Compile Include="classes\Music.cs" />
-    <Compile Include="classes\Play.cs" />
+    <Compile Include="classes\Sound.cs" />
     <Compile Include="classes\Script.cs" />
-    <Compile Include="classes\Stop.cs" />
     <Compile Include="classes\Vpn.cs" />
     <Compile Include="forms\frmAtaque.cs">
       <SubType>Form</SubType>

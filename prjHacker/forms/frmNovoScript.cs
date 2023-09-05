@@ -24,14 +24,14 @@ namespace prjHacker.forms
 
 		public static void concluirScript()
 		{
-			My.scriptsAdd(frmNovoScript.script);
+			MyScripts.Add(frmNovoScript.script);
 			script = null;
 			skill = 0;
 		}
 
 		private void btnSair_Click(object sender, EventArgs e)
 		{
-			Play.click();
+			Sound.click();
 			Close();
 		}
 
@@ -43,7 +43,7 @@ namespace prjHacker.forms
 		}
 		private void btnCriar_Click(object sender, EventArgs e)
 		{
-			Play.click();
+			Sound.click();
 			string language = cbLinguagem.SelectedItem.ToString();
 			string name = extension(txtNome.Text);
 			int lines = (int)nLines.Value;
@@ -88,22 +88,22 @@ namespace prjHacker.forms
 			}
 			private void txtNome_TextChanged(object sender, EventArgs e)
 			{
-				Play.key();
+				Sound.key();
 				verificaCriar();
 			}
 			private void cbLinguagem_SelectedIndexChanged(object sender, EventArgs e)
 			{
-				Play.select();
+				Sound.select();
 				verificaCriar();
 			}
 			private void nLines_ValueChanged(object sender, EventArgs e)
 			{
-				Play.select();
+				Sound.select();
 				verificaCriar();
 			}
 			private void nLines_KeyPress(object sender, KeyPressEventArgs e)
 			{
-				Play.key();
+				Sound.key();
 			}
 		#endregion
 

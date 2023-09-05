@@ -39,12 +39,12 @@ namespace prjHacker.forms
 
 		private void btnSair_Click(object sender, EventArgs e)
 		{
-			Play.click();
+			Sound.click();
 			Close();
 		}
 		private void btnConcluir_Click(object sender, EventArgs e)
 		{
-			Play.click(); minerado = false; Close();
+			Sound.click(); minerado = false; Close();
 		}
 
 		private void frmMineracao_Load(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace prjHacker.forms
 					timerTexto.Stop();
 					timerVpn.Stop();
 					Vpn.stop();
-					Play.complete();
+					Sound.complete();
 					minerado = true;
 					btnConcluir.Visible = true;
 				}
@@ -124,12 +124,12 @@ namespace prjHacker.forms
 						while (ataque.DialogResult == DialogResult.None);
 					}
 					if (resultado != DialogResult.OK) {
-						Play.fail();
+						Sound.fail();
 						tempoMineracao = 0;
 						pgProgresso.Value = tempoMineracao;
 						rtbComandos.Clear();
 					}
-					else { Play.complete(); }
+					else { Sound.complete(); }
 					tempoAtaque = 0; setAtaque();
 				}
 			}

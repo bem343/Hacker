@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Media;
 using prjHacker.classes;
 using System.Xml;
+using System.Runtime.InteropServices;
 
 namespace prjHacker.forms
 {
@@ -44,9 +45,6 @@ namespace prjHacker.forms
                 lblDinheiro.Text = "$" + dinheiro.ToString("#0.00");
                 lblExperiencia.Text = experiencia.ToString();
                 lblProgramacao.Text = skill.ToString();
-                //Timer da movimentação da janela
-                janela = new Timer { Interval = 1 };
-                janela.Tick += janela_Tick;
 
                 Music.initPlayer();
             }
@@ -65,23 +63,36 @@ namespace prjHacker.forms
         #endregion
 
         #region Movimentação da janela
-            private int X = 0;
-            private int Y = 0;
-            private int exitTime = 0;
-            private Timer janela = null;
-            private void menuStrip_MouseDown(object sender, MouseEventArgs e)
+            // Constantes para mensagens do Windows
+            private const int WM_NCLBUTTONDOWN = 0xA1;
+            private const int HT_CAPTION = 0x2;
+
+            // Importar a função SendMessage do user32.dll
+            [DllImport("user32.dll")]
+            private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+            // Importar a função ReleaseCapture do user32.dll
+            [DllImport("user32.dll")]
+            private static extern bool ReleaseCapture();
+
+            // Manipulador de eventos MouseDown para começar a mover a janela
+            private void MenuStrip_MouseDown(object sender, MouseEventArgs e)
             {
-                X = Cursor.Position.X - this.Location.X;
-                Y = Cursor.Position.Y - this.Location.Y;
-                janela.Start();
+                if (e.Button == MouseButtons.Left)
+                {
+                    ReleaseCapture();
+                    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                }
             }
-            private void menuStrip_MouseUp(object sender, MouseEventArgs e)
+
+            // Manipulador de eventos MouseMove para continuar a mover a janela
+            private void MenuStrip_MouseMove(object sender, MouseEventArgs e)
             {
-                janela.Stop();
-            }
-            private void janela_Tick(object sender, EventArgs e)
-            {
-                this.Location = new Point(Cursor.Position.X - X, Cursor.Position.Y - Y);
+                if (e.Button == MouseButtons.Left)
+                {
+                    ReleaseCapture();
+                    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                }
             }
         #endregion
 
@@ -139,9 +150,9 @@ namespace prjHacker.forms
                         lblVpnAtivo.Visible = false;
                         if(!CurrentQuests.Contains(0))
                         {
-                            if (dinheiro >= 30) { btnVpn1.Enabled = true; }
-                            if (dinheiro >= 75) { btnVpn2.Enabled = true; }
-                            if (dinheiro >= 150) { btnVpn3.Enabled = true; }
+                            if (dinheiro >= custoBaseVpn) { btnVpn1.Enabled = true; }
+                            if (dinheiro >= custoBaseVpn * 2.5) { btnVpn2.Enabled = true; }
+                            if (dinheiro >= custoBaseVpn * 5) { btnVpn3.Enabled = true; }
                         }
                     }
                 }
@@ -227,16 +238,16 @@ namespace prjHacker.forms
             //Tools
             private void defaultTool_Click(object sender, EventArgs e)
             {
-                Play.click();
+                Sound.click();
             }
             private void configTool_Click(object sender, EventArgs e)
             {
-                Play.click(); new frmConfiguracoes().ShowDialog();
+                Sound.click(); new frmConfiguracoes().ShowDialog();
             }
             //MenuItems
             private void vpnMenuItem_Click(object sender, EventArgs e)
             {
-                Play.click();
+                Sound.click();
                 verificarVpn();
                 fecharPanels();
                 panelVpn.Visible = true;
@@ -244,21 +255,21 @@ namespace prjHacker.forms
             }
             private void revisarCodigosMenuItem_Click(object sender, EventArgs e)
             {
-                Play.click();
+                Sound.click();
                 fecharPanels();
                 panelCodigos.Visible = true;
                 gbAreaDeTrabalho.Text = "Área de Trabalho";
             }
             private void minerarBitcoinMenuItem_Click(object sender, EventArgs e)
             {
-                Play.click();
+                Sound.click();
                 fecharPanels();
                 panelBitcoin.Visible = true;
                 gbAreaDeTrabalho.Text = "Área de Trabalho";
             }
             private void scriptMenuItem_Click(object sender, EventArgs e)
             {
-                Play.click();
+                Sound.click();
                 fecharPanels();
                 panelScripts.Visible = true;
                 gbAreaDeTrabalho.Text = "Área de Trabalho";
@@ -282,9 +293,10 @@ namespace prjHacker.forms
         #endregion
 
         #region Botão Sair personalizado
+            private int exitTime = 0;
             private void btnSair_Click(object sender, EventArgs e)
             {
-                Play.click();
+                Sound.click();
                 string[] buttons = new string[4];
                 buttons[0] = "Sim";
                 buttons[1] = "NÃo";
@@ -297,7 +309,7 @@ namespace prjHacker.forms
             }
             private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
             {
-                Timer exitTimer = new Timer();
+			    Timer exitTimer = new Timer();
                 exitTimer.Interval = 400;
                 exitTimer.Tick += exitTimer_Tick;
                 exitTimer.Start();
@@ -315,7 +327,7 @@ namespace prjHacker.forms
             private void lstTrabalhos_SelectedIndexChanged(object sender, EventArgs e)
             {
                 if (lstTrabalhos.SelectedItems.Count <= 0) { return; }
-                Play.click();
+                Sound.click();
                 int index = CurrentQuests[lstTrabalhos.SelectedIndex];
                 lblMissao.Text = quests[index]["instruction"].InnerText;
                 gbAreaDeTrabalho.Text = quests[index]["name"].InnerText;
@@ -328,7 +340,7 @@ namespace prjHacker.forms
         #region Conclusão das quests
             private void CompleteQuest(int QuestI)
             {
-                Play.select();
+                Sound.select();
                 attExperiencia(55 + (0.5 * (QuestI + 1)));
                 string name = quests[QuestI]["name"].InnerText;
                 lstTrabalhos.Items.Remove(name);
@@ -339,7 +351,7 @@ namespace prjHacker.forms
                 string name = quests[QuestI]["name"].InnerText;
                 lstTrabalhos.Items.Add(name);
                 CurrentQuests.Add(QuestI);
-                Play.select(); 
+                Sound.select(); 
             }
             private void q0complete()
             {
@@ -350,7 +362,7 @@ namespace prjHacker.forms
                 StartQuest(1);
                 receitasTool.Visible = true;
                 minerarBitcoinMenuItem.Visible = true;
-                My.scriptsAdd(new Script("js", "zeck_script.js", 3));
+                MyScripts.Add(new Script("js", "zeck_script.js", 3));
             }
             private void q1complete()
             {
@@ -386,9 +398,11 @@ namespace prjHacker.forms
 		#region Áreas do jogo (Panels)
 
 		    #region Área de serviço VPN
+                private const int tempoBaseVpn = 60;
+                private const double custoBaseVpn = 30;                
 		        private void btnVpn(int tempo, double valor)
                 {
-                    Play.click();
+                    Sound.click();
                     int horas = tempo / 60;
                     int minutos = tempo % 60;
 
@@ -412,15 +426,15 @@ namespace prjHacker.forms
                 }
                 private void btnVpn1_Click(object sender, EventArgs e)
                 {
-                    btnVpn(60, 30);
+                    btnVpn(tempoBaseVpn, custoBaseVpn);
                 }
                 private void btnVpn2_Click(object sender, EventArgs e)
                 {
-                    btnVpn(150, 75);
+                    btnVpn((int)(tempoBaseVpn * 2.5), custoBaseVpn * 2.5);
                 }
                 private void btnVpn3_Click(object sender, EventArgs e)
                 {
-                    btnVpn(300, 150);
+                    btnVpn((int)(tempoBaseVpn * 5), custoBaseVpn * 5);
                 }
             #endregion
 
@@ -429,7 +443,7 @@ namespace prjHacker.forms
                 {
                     if (new frmScript().ShowDialog() == DialogResult.OK)
                     {
-                        Script script = My.currentScript();
+                        Script script = MyScripts.Current();
                         btnMinerar.Text = "Iniciar MineraÇÃo";
                         btnMinerar.Enabled = true;
                         pcbScript.Visible = true;
@@ -443,8 +457,8 @@ namespace prjHacker.forms
                 private void btnMinerar_Click(object sender, EventArgs e)
                 {
                     btnScript.Enabled = false;
-                    Script script = My.currentScript();
-                    Music.play("# (6).mp3"); My.lost = 0;
+                    Script script = MyScripts.Current();
+                    Music.play("# (6).mp3"); MyScripts.lost = 0;
                     frmMineracao frmMineracao = new frmMineracao(script);
                     if (frmMineracao.ShowDialog() == DialogResult.OK)
                     {
@@ -461,15 +475,15 @@ namespace prjHacker.forms
                         double vExperiencia = script.lines.Count * 6;
                         //Relatório final da mineração
                         frmRelatorio relatorio = new frmRelatorio
-                        ((vDinheiro - My.lost), 0, vExperiencia, "MineraÇÃo ConcluÍda!");
+                        ((vDinheiro - MyScripts.lost), 0, vExperiencia, "MineraÇÃo ConcluÍda!");
                         relatorio.ShowDialog();
 
-                        attDinheiro(vDinheiro - My.lost);
+                        attDinheiro(vDinheiro - MyScripts.lost);
                         attExperiencia(vExperiencia);
                         if (CurrentQuests.Contains(1)) q1complete();
-                        My.scriptsRemove();
+                        MyScripts.Remove();
                     } else {
-                        Music.play("# (5).mp3"); attDinheiro(-My.lost);
+                        Music.play("# (5).mp3"); attDinheiro(-MyScripts.lost);
                         if(frmMineracao.minerado) btnMinerar.Text = "Concluir MineraÇÃo";
                     }
                 }
@@ -491,7 +505,7 @@ namespace prjHacker.forms
                 int buscarMax = 0;
                 int selectedIndex = 0;
                 bool primeiraVez = true;
-                Timer buscaTimer = new Timer();
+		        Timer buscaTimer = new Timer();
                 Random aleatorize = new Random();
                 List<object[]> itensRevisao = new List<object[]>();
                 private void panelCodigos_VisibleChanged(object sender, EventArgs e)
@@ -508,18 +522,18 @@ namespace prjHacker.forms
                         buscaTimer.Stop();
                         pcbLoad.Visible = false;
                         btnRefresh.Enabled = true;
-                        Play.complete(); return;
+                        Sound.complete(); return;
                     }
 
                     string user = users[aleatorize.Next(users.Count)].InnerText;
                     int erros = aleatorize.Next(3, 5 + (nivel / 3));
                     itensRevisao.Add(new object[2] { user, erros });
                     lstCodigos.Items.Add(user + " - " + erros + " erros");
-                    Play.select(); buscaTimer.Interval = aleatorize.Next(100, 1001);
+                    Sound.select(); buscaTimer.Interval = aleatorize.Next(100, 1001);
                 }
                 private void btnRefresh_Click(object sender, EventArgs e)
                 {
-                    Play.click(); listCodigosRefresh();
+                    Sound.click(); listCodigosRefresh();
                 }
                 private void listCodigosRefresh()
                 {
@@ -535,7 +549,7 @@ namespace prjHacker.forms
                 }
                 private void lstCodigos_SelectedIndexChanged(object sender, EventArgs e)
                 {
-                    Play.click();
+                    Sound.click();
                     if (lstCodigos.SelectedItems.Count > 0) {
                         selectedIndex = lstCodigos.SelectedIndex;
                         btnRevisar.Enabled = true;
@@ -543,12 +557,12 @@ namespace prjHacker.forms
                 }
                 private void btnRevisar_Click(object sender, EventArgs e)
                 {
-                    Play.click(); buscaTimer.Stop();
+                    Sound.click(); buscaTimer.Stop();
                     btnRefresh.Enabled = false;
                     btnRevisar.Enabled = false;
                     pcbLoad.Visible = false;
                     lstCodigos.Items.Clear();
-                    Music.play("# (4).mp3"); My.lost = 0;
+                    Music.play("# (4).mp3"); MyScripts.lost = 0;
 
                     string user = itensRevisao[selectedIndex][0].ToString();
                     int erros = int.Parse(itensRevisao[selectedIndex][1].ToString());
@@ -563,14 +577,14 @@ namespace prjHacker.forms
                         int vProgramacao = erros * 22;
                         //Relatório final da revisão
                         frmRelatorio relatorio = new frmRelatorio
-                        ((vDinheiro - My.lost), vProgramacao, vExperiencia, "RevisÃo ConcluÍda!");
+                        ((vDinheiro - MyScripts.lost), vProgramacao, vExperiencia, "RevisÃo ConcluÍda!");
                         relatorio.ShowDialog();
 
                         attProgramacao(vProgramacao);
-                        attDinheiro(vDinheiro - My.lost);
+                        attDinheiro(vDinheiro - MyScripts.lost);
                         attExperiencia(vExperiencia);
                         if (CurrentQuests.Contains(2)) q2complete();
-                    } else { Music.play("# (5).mp3"); attDinheiro(-My.lost); } listCodigosRefresh();
+                    } else { Music.play("# (5).mp3"); attDinheiro(-MyScripts.lost); } listCodigosRefresh();
                 }
                 // Método para gerar o pagamento, caso o usuário deseje
                 private double pagamento() { return new Random().Next(2, 6) + new Random().NextDouble(); }
@@ -579,7 +593,7 @@ namespace prjHacker.forms
 		    #region Área de criação de códigos
 		        private void btnCriarScript_Click(object sender, EventArgs e)
 		        {
-                    Play.click();
+                    Sound.click();
                     if(new frmNovoScript().ShowDialog() == DialogResult.OK)
                     {
                         Script script = frmNovoScript.script;
@@ -595,7 +609,7 @@ namespace prjHacker.forms
                         attProgramacao(-frmNovoScript.skill);
                     } else { return; }
 
-                    Music.play("# (4).mp3"); My.lost = 0;
+                    Music.play("# (4).mp3"); MyScripts.lost = 0;
                     if (new frmCodigoScript().ShowDialog() == DialogResult.OK)
                     {
                         Music.play("# (5).mp3");
@@ -610,15 +624,15 @@ namespace prjHacker.forms
                         double vExperiencia = frmNovoScript.script.lines.Count * 5.2;
                         //Relatório final da mineração
                         frmRelatorio relatorio = new frmRelatorio
-                        (-My.lost, 0, vExperiencia, "Script concluÍdo!");
+                        (-MyScripts.lost, 0, vExperiencia, "Script concluÍdo!");
                         relatorio.ShowDialog();
 
-                        attDinheiro(-My.lost);
+                        attDinheiro(-MyScripts.lost);
                         attExperiencia(vExperiencia);
                         frmNovoScript.concluirScript();
                         if (CurrentQuests.Contains(3)) q3complete();
                     } else {
-                        Music.play("# (5).mp3"); attDinheiro(-My.lost);
+                        Music.play("# (5).mp3"); attDinheiro(-MyScripts.lost);
                         Script script = frmNovoScript.script;
                         lblLinesScript2.Text = script.linesP + "/" + script.lines.Count;
                         if(script.linesP == script.lines.Count) btnContinuarScript.Text = "Terminar";
@@ -627,8 +641,8 @@ namespace prjHacker.forms
 		        }
                 private void btnContinuarScript_Click(object sender, EventArgs e)
 		        {
-                    Play.click();
-                    Music.play("# (4).mp3"); My.lost = 0;
+                    Sound.click();
+                    Music.play("# (4).mp3"); MyScripts.lost = 0;
                     if (new frmCodigoScript().ShowDialog() == DialogResult.OK)
                     {
                         Music.play("# (5).mp3");
@@ -643,15 +657,15 @@ namespace prjHacker.forms
                         double vExperiencia = frmNovoScript.script.lines.Count * 5.2;
                         //Relatório final da mineração
                         frmRelatorio relatorio = new frmRelatorio
-                        (-My.lost, 0, vExperiencia, "Script concluÍdo!");
+                        (-MyScripts.lost, 0, vExperiencia, "Script concluÍdo!");
                         relatorio.ShowDialog();
 
-                        attDinheiro(-My.lost);
+                        attDinheiro(-MyScripts.lost);
                         attExperiencia(vExperiencia);
                         frmNovoScript.concluirScript();
                         if (CurrentQuests.Contains(3)) q3complete();
                     } else {
-                        Music.play("# (5).mp3"); attDinheiro(-My.lost);
+                        Music.play("# (5).mp3"); attDinheiro(-MyScripts.lost);
                         Script script = frmNovoScript.script;
                         lblLinesScript2.Text = script.linesP + "/" + script.lines.Count;
                         if(script.linesP == script.lines.Count) btnContinuarScript.Text = "Terminar";
@@ -661,5 +675,6 @@ namespace prjHacker.forms
 
 		#endregion
 
+		
 	}
 }

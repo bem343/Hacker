@@ -19,6 +19,7 @@ namespace prjHacker.forms
             private int proximoAtaque = 0;
             private int tempoAtaque = 0;
             private string linha = "";
+            private string linhaAnt = "";
             private int nLinha = 0;
             private int nLinhaTotal = 0;
         #endregion
@@ -45,7 +46,8 @@ namespace prjHacker.forms
                 linha = linhas[nLinha];
                 lblLinha.Text = linha;
                 pbLinha.Maximum = linha.Length;
-                txtLinha.Focus(); Vpn.start();
+                txtLinha.Focus();
+                Vpn.start();
                 timerVpn.Start();
             }
         #endregion
@@ -77,7 +79,7 @@ namespace prjHacker.forms
                         btnSair.Visible = false;
                         btnConcluir.Visible = true;
                         btnConcluir.Focus();
-                        Play.complete();
+                        Sound.complete();
                     }
                 }
             }
@@ -101,23 +103,66 @@ namespace prjHacker.forms
         #region Quando digita na caixa de texto
             private void txtLinha_TextChanged(object sender, EventArgs e)
             {
-                Play.key();
-                if (txtLinha.TextLength == 0) { pbLinha.Value = 0; return; }
-                if (txtLinha.TextLength == pbLinha.Value) {
-                    if (linha.Substring(0, pbLinha.Value) == txtLinha.Text.Substring(0, pbLinha.Value))
-                    { txtLinha.ForeColor = Color.FromArgb(0, 200, 0); } return;
+                Sound.key();
+                
+                //Caso todo o conteúdo seja excluído
+                if (txtLinha.TextLength == 0) {
+                    pbLinha.Value = 0;
+                    Application.DoEvents();
+                    return;
                 }
-                if (linha.Substring(pbLinha.Value, 1) == txtLinha.Text.Substring(pbLinha.Value, 1))
-                { pbLinha.Value++; txtLinha.ForeColor = Color.FromArgb(0, 200, 0); }
-                else { txtLinha.ForeColor = Color.FromArgb(200, 0, 0); return; } verificaLinha();
-            }
 
+                //Sistema anti cheat
+                if(txtLinha.TextLength - linhaAnt.Length > 1) {
+                    txtLinha.Text = linhaAnt;
+                    return;
+                }
+
+                //Para não quebrar num delete com seleção
+                if(txtLinha.TextLength - linhaAnt.Length < -1) {
+                    pbLinha.Value = 0;
+                    Application.DoEvents();
+                }
+
+                linhaAnt = txtLinha.Text;
+
+                //Caso um caracter seja apagado
+                if (txtLinha.TextLength == pbLinha.Value) {
+                    if (linha.Substring(0, pbLinha.Value) == txtLinha.Text.Substring(0, pbLinha.Value)) {
+                        txtLinha.ForeColor = Color.FromArgb(0, 200, 0);
+                    }
+                    else {
+                        txtLinha.ForeColor = Color.FromArgb(200, 0, 0);
+                        pbLinha.Value = 0;
+                        Application.DoEvents();
+                    }
+                    return;
+                }
+
+                int diff = txtLinha.TextLength - pbLinha.Value;
+                if(diff > (linha.Length - pbLinha.Value))
+                    diff = linha.Length - pbLinha.Value;
+
+                //Verifica se foi digitado certo ou errado
+                if (linha.Substring(pbLinha.Value, diff) == txtLinha.Text.Substring(pbLinha.Value, diff)) {
+                    txtLinha.ForeColor = Color.FromArgb(0, 200, 0);
+                    pbLinha.Value += diff;
+                    Application.DoEvents();
+                    verificaLinha();
+                }
+                else {
+                    txtLinha.ForeColor = Color.FromArgb(200, 0, 0);
+                }
+            }
             private void txtLinha_KeyDown(object sender, KeyEventArgs e)
             {
-                if (e.KeyValue == 8)
+                //Caso Backspace ou Delete sejão pressionados
+                if (e.KeyValue == 8 || e.KeyValue == 46)
                 {
-                    if (txtLinha.TextLength == pbLinha.Value && pbLinha.Value != 0)
-                    { pbLinha.Value--; }
+                    if (txtLinha.TextLength == pbLinha.Value && pbLinha.Value != 0) {
+                        pbLinha.Value--;
+                        Application.DoEvents();
+                    }
                 }
             }
         #endregion
@@ -125,7 +170,7 @@ namespace prjHacker.forms
         #region Botão de sair personalizado
             private void btnSair_Click(object sender, EventArgs e)
             {
-                Play.click();
+                Sound.click();
                 Close();
             }
         #endregion
@@ -150,18 +195,17 @@ namespace prjHacker.forms
                         while (ataque.DialogResult == DialogResult.None);
                     }
                     if (resultado != DialogResult.OK)
-                    { pbLinha.Value = 0; txtLinha.Clear(); txtLinha.Focus(); Play.fail(); }
-                    else { Play.complete(); } tempoAtaque = 0; setAtaque();
+                    { pbLinha.Value = 0; txtLinha.Clear(); txtLinha.Focus(); Sound.fail(); }
+                    else { Sound.complete(); } tempoAtaque = 0; setAtaque();
                 }
             }
         #endregion
 
         private void btnConcluir_Click(object sender, EventArgs e)
         {
-            Play.click();
+            Sound.click();
             Close();
         }
-
         private void frmMineracao_FormClosing(object sender, FormClosingEventArgs e)
         {
             timerAtaque.Stop();

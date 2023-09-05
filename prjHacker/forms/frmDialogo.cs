@@ -72,7 +72,7 @@ namespace prjHacker.forms
             {
                 if (dialogTime >= 0 && dialogTime < dialogo.Length)
                 {
-                    Play.key();
+                    Sound.key();
                     lblDialogo.Text += dialogo.Substring(dialogTime, 1);
                 }
                 else { if (lblDialogo.Text.Length > 0) { endDialog(); } }
@@ -95,7 +95,7 @@ namespace prjHacker.forms
         #region Evento padrão dos botões de resposta
             private void ClickPadrao(object sender, EventArgs e)
             {
-                Play.click();
+                Sound.click();
                 Close();
             }
         #endregion

@@ -32,7 +32,7 @@ namespace prjHacker.forms
 
         private void frmRelatorio_Load(object sender, EventArgs e)
         {
-            Play.congrats();
+            Sound.congrats();
             if (dinheiro >= 0) { lblDinheiro.Text = "+ $" + dinheiro.ToString("#0.00"); }
             else {
                 lblDinheiro.Text = "- $" + (dinheiro * -1).ToString("#0.00");
@@ -54,7 +54,7 @@ namespace prjHacker.forms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            Play.click();
+            Sound.click();
             Close();
         }
 

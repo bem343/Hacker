@@ -61,12 +61,12 @@ namespace prjHacker.classes
 
         public static void increaseVolume()
         {
-            player.settings.volume += 10;
+            player.settings.volume += frmConfiguracoes.volPortion;
         }
 
         public static void decreaseVolume()
         {
-            player.settings.volume -= 10;
+            player.settings.volume -= frmConfiguracoes.volPortion;
         }
 
     }

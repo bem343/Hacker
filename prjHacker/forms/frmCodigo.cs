@@ -104,8 +104,8 @@ namespace prjHacker.forms
                         while (ataque.DialogResult == DialogResult.None);
                     }
                     if (resultado != DialogResult.OK)
-                    { rtbFinal.Text = codigoFinal; rtbFinal.Focus(); Play.fail(); }
-                    else { Play.complete(); } tempoAtaque = 0; setAtaque();
+                    { rtbFinal.Text = codigoFinal; rtbFinal.Focus(); Sound.fail(); }
+                    else { Sound.complete(); } tempoAtaque = 0; setAtaque();
                 }
             }
         #endregion
@@ -113,7 +113,7 @@ namespace prjHacker.forms
         #region Verifica as mudanças digitadas no código final
             private void rtbFinal_TextChanged(object sender, EventArgs e)
             {
-                Play.key();
+                Sound.key();
                 string rascunhoSeco = rtbFinal.Text.Replace(" ", "").Replace("\n", "");
 
                 //Verificação dos erros
@@ -138,12 +138,12 @@ namespace prjHacker.forms
                     btnRefazer.Visible = false;
                     btnConcluir.Visible = true;
                     btnConcluir.Focus();
-                    Play.complete();
+                    Sound.complete();
                 }
             }
             private void btnConcluir_Click(object sender, EventArgs e)
             {
-                Play.click();
+                Sound.click();
                 Close();
             }
         #endregion
@@ -151,7 +151,7 @@ namespace prjHacker.forms
         #region Botão Sair personalizado
             private void btnSair_Click(object sender, EventArgs e)
             {
-                Play.click();
+                Sound.click();
                 Close();
             }
             private void frmCodigo_FormClosing(object sender, FormClosingEventArgs e)
@@ -165,7 +165,7 @@ namespace prjHacker.forms
         #region Botão Refazer
             private void btnRefazer_Click(object sender, EventArgs e)
             {
-                Play.select();
+                Sound.select();
                 rtbFinal.Text = codigoFinal;
                 rtbFinal.Focus();
             }
