@@ -61,8 +61,8 @@ namespace prjHacker.forms
 			rtbComandos.Text = "Loading script...\n";
 
 			verificarVpn();
-			Vpn.start();
 			timerVpn.Start();
+			Vpn.start();
 			timerTexto.Start();
 			timerMineracao.Start();
 		}
@@ -124,7 +124,6 @@ namespace prjHacker.forms
 						while (ataque.DialogResult == DialogResult.None);
 					}
 					if (resultado != DialogResult.OK) {
-						Sound.fail();
 						tempoMineracao = 0;
 						pgProgresso.Value = tempoMineracao;
 						rtbComandos.Clear();

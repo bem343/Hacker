@@ -30,13 +30,13 @@
         {
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 2D);
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
-			System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 2D);
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
+			System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.lblExperiencia = new System.Windows.Forms.Label();
 			this.pbExperiencia = new System.Windows.Forms.ProgressBar();
@@ -112,6 +112,7 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
 			this.panelVpn = new System.Windows.Forms.Panel();
+			this.lblDescontoVPN = new System.Windows.Forms.Label();
 			this.lblVpnAtivo = new System.Windows.Forms.Label();
 			this.lblVpn = new System.Windows.Forms.Label();
 			this.btnVpn3 = new System.Windows.Forms.Button();
@@ -1054,6 +1055,7 @@
 			// 
 			// panelVpn
 			// 
+			this.panelVpn.Controls.Add(this.lblDescontoVPN);
 			this.panelVpn.Controls.Add(this.lblVpnAtivo);
 			this.panelVpn.Controls.Add(this.lblVpn);
 			this.panelVpn.Controls.Add(this.btnVpn3);
@@ -1067,6 +1069,17 @@
 			this.panelVpn.Size = new System.Drawing.Size(455, 447);
 			this.panelVpn.TabIndex = 2;
 			this.panelVpn.Visible = false;
+			// 
+			// lblDescontoVPN
+			// 
+			this.lblDescontoVPN.AutoSize = true;
+			this.lblDescontoVPN.Font = new System.Drawing.Font("DS-Digital", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblDescontoVPN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+			this.lblDescontoVPN.Location = new System.Drawing.Point(195, 151);
+			this.lblDescontoVPN.Name = "lblDescontoVPN";
+			this.lblDescontoVPN.Size = new System.Drawing.Size(250, 16);
+			this.lblDescontoVPN.TabIndex = 16;
+			this.lblDescontoVPN.Text = "Em desconto, a partir de 1 hora";
 			// 
 			// lblVpnAtivo
 			// 
@@ -1198,82 +1211,82 @@
 			// 
 			this.chart.BackColor = System.Drawing.Color.Transparent;
 			this.chart.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			chartArea2.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-			chartArea2.AxisX2.LineColor = System.Drawing.Color.White;
-			chartArea2.AxisX2.TitleForeColor = System.Drawing.Color.White;
-			chartArea2.AxisY2.TitleForeColor = System.Drawing.Color.White;
-			chartArea2.BackColor = System.Drawing.Color.Transparent;
-			chartArea2.BackImageTransparentColor = System.Drawing.Color.Transparent;
-			chartArea2.BackSecondaryColor = System.Drawing.Color.Transparent;
-			chartArea2.BorderColor = System.Drawing.Color.Transparent;
-			chartArea2.Name = "ChartArea1";
-			chartArea2.ShadowColor = System.Drawing.Color.DarkGray;
-			this.chart.ChartAreas.Add(chartArea2);
+			chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+			chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
+			chartArea1.AxisX2.TitleForeColor = System.Drawing.Color.White;
+			chartArea1.AxisY2.TitleForeColor = System.Drawing.Color.White;
+			chartArea1.BackColor = System.Drawing.Color.Transparent;
+			chartArea1.BackImageTransparentColor = System.Drawing.Color.Transparent;
+			chartArea1.BackSecondaryColor = System.Drawing.Color.Transparent;
+			chartArea1.BorderColor = System.Drawing.Color.Transparent;
+			chartArea1.Name = "ChartArea1";
+			chartArea1.ShadowColor = System.Drawing.Color.DarkGray;
+			this.chart.ChartAreas.Add(chartArea1);
 			this.chart.Dock = System.Windows.Forms.DockStyle.Top;
-			legend2.BackColor = System.Drawing.Color.Transparent;
-			legend2.BackSecondaryColor = System.Drawing.Color.Transparent;
-			legend2.BorderColor = System.Drawing.Color.DimGray;
-			legend2.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			legend2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			legend2.InterlacedRowsColor = System.Drawing.Color.Transparent;
-			legend2.IsTextAutoFit = false;
-			legend2.Name = "Legend";
-			legend2.Title = "Legenda";
-			legend2.TitleBackColor = System.Drawing.Color.Transparent;
-			legend2.TitleFont = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			legend2.TitleForeColor = System.Drawing.Color.White;
-			legend2.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
-			legend2.TitleSeparatorColor = System.Drawing.Color.DimGray;
-			this.chart.Legends.Add(legend2);
+			legend1.BackColor = System.Drawing.Color.Transparent;
+			legend1.BackSecondaryColor = System.Drawing.Color.Transparent;
+			legend1.BorderColor = System.Drawing.Color.DimGray;
+			legend1.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			legend1.InterlacedRowsColor = System.Drawing.Color.Transparent;
+			legend1.IsTextAutoFit = false;
+			legend1.Name = "Legend";
+			legend1.Title = "Legenda";
+			legend1.TitleBackColor = System.Drawing.Color.Transparent;
+			legend1.TitleFont = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			legend1.TitleForeColor = System.Drawing.Color.White;
+			legend1.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
+			legend1.TitleSeparatorColor = System.Drawing.Color.DimGray;
+			this.chart.Legends.Add(legend1);
 			this.chart.Location = new System.Drawing.Point(0, 0);
 			this.chart.Name = "chart";
 			this.chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
 			this.chart.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))))};
-			series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-			series2.BackSecondaryColor = System.Drawing.Color.Transparent;
-			series2.BorderColor = System.Drawing.Color.Transparent;
-			series2.ChartArea = "ChartArea1";
-			series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			series2.LabelBackColor = System.Drawing.Color.White;
-			series2.LabelForeColor = System.Drawing.Color.White;
-			series2.Legend = "Legend";
-			series2.Name = "Execuções";
-			dataPoint4.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint4.IsValueShownAsLabel = true;
-			dataPoint4.Label = "Cassino";
-			dataPoint4.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint4.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint4.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataPoint5.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint5.IsValueShownAsLabel = true;
-			dataPoint5.Label = "Banco";
-			dataPoint5.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint5.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint5.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataPoint6.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint6.IsValueShownAsLabel = true;
-			dataPoint6.Label = "Lojinha...";
-			dataPoint6.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint6.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint6.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			series2.Points.Add(dataPoint4);
-			series2.Points.Add(dataPoint5);
-			series2.Points.Add(dataPoint6);
-			this.chart.Series.Add(series2);
+			series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+			series1.BackSecondaryColor = System.Drawing.Color.Transparent;
+			series1.BorderColor = System.Drawing.Color.Transparent;
+			series1.ChartArea = "ChartArea1";
+			series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			series1.LabelBackColor = System.Drawing.Color.White;
+			series1.LabelForeColor = System.Drawing.Color.White;
+			series1.Legend = "Legend";
+			series1.Name = "Execuções";
+			dataPoint1.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint1.IsValueShownAsLabel = true;
+			dataPoint1.Label = "Cassino";
+			dataPoint1.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint1.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataPoint2.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint2.IsValueShownAsLabel = true;
+			dataPoint2.Label = "Banco";
+			dataPoint2.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint2.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataPoint3.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint3.IsValueShownAsLabel = true;
+			dataPoint3.Label = "Lojinha...";
+			dataPoint3.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint3.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint3.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			series1.Points.Add(dataPoint1);
+			series1.Points.Add(dataPoint2);
+			series1.Points.Add(dataPoint3);
+			this.chart.Series.Add(series1);
 			this.chart.Size = new System.Drawing.Size(455, 206);
 			this.chart.TabIndex = 2;
 			this.chart.TabStop = false;
 			this.chart.Text = "CHART";
-			title2.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-			title2.BackColor = System.Drawing.Color.Transparent;
-			title2.BackSecondaryColor = System.Drawing.Color.Transparent;
-			title2.DockingOffset = 5;
-			title2.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			title2.ForeColor = System.Drawing.Color.White;
-			title2.Name = "Title1";
-			title2.Text = "Ultimos golpes";
-			this.chart.Titles.Add(title2);
+			title1.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+			title1.BackColor = System.Drawing.Color.Transparent;
+			title1.BackSecondaryColor = System.Drawing.Color.Transparent;
+			title1.DockingOffset = 5;
+			title1.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			title1.ForeColor = System.Drawing.Color.White;
+			title1.Name = "Title1";
+			title1.Text = "Ultimos golpes";
+			this.chart.Titles.Add(title1);
 			// 
 			// groupBox4
 			// 
@@ -1617,5 +1630,6 @@
 		private System.Windows.Forms.ToolStripMenuItem atentadoNAZAMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem atentadoICBCMenuItem;
 		private System.Windows.Forms.Button btnConfig;
+		private System.Windows.Forms.Label lblDescontoVPN;
 	}
 }

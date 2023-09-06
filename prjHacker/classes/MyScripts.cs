@@ -9,7 +9,6 @@ namespace prjHacker.classes
     {
         private static List<Script> collection = new List<Script>();
         private static int selected = -1;
-        public static double lost = 0;
 
         public static void Add(Script script)
         {

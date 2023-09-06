@@ -32,12 +32,16 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAtaque));
 			this.timer = new System.Windows.Forms.Timer(this.components);
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.lblPerda = new System.Windows.Forms.Label();
+			this.lblPerdaT = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.pbAtaque = new System.Windows.Forms.ProgressBar();
 			this.btnContraAtaque = new System.Windows.Forms.Button();
 			this.pcbAvatar = new System.Windows.Forms.PictureBox();
 			this.segundos = new System.Windows.Forms.Timer(this.components);
+			this.posHack = new System.Windows.Forms.Timer(this.components);
+			this.lblPosHack = new System.Windows.Forms.Label();
+			this.animation = new System.Windows.Forms.Timer(this.components);
+			this.lblPerdaPosHack = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pcbAvatar)).BeginInit();
 			this.SuspendLayout();
@@ -49,7 +53,9 @@
 			// groupBox1
 			// 
 			this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.groupBox1.Controls.Add(this.lblPerda);
+			this.groupBox1.Controls.Add(this.lblPerdaPosHack);
+			this.groupBox1.Controls.Add(this.lblPosHack);
+			this.groupBox1.Controls.Add(this.lblPerdaT);
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this.pbAtaque);
 			this.groupBox1.Controls.Add(this.btnContraAtaque);
@@ -64,15 +70,15 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "ATAQUE HACKER!";
 			// 
-			// lblPerda
+			// lblPerdaT
 			// 
-			this.lblPerda.AutoSize = true;
-			this.lblPerda.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblPerda.Location = new System.Drawing.Point(11, 32);
-			this.lblPerda.Name = "lblPerda";
-			this.lblPerda.Size = new System.Drawing.Size(86, 27);
-			this.lblPerda.TabIndex = 8;
-			this.lblPerda.Text = "- $0,00";
+			this.lblPerdaT.AutoSize = true;
+			this.lblPerdaT.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblPerdaT.Location = new System.Drawing.Point(11, 32);
+			this.lblPerdaT.Name = "lblPerdaT";
+			this.lblPerdaT.Size = new System.Drawing.Size(86, 27);
+			this.lblPerdaT.TabIndex = 8;
+			this.lblPerdaT.Text = "- $0,00";
 			// 
 			// label1
 			// 
@@ -128,6 +134,38 @@
 			this.segundos.Interval = 1000;
 			this.segundos.Tick += new System.EventHandler(this.segundos_Tick);
 			// 
+			// posHack
+			// 
+			this.posHack.Interval = 1000;
+			this.posHack.Tick += new System.EventHandler(this.posHack_Tick);
+			// 
+			// lblPosHack
+			// 
+			this.lblPosHack.AutoSize = true;
+			this.lblPosHack.Font = new System.Drawing.Font("DS-Digital", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblPosHack.Location = new System.Drawing.Point(178, 68);
+			this.lblPosHack.Name = "lblPosHack";
+			this.lblPosHack.Size = new System.Drawing.Size(72, 47);
+			this.lblPosHack.TabIndex = 9;
+			this.lblPosHack.Text = ">:D";
+			this.lblPosHack.Visible = false;
+			// 
+			// animation
+			// 
+			this.animation.Interval = 800;
+			this.animation.Tick += new System.EventHandler(this.animation_Tick);
+			// 
+			// lblPerdaPosHack
+			// 
+			this.lblPerdaPosHack.AutoSize = true;
+			this.lblPerdaPosHack.Font = new System.Drawing.Font("DS-Digital", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblPerdaPosHack.Location = new System.Drawing.Point(194, 115);
+			this.lblPerdaPosHack.Name = "lblPerdaPosHack";
+			this.lblPerdaPosHack.Size = new System.Drawing.Size(157, 47);
+			this.lblPerdaPosHack.TabIndex = 10;
+			this.lblPerdaPosHack.Text = "-$15,00";
+			this.lblPerdaPosHack.Visible = false;
+			// 
 			// frmAtaque
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -161,7 +199,11 @@
         private System.Windows.Forms.ProgressBar pbAtaque;
         private System.Windows.Forms.Button btnContraAtaque;
         private System.Windows.Forms.PictureBox pcbAvatar;
-        private System.Windows.Forms.Label lblPerda;
+        private System.Windows.Forms.Label lblPerdaT;
         private System.Windows.Forms.Timer segundos;
-    }
+		private System.Windows.Forms.Timer posHack;
+		private System.Windows.Forms.Label lblPosHack;
+		private System.Windows.Forms.Timer animation;
+		private System.Windows.Forms.Label lblPerdaPosHack;
+	}
 }

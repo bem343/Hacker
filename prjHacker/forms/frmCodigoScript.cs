@@ -47,8 +47,8 @@ namespace prjHacker.forms
                 lblLinha.Text = linha;
                 pbLinha.Maximum = linha.Length;
                 txtLinha.Focus();
-                Vpn.start();
                 timerVpn.Start();
+                Vpn.start();
             }
         #endregion
 
@@ -186,18 +186,23 @@ namespace prjHacker.forms
             }
             private void timerAtaque_Tick(object sender, EventArgs e)
             {
-                tempoAtaque++; if (tempoAtaque == proximoAtaque) {
-                    frmAtaque ataque = new frmAtaque();
-                    DialogResult resultado = ataque.ShowDialog();
-                    if (resultado == DialogResult.None)
-                    {
-                        do { resultado = ataque.DialogResult; }
-                        while (ataque.DialogResult == DialogResult.None);
-                    }
-                    if (resultado != DialogResult.OK)
-                    { pbLinha.Value = 0; txtLinha.Clear(); txtLinha.Focus(); Sound.fail(); }
-                    else { Sound.complete(); } tempoAtaque = 0; setAtaque();
-                }
+                tempoAtaque++; if (tempoAtaque == proximoAtaque)
+				{
+					frmAtaque ataque = new frmAtaque();
+					DialogResult resultado = ataque.ShowDialog();
+					if (resultado == DialogResult.None)
+					{
+						do { resultado = ataque.DialogResult; }
+						while (ataque.DialogResult == DialogResult.None);
+					}
+					if (resultado != DialogResult.OK) {
+						pbLinha.Value = 0;
+                        txtLinha.Clear();
+                        txtLinha.Focus();
+					}
+					else { Sound.complete(); }
+					tempoAtaque = 0; setAtaque();
+				}
             }
         #endregion
 

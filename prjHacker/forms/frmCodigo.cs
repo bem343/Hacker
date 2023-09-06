@@ -79,7 +79,7 @@ namespace prjHacker.forms
                 lblOriginal.Text = codigoOriginal; rtbFinal.Text = codigoFinal;
                 lblUsuario.Text = "Script de: " + user; verificarVpn();
                 lblErros.Text = erros.ToString(); rtbFinal.Focus();
-                Vpn.start(); timerVpn.Start();
+                timerVpn.Start(); Vpn.start();
             }
         #endregion
 
@@ -95,18 +95,21 @@ namespace prjHacker.forms
             private void timerAtaque_Tick(object sender, EventArgs e)
             {
                 tempoAtaque++; if (tempoAtaque == proximoAtaque)
-                {
-                    frmAtaque ataque = new frmAtaque();
-                    DialogResult resultado = ataque.ShowDialog();
-                    if (resultado == DialogResult.None)
-                    {
-                        do { resultado = ataque.DialogResult; }
-                        while (ataque.DialogResult == DialogResult.None);
-                    }
-                    if (resultado != DialogResult.OK)
-                    { rtbFinal.Text = codigoFinal; rtbFinal.Focus(); Sound.fail(); }
-                    else { Sound.complete(); } tempoAtaque = 0; setAtaque();
-                }
+				{
+					frmAtaque ataque = new frmAtaque();
+					DialogResult resultado = ataque.ShowDialog();
+					if (resultado == DialogResult.None)
+					{
+						do { resultado = ataque.DialogResult; }
+						while (ataque.DialogResult == DialogResult.None);
+					}
+					if (resultado != DialogResult.OK) {
+						rtbFinal.Text = codigoFinal;
+                        rtbFinal.Focus();
+					}
+					else { Sound.complete(); }
+					tempoAtaque = 0; setAtaque();
+				}
             }
         #endregion
 
