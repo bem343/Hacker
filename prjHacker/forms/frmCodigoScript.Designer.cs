@@ -47,13 +47,13 @@
 			// btnSair
 			// 
 			this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnSair.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btnSair.DialogResult = System.Windows.Forms.DialogResult.Ignore;
 			this.btnSair.FlatAppearance.BorderSize = 0;
 			this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
 			this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnSair.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnSair.ForeColor = System.Drawing.Color.Transparent;
-			this.btnSair.Location = new System.Drawing.Point(734, 1);
+			this.btnSair.Location = new System.Drawing.Point(731, 4);
 			this.btnSair.Name = "btnSair";
 			this.btnSair.Size = new System.Drawing.Size(25, 25);
 			this.btnSair.TabIndex = 14;
@@ -201,8 +201,8 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
 			this.ClientSize = new System.Drawing.Size(760, 208);
-			this.Controls.Add(this.pbLinha);
 			this.Controls.Add(this.btnSair);
+			this.Controls.Add(this.pbLinha);
 			this.Controls.Add(this.gbControle);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "frmCodigoScript";

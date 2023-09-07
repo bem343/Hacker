@@ -17,6 +17,7 @@ namespace prjHacker.classes
         private static WindowsMediaPlayer f = new WindowsMediaPlayer();
         private static WindowsMediaPlayer co = new WindowsMediaPlayer();
         private static WindowsMediaPlayer con = new WindowsMediaPlayer();
+        private static Random r = new Random();
 
         private static void play(WindowsMediaPlayer player, string url)
         {
@@ -36,7 +37,6 @@ namespace prjHacker.classes
         }
         public static void key()
         {
-            Random r = new Random();
             play(k, "sounds/key/" + r.Next(1, 5) + ".wav");
         }
         public static void hacking(bool play = true)

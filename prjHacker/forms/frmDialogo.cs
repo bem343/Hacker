@@ -70,13 +70,14 @@ namespace prjHacker.forms
             }
             private void dialog_Tick(object sender, EventArgs e)
             {
-                if (dialogTime >= 0 && dialogTime < dialogo.Length)
-                {
+                if (dialogTime >= 0 && dialogTime < dialogo.Length) {
                     Sound.key();
                     lblDialogo.Text += dialogo.Substring(dialogTime, 1);
                 }
-                else { if (lblDialogo.Text.Length > 0) { endDialog(); } }
-                dialogTime++;
+                else {
+                    if (lblDialogo.Text.Length > 0)
+                        endDialog();
+                } dialogTime++;
             }
 
             #region Método que termina um diálogo
@@ -110,7 +111,18 @@ namespace prjHacker.forms
                     return;
                 }
             }
-        #endregion
+		#endregion
 
-    }
+		#region Form Closing
+		    private void frmDialogo_FormClosing(object sender, FormClosingEventArgs e)
+		    {
+                //Impede que a janela seja fechada no ALT-F4
+			    if (e.CloseReason == CloseReason.UserClosing && this.DialogResult == DialogResult.Cancel)
+			    {
+				    e.Cancel = true;
+				    return;
+			    }
+		    }
+        #endregion
+	}
 }

@@ -22,6 +22,7 @@ namespace prjHacker.forms
             private string linhaAnt = "";
             private int nLinha = 0;
             private int nLinhaTotal = 0;
+            Random r = new Random();
         #endregion
 
         #region Contrutores
@@ -178,7 +179,7 @@ namespace prjHacker.forms
         #region Evento Tick dos Timers
             private void setAtaque()
             {
-                proximoAtaque = new Random().Next(6, 16);
+                proximoAtaque = r.Next(6, 16);
             }
             private void timerVpn_Tick(object sender, EventArgs e)
             {

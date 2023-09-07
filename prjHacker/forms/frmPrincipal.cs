@@ -17,8 +17,10 @@ namespace prjHacker.forms
     {
 
         #region Variáveis
+            private Timer exitTimer = new Timer();
             public static XmlNodeList quests = null;
             public static XmlNodeList users = null;
+            Random r = new Random();
 
             public static double dinheiro = 150;
             public static double experiencia = 0;
@@ -30,7 +32,10 @@ namespace prjHacker.forms
         #region Construtores
             public frmPrincipal()
             {
+                this.DialogResult = DialogResult.Abort;
                 InitializeComponent();
+                exitTimer.Interval = 100;
+                exitTimer.Tick += ExitTimer_Tick;
                 foreach (Panel panel in gbAreaDeTrabalho.Controls.OfType<Panel>())
                 {panel.Dock = DockStyle.Fill;}
                 MyFont.applyff(this.Controls);
@@ -284,16 +289,17 @@ namespace prjHacker.forms
                 switch (contAjuda)
                 {
                     case 0:
-                        if (dialogoComRetorno("dialogs/ajuda/1.xml") == DialogResult.Cancel)
+                        if (dialogoComRetorno("dialogs/ajuda/1.xml") == DialogResult.Ignore)
                             dialogo("dialogs/ajuda/2.xml"); contAjuda++; break;
                     case 1: dialogo("dialogs/ajuda/3.xml"); contAjuda++; break;
-                    default: dialogo("dialogs/ajuda/4.xml"); Application.Exit(); break;
+                    default: dialogo("dialogs/ajuda/4.xml"); altF4 = false; Close(); break;
                 }
             }
         #endregion
 
         #region Botão Sair personalizado
-            private int exitTime = 0;
+            private bool altF4 = true;
+            
             private void btnSair_Click(object sender, EventArgs e)
             {
                 Sound.click();
@@ -304,21 +310,24 @@ namespace prjHacker.forms
                 buttons[3] = "";
                 if (abreDialogo("S.H.A.R.K", "sharkgreen.png", "Tem certeza que deseja sair?", buttons) == DialogResult.OK)
                 {
+                    altF4 = false;
                     Close();
                 }
             }
             private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
             {
-			    Timer exitTimer = new Timer();
-                exitTimer.Interval = 400;
-                exitTimer.Tick += exitTimer_Tick;
-                exitTimer.Start();
+                if(altF4) {
+                    e.Cancel = true;
+                    return;
+                }
+
                 Music.stop();
+                exitTimer.Start();
             }
-            private void exitTimer_Tick(object sender, EventArgs e)
+            private void ExitTimer_Tick(object sender, EventArgs e)
             {
-                if (exitTime == 1) { Application.Exit(); }
-                exitTime++;
+                exitTimer.Stop();
+                Application.Exit();
             }
         #endregion
 
@@ -506,7 +515,6 @@ namespace prjHacker.forms
                 int selectedIndex = 0;
                 bool primeiraVez = true;
 		        Timer buscaTimer = new Timer();
-                Random aleatorize = new Random();
                 List<object[]> itensRevisao = new List<object[]>();
                 private void panelCodigos_VisibleChanged(object sender, EventArgs e)
                 {
@@ -525,11 +533,11 @@ namespace prjHacker.forms
                         Sound.complete(); return;
                     }
 
-                    string user = users[aleatorize.Next(users.Count)].InnerText;
-                    int erros = aleatorize.Next(3, 5 + (nivel / 3));
+                    string user = users[r.Next(users.Count)].InnerText;
+                    int erros = r.Next(3, 5 + (nivel / 3));
                     itensRevisao.Add(new object[2] { user, erros });
                     lstCodigos.Items.Add(user + " - " + erros + " erros");
-                    Sound.select(); buscaTimer.Interval = aleatorize.Next(100, 1001);
+                    Sound.select(); buscaTimer.Interval = r.Next(100, 1001);
                 }
                 private void btnRefresh_Click(object sender, EventArgs e)
                 {
@@ -572,7 +580,7 @@ namespace prjHacker.forms
                         Music.play("# (5).mp3");
 
                         //Recompensas
-                        double vDinheiro = new Random().Next(0, 2) == 1 ? 0 : pagamento();
+                        double vDinheiro = r.Next(0, 2) == 1 ? 0 : pagamento();
                         double vExperiencia = erros * 10;
                         int vProgramacao = erros * 22;
                         //Relatório final da revisão
@@ -587,7 +595,7 @@ namespace prjHacker.forms
                     } else { Music.play("# (5).mp3"); attDinheiro(-frmAtaque.lost); } listCodigosRefresh();
                 }
                 // Método para gerar o pagamento, caso o usuário deseje
-                private double pagamento() { return new Random().Next(2, 6) + new Random().NextDouble(); }
+                private double pagamento() { return r.Next(2, 6) + r.NextDouble(); }
 		    #endregion
 
 		    #region Área de criação de códigos

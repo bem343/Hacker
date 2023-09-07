@@ -51,7 +51,6 @@ namespace prjHacker.forms
 			// 
 			this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
 			this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnSair.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnSair.FlatAppearance.BorderSize = 0;
 			this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
 			this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

@@ -20,6 +20,7 @@ namespace prjHacker.forms
             string codigoOriginal = "";
             string originalSeco = "";
             string codigoFinal = "";
+            Random r = new Random();
             private int proximoAtaque = 0;
             private int tempoAtaque = 0;
             public static XmlNodeList codes = null;
@@ -59,10 +60,8 @@ namespace prjHacker.forms
         #region Page Load
             private void frmCodigo_Load(object sender, EventArgs e)
             {
-                int r = new Random().Next(0, codes.Count);
-                codigoOriginal = codes[r].InnerText;
-
-                Random posicaoAleatoria = new Random();
+                int rInt = r.Next(0, codes.Count);
+                codigoOriginal = codes[rInt].InnerText;
                 originalSeco = codigoOriginal.Replace(" ", "");
 
                 //Gera os erros no código
@@ -71,7 +70,7 @@ namespace prjHacker.forms
                 {
                     int posicao;
                     do {
-                        posicao = posicaoAleatoria.Next(codigoFinal.Length);
+                        posicao = r.Next(codigoFinal.Length);
                     } while (codigoFinal.Substring(posicao, 1) == " ");
                     codigoFinal = codigoFinal.Remove(posicao, 1);
                 }
@@ -86,7 +85,7 @@ namespace prjHacker.forms
         #region Evento Tick dos Timers
             private void setAtaque()
             {
-                proximoAtaque = new Random().Next(15, 31);
+                proximoAtaque = r.Next(15, 31);
             }
             private void timerVpn_Tick(object sender, EventArgs e)
             {

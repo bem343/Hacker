@@ -87,7 +87,7 @@ namespace prjHacker.forms
 			}
 			private void setAtaque()
 			{
-				proximoAtaque = new Random().Next(6, 11);
+				proximoAtaque = r.Next(6, 11);
 			}
 			private void timerTexto_Tick(object sender, EventArgs e)
 			{
@@ -136,6 +136,13 @@ namespace prjHacker.forms
 
 		private void frmMineracao_FormClosing(object sender, FormClosingEventArgs e)
 		{
+			//Impede que a janela seja fechada no ALT-F4
+			if (e.CloseReason == CloseReason.UserClosing && this.DialogResult == DialogResult.Cancel)
+			{
+				e.Cancel = true;
+				return;
+			}
+
 			timerMineracao.Stop();
 			timerAtaque.Stop();
 			timerTexto.Stop();
