@@ -7,14 +7,14 @@
         <image>zeck.jpg</image>
         <text>FÁcil nÉ?</text>
         <buttons>
-            <button>Sim</button>
+            <button>É</button>
         </buttons>
     </dialog>
 
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Talvez vocÊ esteja se perguntando...</text>
+        <text>Talvez vocÊ esteja se perguntando o quÊ sÃo esses Pontos de Skill.</text>
         <buttons>
             <button>...</button>
         </buttons>
@@ -23,16 +23,7 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>"O quÊ raios sÃo Pontos de Skill?"</text>
-        <buttons>
-            <button>...</button>
-        </buttons>
-    </dialog>
-
-    <dialog>
-        <name>ZECK</name>
-        <image>zeck.jpg</image>
-        <text>VocÊ usa eles para programar, seja um script ou um vÍrus. EntÃo, quanto mais melhor!</text>
+        <text>VocÊ usa eles para desenvolver algo, seja um script ou um vÍrus. EntÃo, quanto mais melhor!</text>
         <buttons>
             <button>Entendi</button>
         </buttons>

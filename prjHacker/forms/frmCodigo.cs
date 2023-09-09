@@ -137,7 +137,9 @@ namespace prjHacker.forms
                     timerVpn.Stop();
                     timerAtaque.Stop();
                     rtbFinal.ReadOnly = true;
+                    btnSair.Visible = false;
                     btnRefazer.Visible = false;
+                    
                     btnConcluir.Visible = true;
                     btnConcluir.Focus();
                     Sound.complete();

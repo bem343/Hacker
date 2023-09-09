@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.components = new System.ComponentModel.Container();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.lblNome = new System.Windows.Forms.Label();
 			this.pcbAvatar = new System.Windows.Forms.PictureBox();
@@ -36,12 +37,15 @@
 			this.btnResponse2 = new System.Windows.Forms.Button();
 			this.btnResponse1 = new System.Windows.Forms.Button();
 			this.lblDialogo = new System.Windows.Forms.Label();
+			this.timerDialog = new System.Windows.Forms.Timer(this.components);
+			this.btnSair = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pcbAvatar)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.btnSair);
 			this.groupBox1.Controls.Add(this.lblNome);
 			this.groupBox1.Controls.Add(this.pcbAvatar);
 			this.groupBox1.Controls.Add(this.btnResponse4);
@@ -97,7 +101,6 @@
 			this.btnResponse4.TabStop = false;
 			this.btnResponse4.Text = "Ok";
 			this.btnResponse4.Visible = false;
-			this.btnResponse4.Click += new System.EventHandler(this.ClickPadrao);
 			// 
 			// btnResponse3
 			// 
@@ -115,12 +118,10 @@
 			this.btnResponse3.TabStop = false;
 			this.btnResponse3.Text = "Ok";
 			this.btnResponse3.Visible = false;
-			this.btnResponse3.Click += new System.EventHandler(this.ClickPadrao);
 			// 
 			// btnResponse2
 			// 
 			this.btnResponse2.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnResponse2.DialogResult = System.Windows.Forms.DialogResult.Ignore;
 			this.btnResponse2.FlatAppearance.BorderSize = 0;
 			this.btnResponse2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
 			this.btnResponse2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -134,13 +135,11 @@
 			this.btnResponse2.TabStop = false;
 			this.btnResponse2.Text = "Ok";
 			this.btnResponse2.Visible = false;
-			this.btnResponse2.Click += new System.EventHandler(this.ClickPadrao);
 			// 
 			// btnResponse1
 			// 
 			this.btnResponse1.BackColor = System.Drawing.Color.Transparent;
 			this.btnResponse1.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnResponse1.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.btnResponse1.FlatAppearance.BorderSize = 0;
 			this.btnResponse1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
 			this.btnResponse1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -155,7 +154,6 @@
 			this.btnResponse1.Text = "Ok";
 			this.btnResponse1.UseVisualStyleBackColor = false;
 			this.btnResponse1.Visible = false;
-			this.btnResponse1.Click += new System.EventHandler(this.ClickPadrao);
 			// 
 			// lblDialogo
 			// 
@@ -166,6 +164,30 @@
 			this.lblDialogo.Name = "lblDialogo";
 			this.lblDialogo.Size = new System.Drawing.Size(534, 134);
 			this.lblDialogo.TabIndex = 14;
+			// 
+			// timerDialog
+			// 
+			this.timerDialog.Interval = 70;
+			this.timerDialog.Tick += new System.EventHandler(this.dialog_Tick);
+			// 
+			// btnSair
+			// 
+			this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+			this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnSair.FlatAppearance.BorderSize = 0;
+			this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+			this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnSair.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnSair.ForeColor = System.Drawing.Color.White;
+			this.btnSair.Location = new System.Drawing.Point(662, 7);
+			this.btnSair.Name = "btnSair";
+			this.btnSair.Size = new System.Drawing.Size(25, 25);
+			this.btnSair.TabIndex = 12;
+			this.btnSair.TabStop = false;
+			this.btnSair.Text = "X";
+			this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnSair.UseVisualStyleBackColor = false;
+			this.btnSair.Visible = false;
 			// 
 			// frmDialogo
 			// 
@@ -199,6 +221,7 @@
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.PictureBox pcbAvatar;
         private System.Windows.Forms.Label lblDialogo;
-
-    }
+		private System.Windows.Forms.Timer timerDialog;
+		private System.Windows.Forms.Button btnSair;
+	}
 }

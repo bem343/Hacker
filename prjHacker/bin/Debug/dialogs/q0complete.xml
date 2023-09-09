@@ -5,16 +5,7 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Ótimo, agora vocÊ pode navegar a vontade sem sofrer ataques de outros hackers...</text>
-        <buttons>
-            <button>Maravilha</button>
-        </buttons>
-    </dialog>
-
-    <dialog>
-        <name>ZECK</name>
-        <image>zeck.jpg</image>
-        <text>Mas seja rÁpido, serviÇos de VPN custam caro.</text>
+        <text>Ótimo, agora vocÊ pode navegar a vontade sem sofrer ataques de outros hackers. Mas seja rÁpido, serviÇos de VPN custam caro.</text>
         <buttons>
             <button>Ok</button>
         </buttons>

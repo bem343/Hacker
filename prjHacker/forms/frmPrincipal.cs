@@ -58,12 +58,16 @@ namespace prjHacker.forms
         #region Mostra o diálogo de bem-vindo ao abrir o formulário
             private void frmPrincipal_Shown(object sender, EventArgs e)
             {
-                if (dialogo("dialogs/welcome.xml"))
+                //if (dialogo("dialogs/welcome.xml"))
                 //if (dialogo("dialogs/teste.xml"))
-                {
-                    StartQuest(0);
-                    vpnMenuItem.Visible = true;
-                }
+                //{
+                //    StartQuest(0);
+                //    vpnMenuItem.Visible = true;
+                //}
+
+                abreDialogo("dialogs/welcome.xml");
+                StartQuest(0);
+                vpnMenuItem.Visible = true;
             }
         #endregion
 
@@ -167,60 +171,65 @@ namespace prjHacker.forms
                 private bool dialogo(string xml)
                 {
                     XmlDocument arquivo = new XmlDocument(); arquivo.Load(xml);
-                    XmlNodeList listaDialogos = arquivo.GetElementsByTagName("dialog");
+                    XmlNodeList dialogList = arquivo.GetElementsByTagName("dialog");
                     int nDialog = 0; do {
                         string[] buttons = new string[4];
-                        string nome = listaDialogos[nDialog]["name"].InnerText;
-                        string imageName = listaDialogos[nDialog]["image"].InnerText;
-                        string dialogo = listaDialogos[nDialog]["text"].InnerText;
-                        XmlNodeList listaBotoes = listaDialogos[nDialog]["buttons"].ChildNodes;
+                        string nome = dialogList[nDialog]["name"].InnerText;
+                        string imageName = dialogList[nDialog]["image"].InnerText;
+                        string dialogo = dialogList[nDialog]["text"].InnerText;
+                        XmlNodeList listaBotoes = dialogList[nDialog]["buttons"].ChildNodes;
                         for (int i = 0; i < buttons.Length; i++) {
                             buttons[i] = listaBotoes[i]?.InnerText ?? "";
-                        } if(listaDialogos[nDialog]["color"] != null) {
-                            string color = listaDialogos[nDialog]["color"].InnerText;
+                        } if(dialogList[nDialog]["color"] != null) {
+                            string color = dialogList[nDialog]["color"].InnerText;
                             abreDialogo(nome, imageName, dialogo, buttons, color);
                         } else { abreDialogo(nome, imageName, dialogo, buttons); }
                         nDialog++;
-                    } while (nDialog != listaDialogos.Count);
+                    } while (nDialog != dialogList.Count);
                     return true;
                 }
                 private DialogResult dialogoComRetorno(string xml)
                 {
                     XmlDocument arquivo = new XmlDocument(); arquivo.Load(xml);
-                    XmlNodeList listaDialogos = arquivo.GetElementsByTagName("dialog");
+                    XmlNodeList dialogList = arquivo.GetElementsByTagName("dialog");
                     DialogResult dr = DialogResult.OK; int nDialog = 0; do {
                         string[] buttons = new string[4];
-                        string nome = listaDialogos[nDialog]["name"].InnerText;
-                        string imageName = listaDialogos[nDialog]["image"].InnerText;
-                        string dialogo = listaDialogos[nDialog]["text"].InnerText;
-                        XmlNodeList listaBotoes = listaDialogos[nDialog]["buttons"].ChildNodes;
+                        string nome = dialogList[nDialog]["name"].InnerText;
+                        string imageName = dialogList[nDialog]["image"].InnerText;
+                        string dialogo = dialogList[nDialog]["text"].InnerText;
+                        XmlNodeList listaBotoes = dialogList[nDialog]["buttons"].ChildNodes;
                         for (int i = 0; i < buttons.Length; i++) {
                             buttons[i] = listaBotoes[i]?.InnerText ?? "";
-                        } if(listaDialogos[nDialog]["color"] != null) {
-                            string color = listaDialogos[nDialog]["color"].InnerText;
+                        } if(dialogList[nDialog]["color"] != null) {
+                            string color = dialogList[nDialog]["color"].InnerText;
                             dr = abreDialogo(nome, imageName, dialogo, buttons, color);
                         } else { dr = abreDialogo(nome, imageName, dialogo, buttons); }
                         if(dr != DialogResult.OK) return dr; nDialog++;
-                    } while (nDialog != listaDialogos.Count); return dr;
+                    } while (nDialog != dialogList.Count); return dr;
                 }
                 private DialogResult dialogoUnico(string xml)
                 {
                     XmlDocument arquivo = new XmlDocument(); arquivo.Load(xml);
-                    XmlNodeList listaDialogos = arquivo.GetElementsByTagName("dialog");
+                    XmlNodeList dialogList = arquivo.GetElementsByTagName("dialog");
 
                     int nDialog = 0; string[] buttons = new string[4];
-                    string nome = listaDialogos[nDialog]["name"].InnerText;
-                    string imageName = listaDialogos[nDialog]["image"].InnerText;
-                    string dialogo = listaDialogos[nDialog]["text"].InnerText;
-                    XmlNodeList listaBotoes = listaDialogos[nDialog]["buttons"].ChildNodes;
+                    string nome = dialogList[nDialog]["name"].InnerText;
+                    string imageName = dialogList[nDialog]["image"].InnerText;
+                    string dialogo = dialogList[nDialog]["text"].InnerText;
+                    XmlNodeList listaBotoes = dialogList[nDialog]["buttons"].ChildNodes;
                     for (int i = 0; i < buttons.Length; i++) {
                         buttons[i] = listaBotoes[i]?.InnerText ?? "";
-                    } if(listaDialogos[nDialog]["color"] != null) {
-                        string color = listaDialogos[nDialog]["color"].InnerText;
+                    } if(dialogList[nDialog]["color"] != null) {
+                        string color = dialogList[nDialog]["color"].InnerText;
                         return abreDialogo(nome, imageName, dialogo, buttons, color);
                     } else { return abreDialogo(nome, imageName, dialogo, buttons); }
                 }
-                private DialogResult abreDialogo(string nome, string imageName, string dialogo, string[] buttons)
+                private void abreDialogo(string xml)
+                {
+                    frmDialogo frmDialog = new frmDialogo(xml);
+                    frmDialog.ShowDialog();
+                }
+		        private DialogResult abreDialogo(string nome, string imageName, string dialogo, string[] buttons)
                 {
                     frmDialogo frmDialog = new frmDialogo(nome, imageName, dialogo, buttons);
                     return frmDialog.ShowDialog();

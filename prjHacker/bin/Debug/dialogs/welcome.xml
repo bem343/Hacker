@@ -5,7 +5,7 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>OlÁ, eu sou Zeck, bem-vindo a deepweb >:D</text>
+        <text>OlÁ, eu sou Zeck. Bem-vindo a deepweb, lar de todas as coisas ruins.</text>
         <buttons>
             <button>OlÁ</button>
         </buttons>
@@ -14,16 +14,7 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Esse É um caminho trilhado, tem certeza que deseja continuar?</text>
-        <buttons>
-            <button>Continuar</button>
-        </buttons>
-    </dialog>
-
-    <dialog>
-        <name>ZECK</name>
-        <image>zeck.jpg</image>
-        <text>Certo, a escolha É sua.</text>
+        <text>Esse nÃo É um lugar para os fracos, nem todo mundo estÁ pronto para enfrentar as terrÍveis coisas que se econtram por aqui.</text>
         <buttons>
             <button>...</button>
         </buttons>
@@ -32,8 +23,26 @@
     <dialog>
         <name>ZECK</name>
         <image>zeck.jpg</image>
-        <text>Este É o seu endereco de IP: 193.923.167.7
-        vocÊ estÁ na deepweb, É melhor mascarÁ-lo com uma VPN.</text>
+        <text>Tem certeza que deseja continuar?</text>
+        <buttons>
+            <button>Continuar</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>Certo, vou tentar te guiar e te mostrar como se virar nesta terra sem leis. Vou te contar um segredo logo de cara...</text>
+        <buttons>
+            <button>...</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>Este É o seu endereco de IP: 193.923.167.7
+            vocÊ estÁ na deepweb, É melhor mascarÁ-lo com uma VPN.</text>
         <buttons>
             <button>Ok</button>
         </buttons>
