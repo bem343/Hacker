@@ -30,6 +30,7 @@
         {
 			this.components = new System.ComponentModel.Container();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.btnSair = new System.Windows.Forms.Button();
 			this.lblNome = new System.Windows.Forms.Label();
 			this.pcbAvatar = new System.Windows.Forms.PictureBox();
 			this.btnResponse4 = new System.Windows.Forms.Button();
@@ -38,7 +39,6 @@
 			this.btnResponse1 = new System.Windows.Forms.Button();
 			this.lblDialogo = new System.Windows.Forms.Label();
 			this.timerDialog = new System.Windows.Forms.Timer(this.components);
-			this.btnSair = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pcbAvatar)).BeginInit();
 			this.SuspendLayout();
@@ -62,6 +62,25 @@
 			this.groupBox1.Size = new System.Drawing.Size(689, 208);
 			this.groupBox1.TabIndex = 7;
 			this.groupBox1.TabStop = false;
+			// 
+			// btnSair
+			// 
+			this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+			this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnSair.FlatAppearance.BorderSize = 0;
+			this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+			this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnSair.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnSair.ForeColor = System.Drawing.Color.White;
+			this.btnSair.Location = new System.Drawing.Point(662, 7);
+			this.btnSair.Name = "btnSair";
+			this.btnSair.Size = new System.Drawing.Size(25, 25);
+			this.btnSair.TabIndex = 12;
+			this.btnSair.TabStop = false;
+			this.btnSair.Text = "X";
+			this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnSair.UseVisualStyleBackColor = false;
+			this.btnSair.Visible = false;
 			// 
 			// lblNome
 			// 
@@ -169,25 +188,6 @@
 			// 
 			this.timerDialog.Interval = 70;
 			this.timerDialog.Tick += new System.EventHandler(this.dialog_Tick);
-			// 
-			// btnSair
-			// 
-			this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-			this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnSair.FlatAppearance.BorderSize = 0;
-			this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-			this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnSair.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSair.ForeColor = System.Drawing.Color.White;
-			this.btnSair.Location = new System.Drawing.Point(662, 7);
-			this.btnSair.Name = "btnSair";
-			this.btnSair.Size = new System.Drawing.Size(25, 25);
-			this.btnSair.TabIndex = 12;
-			this.btnSair.TabStop = false;
-			this.btnSair.Text = "X";
-			this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnSair.UseVisualStyleBackColor = false;
-			this.btnSair.Visible = false;
 			// 
 			// frmDialogo
 			// 

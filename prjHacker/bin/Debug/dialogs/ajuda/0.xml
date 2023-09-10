@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- 'Target' é o valor do diálogo para onde aquele botão leva -->
+<!-- Para finalizar um diálogo, deve se colocar como valor no 
+target o número de diálogo + 1 -->
+
+<dialogs>
+
+    <!-- Ramificaçao 0 -->
+
+    <dialog>
+        <name>S.H.A.R.K</name>
+        <image>sharkgreen.png</image>
+        <text>Parece que vocÊ descobriu o menu de contexto...</text>
+        <buttons>
+            <button>...</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>S.H.A.R.K</name>
+        <image>sharkgreen.png</image>
+        <text>O que vocÊ quer saber?</text>
+        <buttons>
+            <button>...</button>
+            <button target="5">NÃo sei</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>S.H.A.R.K</name>
+        <image>sharkgreen.png</image>
+        <text>Bom, se vocÊ apertar 'x' durante um diÁlogo, É possÍvel pular a animaÇÃo...</text>
+        <buttons>
+            <button>Legal</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>S.H.A.R.K</name>
+        <image>sharkgreen.png</image>
+        <text>EstÁ bom pra vocÊ?</text>
+        <buttons>
+            <button>Sim</button>
+            <button target="5">NÃo</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>S.H.A.R.K</name>
+        <image>sharkgreen.png</image>
+        <text>Ótimo, Adeus</text>
+        <buttons>
+            <button target="6">Obrigado</button>
+        </buttons>
+    </dialog>
+
+    <!-- Ramificaçao 1 -->
+
+    <dialog>
+        <name>S.H.A.R.K</name>
+        <image>sharkgreen.png</image>
+        <text>EntÃo volta pro jogo ;]</text>
+        <buttons>
+            <button>Ok</button>
+        </buttons>
+    </dialog>
+
+</dialogs>

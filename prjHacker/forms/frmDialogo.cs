@@ -25,7 +25,7 @@ namespace prjHacker.forms
             private string nome = "";
             private string dialogo = "";
             private string imageName = "";
-            private string[] buttons = null;    
+            private string[,] buttons = null;    
         #endregion
 
         #region Construtores
@@ -36,12 +36,12 @@ namespace prjHacker.forms
                 MyFont.applyff(this.Controls);
 
                 //Define os eventos click dos botões
-                btnResponse1.Click += ClickPadrao2;
-                btnResponse2.Click += ClickPadrao2;
-                btnResponse3.Click += ClickPadrao2;
-                btnResponse4.Click += ClickPadrao2;
+                btnResponse1.Click += btnResponse1_Click;
+                btnResponse2.Click += btnResponse2_Click;
+                btnResponse3.Click += btnResponse3_Click;
+                btnResponse4.Click += btnResponse4_Click;
             }
-            public frmDialogo(string nome, string imageName, string dialogo, string[] buttons)
+            public frmDialogo(string nome, string imageName, string dialogo, string[,] buttons)
             {
                 this.nome = nome;
                 this.imageName = imageName;
@@ -60,7 +60,7 @@ namespace prjHacker.forms
                 btnResponse3.DialogResult = DialogResult.No;
                 btnResponse4.DialogResult = DialogResult.Yes;
             }
-            public frmDialogo(string nome, string imageName, string dialogo, string[] buttons, string color)
+            public frmDialogo(string nome, string imageName, string dialogo, string[,] buttons, string color)
             {
                 this.nome = nome;
                 this.imageName = imageName;
@@ -112,10 +112,16 @@ namespace prjHacker.forms
                 imageName = dialogList[nDialog]["image"].InnerText;
                 dialogo = dialogList[nDialog]["text"].InnerText;
 
-                buttons = new string[4];
+                buttons = new string[4, 2];
                 XmlNodeList listaBotoes = dialogList[nDialog]["buttons"].ChildNodes;
-                for (int i = 0; i < buttons.Length; i++) {
-                    buttons[i] = listaBotoes[i]?.InnerText ?? "";
+                for (int i = 0; i < buttons.Length / 2; i++) {
+                    buttons[i, 0] = listaBotoes[i]?.InnerText ?? "";
+
+                    //Pega o valor do atributo
+                    if(listaBotoes[i] != null && listaBotoes[i].Attributes.Count > 0)
+                        buttons[i, 1] = listaBotoes[i].Attributes[0]?.Value ?? "";
+                    else
+                        buttons[i, 1] = "";
                 }
 
                 Color color;
@@ -141,10 +147,10 @@ namespace prjHacker.forms
                     lblNome.Visible = false;
 
                 pcbAvatar.Image = Image.FromFile("images/" + imageName);
-                if (buttons[0] != "") btnResponse1.Text = buttons[0];
-                if (buttons[1] != "") btnResponse2.Text = buttons[1];
-                if (buttons[2] != "") btnResponse3.Text = buttons[2];
-                if (buttons[3] != "") btnResponse4.Text = buttons[3];
+                if (buttons[0, 0] != "") btnResponse1.Text = buttons[0, 0];
+                if (buttons[1, 0] != "") btnResponse2.Text = buttons[1, 0];
+                if (buttons[2, 0] != "") btnResponse3.Text = buttons[2, 0];
+                if (buttons[3, 0] != "") btnResponse4.Text = buttons[3, 0];
                 
                 timerDialog.Start();
             }
@@ -187,19 +193,19 @@ namespace prjHacker.forms
             {
                 timerDialog.Stop();
                 dialogTime = -1;
-                if (buttons[0] != "") {
+                if (buttons[0, 0] != "") {
                     btnResponse1.Visible = true;
                     btnResponse1.Enabled = true;
                 }
-                if (buttons[1] != "") {
+                if (buttons[1, 0] != "") {
                     btnResponse2.Visible = true;
                     btnResponse2.Enabled = true;
                 }
-                if (buttons[2] != "") {
+                if (buttons[2, 0] != "") {
                     btnResponse3.Visible = true;
                     btnResponse3.Enabled = true;
                 }
-                if (buttons[3] != "") {
+                if (buttons[3, 0] != "") {
                     btnResponse4.Visible = true;
                     btnResponse4.Enabled = true;
                 }
@@ -216,10 +222,43 @@ namespace prjHacker.forms
                 Sound.click();
                 dialogNext();
             }
-        #endregion
+            //Botões de resposta
+            private void btnResponse1_Click(object sender, EventArgs e)
+		    {
+                Sound.click();
+                if(buttons[0, 1] != "" && buttons[0, 1] != null)
+                    nDialog = int.Parse(buttons[0, 1]) - 1;
 
-        #region Termina o diálogo ao precionar a tecla X
-            private void frmDialogo_KeyDown(object sender, KeyEventArgs e)
+                dialogNext();
+		    }
+            private void btnResponse2_Click(object sender, EventArgs e)
+		    {
+                Sound.click();
+                if(buttons[1, 1] != "" && buttons[1, 1] != null)
+                    nDialog = int.Parse(buttons[1, 1]) - 1;
+
+                dialogNext();
+		    }
+            private void btnResponse3_Click(object sender, EventArgs e)
+		    {
+                Sound.click();
+                if(buttons[2, 1] != "" && buttons[2, 1] != null)
+                    nDialog = int.Parse(buttons[2, 1]) - 1;
+
+                dialogNext();
+		    }
+            private void btnResponse4_Click(object sender, EventArgs e)
+		    {
+                Sound.click();
+                if(buttons[3, 1] != "" && buttons[3, 1] != null)
+                    nDialog = int.Parse(buttons[3, 1]) - 1;
+
+                dialogNext();
+		    }
+		#endregion
+
+		#region Termina o diálogo ao precionar a tecla X
+		private void frmDialogo_KeyDown(object sender, KeyEventArgs e)
             {
                 if (e.KeyValue == 88)
                 {
@@ -240,6 +279,7 @@ namespace prjHacker.forms
 				    return;
 			    }
 		    }
-        #endregion
+		#endregion
+		
 	}
 }

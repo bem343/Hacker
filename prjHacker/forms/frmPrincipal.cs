@@ -173,13 +173,13 @@ namespace prjHacker.forms
                     XmlDocument arquivo = new XmlDocument(); arquivo.Load(xml);
                     XmlNodeList dialogList = arquivo.GetElementsByTagName("dialog");
                     int nDialog = 0; do {
-                        string[] buttons = new string[4];
+                        string[,] buttons = new string[4, 2];
                         string nome = dialogList[nDialog]["name"].InnerText;
                         string imageName = dialogList[nDialog]["image"].InnerText;
                         string dialogo = dialogList[nDialog]["text"].InnerText;
                         XmlNodeList listaBotoes = dialogList[nDialog]["buttons"].ChildNodes;
-                        for (int i = 0; i < buttons.Length; i++) {
-                            buttons[i] = listaBotoes[i]?.InnerText ?? "";
+                        for (int i = 0; i < buttons.Length / 2; i++) {
+                            buttons[i, 0] = listaBotoes[i]?.InnerText ?? "";
                         } if(dialogList[nDialog]["color"] != null) {
                             string color = dialogList[nDialog]["color"].InnerText;
                             abreDialogo(nome, imageName, dialogo, buttons, color);
@@ -193,13 +193,13 @@ namespace prjHacker.forms
                     XmlDocument arquivo = new XmlDocument(); arquivo.Load(xml);
                     XmlNodeList dialogList = arquivo.GetElementsByTagName("dialog");
                     DialogResult dr = DialogResult.OK; int nDialog = 0; do {
-                        string[] buttons = new string[4];
+                        string[,] buttons = new string[4, 2];
                         string nome = dialogList[nDialog]["name"].InnerText;
                         string imageName = dialogList[nDialog]["image"].InnerText;
                         string dialogo = dialogList[nDialog]["text"].InnerText;
                         XmlNodeList listaBotoes = dialogList[nDialog]["buttons"].ChildNodes;
-                        for (int i = 0; i < buttons.Length; i++) {
-                            buttons[i] = listaBotoes[i]?.InnerText ?? "";
+                        for (int i = 0; i < buttons.Length / 2; i++) {
+                            buttons[i, 0] = listaBotoes[i]?.InnerText ?? "";
                         } if(dialogList[nDialog]["color"] != null) {
                             string color = dialogList[nDialog]["color"].InnerText;
                             dr = abreDialogo(nome, imageName, dialogo, buttons, color);
@@ -212,13 +212,13 @@ namespace prjHacker.forms
                     XmlDocument arquivo = new XmlDocument(); arquivo.Load(xml);
                     XmlNodeList dialogList = arquivo.GetElementsByTagName("dialog");
 
-                    int nDialog = 0; string[] buttons = new string[4];
+                    int nDialog = 0; string[,] buttons = new string[4, 2];
                     string nome = dialogList[nDialog]["name"].InnerText;
                     string imageName = dialogList[nDialog]["image"].InnerText;
                     string dialogo = dialogList[nDialog]["text"].InnerText;
                     XmlNodeList listaBotoes = dialogList[nDialog]["buttons"].ChildNodes;
-                    for (int i = 0; i < buttons.Length; i++) {
-                        buttons[i] = listaBotoes[i]?.InnerText ?? "";
+                    for (int i = 0; i < buttons.Length / 2; i++) {
+                        buttons[i, 0] = listaBotoes[i]?.InnerText ?? "";
                     } if(dialogList[nDialog]["color"] != null) {
                         string color = dialogList[nDialog]["color"].InnerText;
                         return abreDialogo(nome, imageName, dialogo, buttons, color);
@@ -229,12 +229,12 @@ namespace prjHacker.forms
                     frmDialogo frmDialog = new frmDialogo(xml);
                     frmDialog.ShowDialog();
                 }
-		        private DialogResult abreDialogo(string nome, string imageName, string dialogo, string[] buttons)
+		        private DialogResult abreDialogo(string nome, string imageName, string dialogo, string[,] buttons)
                 {
                     frmDialogo frmDialog = new frmDialogo(nome, imageName, dialogo, buttons);
                     return frmDialog.ShowDialog();
                 }
-                private DialogResult abreDialogo(string nome, string imageName, string dialogo, string[] buttons, string color)
+                private DialogResult abreDialogo(string nome, string imageName, string dialogo, string[,] buttons, string color)
                 {
                     frmDialogo frmDialog = new frmDialogo(nome, imageName, dialogo, buttons, color);
                     return frmDialog.ShowDialog();
@@ -298,8 +298,9 @@ namespace prjHacker.forms
                 switch (contAjuda)
                 {
                     case 0:
-                        if (dialogoComRetorno("dialogs/ajuda/1.xml") == DialogResult.Ignore)
-                            dialogo("dialogs/ajuda/2.xml"); contAjuda++; break;
+                        //if (dialogoComRetorno("dialogs/ajuda/1.xml") == DialogResult.Ignore)
+                        //    dialogo("dialogs/ajuda/2.xml"); contAjuda++;
+                        abreDialogo("dialogs/ajuda/0.xml"); contAjuda++; break;
                     case 1: dialogo("dialogs/ajuda/3.xml"); contAjuda++; break;
                     default: dialogo("dialogs/ajuda/4.xml"); altF4 = false; Close(); break;
                 }
@@ -312,11 +313,11 @@ namespace prjHacker.forms
             private void btnSair_Click(object sender, EventArgs e)
             {
                 Sound.click();
-                string[] buttons = new string[4];
-                buttons[0] = "Sim";
-                buttons[1] = "NÃo";
-                buttons[2] = "";
-                buttons[3] = "";
+                string[,] buttons = new string[4, 2];
+                buttons[0, 0] = "Sim";
+                buttons[1, 0] = "NÃo";
+                buttons[2, 0] = "";
+                buttons[3, 0] = "";
                 if (abreDialogo("S.H.A.R.K", "sharkgreen.png", "Tem certeza que deseja sair?", buttons) == DialogResult.OK)
                 {
                     altF4 = false;
@@ -429,11 +430,11 @@ namespace prjHacker.forms
                     if(minutos > 0) dialogo += " e " + minutos + " minuto" + (minutos != 1 ? "s" : "");
                     dialogo += "?";
 
-                    string[] buttons = new string[4];
-                    buttons[0] = "Sim";
-                    buttons[1] = "NÃo";
-                    buttons[2] = "";
-                    buttons[3] = "";
+                    string[,] buttons = new string[4, 2];
+                    buttons[0, 0] = "Sim";
+                    buttons[1, 0] = "NÃo";
+                    buttons[2, 0] = "";
+                    buttons[3, 0] = "";
                     
                     if (abreDialogo("S.H.A.R.K", "sharkgreen.png", dialogo, buttons) == DialogResult.OK) {
                         Vpn.sign(tempo);
@@ -688,10 +689,10 @@ namespace prjHacker.forms
                         if(script.linesP == script.lines.Count) btnContinuarScript.Text = "Terminar";
                     }
 		        }
-		#endregion
 
 		#endregion
 
-		
+		#endregion
+
 	}
 }

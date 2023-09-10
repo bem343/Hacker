@@ -615,13 +615,13 @@
             this.ajudaToolStripMenuItem});
 			this.contextMenuStrip.Name = "contextMenuStrip";
 			this.contextMenuStrip.ShowImageMargin = false;
-			this.contextMenuStrip.Size = new System.Drawing.Size(106, 30);
+			this.contextMenuStrip.Size = new System.Drawing.Size(156, 52);
 			// 
 			// ajudaToolStripMenuItem
 			// 
 			this.ajudaToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
 			this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-			this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(105, 26);
+			this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
 			this.ajudaToolStripMenuItem.Text = "Ajuda";
 			this.ajudaToolStripMenuItem.Click += new System.EventHandler(this.ajudaToolStripMenuItem_Click);
 			// 
