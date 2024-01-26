@@ -217,11 +217,6 @@ namespace prjHacker.forms
             {
                 Sound.click();
             }
-            private void ClickPadrao2(object sender, EventArgs e)
-            {
-                Sound.click();
-                dialogNext();
-            }
             //Botões de resposta
             private void btnResponse1_Click(object sender, EventArgs e)
 		    {
@@ -258,7 +253,7 @@ namespace prjHacker.forms
 		#endregion
 
 		#region Termina o diálogo ao precionar a tecla X
-		private void frmDialogo_KeyDown(object sender, KeyEventArgs e)
+		    private void frmDialogo_KeyDown(object sender, KeyEventArgs e)
             {
                 if (e.KeyValue == 88)
                 {

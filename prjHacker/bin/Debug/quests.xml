@@ -1,20 +1,60 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <quests>
+
+	<!-- Desenvolvimento 1 -->
 	<quest>
+		<!-- Q0 -->
 		<name>Mascarar IP</name>
 		<instruction>Seu IP estÁ exposto, É melhor mascarÁ-lo utilizando um VPN. VocÊ consegue fazer isso clicando em 'ServiÇos', depois em 'VPN'.</instruction>
+		<exp>50</exp>
 	</quest>
 	<quest>
+		<!-- Q1 -->
 		<name>Minerar BitCoins</name>
 		<instruction>Um jeito fÁcil de ganhar dinheiro na deepweb É minerando BitCoins. Para fazer isso basta clicar em 'Receitas', depois em 'Minerar BitCoins'. Minere bitCoins Usando o script do Zeck.</instruction>
+		<exp>50</exp>
 	</quest>
 	<quest>
-		<name>Revisar CÓdigos</name>
+		<!-- Q2 -->
+		<name>Revisar cÓdigos</name>
 		<instruction>Revise cÓdigos para ganhar experiÊncia e P. Skill. Para fazer isso basta clicar em 'Aprender', depois em 'Revisar CÓdigos'.</instruction>
+		<exp>100</exp>
 	</quest>
 	<quest>
+		<!-- Q3 -->
 		<name>Criar um script</name>
 		<instruction>Continue revisando cÓdigos atÉ cosenguir pontos de skill suficientes para criar um novo script de mineraÇÃo. Para isso basta clicar me 'Desenvolver', depois em 'Script'.</instruction>
+		<exp>100</exp>
 	</quest>
+
+	<!-- Primeiro Loop -->
+	<quest>
+		<!-- Q4 -->
+		<name>Grana suada</name>
+		<instruction>Ganhe $25,00 apenas revisando cÓdigos.</instruction>
+		<objective>25,00</objective>
+		<exp>65</exp>
+	</quest>
+	<quest>
+		<!-- Q5 -->
+		<name>Mais scripts!</name>
+		<instruction>Usando seus novos conhecimentos, faÇa 5 scripts em Javascript, com pelo menos 2 linhas cada.</instruction>
+		<objective>5</objective>
+		<exp>65</exp>
+	</quest>
+	<quest>
+		<!-- Q6 -->
+		<name>Script poderoso</name>
+		<instruction>Use toda a sua forÇa de vontade para criar e minerar um script com pelo menos 10 linhas.</instruction>
+		<exp>75</exp>
+	</quest>
+
+	<quest>
+		<!-- Q7 -->
+		<name>Aprender uma nova linguagem</name>
+		<instruction>Agora que você já sabe como ganhar dinheiro criando scripts, vamos intesifica-los utilizando linguagens mais rápidas. Para isso basta clicar me 'Aprender', depois em 'Linguagens'.</instruction>
+		<exp>150</exp>
+	</quest>
+
 </quests>

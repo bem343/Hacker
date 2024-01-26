@@ -51,6 +51,12 @@ namespace prjHacker.classes
                 ToolStripDropDownItem.Font = new Font(ff, fBase.Size, fBase.Style);
                 //ToolStripDropDownItem.ForeColor = Color.Red;
             }
+            public static void applyff(DataGridViewCellStyle DataGridViewCellStyle)
+            {
+                Font fBase = (Font)DataGridViewCellStyle.Font.Clone();
+                DataGridViewCellStyle.Font = new Font(ff, fBase.Size, fBase.Style);
+                //DataGridViewCellStyle.ForeColor = Color.Red;
+            }
             public static void applyff(ContextMenuStrip ContextMenuStrip)
             {
                 foreach (ToolStripDropDownItem item in ContextMenuStrip.Items)
@@ -62,24 +68,34 @@ namespace prjHacker.classes
             {
                 foreach (Control control in Controls)
                 {
+                    //Se for DataGridView, adentre...
+                    if (control.GetType() == typeof(DataGridView))
+                    {
+                        DataGridView grid = (DataGridView)control;
+                        applyff(grid.ColumnHeadersDefaultCellStyle);
+                        applyff(grid.DefaultCellStyle);
+                    }
                     //Se for MenuStrip, adentre...
-                    if (control.GetType() == typeof(MenuStrip))
+                    else if (control.GetType() == typeof(MenuStrip))
                     {
                         MenuStrip menu = (MenuStrip)control;
                         foreach (ToolStripDropDownItem item in menu.Items)
                         {
                             entryDropDowmItem(item);
                         }
+
+                        //Aplica a fonte nele!
+                        applyff(control);
                     }
                     else
                     {
                         //Se tem controles filhos, adentre...
                         if (control.HasChildren)
                         applyff(control.Controls);
-                    }
 
-                    //Aplica a fonte nele!
-                    applyff(control);
+                        //Aplica a fonte nele!
+                        applyff(control);
+                    }
                 }
             }
 		#endregion

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<dialogs>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</image>
+        <text>VocÊ É muito bom fazendo scripts!</text>
+        <buttons>
+            <button>Obrigado</button>
+        </buttons>
+    </dialog>
+
+    <dialog>
+        <name>ZECK</name>
+        <image>zeck.jpg</age>
+        <text>Agora vÊ se aprende umas linguagens novas para dar aquele up nos seus scripts, vai ganhar muito mais dinheiro!</text>
+        <buttons>
+            <button>Ok</button>
+        </buttons>
+    </dialog>
+
+</dialogs>

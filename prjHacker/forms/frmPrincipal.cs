@@ -27,19 +27,33 @@ namespace prjHacker.forms
             public static int skill = 1000;
             //public static int skill = 0;
             public static int nivel = 0;
+
+            //CONTADORES DAS QUESTS
+            public static double q4Counter = 0;
+		    public static double q4Objective = 0;
+			public static int q5Counter = 0;
+            public static int q5Objective = 0;
 		#endregion
 
         #region Construtores
             public frmPrincipal()
             {
                 this.DialogResult = DialogResult.Abort;
+                
                 InitializeComponent();
-                exitTimer.Interval = 100;
-                exitTimer.Tick += ExitTimer_Tick;
-                foreach (Panel panel in gbAreaDeTrabalho.Controls.OfType<Panel>())
-                {panel.Dock = DockStyle.Fill;}
                 MyFont.applyff(this.Controls);
                 MyFont.applyff(this.contextMenuStrip);
+
+                exitTimer.Interval = 100;
+                exitTimer.Tick += ExitTimer_Tick;
+
+                foreach (Panel panel in gbAreaDeTrabalho.Controls.OfType<Panel>())
+                {panel.Dock = DockStyle.Fill;}
+
+                //gvCursos.Rows.Add(Properties.Resources.script, "Bitcoin", "0:50", "$120,00", ">");
+                //gvCursos.Rows.Add(Properties.Resources.script, "Hacker", "01:30", "$250,00", ">");
+                //gvCursos.Rows.Add(Properties.Resources.script, "Zeck do mal", "02:30", "$200,00", ">");
+                //panelCursos.Visible = true;
             }
         #endregion
 
@@ -58,13 +72,6 @@ namespace prjHacker.forms
         #region Mostra o diálogo de bem-vindo ao abrir o formulário
             private void frmPrincipal_Shown(object sender, EventArgs e)
             {
-                //if (dialogo("dialogs/welcome.xml"))
-                //if (dialogo("dialogs/teste.xml"))
-                //{
-                //    StartQuest(0);
-                //    vpnMenuItem.Visible = true;
-                //}
-
                 abreDialogo("dialogs/welcome.xml");
                 StartQuest(0);
                 vpnMenuItem.Visible = true;
@@ -168,62 +175,6 @@ namespace prjHacker.forms
             #endregion
 
             #region Abrir uma caixa de Diálogos
-                private bool dialogo(string xml)
-                {
-                    XmlDocument arquivo = new XmlDocument(); arquivo.Load(xml);
-                    XmlNodeList dialogList = arquivo.GetElementsByTagName("dialog");
-                    int nDialog = 0; do {
-                        string[,] buttons = new string[4, 2];
-                        string nome = dialogList[nDialog]["name"].InnerText;
-                        string imageName = dialogList[nDialog]["image"].InnerText;
-                        string dialogo = dialogList[nDialog]["text"].InnerText;
-                        XmlNodeList listaBotoes = dialogList[nDialog]["buttons"].ChildNodes;
-                        for (int i = 0; i < buttons.Length / 2; i++) {
-                            buttons[i, 0] = listaBotoes[i]?.InnerText ?? "";
-                        } if(dialogList[nDialog]["color"] != null) {
-                            string color = dialogList[nDialog]["color"].InnerText;
-                            abreDialogo(nome, imageName, dialogo, buttons, color);
-                        } else { abreDialogo(nome, imageName, dialogo, buttons); }
-                        nDialog++;
-                    } while (nDialog != dialogList.Count);
-                    return true;
-                }
-                private DialogResult dialogoComRetorno(string xml)
-                {
-                    XmlDocument arquivo = new XmlDocument(); arquivo.Load(xml);
-                    XmlNodeList dialogList = arquivo.GetElementsByTagName("dialog");
-                    DialogResult dr = DialogResult.OK; int nDialog = 0; do {
-                        string[,] buttons = new string[4, 2];
-                        string nome = dialogList[nDialog]["name"].InnerText;
-                        string imageName = dialogList[nDialog]["image"].InnerText;
-                        string dialogo = dialogList[nDialog]["text"].InnerText;
-                        XmlNodeList listaBotoes = dialogList[nDialog]["buttons"].ChildNodes;
-                        for (int i = 0; i < buttons.Length / 2; i++) {
-                            buttons[i, 0] = listaBotoes[i]?.InnerText ?? "";
-                        } if(dialogList[nDialog]["color"] != null) {
-                            string color = dialogList[nDialog]["color"].InnerText;
-                            dr = abreDialogo(nome, imageName, dialogo, buttons, color);
-                        } else { dr = abreDialogo(nome, imageName, dialogo, buttons); }
-                        if(dr != DialogResult.OK) return dr; nDialog++;
-                    } while (nDialog != dialogList.Count); return dr;
-                }
-                private DialogResult dialogoUnico(string xml)
-                {
-                    XmlDocument arquivo = new XmlDocument(); arquivo.Load(xml);
-                    XmlNodeList dialogList = arquivo.GetElementsByTagName("dialog");
-
-                    int nDialog = 0; string[,] buttons = new string[4, 2];
-                    string nome = dialogList[nDialog]["name"].InnerText;
-                    string imageName = dialogList[nDialog]["image"].InnerText;
-                    string dialogo = dialogList[nDialog]["text"].InnerText;
-                    XmlNodeList listaBotoes = dialogList[nDialog]["buttons"].ChildNodes;
-                    for (int i = 0; i < buttons.Length / 2; i++) {
-                        buttons[i, 0] = listaBotoes[i]?.InnerText ?? "";
-                    } if(dialogList[nDialog]["color"] != null) {
-                        string color = dialogList[nDialog]["color"].InnerText;
-                        return abreDialogo(nome, imageName, dialogo, buttons, color);
-                    } else { return abreDialogo(nome, imageName, dialogo, buttons); }
-                }
                 private void abreDialogo(string xml)
                 {
                     frmDialogo frmDialog = new frmDialogo(xml);
@@ -239,16 +190,11 @@ namespace prjHacker.forms
                     frmDialogo frmDialog = new frmDialogo(nome, imageName, dialogo, buttons, color);
                     return frmDialog.ShowDialog();
                 }
-                //private DialogResult dialogo(string xml)
-                //{
-                //    frmDialogo frmDialog = new frmDialogo(xml);
-                //    return frmDialog.ShowDialog();
-                //}
             #endregion
 
         #endregion
 
-        #region Clicks do stripMenu
+        #region Clicks do MenuStrip
             //Tools
             private void defaultTool_Click(object sender, EventArgs e)
             {
@@ -288,7 +234,13 @@ namespace prjHacker.forms
                 panelScripts.Visible = true;
                 gbAreaDeTrabalho.Text = "Área de Trabalho";
             }
-            
+            private void linguagensMenuItem_Click(object sender, EventArgs e)
+		    {
+                Sound.click();
+                fecharPanels();
+                panelCursos.Visible = true;
+                gbAreaDeTrabalho.Text = "Área de Trabalho";
+		    }
         #endregion
 
         #region Clicks do contextMenuStrip
@@ -301,8 +253,8 @@ namespace prjHacker.forms
                         //if (dialogoComRetorno("dialogs/ajuda/1.xml") == DialogResult.Ignore)
                         //    dialogo("dialogs/ajuda/2.xml"); contAjuda++;
                         abreDialogo("dialogs/ajuda/0.xml"); contAjuda++; break;
-                    case 1: dialogo("dialogs/ajuda/3.xml"); contAjuda++; break;
-                    default: dialogo("dialogs/ajuda/4.xml"); altF4 = false; Close(); break;
+                    case 1: abreDialogo("dialogs/ajuda/3.xml"); contAjuda++; break;
+                    default: abreDialogo("dialogs/ajuda/4.xml"); altF4 = false; Close(); break;
                 }
             }
         #endregion
@@ -360,8 +312,9 @@ namespace prjHacker.forms
             private void CompleteQuest(int QuestI)
             {
                 Sound.select();
-                attExperiencia(55 + (0.5 * (QuestI + 1)));
                 string name = quests[QuestI]["name"].InnerText;
+                double exp = double.Parse(quests[QuestI]["exp"].InnerText);
+                attExperiencia(exp);
                 lstTrabalhos.Items.Remove(name);
                 CurrentQuests.Remove(QuestI);
             }
@@ -375,7 +328,7 @@ namespace prjHacker.forms
             private void q0complete()
             {
                 CompleteQuest(0);
-                dialogo("dialogs/q0complete.xml");
+                abreDialogo("dialogs/q0complete.xml");
                 //dialogo("dialogs/teste.xml");
 
                 StartQuest(1);
@@ -386,7 +339,7 @@ namespace prjHacker.forms
             private void q1complete()
             {
                 CompleteQuest(1);
-                dialogo("dialogs/q1complete.xml");
+                abreDialogo("dialogs/q1complete.xml");
                 //dialogo("dialogs/teste.xml");
 
                 StartQuest(2);
@@ -396,7 +349,7 @@ namespace prjHacker.forms
             private void q2complete()
             {
                 CompleteQuest(2);
-                dialogo("dialogs/q2complete.xml");
+                abreDialogo("dialogs/q2complete.xml");
                 //dialogo("dialogs/teste.xml");
 
                 StartQuest(3);
@@ -406,18 +359,40 @@ namespace prjHacker.forms
             private void q3complete()
             {
                 CompleteQuest(3);
-                dialogo("dialogs/q3complete.xml");
+                abreDialogo("dialogs/q3complete.xml");
                 //dialogo("dialogs/teste.xml");
 
-                //StartQuest(4);
-                //addItem(1, "", _Click);
+                StartQuest(4);
+                q4Objective = double.Parse(quests[4]["objective"].InnerText);
+
+                StartQuest(5);
+                q5Objective = int.Parse(quests[5]["objective"].InnerText);
+
+                StartQuest(6);
+            }
+            private void q4complete()
+            {
+                CompleteQuest(4);
+            }
+            private void q5complete()
+            {
+                CompleteQuest(5);
+                abreDialogo("dialogs/q5complete.xml");
+                //dialogo("dialogs/teste.xml");
+
+                StartQuest(7);
+                linguagensMenuItem.Visible = true;
+            }
+            private void q6complete()
+            {
+                CompleteQuest(6);
             }
 		#endregion
 
 		#region Áreas do jogo (Panels)
 
 		    #region Área de serviço VPN
-                private const int tempoBaseVpn = 60;
+		        private const int tempoBaseVpn = 60;
                 private const double custoBaseVpn = 28.70;                
 		        private void btnVpn(int tempo, double valor)
                 {
@@ -499,7 +474,16 @@ namespace prjHacker.forms
 
                         attDinheiro(vDinheiro - frmAtaque.lost);
                         attExperiencia(vExperiencia);
-                        if (CurrentQuests.Contains(1)) q1complete();
+
+                        if (CurrentQuests.Contains(1))
+                            q1complete();
+
+                        if (CurrentQuests.Contains(6))
+                        {
+                            if(script.lines.Count >= 10)
+                                q6complete();
+                        }
+
                         MyScripts.Remove();
                     } else {
                         Music.play("# (5).mp3"); attDinheiro(-frmAtaque.lost);
@@ -601,7 +585,17 @@ namespace prjHacker.forms
                         attProgramacao(vProgramacao);
                         attDinheiro(vDinheiro - frmAtaque.lost);
                         attExperiencia(vExperiencia);
-                        if (CurrentQuests.Contains(2)) q2complete();
+
+                        if (CurrentQuests.Contains(2))
+                            q2complete();
+
+                        if (CurrentQuests.Contains(4))
+                        {
+                            if ((vDinheiro - frmAtaque.lost) > 0)
+                                q4Counter += vDinheiro - frmAtaque.lost;
+						    if (q4Counter >= q4Objective)
+                                q4complete();
+                        }
                     } else { Music.play("# (5).mp3"); attDinheiro(-frmAtaque.lost); } listCodigosRefresh();
                 }
                 // Método para gerar o pagamento, caso o usuário deseje
@@ -609,6 +603,49 @@ namespace prjHacker.forms
 		    #endregion
 
 		    #region Área de criação de códigos
+                private void abrirTelaCriarCodigo()
+                {
+                    Music.play("# (4).mp3"); frmAtaque.lost = 0;
+                    if (new frmCodigoScript().ShowDialog() == DialogResult.OK)
+                    {
+                        Music.play("# (5).mp3");
+                        btnCriarScript.Enabled = true;
+                        btnContinuarScript.Visible = false;
+                        pcbScript2.Visible = false;
+                        lblScript2.Visible = false;
+                        lblLinesTitle2.Visible = false;
+                        lblLinesScript2.Visible = false;
+
+                        //Recompensas
+                        double vExperiencia = frmNovoScript.script.lines.Count * 5.2;
+                        //Relatório final da mineração
+                        frmRelatorio relatorio = new frmRelatorio
+                        (-frmAtaque.lost, 0, vExperiencia, "Script concluÍdo!");
+                        relatorio.ShowDialog();
+
+                        attDinheiro(-frmAtaque.lost);
+                        attExperiencia(vExperiencia);
+
+                        if (CurrentQuests.Contains(5))
+                        {
+                            if(frmNovoScript.script.lines.Count >= 2 && frmNovoScript.script.language == "js")
+                                q5Counter++;
+                            if(q5Counter >= q5Objective)
+                                q5complete();
+                        }
+
+                        frmNovoScript.concluirScript();
+
+                        if (CurrentQuests.Contains(3))
+                            q3complete();
+                        
+                    } else {
+                        Music.play("# (5).mp3"); attDinheiro(-frmAtaque.lost);
+                        Script script = frmNovoScript.script;
+                        lblLinesScript2.Text = script.linesP + "/" + script.lines.Count;
+                        if(script.linesP == script.lines.Count) btnContinuarScript.Text = "Terminar";
+                    }
+                }
 		        private void btnCriarScript_Click(object sender, EventArgs e)
 		        {
                     Sound.click();
@@ -627,72 +664,26 @@ namespace prjHacker.forms
                         attProgramacao(-frmNovoScript.skill);
                     } else { return; }
 
-                    Music.play("# (4).mp3"); frmAtaque.lost = 0;
-                    if (new frmCodigoScript().ShowDialog() == DialogResult.OK)
-                    {
-                        Music.play("# (5).mp3");
-                        btnCriarScript.Enabled = true;
-                        btnContinuarScript.Visible = false;
-                        pcbScript2.Visible = false;
-                        lblScript2.Visible = false;
-                        lblLinesTitle2.Visible = false;
-                        lblLinesScript2.Visible = false;
-
-                        //Recompensas
-                        double vExperiencia = frmNovoScript.script.lines.Count * 5.2;
-                        //Relatório final da mineração
-                        frmRelatorio relatorio = new frmRelatorio
-                        (-frmAtaque.lost, 0, vExperiencia, "Script concluÍdo!");
-                        relatorio.ShowDialog();
-
-                        attDinheiro(-frmAtaque.lost);
-                        attExperiencia(vExperiencia);
-                        frmNovoScript.concluirScript();
-                        if (CurrentQuests.Contains(3)) q3complete();
-                    } else {
-                        Music.play("# (5).mp3"); attDinheiro(-frmAtaque.lost);
-                        Script script = frmNovoScript.script;
-                        lblLinesScript2.Text = script.linesP + "/" + script.lines.Count;
-                        if(script.linesP == script.lines.Count) btnContinuarScript.Text = "Terminar";
-                    }
-
+                    abrirTelaCriarCodigo();
 		        }
                 private void btnContinuarScript_Click(object sender, EventArgs e)
 		        {
                     Sound.click();
-                    Music.play("# (4).mp3"); frmAtaque.lost = 0;
-                    if (new frmCodigoScript().ShowDialog() == DialogResult.OK)
-                    {
-                        Music.play("# (5).mp3");
-                        btnCriarScript.Enabled = true;
-                        btnContinuarScript.Visible = false;
-                        pcbScript2.Visible = false;
-                        lblScript2.Visible = false;
-                        lblLinesTitle2.Visible = false;
-                        lblLinesScript2.Visible = false;
-
-                        //Recompensas
-                        double vExperiencia = frmNovoScript.script.lines.Count * 5.2;
-                        //Relatório final da mineração
-                        frmRelatorio relatorio = new frmRelatorio
-                        (-frmAtaque.lost, 0, vExperiencia, "Script concluÍdo!");
-                        relatorio.ShowDialog();
-
-                        attDinheiro(-frmAtaque.lost);
-                        attExperiencia(vExperiencia);
-                        frmNovoScript.concluirScript();
-                        if (CurrentQuests.Contains(3)) q3complete();
-                    } else {
-                        Music.play("# (5).mp3"); attDinheiro(-frmAtaque.lost);
-                        Script script = frmNovoScript.script;
-                        lblLinesScript2.Text = script.linesP + "/" + script.lines.Count;
-                        if(script.linesP == script.lines.Count) btnContinuarScript.Text = "Terminar";
-                    }
+                    abrirTelaCriarCodigo();
 		        }
 
-		#endregion
+		    #endregion
 
 		#endregion
 
+		private void gvCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			//if (e.RowIndex >= 0 && e.ColumnIndex == gvCursos.Columns["clDetalhes"].Index)
+            //{
+            //    MessageBox.Show("Detalhe: " + e.RowIndex);
+            //}
+		}
+
+		
 	}
 }

@@ -80,3 +80,4 @@ D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.Cor
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.CopyComplete
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmNovoScript.resources
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmCodigoScript.resources
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\bin\Debug\prjHacker.exe.config
