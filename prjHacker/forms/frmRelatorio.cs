@@ -38,18 +38,19 @@ namespace prjHacker.forms
                 lblDinheiro.Text = "- $" + (dinheiro * -1).ToString("#0.00");
                 lblDinheiro.BackColor = Color.Red;
             }
-            if (experiencia >= 0) { lblExperiencia.Text = "+ " + experiencia.ToString("#0.##"); }
+            if (experiencia >= 0) { lblExperiencia.Text = "+ " + experiencia.ToString("G"); }
             else {
-                lblExperiencia.Text = "- " + experiencia.ToString("#0.##");
+                lblExperiencia.Text = "- " + experiencia.ToString("G");
                 lblExperiencia.BackColor = Color.Red;
             }
-            if (skill >= 0) { lblSkill.Text = "+ " + skill; lblTitulo.Text = titulo; }
+            if (skill >= 0) { lblSkill.Text = "+ " + skill; }
             else {
-                lblSkill.Text = "- " + skill; lblTitulo.Text = titulo;
+                lblSkill.Text = "- " + skill;
                 lblSkill.BackColor = Color.Red;
             }
             pcbAvatar.Image = Image.FromFile("images/" + imagem);
             lblNome.Text = "S.H.A.R.K";
+            lblTitulo.Text = titulo;
         }
 
         private void btnOk_Click(object sender, EventArgs e)

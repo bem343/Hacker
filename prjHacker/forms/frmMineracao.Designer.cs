@@ -144,11 +144,11 @@ namespace prjHacker.forms
 			this.lblVpnAtivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
 			this.lblVpnAtivo.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblVpnAtivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.lblVpnAtivo.Location = new System.Drawing.Point(157, 0);
+			this.lblVpnAtivo.Location = new System.Drawing.Point(559, 0);
 			this.lblVpnAtivo.Name = "lblVpnAtivo";
-			this.lblVpnAtivo.Size = new System.Drawing.Size(181, 29);
+			this.lblVpnAtivo.Size = new System.Drawing.Size(61, 29);
 			this.lblVpnAtivo.TabIndex = 17;
-			this.lblVpnAtivo.Text = "VPN ativo por:";
+			this.lblVpnAtivo.Text = "VPN:";
 			this.lblVpnAtivo.Visible = false;
 			// 
 			// lblVpn
@@ -156,7 +156,7 @@ namespace prjHacker.forms
 			this.lblVpn.AutoSize = true;
 			this.lblVpn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
 			this.lblVpn.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblVpn.Location = new System.Drawing.Point(337, 0);
+			this.lblVpn.Location = new System.Drawing.Point(620, 0);
 			this.lblVpn.Name = "lblVpn";
 			this.lblVpn.Size = new System.Drawing.Size(75, 29);
 			this.lblVpn.TabIndex = 16;

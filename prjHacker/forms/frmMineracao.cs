@@ -27,7 +27,7 @@ namespace prjHacker.forms
 		#endregion
 
 		#region Contrutores
-		public frmMineracao(Script script)
+			public frmMineracao(Script script)
 			{
 				this.linhas = script.lines;
 				this.nLinhaTotal = linhas.Count;

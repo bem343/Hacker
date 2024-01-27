@@ -44,6 +44,12 @@ namespace prjHacker.forms
                 MyFont.applyff(this.Controls);
                 MyFont.applyff(this.contextMenuStrip);
 
+                //Muda o tamanho da fonte da grid (Porque ela fica mudando sozinha)
+                Font fBase = (Font)gvCursos.DefaultCellStyle.Font.Clone();
+			    gvCursos.DefaultCellStyle.Font = new Font(MyFont.select(), 18, fBase.Style);
+                fBase = (Font)gvCursos.ColumnHeadersDefaultCellStyle.Font.Clone();
+			    gvCursos.ColumnHeadersDefaultCellStyle.Font = new Font(MyFont.select(), 18, fBase.Style);
+
                 exitTimer.Interval = 100;
                 exitTimer.Tick += ExitTimer_Tick;
 
@@ -332,6 +338,7 @@ namespace prjHacker.forms
 
                 fecharPanels();
                 panelMissao.Visible = true;
+                Application.DoEvents();
 
                 lstTrabalhos.ClearSelected();
             }
@@ -343,9 +350,11 @@ namespace prjHacker.forms
                 Sound.select();
                 string name = quests[QuestI]["name"].InnerText;
                 double exp = double.Parse(quests[QuestI]["exp"].InnerText);
-                attExperiencia(exp);
                 lstTrabalhos.Items.Remove(name);
                 CurrentQuests.Remove(QuestI);
+
+                frmRelatorioQuest relatorio = new frmRelatorioQuest(exp, name);
+                relatorio.ShowDialog(); attExperiencia(exp);
             }
             private void StartQuest(int QuestI)
             {
@@ -712,6 +721,5 @@ namespace prjHacker.forms
                 //MessageBox.Show("Detalhe: " + e.RowIndex);
             }
         }
-
 	}
 }

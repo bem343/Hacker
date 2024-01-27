@@ -103,11 +103,23 @@
     <Compile Include="forms\frmMineracao.Designer.cs">
       <DependentUpon>frmMineracao.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmMinigamePadrao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmMinigamePadrao.Designer.cs">
+      <DependentUpon>frmMinigamePadrao.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmNovoScript.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmNovoScript.Designer.cs">
       <DependentUpon>frmNovoScript.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmPadrao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmPadrao.Designer.cs">
+      <DependentUpon>frmPadrao.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -120,6 +132,12 @@
     </Compile>
     <Compile Include="forms\frmRelatorio.Designer.cs">
       <DependentUpon>frmRelatorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmRelatorioQuest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmRelatorioQuest.Designer.cs">
+      <DependentUpon>frmRelatorioQuest.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\frmScript.cs">
       <SubType>Form</SubType>
@@ -154,14 +172,23 @@
     <EmbeddedResource Include="forms\frmMineracao.resx">
       <DependentUpon>frmMineracao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmMinigamePadrao.resx">
+      <DependentUpon>frmMinigamePadrao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmNovoScript.resx">
       <DependentUpon>frmNovoScript.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmPadrao.resx">
+      <DependentUpon>frmPadrao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmRelatorio.resx">
       <DependentUpon>frmRelatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmRelatorioQuest.resx">
+      <DependentUpon>frmRelatorioQuest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmScript.resx">
       <DependentUpon>frmScript.cs</DependentUpon>

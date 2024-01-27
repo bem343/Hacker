@@ -81,3 +81,6 @@ D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.csproj.Cop
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmNovoScript.resources
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmCodigoScript.resources
 D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\bin\Debug\prjHacker.exe.config
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmPadrao.resources
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmMinigamePadrao.resources
+D:\Downloads\PROJETOS\Hacker\Hacker\prjHacker\obj\x86\Debug\prjHacker.forms.frmRelatorioQuest.resources

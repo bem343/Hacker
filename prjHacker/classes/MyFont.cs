@@ -32,6 +32,10 @@ namespace prjHacker.classes
 
                 ff = collection.Families[collection.Families.Length-1];
             }
+            public static FontFamily select()
+            {
+                return ff;
+            }
             public static void select(int i)
             {
                 ff = collection.Families[i];

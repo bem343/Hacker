@@ -30,7 +30,6 @@
         {
 			this.components = new System.ComponentModel.Container();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.btnSair = new System.Windows.Forms.Button();
 			this.btnRefazer = new System.Windows.Forms.Button();
 			this.btnConcluir = new System.Windows.Forms.Button();
 			this.label3 = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.lblOriginal = new System.Windows.Forms.Label();
 			this.rtbFinal = new System.Windows.Forms.RichTextBox();
+			this.btnSair = new System.Windows.Forms.Button();
 			this.timerVpn = new System.Windows.Forms.Timer(this.components);
 			this.timerAtaque = new System.Windows.Forms.Timer(this.components);
 			this.groupBox1.SuspendLayout();
@@ -70,25 +70,6 @@
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "RevisÃo de CÓdigo";
-			// 
-			// btnSair
-			// 
-			this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-			this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnSair.DialogResult = System.Windows.Forms.DialogResult.Ignore;
-			this.btnSair.FlatAppearance.BorderSize = 0;
-			this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-			this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnSair.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSair.ForeColor = System.Drawing.Color.Transparent;
-			this.btnSair.Location = new System.Drawing.Point(875, 4);
-			this.btnSair.Name = "btnSair";
-			this.btnSair.Size = new System.Drawing.Size(25, 25);
-			this.btnSair.TabIndex = 15;
-			this.btnSair.TabStop = false;
-			this.btnSair.Text = "X";
-			this.btnSair.UseVisualStyleBackColor = false;
-			this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
 			// 
 			// btnRefazer
 			// 
@@ -135,7 +116,7 @@
 			this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
 			this.label3.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.label3.Location = new System.Drawing.Point(253, 0);
+			this.label3.Location = new System.Drawing.Point(254, 0);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(222, 29);
 			this.label3.TabIndex = 25;
@@ -146,7 +127,7 @@
 			this.lblErros.AutoSize = true;
 			this.lblErros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
 			this.lblErros.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblErros.Location = new System.Drawing.Point(474, 0);
+			this.lblErros.Location = new System.Drawing.Point(475, 0);
 			this.lblErros.Name = "lblErros";
 			this.lblErros.Size = new System.Drawing.Size(41, 29);
 			this.lblErros.TabIndex = 24;
@@ -158,11 +139,11 @@
 			this.lblVpnAtivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
 			this.lblVpnAtivo.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblVpnAtivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.lblVpnAtivo.Location = new System.Drawing.Point(564, 0);
+			this.lblVpnAtivo.Location = new System.Drawing.Point(703, 0);
 			this.lblVpnAtivo.Name = "lblVpnAtivo";
-			this.lblVpnAtivo.Size = new System.Drawing.Size(181, 29);
+			this.lblVpnAtivo.Size = new System.Drawing.Size(61, 29);
 			this.lblVpnAtivo.TabIndex = 23;
-			this.lblVpnAtivo.Text = "VPN ativo por:";
+			this.lblVpnAtivo.Text = "VPN:";
 			this.lblVpnAtivo.Visible = false;
 			// 
 			// lblVpn
@@ -170,7 +151,7 @@
 			this.lblVpn.AutoSize = true;
 			this.lblVpn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
 			this.lblVpn.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblVpn.Location = new System.Drawing.Point(744, 0);
+			this.lblVpn.Location = new System.Drawing.Point(764, 0);
 			this.lblVpn.Name = "lblVpn";
 			this.lblVpn.Size = new System.Drawing.Size(75, 29);
 			this.lblVpn.TabIndex = 22;
@@ -219,6 +200,25 @@
 			this.rtbFinal.TabIndex = 0;
 			this.rtbFinal.Text = "";
 			this.rtbFinal.TextChanged += new System.EventHandler(this.rtbFinal_TextChanged);
+			// 
+			// btnSair
+			// 
+			this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+			this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnSair.DialogResult = System.Windows.Forms.DialogResult.Ignore;
+			this.btnSair.FlatAppearance.BorderSize = 0;
+			this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+			this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnSair.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnSair.ForeColor = System.Drawing.Color.Transparent;
+			this.btnSair.Location = new System.Drawing.Point(875, 4);
+			this.btnSair.Name = "btnSair";
+			this.btnSair.Size = new System.Drawing.Size(25, 25);
+			this.btnSair.TabIndex = 15;
+			this.btnSair.TabStop = false;
+			this.btnSair.Text = "X";
+			this.btnSair.UseVisualStyleBackColor = false;
+			this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
 			// 
 			// timerVpn
 			// 
