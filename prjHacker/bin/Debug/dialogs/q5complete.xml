@@ -13,7 +13,7 @@
 
     <dialog>
         <name>ZECK</name>
-        <image>zeck.jpg</age>
+        <image>zeck.jpg</image>
         <text>Agora vÊ se aprende umas linguagens novas para dar aquele up nos seus scripts, vai ganhar muito mais dinheiro!</text>
         <buttons>
             <button>Ok</button>

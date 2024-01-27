@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle93 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle95 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle96 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle94 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 2D);
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
-			System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea24 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend24 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint70 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 2D);
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint71 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint72 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
+			System.Windows.Forms.DataVisualization.Charting.Title title24 = new System.Windows.Forms.DataVisualization.Charting.Title();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.lblExperiencia = new System.Windows.Forms.Label();
 			this.pbExperiencia = new System.Windows.Forms.ProgressBar();
@@ -153,6 +153,11 @@
 			this.pcbFundo = new System.Windows.Forms.PictureBox();
 			this.pictureBox4 = new System.Windows.Forms.PictureBox();
 			this.btnConfig = new System.Windows.Forms.Button();
+			this.pbMissao = new System.Windows.Forms.ProgressBar();
+			this.lblProgressoMissao = new System.Windows.Forms.Label();
+			this.lblExperienciaMissao = new System.Windows.Forms.Label();
+			this.lblTitExperienciaMissao = new System.Windows.Forms.Label();
+			this.lblTitMissao = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.menuStrip.SuspendLayout();
@@ -672,8 +677,7 @@
 			this.panelCursos.Controls.Add(this.lblNextLanguage);
 			this.panelCursos.Controls.Add(this.lblLastLanguage);
 			this.panelCursos.Controls.Add(this.pbLanguage);
-			this.panelCursos.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelCursos.Location = new System.Drawing.Point(10, 33);
+			this.panelCursos.Location = new System.Drawing.Point(0, 540);
 			this.panelCursos.Name = "panelCursos";
 			this.panelCursos.Size = new System.Drawing.Size(455, 447);
 			this.panelCursos.TabIndex = 17;
@@ -698,14 +702,14 @@
 			this.gvCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.gvCursos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
 			this.gvCursos.BackgroundColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.gvCursos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle93.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle93.BackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle93.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle93.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataGridViewCellStyle93.SelectionBackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle93.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataGridViewCellStyle93.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.gvCursos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle93;
 			this.gvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.gvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clImage,
@@ -713,14 +717,14 @@
             this.clDuracao,
             this.clValor,
             this.clDetalhes});
-			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle7.BackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle7.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.gvCursos.DefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle95.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle95.BackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle95.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle95.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle95.SelectionBackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle95.SelectionForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle95.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.gvCursos.DefaultCellStyle = dataGridViewCellStyle95;
 			this.gvCursos.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.gvCursos.EnableHeadersVisualStyles = false;
 			this.gvCursos.GridColor = System.Drawing.Color.Black;
@@ -728,14 +732,14 @@
 			this.gvCursos.MultiSelect = false;
 			this.gvCursos.Name = "gvCursos";
 			this.gvCursos.ReadOnly = true;
-			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle8.BackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle8.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.gvCursos.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle96.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle96.BackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle96.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle96.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataGridViewCellStyle96.SelectionBackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle96.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataGridViewCellStyle96.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.gvCursos.RowHeadersDefaultCellStyle = dataGridViewCellStyle96;
 			this.gvCursos.RowHeadersVisible = false;
 			this.gvCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.gvCursos.Size = new System.Drawing.Size(455, 351);
@@ -776,12 +780,12 @@
 			// 
 			// clDetalhes
 			// 
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-			this.clDetalhes.DefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle94.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle94.BackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle94.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle94.SelectionBackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle94.SelectionForeColor = System.Drawing.Color.White;
+			this.clDetalhes.DefaultCellStyle = dataGridViewCellStyle94;
 			this.clDetalhes.FillWeight = 15F;
 			this.clDetalhes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.clDetalhes.HeaderText = "";
@@ -1366,9 +1370,15 @@
 			// 
 			// panelMissao
 			// 
+			this.panelMissao.Controls.Add(this.lblTitMissao);
+			this.panelMissao.Controls.Add(this.lblExperienciaMissao);
+			this.panelMissao.Controls.Add(this.lblTitExperienciaMissao);
+			this.panelMissao.Controls.Add(this.lblProgressoMissao);
+			this.panelMissao.Controls.Add(this.pbMissao);
 			this.panelMissao.Controls.Add(this.lblMissao);
+			this.panelMissao.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelMissao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			this.panelMissao.Location = new System.Drawing.Point(0, 540);
+			this.panelMissao.Location = new System.Drawing.Point(10, 33);
 			this.panelMissao.Name = "panelMissao";
 			this.panelMissao.Size = new System.Drawing.Size(455, 447);
 			this.panelMissao.TabIndex = 1;
@@ -1377,10 +1387,11 @@
 			// lblMissao
 			// 
 			this.lblMissao.Dock = System.Windows.Forms.DockStyle.Top;
+			this.lblMissao.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblMissao.Location = new System.Drawing.Point(0, 0);
 			this.lblMissao.Name = "lblMissao";
-			this.lblMissao.Padding = new System.Windows.Forms.Padding(3, 3, 0, 0);
-			this.lblMissao.Size = new System.Drawing.Size(455, 222);
+			this.lblMissao.Padding = new System.Windows.Forms.Padding(0, 42, 0, 0);
+			this.lblMissao.Size = new System.Drawing.Size(455, 368);
 			this.lblMissao.TabIndex = 0;
 			// 
 			// panelPrincipal
@@ -1398,82 +1409,82 @@
 			// 
 			this.chart.BackColor = System.Drawing.Color.Transparent;
 			this.chart.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			chartArea2.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-			chartArea2.AxisX2.LineColor = System.Drawing.Color.White;
-			chartArea2.AxisX2.TitleForeColor = System.Drawing.Color.White;
-			chartArea2.AxisY2.TitleForeColor = System.Drawing.Color.White;
-			chartArea2.BackColor = System.Drawing.Color.Transparent;
-			chartArea2.BackImageTransparentColor = System.Drawing.Color.Transparent;
-			chartArea2.BackSecondaryColor = System.Drawing.Color.Transparent;
-			chartArea2.BorderColor = System.Drawing.Color.Transparent;
-			chartArea2.Name = "ChartArea1";
-			chartArea2.ShadowColor = System.Drawing.Color.DarkGray;
-			this.chart.ChartAreas.Add(chartArea2);
+			chartArea24.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+			chartArea24.AxisX2.LineColor = System.Drawing.Color.White;
+			chartArea24.AxisX2.TitleForeColor = System.Drawing.Color.White;
+			chartArea24.AxisY2.TitleForeColor = System.Drawing.Color.White;
+			chartArea24.BackColor = System.Drawing.Color.Transparent;
+			chartArea24.BackImageTransparentColor = System.Drawing.Color.Transparent;
+			chartArea24.BackSecondaryColor = System.Drawing.Color.Transparent;
+			chartArea24.BorderColor = System.Drawing.Color.Transparent;
+			chartArea24.Name = "ChartArea1";
+			chartArea24.ShadowColor = System.Drawing.Color.DarkGray;
+			this.chart.ChartAreas.Add(chartArea24);
 			this.chart.Dock = System.Windows.Forms.DockStyle.Top;
-			legend2.BackColor = System.Drawing.Color.Transparent;
-			legend2.BackSecondaryColor = System.Drawing.Color.Transparent;
-			legend2.BorderColor = System.Drawing.Color.DimGray;
-			legend2.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			legend2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			legend2.InterlacedRowsColor = System.Drawing.Color.Transparent;
-			legend2.IsTextAutoFit = false;
-			legend2.Name = "Legend";
-			legend2.Title = "Legenda";
-			legend2.TitleBackColor = System.Drawing.Color.Transparent;
-			legend2.TitleFont = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			legend2.TitleForeColor = System.Drawing.Color.White;
-			legend2.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
-			legend2.TitleSeparatorColor = System.Drawing.Color.DimGray;
-			this.chart.Legends.Add(legend2);
+			legend24.BackColor = System.Drawing.Color.Transparent;
+			legend24.BackSecondaryColor = System.Drawing.Color.Transparent;
+			legend24.BorderColor = System.Drawing.Color.DimGray;
+			legend24.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			legend24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			legend24.InterlacedRowsColor = System.Drawing.Color.Transparent;
+			legend24.IsTextAutoFit = false;
+			legend24.Name = "Legend";
+			legend24.Title = "Legenda";
+			legend24.TitleBackColor = System.Drawing.Color.Transparent;
+			legend24.TitleFont = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			legend24.TitleForeColor = System.Drawing.Color.White;
+			legend24.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
+			legend24.TitleSeparatorColor = System.Drawing.Color.DimGray;
+			this.chart.Legends.Add(legend24);
 			this.chart.Location = new System.Drawing.Point(0, 0);
 			this.chart.Name = "chart";
 			this.chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
 			this.chart.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))))};
-			series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-			series2.BackSecondaryColor = System.Drawing.Color.Transparent;
-			series2.BorderColor = System.Drawing.Color.Transparent;
-			series2.ChartArea = "ChartArea1";
-			series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			series2.LabelBackColor = System.Drawing.Color.White;
-			series2.LabelForeColor = System.Drawing.Color.White;
-			series2.Legend = "Legend";
-			series2.Name = "Execuções";
-			dataPoint4.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint4.IsValueShownAsLabel = true;
-			dataPoint4.Label = "Cassino";
-			dataPoint4.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint4.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint4.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataPoint5.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint5.IsValueShownAsLabel = true;
-			dataPoint5.Label = "Banco";
-			dataPoint5.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint5.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint5.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataPoint6.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint6.IsValueShownAsLabel = true;
-			dataPoint6.Label = "Lojinha...";
-			dataPoint6.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint6.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint6.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			series2.Points.Add(dataPoint4);
-			series2.Points.Add(dataPoint5);
-			series2.Points.Add(dataPoint6);
-			this.chart.Series.Add(series2);
+			series24.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+			series24.BackSecondaryColor = System.Drawing.Color.Transparent;
+			series24.BorderColor = System.Drawing.Color.Transparent;
+			series24.ChartArea = "ChartArea1";
+			series24.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			series24.LabelBackColor = System.Drawing.Color.White;
+			series24.LabelForeColor = System.Drawing.Color.White;
+			series24.Legend = "Legend";
+			series24.Name = "Execuções";
+			dataPoint70.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint70.IsValueShownAsLabel = true;
+			dataPoint70.Label = "Cassino";
+			dataPoint70.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint70.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint70.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataPoint71.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint71.IsValueShownAsLabel = true;
+			dataPoint71.Label = "Banco";
+			dataPoint71.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint71.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint71.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataPoint72.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint72.IsValueShownAsLabel = true;
+			dataPoint72.Label = "Lojinha...";
+			dataPoint72.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint72.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint72.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			series24.Points.Add(dataPoint70);
+			series24.Points.Add(dataPoint71);
+			series24.Points.Add(dataPoint72);
+			this.chart.Series.Add(series24);
 			this.chart.Size = new System.Drawing.Size(455, 206);
 			this.chart.TabIndex = 2;
 			this.chart.TabStop = false;
 			this.chart.Text = "CHART";
-			title2.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-			title2.BackColor = System.Drawing.Color.Transparent;
-			title2.BackSecondaryColor = System.Drawing.Color.Transparent;
-			title2.DockingOffset = 5;
-			title2.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			title2.ForeColor = System.Drawing.Color.White;
-			title2.Name = "Title1";
-			title2.Text = "Ultimos golpes";
-			this.chart.Titles.Add(title2);
+			title24.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+			title24.BackColor = System.Drawing.Color.Transparent;
+			title24.BackSecondaryColor = System.Drawing.Color.Transparent;
+			title24.DockingOffset = 5;
+			title24.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			title24.ForeColor = System.Drawing.Color.White;
+			title24.Name = "Title1";
+			title24.Text = "Ultimos golpes";
+			this.chart.Titles.Add(title24);
 			// 
 			// groupBox4
 			// 
@@ -1653,6 +1664,62 @@
 			this.btnConfig.UseVisualStyleBackColor = false;
 			this.btnConfig.Click += new System.EventHandler(this.configTool_Click);
 			// 
+			// pbMissao
+			// 
+			this.pbMissao.Location = new System.Drawing.Point(3, 434);
+			this.pbMissao.Name = "pbMissao";
+			this.pbMissao.Size = new System.Drawing.Size(449, 10);
+			this.pbMissao.TabIndex = 9;
+			// 
+			// lblProgressoMissao
+			// 
+			this.lblProgressoMissao.AutoSize = true;
+			this.lblProgressoMissao.BackColor = System.Drawing.Color.Transparent;
+			this.lblProgressoMissao.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblProgressoMissao.ForeColor = System.Drawing.Color.White;
+			this.lblProgressoMissao.Location = new System.Drawing.Point(2, 404);
+			this.lblProgressoMissao.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblProgressoMissao.Name = "lblProgressoMissao";
+			this.lblProgressoMissao.Size = new System.Drawing.Size(176, 27);
+			this.lblProgressoMissao.TabIndex = 9;
+			this.lblProgressoMissao.Text = "$20.00 / $20.00";
+			// 
+			// lblExperienciaMissao
+			// 
+			this.lblExperienciaMissao.BackColor = System.Drawing.Color.Transparent;
+			this.lblExperienciaMissao.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblExperienciaMissao.ForeColor = System.Drawing.Color.White;
+			this.lblExperienciaMissao.Location = new System.Drawing.Point(313, 404);
+			this.lblExperienciaMissao.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblExperienciaMissao.Name = "lblExperienciaMissao";
+			this.lblExperienciaMissao.Size = new System.Drawing.Size(93, 27);
+			this.lblExperienciaMissao.TabIndex = 10;
+			this.lblExperienciaMissao.Text = "+10.000";
+			this.lblExperienciaMissao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// lblTitExperienciaMissao
+			// 
+			this.lblTitExperienciaMissao.AutoSize = true;
+			this.lblTitExperienciaMissao.BackColor = System.Drawing.Color.Transparent;
+			this.lblTitExperienciaMissao.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblTitExperienciaMissao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.lblTitExperienciaMissao.Location = new System.Drawing.Point(401, 404);
+			this.lblTitExperienciaMissao.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblTitExperienciaMissao.Name = "lblTitExperienciaMissao";
+			this.lblTitExperienciaMissao.Size = new System.Drawing.Size(51, 27);
+			this.lblTitExperienciaMissao.TabIndex = 11;
+			this.lblTitExperienciaMissao.Text = "EXP";
+			// 
+			// lblTitMissao
+			// 
+			this.lblTitMissao.Font = new System.Drawing.Font("DS-Digital", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblTitMissao.ForeColor = System.Drawing.Color.White;
+			this.lblTitMissao.Location = new System.Drawing.Point(3, 3);
+			this.lblTitMissao.Name = "lblTitMissao";
+			this.lblTitMissao.Size = new System.Drawing.Size(449, 31);
+			this.lblTitMissao.TabIndex = 12;
+			this.lblTitMissao.Text = "TÍtulo da Quest";
+			// 
 			// frmPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1709,6 +1776,7 @@
 			this.panelVpn.ResumeLayout(false);
 			this.panelVpn.PerformLayout();
 			this.panelMissao.ResumeLayout(false);
+			this.panelMissao.PerformLayout();
 			this.panelPrincipal.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
 			this.groupBox4.ResumeLayout(false);
@@ -1835,5 +1903,10 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn clDuracao;
 		private System.Windows.Forms.DataGridViewTextBoxColumn clValor;
 		private System.Windows.Forms.DataGridViewButtonColumn clDetalhes;
+		private System.Windows.Forms.ProgressBar pbMissao;
+		private System.Windows.Forms.Label lblProgressoMissao;
+		private System.Windows.Forms.Label lblExperienciaMissao;
+		private System.Windows.Forms.Label lblTitExperienciaMissao;
+		private System.Windows.Forms.Label lblTitMissao;
 	}
 }

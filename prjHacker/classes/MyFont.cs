@@ -36,6 +36,10 @@ namespace prjHacker.classes
             {
                 ff = collection.Families[i];
             }
+            public static void select(FontFamily ff)
+            {
+                MyFont.ff = ff;
+            }
 		#endregion
 
 		#region applyff + Sobrecargas

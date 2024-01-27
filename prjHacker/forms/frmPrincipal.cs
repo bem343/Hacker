@@ -24,7 +24,7 @@ namespace prjHacker.forms
 
             public static double dinheiro = 150;
             public static double experiencia = 0;
-            public static int skill = 1000;
+            public static int skill = 2000;
             //public static int skill = 0;
             public static int nivel = 0;
 
@@ -295,15 +295,44 @@ namespace prjHacker.forms
 
         #region Quando Seleciona um item da lista de missões
             List<int> CurrentQuests = new List<int>();
+            private string progFormatado(int tipo, double prog, double max)
+            {
+                switch (tipo)
+                {
+                    case 1: return $"{prog.ToString("F2")}/{max.ToString("F2")}";
+                    default: return $"{(int)prog}/{(int)max}";
+			    }
+            }
             private void lstTrabalhos_SelectedIndexChanged(object sender, EventArgs e)
             {
                 if (lstTrabalhos.SelectedItems.Count <= 0) { return; }
+
                 Sound.click();
+
                 int index = CurrentQuests[lstTrabalhos.SelectedIndex];
+
+                gbAreaDeTrabalho.Text = "Quest";
+                lblTitMissao.Text = quests[index]["name"].InnerText;
                 lblMissao.Text = quests[index]["instruction"].InnerText;
-                gbAreaDeTrabalho.Text = quests[index]["name"].InnerText;
+                lblExperienciaMissao.Text = "+" + quests[index]["exp"].InnerText;
+
+                int tipoProg = 0;
+                double prog = 0;
+                double max = double.Parse(quests[index]["objective"]?.InnerText ?? "1");
+
+                switch (index)
+                {
+                    case 4: prog = q4Counter; tipoProg = 1; break;
+                    case 5: prog = q5Counter; break;
+                }
+
+                pbMissao.Maximum = (int)max;
+                pbMissao.Value = (int)prog;
+                lblProgressoMissao.Text = progFormatado(tipoProg, prog, max);
+
                 fecharPanels();
                 panelMissao.Visible = true;
+
                 lstTrabalhos.ClearSelected();
             }
         #endregion
@@ -678,12 +707,11 @@ namespace prjHacker.forms
 
 		private void gvCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
-			//if (e.RowIndex >= 0 && e.ColumnIndex == gvCursos.Columns["clDetalhes"].Index)
-            //{
-            //    MessageBox.Show("Detalhe: " + e.RowIndex);
-            //}
-		}
+            if (e.RowIndex >= 0 && e.ColumnIndex == gvCursos.Columns["clDetalhes"].Index)
+            {
+                //MessageBox.Show("Detalhe: " + e.RowIndex);
+            }
+        }
 
-		
 	}
 }
