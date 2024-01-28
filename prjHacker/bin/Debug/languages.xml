@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<languages>
+ 
+    <language>
+        <id>js</id>
+        <ext>.js</ext>
+        <name>Javascript</name>
+    </language>
+
+    <language>
+        <id>c</id>
+        <ext>.c</ext>
+        <name>C</name>
+    </language>
+
+    <language>
+        <id>c#</id>
+        <ext>.cs</ext>
+        <name>C#</name>
+    </language>
+
+    <language>
+        <id>c++</id>
+        <ext>.c++</ext>
+        <name>C++</name>
+    </language>
+
+</languages>

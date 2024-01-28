@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 2D);
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
-			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
-			System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 2D);
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
+			System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 14D);
+			System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.lblExperiencia = new System.Windows.Forms.Label();
 			this.pbExperiencia = new System.Windows.Forms.ProgressBar();
@@ -87,6 +87,12 @@
 			this.panelCursos = new System.Windows.Forms.Panel();
 			this.panelListaCursos = new System.Windows.Forms.Panel();
 			this.gvCursos = new System.Windows.Forms.DataGridView();
+			this.clImage = new System.Windows.Forms.DataGridViewImageColumn();
+			this.clIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clDuracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clDetalhes = new System.Windows.Forms.DataGridViewButtonColumn();
 			this.label22 = new System.Windows.Forms.Label();
 			this.lblNextLanguage = new System.Windows.Forms.Label();
 			this.lblLastLanguage = new System.Windows.Forms.Label();
@@ -153,11 +159,17 @@
 			this.pcbFundo = new System.Windows.Forms.PictureBox();
 			this.pictureBox4 = new System.Windows.Forms.PictureBox();
 			this.btnConfig = new System.Windows.Forms.Button();
-			this.clImage = new System.Windows.Forms.DataGridViewImageColumn();
-			this.clNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.clDuracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.clValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.clDetalhes = new System.Windows.Forms.DataGridViewButtonColumn();
+			this.panelCurso = new System.Windows.Forms.Panel();
+			this.label16 = new System.Windows.Forms.Label();
+			this.pcbCurso = new System.Windows.Forms.PictureBox();
+			this.lblNomeCurso = new System.Windows.Forms.Label();
+			this.lblDescrissaoCurso = new System.Windows.Forms.Label();
+			this.btnComprarCurso = new System.Windows.Forms.Button();
+			this.lblDuracaoCurso = new System.Windows.Forms.Label();
+			this.lblValorCurso = new System.Windows.Forms.Label();
+			this.btnVoltarCurso = new System.Windows.Forms.Button();
+			this.cbCursosComprados = new System.Windows.Forms.CheckBox();
+			this.btnComecarCurso = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.menuStrip.SuspendLayout();
@@ -185,6 +197,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pcbFundo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+			this.panelCurso.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pcbCurso)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// groupBox1
@@ -673,6 +687,7 @@
 			// 
 			// panelCursos
 			// 
+			this.panelCursos.Controls.Add(this.panelCurso);
 			this.panelCursos.Controls.Add(this.panelListaCursos);
 			this.panelCursos.Controls.Add(this.lblNextLanguage);
 			this.panelCursos.Controls.Add(this.lblLastLanguage);
@@ -683,16 +698,19 @@
 			this.panelCursos.Size = new System.Drawing.Size(455, 447);
 			this.panelCursos.TabIndex = 17;
 			this.panelCursos.Visible = false;
+			this.panelCursos.VisibleChanged += new System.EventHandler(this.panelCursos_VisibleChanged);
 			// 
 			// panelListaCursos
 			// 
+			this.panelListaCursos.Controls.Add(this.cbCursosComprados);
 			this.panelListaCursos.Controls.Add(this.gvCursos);
 			this.panelListaCursos.Controls.Add(this.label22);
-			this.panelListaCursos.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panelListaCursos.Location = new System.Drawing.Point(0, 0);
+			this.panelListaCursos.Location = new System.Drawing.Point(0, 540);
 			this.panelListaCursos.Name = "panelListaCursos";
 			this.panelListaCursos.Size = new System.Drawing.Size(455, 388);
 			this.panelListaCursos.TabIndex = 18;
+			this.panelListaCursos.Visible = false;
+			this.panelListaCursos.VisibleChanged += new System.EventHandler(this.panelListaCursos_VisibleChanged);
 			// 
 			// gvCursos
 			// 
@@ -703,29 +721,30 @@
 			this.gvCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.gvCursos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
 			this.gvCursos.BackgroundColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.gvCursos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.gvCursos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this.gvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.gvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clImage,
+            this.clIndex,
             this.clNome,
             this.clDuracao,
             this.clValor,
             this.clDetalhes});
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.gvCursos.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle7.BackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle7.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.gvCursos.DefaultCellStyle = dataGridViewCellStyle7;
 			this.gvCursos.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.gvCursos.EnableHeadersVisualStyles = false;
 			this.gvCursos.GridColor = System.Drawing.Color.Black;
@@ -733,14 +752,14 @@
 			this.gvCursos.MultiSelect = false;
 			this.gvCursos.Name = "gvCursos";
 			this.gvCursos.ReadOnly = true;
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.gvCursos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle8.BackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle8.Font = new System.Drawing.Font("DS-Digital", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.gvCursos.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
 			this.gvCursos.RowHeadersVisible = false;
 			this.gvCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.gvCursos.Size = new System.Drawing.Size(455, 351);
@@ -748,27 +767,79 @@
 			this.gvCursos.TabStop = false;
 			this.gvCursos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCursos_CellContentClick);
 			// 
+			// clImage
+			// 
+			this.clImage.FillWeight = 25F;
+			this.clImage.HeaderText = "";
+			this.clImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+			this.clImage.Name = "clImage";
+			this.clImage.ReadOnly = true;
+			// 
+			// clIndex
+			// 
+			this.clIndex.HeaderText = "index";
+			this.clIndex.Name = "clIndex";
+			this.clIndex.ReadOnly = true;
+			this.clIndex.Visible = false;
+			// 
+			// clNome
+			// 
+			this.clNome.HeaderText = "Nome";
+			this.clNome.Name = "clNome";
+			this.clNome.ReadOnly = true;
+			this.clNome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// clDuracao
+			// 
+			this.clDuracao.FillWeight = 40F;
+			this.clDuracao.HeaderText = "Tempo";
+			this.clDuracao.Name = "clDuracao";
+			this.clDuracao.ReadOnly = true;
+			this.clDuracao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// clValor
+			// 
+			this.clValor.FillWeight = 50F;
+			this.clValor.HeaderText = "Valor";
+			this.clValor.Name = "clValor";
+			this.clValor.ReadOnly = true;
+			this.clValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// clDetalhes
+			// 
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+			this.clDetalhes.DefaultCellStyle = dataGridViewCellStyle6;
+			this.clDetalhes.FillWeight = 15F;
+			this.clDetalhes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.clDetalhes.HeaderText = "";
+			this.clDetalhes.Name = "clDetalhes";
+			this.clDetalhes.ReadOnly = true;
+			// 
 			// label22
 			// 
 			this.label22.AutoSize = true;
 			this.label22.Font = new System.Drawing.Font("DS-Digital", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label22.Location = new System.Drawing.Point(3, 3);
 			this.label22.Name = "label22";
-			this.label22.Size = new System.Drawing.Size(110, 31);
+			this.label22.Size = new System.Drawing.Size(268, 31);
 			this.label22.TabIndex = 0;
-			this.label22.Text = "Cursos";
+			this.label22.Text = "Cursos disponÍveis";
 			// 
 			// lblNextLanguage
 			// 
 			this.lblNextLanguage.BackColor = System.Drawing.Color.Transparent;
 			this.lblNextLanguage.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblNextLanguage.ForeColor = System.Drawing.Color.White;
-			this.lblNextLanguage.Location = new System.Drawing.Point(262, 410);
+			this.lblNextLanguage.Location = new System.Drawing.Point(264, 410);
 			this.lblNextLanguage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblNextLanguage.Name = "lblNextLanguage";
 			this.lblNextLanguage.Size = new System.Drawing.Size(181, 27);
 			this.lblNextLanguage.TabIndex = 14;
-			this.lblNextLanguage.Text = "C#";
+			this.lblNextLanguage.Text = "-";
 			this.lblNextLanguage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// lblLastLanguage
@@ -776,19 +847,19 @@
 			this.lblLastLanguage.BackColor = System.Drawing.Color.Transparent;
 			this.lblLastLanguage.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblLastLanguage.ForeColor = System.Drawing.Color.White;
-			this.lblLastLanguage.Location = new System.Drawing.Point(14, 410);
+			this.lblLastLanguage.Location = new System.Drawing.Point(4, 410);
 			this.lblLastLanguage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblLastLanguage.Name = "lblLastLanguage";
 			this.lblLastLanguage.Size = new System.Drawing.Size(181, 27);
 			this.lblLastLanguage.TabIndex = 9;
-			this.lblLastLanguage.Text = "Javascript";
+			this.lblLastLanguage.Text = "-";
 			this.lblLastLanguage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// pbLanguage
 			// 
-			this.pbLanguage.Location = new System.Drawing.Point(19, 397);
+			this.pbLanguage.Location = new System.Drawing.Point(9, 397);
 			this.pbLanguage.Name = "pbLanguage";
-			this.pbLanguage.Size = new System.Drawing.Size(424, 10);
+			this.pbLanguage.Size = new System.Drawing.Size(436, 10);
 			this.pbLanguage.TabIndex = 9;
 			// 
 			// panelScripts
@@ -1419,82 +1490,82 @@
 			// 
 			this.chart.BackColor = System.Drawing.Color.Transparent;
 			this.chart.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-			chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
-			chartArea1.AxisX2.TitleForeColor = System.Drawing.Color.White;
-			chartArea1.AxisY2.TitleForeColor = System.Drawing.Color.White;
-			chartArea1.BackColor = System.Drawing.Color.Transparent;
-			chartArea1.BackImageTransparentColor = System.Drawing.Color.Transparent;
-			chartArea1.BackSecondaryColor = System.Drawing.Color.Transparent;
-			chartArea1.BorderColor = System.Drawing.Color.Transparent;
-			chartArea1.Name = "ChartArea1";
-			chartArea1.ShadowColor = System.Drawing.Color.DarkGray;
-			this.chart.ChartAreas.Add(chartArea1);
+			chartArea2.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+			chartArea2.AxisX2.LineColor = System.Drawing.Color.White;
+			chartArea2.AxisX2.TitleForeColor = System.Drawing.Color.White;
+			chartArea2.AxisY2.TitleForeColor = System.Drawing.Color.White;
+			chartArea2.BackColor = System.Drawing.Color.Transparent;
+			chartArea2.BackImageTransparentColor = System.Drawing.Color.Transparent;
+			chartArea2.BackSecondaryColor = System.Drawing.Color.Transparent;
+			chartArea2.BorderColor = System.Drawing.Color.Transparent;
+			chartArea2.Name = "ChartArea1";
+			chartArea2.ShadowColor = System.Drawing.Color.DarkGray;
+			this.chart.ChartAreas.Add(chartArea2);
 			this.chart.Dock = System.Windows.Forms.DockStyle.Top;
-			legend1.BackColor = System.Drawing.Color.Transparent;
-			legend1.BackSecondaryColor = System.Drawing.Color.Transparent;
-			legend1.BorderColor = System.Drawing.Color.DimGray;
-			legend1.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			legend1.InterlacedRowsColor = System.Drawing.Color.Transparent;
-			legend1.IsTextAutoFit = false;
-			legend1.Name = "Legend";
-			legend1.Title = "Legenda";
-			legend1.TitleBackColor = System.Drawing.Color.Transparent;
-			legend1.TitleFont = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			legend1.TitleForeColor = System.Drawing.Color.White;
-			legend1.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
-			legend1.TitleSeparatorColor = System.Drawing.Color.DimGray;
-			this.chart.Legends.Add(legend1);
+			legend2.BackColor = System.Drawing.Color.Transparent;
+			legend2.BackSecondaryColor = System.Drawing.Color.Transparent;
+			legend2.BorderColor = System.Drawing.Color.DimGray;
+			legend2.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			legend2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			legend2.InterlacedRowsColor = System.Drawing.Color.Transparent;
+			legend2.IsTextAutoFit = false;
+			legend2.Name = "Legend";
+			legend2.Title = "Legenda";
+			legend2.TitleBackColor = System.Drawing.Color.Transparent;
+			legend2.TitleFont = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			legend2.TitleForeColor = System.Drawing.Color.White;
+			legend2.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
+			legend2.TitleSeparatorColor = System.Drawing.Color.DimGray;
+			this.chart.Legends.Add(legend2);
 			this.chart.Location = new System.Drawing.Point(0, 0);
 			this.chart.Name = "chart";
 			this.chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
 			this.chart.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))))};
-			series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-			series1.BackSecondaryColor = System.Drawing.Color.Transparent;
-			series1.BorderColor = System.Drawing.Color.Transparent;
-			series1.ChartArea = "ChartArea1";
-			series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			series1.LabelBackColor = System.Drawing.Color.White;
-			series1.LabelForeColor = System.Drawing.Color.White;
-			series1.Legend = "Legend";
-			series1.Name = "Execuções";
-			dataPoint1.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint1.IsValueShownAsLabel = true;
-			dataPoint1.Label = "Cassino";
-			dataPoint1.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint1.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataPoint2.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint2.IsValueShownAsLabel = true;
-			dataPoint2.Label = "Banco";
-			dataPoint2.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint2.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			dataPoint3.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataPoint3.IsValueShownAsLabel = true;
-			dataPoint3.Label = "Lojinha...";
-			dataPoint3.LabelBackColor = System.Drawing.Color.Transparent;
-			dataPoint3.LabelBorderColor = System.Drawing.Color.Transparent;
-			dataPoint3.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
-			series1.Points.Add(dataPoint1);
-			series1.Points.Add(dataPoint2);
-			series1.Points.Add(dataPoint3);
-			this.chart.Series.Add(series1);
+			series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+			series2.BackSecondaryColor = System.Drawing.Color.Transparent;
+			series2.BorderColor = System.Drawing.Color.Transparent;
+			series2.ChartArea = "ChartArea1";
+			series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			series2.LabelBackColor = System.Drawing.Color.White;
+			series2.LabelForeColor = System.Drawing.Color.White;
+			series2.Legend = "Legend";
+			series2.Name = "Execuções";
+			dataPoint4.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint4.IsValueShownAsLabel = true;
+			dataPoint4.Label = "Cassino";
+			dataPoint4.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint4.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint4.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataPoint5.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint5.IsValueShownAsLabel = true;
+			dataPoint5.Label = "Banco";
+			dataPoint5.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint5.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint5.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			dataPoint6.Font = new System.Drawing.Font("DS-Digital", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataPoint6.IsValueShownAsLabel = true;
+			dataPoint6.Label = "Lojinha...";
+			dataPoint6.LabelBackColor = System.Drawing.Color.Transparent;
+			dataPoint6.LabelBorderColor = System.Drawing.Color.Transparent;
+			dataPoint6.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			series2.Points.Add(dataPoint4);
+			series2.Points.Add(dataPoint5);
+			series2.Points.Add(dataPoint6);
+			this.chart.Series.Add(series2);
 			this.chart.Size = new System.Drawing.Size(455, 206);
 			this.chart.TabIndex = 2;
 			this.chart.TabStop = false;
 			this.chart.Text = "CHART";
-			title1.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-			title1.BackColor = System.Drawing.Color.Transparent;
-			title1.BackSecondaryColor = System.Drawing.Color.Transparent;
-			title1.DockingOffset = 5;
-			title1.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			title1.ForeColor = System.Drawing.Color.White;
-			title1.Name = "Title1";
-			title1.Text = "Ultimos golpes";
-			this.chart.Titles.Add(title1);
+			title2.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+			title2.BackColor = System.Drawing.Color.Transparent;
+			title2.BackSecondaryColor = System.Drawing.Color.Transparent;
+			title2.DockingOffset = 5;
+			title2.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			title2.ForeColor = System.Drawing.Color.White;
+			title2.Name = "Title1";
+			title2.Text = "Ultimos golpes";
+			this.chart.Titles.Add(title2);
 			// 
 			// groupBox4
 			// 
@@ -1674,50 +1745,155 @@
 			this.btnConfig.UseVisualStyleBackColor = false;
 			this.btnConfig.Click += new System.EventHandler(this.configTool_Click);
 			// 
-			// clImage
+			// panelCurso
 			// 
-			this.clImage.FillWeight = 25F;
-			this.clImage.HeaderText = "";
-			this.clImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-			this.clImage.Name = "clImage";
-			this.clImage.ReadOnly = true;
+			this.panelCurso.Controls.Add(this.btnComecarCurso);
+			this.panelCurso.Controls.Add(this.btnVoltarCurso);
+			this.panelCurso.Controls.Add(this.lblValorCurso);
+			this.panelCurso.Controls.Add(this.lblDuracaoCurso);
+			this.panelCurso.Controls.Add(this.btnComprarCurso);
+			this.panelCurso.Controls.Add(this.lblDescrissaoCurso);
+			this.panelCurso.Controls.Add(this.lblNomeCurso);
+			this.panelCurso.Controls.Add(this.pcbCurso);
+			this.panelCurso.Controls.Add(this.label16);
+			this.panelCurso.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panelCurso.Location = new System.Drawing.Point(0, 0);
+			this.panelCurso.Name = "panelCurso";
+			this.panelCurso.Size = new System.Drawing.Size(455, 388);
+			this.panelCurso.TabIndex = 19;
+			this.panelCurso.Visible = false;
 			// 
-			// clNome
+			// label16
 			// 
-			this.clNome.HeaderText = "Nome";
-			this.clNome.Name = "clNome";
-			this.clNome.ReadOnly = true;
-			this.clNome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.label16.AutoSize = true;
+			this.label16.Font = new System.Drawing.Font("DS-Digital", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label16.Location = new System.Drawing.Point(3, 3);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(94, 31);
+			this.label16.TabIndex = 0;
+			this.label16.Text = "Curso";
 			// 
-			// clDuracao
+			// pcbCurso
 			// 
-			this.clDuracao.FillWeight = 40F;
-			this.clDuracao.HeaderText = "Tempo";
-			this.clDuracao.Name = "clDuracao";
-			this.clDuracao.ReadOnly = true;
-			this.clDuracao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.pcbCurso.Image = global::prjHacker.Properties.Resources.script;
+			this.pcbCurso.Location = new System.Drawing.Point(9, 85);
+			this.pcbCurso.Name = "pcbCurso";
+			this.pcbCurso.Size = new System.Drawing.Size(104, 125);
+			this.pcbCurso.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pcbCurso.TabIndex = 1;
+			this.pcbCurso.TabStop = false;
 			// 
-			// clValor
+			// lblNomeCurso
 			// 
-			this.clValor.FillWeight = 50F;
-			this.clValor.HeaderText = "Valor";
-			this.clValor.Name = "clValor";
-			this.clValor.ReadOnly = true;
-			this.clValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.lblNomeCurso.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblNomeCurso.ForeColor = System.Drawing.Color.White;
+			this.lblNomeCurso.Location = new System.Drawing.Point(3, 43);
+			this.lblNomeCurso.Name = "lblNomeCurso";
+			this.lblNomeCurso.Size = new System.Drawing.Size(449, 31);
+			this.lblNomeCurso.TabIndex = 2;
+			this.lblNomeCurso.Text = "C BÁsico";
+			this.lblNomeCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// clDetalhes
+			// lblDescrissaoCurso
 			// 
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-			this.clDetalhes.DefaultCellStyle = dataGridViewCellStyle2;
-			this.clDetalhes.FillWeight = 15F;
-			this.clDetalhes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.clDetalhes.HeaderText = "";
-			this.clDetalhes.Name = "clDetalhes";
-			this.clDetalhes.ReadOnly = true;
+			this.lblDescrissaoCurso.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblDescrissaoCurso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.lblDescrissaoCurso.Location = new System.Drawing.Point(119, 85);
+			this.lblDescrissaoCurso.Name = "lblDescrissaoCurso";
+			this.lblDescrissaoCurso.Size = new System.Drawing.Size(326, 245);
+			this.lblDescrissaoCurso.TabIndex = 3;
+			this.lblDescrissaoCurso.Text = "Neste curso vocÊ consiguirÁ todo conhecimento bÁsico necessÁrio para comeÇar" +
+    " a programar em C";
+			// 
+			// btnComprarCurso
+			// 
+			this.btnComprarCurso.BackColor = System.Drawing.Color.Transparent;
+			this.btnComprarCurso.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnComprarCurso.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.btnComprarCurso.FlatAppearance.BorderSize = 0;
+			this.btnComprarCurso.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+			this.btnComprarCurso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.btnComprarCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnComprarCurso.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnComprarCurso.Location = new System.Drawing.Point(71, 333);
+			this.btnComprarCurso.Name = "btnComprarCurso";
+			this.btnComprarCurso.Size = new System.Drawing.Size(374, 39);
+			this.btnComprarCurso.TabIndex = 27;
+			this.btnComprarCurso.Text = "Comprar";
+			this.btnComprarCurso.UseVisualStyleBackColor = false;
+			this.btnComprarCurso.Click += new System.EventHandler(this.btnComprarCurso_Click);
+			// 
+			// lblDuracaoCurso
+			// 
+			this.lblDuracaoCurso.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblDuracaoCurso.ForeColor = System.Drawing.Color.White;
+			this.lblDuracaoCurso.Location = new System.Drawing.Point(4, 213);
+			this.lblDuracaoCurso.Name = "lblDuracaoCurso";
+			this.lblDuracaoCurso.Size = new System.Drawing.Size(109, 31);
+			this.lblDuracaoCurso.TabIndex = 28;
+			this.lblDuracaoCurso.Text = "03:00";
+			this.lblDuracaoCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// lblValorCurso
+			// 
+			this.lblValorCurso.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblValorCurso.ForeColor = System.Drawing.Color.White;
+			this.lblValorCurso.Location = new System.Drawing.Point(4, 244);
+			this.lblValorCurso.Name = "lblValorCurso";
+			this.lblValorCurso.Size = new System.Drawing.Size(109, 31);
+			this.lblValorCurso.TabIndex = 29;
+			this.lblValorCurso.Text = "$200,00";
+			this.lblValorCurso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// btnVoltarCurso
+			// 
+			this.btnVoltarCurso.BackColor = System.Drawing.Color.Transparent;
+			this.btnVoltarCurso.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnVoltarCurso.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.btnVoltarCurso.FlatAppearance.BorderSize = 0;
+			this.btnVoltarCurso.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+			this.btnVoltarCurso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.btnVoltarCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnVoltarCurso.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnVoltarCurso.Location = new System.Drawing.Point(9, 333);
+			this.btnVoltarCurso.Name = "btnVoltarCurso";
+			this.btnVoltarCurso.Size = new System.Drawing.Size(56, 39);
+			this.btnVoltarCurso.TabIndex = 30;
+			this.btnVoltarCurso.Text = "<<";
+			this.btnVoltarCurso.UseVisualStyleBackColor = false;
+			this.btnVoltarCurso.Click += new System.EventHandler(this.btnVoltarCurso_Click);
+			// 
+			// cbCursosComprados
+			// 
+			this.cbCursosComprados.AutoSize = true;
+			this.cbCursosComprados.BackColor = System.Drawing.Color.Transparent;
+			this.cbCursosComprados.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cbCursosComprados.ForeColor = System.Drawing.Color.White;
+			this.cbCursosComprados.Location = new System.Drawing.Point(314, 6);
+			this.cbCursosComprados.Name = "cbCursosComprados";
+			this.cbCursosComprados.Size = new System.Drawing.Size(137, 28);
+			this.cbCursosComprados.TabIndex = 2;
+			this.cbCursosComprados.Text = "Comprados";
+			this.cbCursosComprados.UseVisualStyleBackColor = false;
+			this.cbCursosComprados.CheckedChanged += new System.EventHandler(this.cbCursosComprados_CheckedChanged);
+			// 
+			// btnComecarCurso
+			// 
+			this.btnComecarCurso.BackColor = System.Drawing.Color.Transparent;
+			this.btnComecarCurso.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnComecarCurso.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.btnComecarCurso.FlatAppearance.BorderSize = 0;
+			this.btnComecarCurso.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+			this.btnComecarCurso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(0)))));
+			this.btnComecarCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnComecarCurso.Font = new System.Drawing.Font("DS-Digital", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnComecarCurso.Location = new System.Drawing.Point(71, 333);
+			this.btnComecarCurso.Name = "btnComecarCurso";
+			this.btnComecarCurso.Size = new System.Drawing.Size(374, 39);
+			this.btnComecarCurso.TabIndex = 31;
+			this.btnComecarCurso.Text = "ComeÇar";
+			this.btnComecarCurso.UseVisualStyleBackColor = false;
+			this.btnComecarCurso.Click += new System.EventHandler(this.btnComecarCurso_Click);
 			// 
 			// frmPrincipal
 			// 
@@ -1783,6 +1959,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pcbFundo)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+			this.panelCurso.ResumeLayout(false);
+			this.panelCurso.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pcbCurso)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1903,9 +2082,21 @@
 		private System.Windows.Forms.Label lblTitExperienciaMissao;
 		private System.Windows.Forms.Label lblTitMissao;
 		private System.Windows.Forms.DataGridViewImageColumn clImage;
+		private System.Windows.Forms.DataGridViewTextBoxColumn clIndex;
 		private System.Windows.Forms.DataGridViewTextBoxColumn clNome;
 		private System.Windows.Forms.DataGridViewTextBoxColumn clDuracao;
 		private System.Windows.Forms.DataGridViewTextBoxColumn clValor;
 		private System.Windows.Forms.DataGridViewButtonColumn clDetalhes;
+		private System.Windows.Forms.Panel panelCurso;
+		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.Label lblNomeCurso;
+		private System.Windows.Forms.PictureBox pcbCurso;
+		private System.Windows.Forms.Label lblDescrissaoCurso;
+		private System.Windows.Forms.Button btnComprarCurso;
+		private System.Windows.Forms.Label lblDuracaoCurso;
+		private System.Windows.Forms.Label lblValorCurso;
+		private System.Windows.Forms.Button btnVoltarCurso;
+		private System.Windows.Forms.CheckBox cbCursosComprados;
+		private System.Windows.Forms.Button btnComecarCurso;
 	}
 }

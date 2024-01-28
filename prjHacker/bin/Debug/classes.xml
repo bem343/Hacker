@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<classes>
+
+	<!-- Cursos em C -->
+	<class>
+		<language>1</language> <!-- índice da linguagem-->
+		<classLevel>1</classLevel>
+		<name>C BÁsico</name>
+		<description>Neste curso vocÊ consiguirÁ todo conhecimento bÁsico necessÁrio para comeÇar a programar em C</description>
+		<author>Rui Silverstring</author>
+		<duration>120</duration> <!-- Em segundos -->
+		<cost>24,99</cost>
+	</class>
+
+	<class>
+		<language>1</language> <!-- índice da linguagem-->
+		<classLevel>2</classLevel>
+		<name>C IntermediÁrio</name>
+		<description>Neste curso vocÊ consiguirÁ ainda mais conhecimento necessÁrio para comeÇar a programar coisas mais complexas em C</description>
+		<author>Rui Silverstring</author>
+		<duration>150</duration> <!-- Em segundos -->
+		<cost>42,00</cost>
+	</class>
+
+	<class>
+		<language>1</language> <!-- índice da linguagem-->
+		<classLevel>3</classLevel>
+		<name>C AvanÇado</name>
+		<description>Neste curso vocÊ consiguirÁ muito conhecimento avanÇado para refinar sua programaÇÃo em C e desenvolver sistemas completos</description>
+		<author>Rui Silverstring</author>
+		<duration>240</duration> <!-- Em segundos -->
+		<cost>73,49</cost>
+	</class>
+
+	<!-- Cursos em C# -->
+	<class>
+		<language>2</language> <!-- índice da linguagem-->
+		<classLevel>1</classLevel>
+		<name>C# BÁsico</name>
+		<description>Neste curso vocÊ consiguirÁ todo conhecimento bÁsico necessÁrio para comeÇar a programar em C#</description>
+		<author>Freddy Machado</author>
+		<duration>120</duration> <!-- Em segundos -->
+		<cost>39,99</cost>
+	</class>
+
+	<class>
+		<language>2</language> <!-- índice da linguagem-->
+		<classLevel>2</classLevel>
+		<name>C# IntermediÁrio</name>
+		<description>Neste curso vocÊ consiguirÁ ainda mais conhecimento necessÁrio para comeÇar a programar coisas mais complexas em C#</description>
+		<author>Freddy Machado</author>
+		<duration>150</duration> <!-- Em segundos -->
+		<cost>52,29</cost>
+	</class>
+
+	<class>
+		<language>2</language> <!-- índice da linguagem-->
+		<classLevel>3</classLevel>
+		<name>C# AvanÇado</name>
+		<description>Neste curso vocÊ consiguirÁ muito conhecimento avanÇado para refinar sua programaÇÃo em C# e desenvolver sistemas completos</description>
+		<author>Freddy Machado</author>
+		<duration>240</duration> <!-- Em segundos -->
+		<cost>87,79</cost>
+	</class>
+
+</classes>

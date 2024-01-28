@@ -48,6 +48,16 @@ namespace prjHacker.forms
                 arquivo.Load("codes.xml");
                 frmCodigo.codes = arquivo.GetElementsByTagName("code");
 
+                //Carrega as classes do xml
+                arquivo = new XmlDocument();
+                arquivo.Load("classes.xml");
+                frmPrincipal.classes = arquivo.GetElementsByTagName("class");
+
+                //Carrega as languages do xml
+                arquivo = new XmlDocument();
+                arquivo.Load("languages.xml");
+                frmPrincipal.languages = arquivo.GetElementsByTagName("language");
+
                 //Começa um loading fake
                 pbCarregamento.Maximum = 30;
                 timer.Start();

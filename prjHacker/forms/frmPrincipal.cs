@@ -10,6 +10,7 @@ using System.Media;
 using prjHacker.classes;
 using System.Xml;
 using System.Runtime.InteropServices;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace prjHacker.forms
 {
@@ -20,6 +21,8 @@ namespace prjHacker.forms
             private Timer exitTimer = new Timer();
             public static XmlNodeList quests = null;
             public static XmlNodeList users = null;
+            public static XmlNodeList classes = null;
+            public static XmlNodeList languages = null;
             Random r = new Random();
 
             public static double dinheiro = 150;
@@ -27,6 +30,7 @@ namespace prjHacker.forms
             public static int skill = 2000;
             //public static int skill = 0;
             public static int nivel = 0;
+            public static double languageLevel = 0;
 
             //CONTADORES DAS QUESTS
             public static double q4Counter = 0;
@@ -56,9 +60,7 @@ namespace prjHacker.forms
                 foreach (Panel panel in gbAreaDeTrabalho.Controls.OfType<Panel>())
                 {panel.Dock = DockStyle.Fill;}
 
-                //gvCursos.Rows.Add(Properties.Resources.script, "Bitcoin", "0:50", "$120,00", ">");
-                //gvCursos.Rows.Add(Properties.Resources.script, "Hacker", "01:30", "$250,00", ">");
-                //gvCursos.Rows.Add(Properties.Resources.script, "Zeck do mal", "02:30", "$200,00", ">");
+                //Só para teste
                 //panelCursos.Visible = true;
             }
         #endregion
@@ -198,6 +200,22 @@ namespace prjHacker.forms
                 }
             #endregion
 
+            #region Formatação
+                private string formatTime(double time)
+		        {
+			        TimeSpan timeSpan = TimeSpan.FromSeconds(time);
+			        return string.Format("{0:D2}:{1:D2}", (int)timeSpan.TotalMinutes, timeSpan.Seconds);
+		        }
+                private string progFormatado(int tipo, double prog, double max)
+                {
+                    switch (tipo)
+                    {
+                        case 1: return $"{prog.ToString("F2")}/{max.ToString("F2")}";
+                        default: return $"{(int)prog}/{(int)max}";
+			        }
+                }
+            #endregion
+
         #endregion
 
         #region Clicks do MenuStrip
@@ -301,14 +319,7 @@ namespace prjHacker.forms
 
         #region Quando Seleciona um item da lista de missões
             List<int> CurrentQuests = new List<int>();
-            private string progFormatado(int tipo, double prog, double max)
-            {
-                switch (tipo)
-                {
-                    case 1: return $"{prog.ToString("F2")}/{max.ToString("F2")}";
-                    default: return $"{(int)prog}/{(int)max}";
-			    }
-            }
+            
             private void lstTrabalhos_SelectedIndexChanged(object sender, EventArgs e)
             {
                 if (lstTrabalhos.SelectedItems.Count <= 0) { return; }
@@ -503,7 +514,7 @@ namespace prjHacker.forms
                         btnScript.Enabled = true;
 
                         //Recompensas
-                        double vDinheiro = (script.lines.Count * 25) * LanguageLevel(script.language);
+                        double vDinheiro = (script.lines.Count * 25) * returnLanguageLevel(script.language);
                         double vExperiencia = script.lines.Count * 6;
                         //Relatório final da mineração
                         frmRelatorio relatorio = new frmRelatorio
@@ -528,7 +539,7 @@ namespace prjHacker.forms
                         if(frmMineracao.minerado) btnMinerar.Text = "Concluir MineraÇÃo";
                     }
                 }
-                private int LanguageLevel(string languageTarget)
+                private int returnLanguageLevel(string languageTarget)
                 {
                     int i = 1;
                     List<string> languages = new List<string>()
@@ -709,17 +720,128 @@ namespace prjHacker.forms
                     Sound.click();
                     abrirTelaCriarCodigo();
 		        }
+		    #endregion
 
+            #region Área de Linguagens (Cursos)
+		        private int selectedClass = -1;
+                private List<int> cursosComprados = new List<int>();
+		        private void gvCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		        {
+                    if (e.RowIndex >= 0 && e.ColumnIndex == gvCursos.Columns["clDetalhes"].Index)
+                    {
+				        Sound.click();
+				        selectedClass = (int)gvCursos.Rows[e.RowIndex].Cells["clIndex"].Value;
+
+                        pcbCurso.Image = (Image)gvCursos.Rows[e.RowIndex].Cells["clImage"].Value;
+				        lblDescrissaoCurso.Text = classes[selectedClass]["description"].InnerText;
+				        lblDuracaoCurso.Text = (string)gvCursos.Rows[e.RowIndex].Cells["clDuracao"].Value;
+				        lblValorCurso.Text = (string)gvCursos.Rows[e.RowIndex].Cells["clValor"].Value;
+				        lblNomeCurso.Text = (string)gvCursos.Rows[e.RowIndex].Cells["clNome"].Value;
+
+				        panelListaCursos.Dock = DockStyle.None;
+				        panelListaCursos.Visible = false;
+				        panelCurso.Dock = DockStyle.Top;
+				        panelCurso.Visible = true;
+
+				        btnComprarCurso.Visible = !cbCursosComprados.Checked;
+				        btnComecarCurso.Visible = cbCursosComprados.Checked;
+
+				        if (!cbCursosComprados.Checked)
+                        {
+					        double valor = double.Parse(classes[selectedClass]["cost"].InnerText);
+					        btnComprarCurso.Enabled = dinheiro >= valor;
+				        }
+			        }
+		        }
+		
+		        private void panelCursos_VisibleChanged(object sender, EventArgs e)
+		        {
+			        if (panelCursos.Visible)
+                    {
+				        panelListaCursos.Dock = DockStyle.Top;
+				        panelListaCursos.Visible = true;
+                    }
+		        }
+                private void listarCursos(bool comprados)
+                {
+			        gvCursos.Rows.Clear();
+			        for (int i = 0; i < classes.Count; i++)
+			        {
+				        int language = int.Parse(classes[i]["language"].InnerText);
+				        if (languageLevel + 1 == language)
+				        {
+                            if((comprados && cursosComprados.Contains(i)) || (!comprados && !cursosComprados.Contains(i)))
+                            {
+						        string name = classes[i]["name"].InnerText;
+						        double cost = double.Parse(classes[i]["cost"].InnerText);
+						        double duration = double.Parse(classes[i]["duration"].InnerText);
+
+                                if(!comprados)
+						            gvCursos.Rows.Add(Properties.Resources.script, i, name, formatTime(duration), "$" + cost.ToString("F2"), "+");
+                                else
+						            gvCursos.Rows.Add(Properties.Resources.script, i, name, formatTime(duration), "-", ">");
+					        }
+				        }
+			        }
+		        }
+		        private void panelListaCursos_VisibleChanged(object sender, EventArgs e)
+                {
+                    if(!panelListaCursos.Visible) { return; }
+
+			        double total = languageLevel / 100;
+			        int nivel = Convert.ToInt32(Math.Floor(total));
+			        double quebrado = (total - nivel);
+			        double porcentagem = quebrado * 100;
+
+			        pbLanguage.Maximum = 100;
+                    pbLanguage.Value = Convert.ToInt32(Math.Floor(porcentagem));
+			        lblLastLanguage.Text = languages[nivel]["name"].InnerText;
+			        lblNextLanguage.Text = languages[nivel + 1]["name"].InnerText;
+
+                    listarCursos(cbCursosComprados.Checked);
+		        }
+		        private void btnVoltarCurso_Click(object sender, EventArgs e)
+		        {
+			        Sound.click();
+			        panelListaCursos.Dock = DockStyle.Top;
+			        panelListaCursos.Visible = true;
+			        panelCurso.Dock = DockStyle.None;
+			        panelCurso.Visible = false;
+		        }
+		        private void btnComprarCurso_Click(object sender, EventArgs e)
+		        {
+			        Sound.click();
+
+			        string dialogo = "Deseja pagar "  + lblValorCurso.Text + " para comprar este curso?";
+
+			        string[,] buttons = new string[4, 2];
+			        buttons[0, 0] = "Sim";
+			        buttons[1, 0] = "NÃo";
+			        buttons[2, 0] = "";
+			        buttons[3, 0] = "";
+
+			        if (abreDialogo("S.H.A.R.K", "sharkgreen.png", dialogo, buttons) == DialogResult.OK)
+			        {
+				        double valor = double.Parse(classes[selectedClass]["cost"].InnerText);
+				        attDinheiro(-valor);
+				        cursosComprados.Add(selectedClass);
+				        btnComprarCurso.Enabled = false;
+			        }
+		        }
+		        private void btnComecarCurso_Click(object sender, EventArgs e)
+		        {
+			        Sound.click();
+
+                    //Abrir minigame
+		        }
+		        private void cbCursosComprados_CheckedChanged(object sender, EventArgs e)
+		        {
+			        Sound.click();
+			        listarCursos(cbCursosComprados.Checked);
+		        }
 		    #endregion
 
 		#endregion
-
-		private void gvCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
-            if (e.RowIndex >= 0 && e.ColumnIndex == gvCursos.Columns["clDetalhes"].Index)
-            {
-                //MessageBox.Show("Detalhe: " + e.RowIndex);
-            }
-        }
+		
 	}
 }
