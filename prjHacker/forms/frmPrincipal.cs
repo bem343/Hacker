@@ -31,12 +31,6 @@ namespace prjHacker.forms
             //public static int skill = 0;
             public static int nivel = 0;
             public static double languageLevel = 0;
-
-            //CONTADORES DAS QUESTS
-            public static double q4Counter = 0;
-		    public static double q4Objective = 0;
-			public static int q5Counter = 0;
-            public static int q5Objective = 0;
 		#endregion
 
         #region Construtores
@@ -61,7 +55,7 @@ namespace prjHacker.forms
                 {panel.Dock = DockStyle.Fill;}
 
                 //Só para teste
-                //panelCursos.Visible = true;
+                panelCursos.Visible = true;
             }
         #endregion
 
@@ -172,7 +166,7 @@ namespace prjHacker.forms
                     {
                         lblVpn.Visible = false;
                         lblVpnAtivo.Visible = false;
-                        if(!CurrentQuests.Contains(0))
+                        if(!Quest.IsCurrent(0))
                         {
                             if (dinheiro >= custoBaseVpn) { btnVpn1.Enabled = true; }
                             if (dinheiro >= custoBaseVpn * 2.5) { btnVpn2.Enabled = true; }
@@ -206,14 +200,6 @@ namespace prjHacker.forms
 			        TimeSpan timeSpan = TimeSpan.FromSeconds(time);
 			        return string.Format("{0:D2}:{1:D2}", (int)timeSpan.TotalMinutes, timeSpan.Seconds);
 		        }
-                private string progFormatado(int tipo, double prog, double max)
-                {
-                    switch (tipo)
-                    {
-                        case 1: return $"{prog.ToString("F2")}/{max.ToString("F2")}";
-                        default: return $"{(int)prog}/{(int)max}";
-			        }
-                }
             #endregion
 
         #endregion
@@ -318,34 +304,22 @@ namespace prjHacker.forms
         #endregion
 
         #region Quando Seleciona um item da lista de missões
-            List<int> CurrentQuests = new List<int>();
-            
             private void lstTrabalhos_SelectedIndexChanged(object sender, EventArgs e)
             {
                 if (lstTrabalhos.SelectedItems.Count <= 0) { return; }
 
                 Sound.click();
 
-                int index = CurrentQuests[lstTrabalhos.SelectedIndex];
+                int index = Quest.QuestIndex(lstTrabalhos.SelectedIndex);
 
                 gbAreaDeTrabalho.Text = "Quest";
                 lblTitMissao.Text = quests[index]["name"].InnerText;
                 lblMissao.Text = quests[index]["instruction"].InnerText;
                 lblExperienciaMissao.Text = "+" + quests[index]["exp"].InnerText;
-
-                int tipoProg = 0;
-                double prog = 0;
-                double max = double.Parse(quests[index]["objective"]?.InnerText ?? "1");
-
-                switch (index)
-                {
-                    case 4: prog = q4Counter; tipoProg = 1; break;
-                    case 5: prog = q5Counter; break;
-                }
-
-                pbMissao.Maximum = (int)max;
-                pbMissao.Value = (int)prog;
-                lblProgressoMissao.Text = progFormatado(tipoProg, prog, max);
+                
+                lblProgressoMissao.Text = Quest.QuestInfo(index, out double CounterProg, out double MaxProg);
+                pbMissao.Maximum = (int)MaxProg;
+                pbMissao.Value = (int)CounterProg;
 
                 fecharPanels();
                 panelMissao.Visible = true;
@@ -358,11 +332,10 @@ namespace prjHacker.forms
         #region Conclusão das quests
             private void CompleteQuest(int QuestI)
             {
-                Sound.select();
                 string name = quests[QuestI]["name"].InnerText;
                 double exp = double.Parse(quests[QuestI]["exp"].InnerText);
                 lstTrabalhos.Items.Remove(name);
-                CurrentQuests.Remove(QuestI);
+                Quest.Complete(QuestI);
 
                 frmRelatorioQuest relatorio = new frmRelatorioQuest(exp, name);
                 relatorio.ShowDialog(); attExperiencia(exp);
@@ -370,8 +343,13 @@ namespace prjHacker.forms
             private void StartQuest(int QuestI)
             {
                 string name = quests[QuestI]["name"].InnerText;
+                string max = quests[QuestI]["objective"]?.InnerText ?? "1";
+                int tipo = max.Contains("$")? 1 : 0;
+                max = max.Replace("$", "");
+
                 lstTrabalhos.Items.Add(name);
-                CurrentQuests.Add(QuestI);
+                Quest.Start(new Quest(QuestI, tipo, double.Parse(max)));
+
                 Sound.select(); 
             }
             private void q0complete()
@@ -412,11 +390,7 @@ namespace prjHacker.forms
                 //dialogo("dialogs/teste.xml");
 
                 StartQuest(4);
-                q4Objective = double.Parse(quests[4]["objective"].InnerText);
-
                 StartQuest(5);
-                q5Objective = int.Parse(quests[5]["objective"].InnerText);
-
                 StartQuest(6);
             }
             private void q4complete()
@@ -464,7 +438,9 @@ namespace prjHacker.forms
                         Vpn.sign(tempo);
                         verificarVpn();
                         attDinheiro(-valor);
-                        if (CurrentQuests.Contains(0)) q0complete();
+
+                        if (Quest.IsCurrent(0))
+                            q0complete();
                     }
                 }
                 private void btnVpn1_Click(object sender, EventArgs e)
@@ -524,11 +500,10 @@ namespace prjHacker.forms
                         attDinheiro(vDinheiro - frmAtaque.lost);
                         attExperiencia(vExperiencia);
 
-                        if (CurrentQuests.Contains(1))
+                        if (Quest.IsCurrent(1))
                             q1complete();
 
-                        if (CurrentQuests.Contains(6))
-                        {
+                        if (Quest.IsCurrent(6)) {
                             if(script.lines.Count >= 10)
                                 q6complete();
                         }
@@ -635,15 +610,13 @@ namespace prjHacker.forms
                         attDinheiro(vDinheiro - frmAtaque.lost);
                         attExperiencia(vExperiencia);
 
-                        if (CurrentQuests.Contains(2))
+                        if (Quest.IsCurrent(2))
                             q2complete();
 
-                        if (CurrentQuests.Contains(4))
-                        {
+                        if (Quest.IsCurrent(4)) {
                             if ((vDinheiro - frmAtaque.lost) > 0)
-                                q4Counter += vDinheiro - frmAtaque.lost;
-						    if (q4Counter >= q4Objective)
-                                q4complete();
+                                if (Quest.Increment(4, vDinheiro - frmAtaque.lost))
+                                    q4complete();
                         }
                     } else { Music.play("# (5).mp3"); attDinheiro(-frmAtaque.lost); } listCodigosRefresh();
                 }
@@ -675,17 +648,15 @@ namespace prjHacker.forms
                         attDinheiro(-frmAtaque.lost);
                         attExperiencia(vExperiencia);
 
-                        if (CurrentQuests.Contains(5))
-                        {
+                        if (Quest.IsCurrent(5)) {
                             if(frmNovoScript.script.lines.Count >= 2 && frmNovoScript.script.language == "js")
-                                q5Counter++;
-                            if(q5Counter >= q5Objective)
-                                q5complete();
+                                if(Quest.Increment(5))
+                                    q5complete();
                         }
 
                         frmNovoScript.concluirScript();
 
-                        if (CurrentQuests.Contains(3))
+                        if (Quest.IsCurrent(3))
                             q3complete();
                         
                     } else {
@@ -724,7 +695,6 @@ namespace prjHacker.forms
 
             #region Área de Linguagens (Cursos)
 		        private int selectedClass = -1;
-                private List<int> cursosComprados = new List<int>();
 		        private void gvCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		        {
                     if (e.RowIndex >= 0 && e.ColumnIndex == gvCursos.Columns["clDetalhes"].Index)
@@ -745,6 +715,7 @@ namespace prjHacker.forms
 
 				        btnComprarCurso.Visible = !cbCursosComprados.Checked;
 				        btnComecarCurso.Visible = cbCursosComprados.Checked;
+                        btnComecarCurso.Enabled = true;
 
 				        if (!cbCursosComprados.Checked)
                         {
@@ -753,7 +724,6 @@ namespace prjHacker.forms
 				        }
 			        }
 		        }
-		
 		        private void panelCursos_VisibleChanged(object sender, EventArgs e)
 		        {
 			        if (panelCursos.Visible)
@@ -770,7 +740,7 @@ namespace prjHacker.forms
 				        int language = int.Parse(classes[i]["language"].InnerText);
 				        if (languageLevel + 1 == language)
 				        {
-                            if((comprados && cursosComprados.Contains(i)) || (!comprados && !cursosComprados.Contains(i)))
+                            if((comprados && LanguageClass.IsPurchased(i)) || (!comprados && LanguageClass.IsAvaialable(i)))
                             {
 						        string name = classes[i]["name"].InnerText;
 						        double cost = double.Parse(classes[i]["cost"].InnerText);
@@ -824,8 +794,8 @@ namespace prjHacker.forms
 			        {
 				        double valor = double.Parse(classes[selectedClass]["cost"].InnerText);
 				        attDinheiro(-valor);
-				        cursosComprados.Add(selectedClass);
-				        btnComprarCurso.Enabled = false;
+				        LanguageClass.Purchase(selectedClass);
+						btnComprarCurso.Enabled = false;
 			        }
 		        }
 		        private void btnComecarCurso_Click(object sender, EventArgs e)
@@ -833,6 +803,9 @@ namespace prjHacker.forms
 			        Sound.click();
 
                     //Abrir minigame
+
+                    LanguageClass.Finish(selectedClass);
+                    btnComecarCurso.Enabled = false;
 		        }
 		        private void cbCursosComprados_CheckedChanged(object sender, EventArgs e)
 		        {

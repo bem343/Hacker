@@ -33,7 +33,7 @@
 		<!-- Q4 -->
 		<name>Grana suada</name>
 		<instruction>Ganhe $25,00 apenas revisando cÓdigos.</instruction>
-		<objective>25,00</objective>
+		<objective>$25,00</objective>
 		<exp>65</exp>
 	</quest>
 	<quest>

@@ -61,9 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\LanguageClass.cs" />
     <Compile Include="classes\MyFont.cs" />
     <Compile Include="classes\MyScripts.cs" />
     <Compile Include="classes\Music.cs" />
+    <Compile Include="classes\Quest.cs" />
     <Compile Include="classes\Sound.cs" />
     <Compile Include="classes\Script.cs" />
     <Compile Include="classes\Vpn.cs" />

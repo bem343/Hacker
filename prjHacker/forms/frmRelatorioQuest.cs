@@ -20,12 +20,15 @@ namespace prjHacker.forms
 			lblNomeQuest.Text = nome;
 			lblExperienciaQuest.Text = "+ " + exp.ToString("G");
 		}
-
+		private void frmRelatorioQuest_Load(object sender, EventArgs e)
+		{
+			Sound.select();
+		}
 		private void btnOk_Click(object sender, EventArgs e)
 		{
 			Sound.click();
 			Close();
 		}
-
+		
 	}
 }

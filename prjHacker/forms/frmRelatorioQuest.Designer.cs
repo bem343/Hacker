@@ -117,6 +117,7 @@
 			this.Controls.Add(this.btnOk);
 			this.Name = "frmRelatorioQuest";
 			this.Padding = new System.Windows.Forms.Padding(8, 3, 8, 8);
+			this.Load += new System.EventHandler(this.frmRelatorioQuest_Load);
 			this.Controls.SetChildIndex(this.btnOk, 0);
 			this.Controls.SetChildIndex(this.lblTitulo, 0);
 			this.Controls.SetChildIndex(this.lblNomeQuest, 0);
